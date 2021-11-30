@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="51px" viewBox="0 0 51 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Button/Round/Primary Large</title>
+    <g id="Cake-Home-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.621988932">
+        <g id="Cake-Homepage-HD-071521-Desktop" transform="translate(-877.000000, -7452.000000)">
+            <g id="Group-24" transform="translate(0.000000, 6983.000000)">
+                <g id="Button/Round/Primary-Large" transform="translate(877.565610, 469.157007)">
+                    <circle id="State" fill="#414042" cx="25" cy="25" r="25"></circle>
+                    <g id="Icon/Plus" transform="translate(15.000000, 15.000000)" fill="#FFFFFF">
+                        <path d="M7.70711,2.29289 C7.31658,1.90237 6.68342,1.90237 6.29289,2.29289 C5.90237,2.68342 5.90237,3.31658 6.29289,3.70711 L12.5858,10 L6.29289,16.2929 C5.90237,16.6834 5.90237,17.3166 6.29289,17.7071 C6.68342,18.0976 7.31658,18.0976 7.70711,17.7071 L14.7071,10.7071 C15.0976,10.3166 15.0976,9.68342 14.7071,9.29289 L7.70711,2.29289 Z" id="Right"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

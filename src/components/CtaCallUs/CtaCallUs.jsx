@@ -1,0 +1,31 @@
+import React from 'react'
+import * as styles from './CtaCallUs.module.scss';
+
+const CtaCallUs = (modelData) => {
+
+    return (
+        <div className={`${styles.CtaCallUs} ${modelData?.className}`}>
+            <a href="tel:+8778182253" className="btn call-us  dskt-res">
+            {modelData?.data?.map((menu, index) => {
+
+                    if(menu?.label === 'Call Us') {
+                      return <><div className="icon-wrapper" key={index}>
+                      <figure>
+                          <img src="/images/headphone-icon.svg" alt="Call Us"/>
+                      </figure>
+                  </div>
+                  <div className="text-wrapper">
+                      {menu?.label}
+                      <span>
+                          {menu?.subLabel}
+                      </span>
+                  </div>
+                </>
+                    }
+                  })}
+            </a>
+        </div>
+    )
+}
+
+export default CtaCallUs

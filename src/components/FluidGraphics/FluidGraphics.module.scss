@@ -1,0 +1,201 @@
+@import 'styles/global.scss';
+
+.FluidGraphics {
+  background-color: $theme-green;
+  margin-top: rem(-1);
+  padding: 0 0 rem(60);
+  :global {
+    .FluidGraphics__wrapper {
+        margin: 0 auto;
+        max-width: rem(700);
+        @media #{$xl} {
+            padding: 0 rem(150);
+            max-width: 100%;
+        }
+        .FluidGraphics__graphic {
+            margin: 0;
+            @media #{$xl} {
+                margin: 0 0 rem(30);
+            }
+        }
+        .FluidGraphics__cta-wrapper {
+            margin: rem(42) 0 0;
+        }
+
+        .FluidGraphics__card-wrapper {
+            background-color: white;
+            border-radius: rem(10);
+            box-shadow: 0 2px 30px 0 rgba(91,91,91,0.15);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin: rem(76) 0 0;
+            @media #{$md} {
+                background-color: $theme-green;
+                flex-direction: row;
+                margin: 0 rem(-100);
+            }
+            @media #{$xl} {
+                margin: 0;
+            }
+            .FluidGraphics__card {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: rem(25) rem(12) rem(40);
+                @media #{$md} {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    padding: rem(85) rem(45) rem(45);
+                }
+                &:nth-child(2) {
+                    border-top: rem(1) solid rgba(18,18,18,0.1);
+                    @media #{$md} {
+                        border: 0;
+                        border-left: rem(1) solid rgba(18,18,18,0.1);
+                    }
+                }
+                h3 {
+                    font-family: $aeonik;
+                    font-weight: bold;
+                    color: $textdark;
+                    font-size: rem(25);
+                    line-height: rem(30);
+                    letter-spacing: rem(-0.2);
+                    margin: 0 0 rem(10);
+                    @media #{$md} {
+                        font-size: rem(35);
+                        line-height: rem(40);
+                        letter-spacing: rem(-0.3);
+                        margin: 0 0 rem(20);
+                    }
+                }
+                .FluidGraphics__card-copy {
+                    font-family: $aeonik;
+                    font-weight: 400;
+                    color: $textdark;
+                    font-size: rem(15);
+                    line-height: rem(20);
+                    letter-spacing: 0;
+                    margin: 0 0 rem(25);
+                    @media #{$md} {
+                        font-size: rem(17);
+                        line-height: rem(25);
+                        margin: 0 0 rem(40);
+                    }
+                }
+                .btn {
+                    min-height: rem(50);
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    padding: 0 rem(15);
+                    font-size: rem(17);
+                    line-height: rem(25);
+                    border: 0;
+                    width: 100%;
+                    @media #{$sm} {
+                        display: inline-flex;
+                        width: auto;
+                    }
+                    @media #{$md} {
+                        padding: 0 rem(30);
+                    }
+                }
+            }
+        }
+    }
+    .calculatorContainer {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+      top: 0;
+      left: 0;
+      padding: rem(40) rem(10);
+      overflow: auto;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      @media #{$lg} {
+        padding: rem(100) rem(20);
+      }
+      * {
+        font-family: $aeonik !important;
+      }
+      &.anim {
+        .calculatorContainer__wrapper {
+          visibility: visible;
+          opacity: 1;
+          margin-top: 0;
+        }
+      }
+      .calculatorContainer__wrapper {
+        position: relative;
+        opacity: 0;
+        transition-delay: 0.4s;
+        transition: all 0.4s ease-in-out;
+        visibility: hidden;
+        background-color: white;
+        padding: rem(40) rem(10) 0;
+        @media #{$md} {
+          display: flex;
+          margin-top: rem(20);
+          padding: 0;
+        }
+        .calculatorContainer__ad {
+          flex: 0 0 30%;
+          padding: rem(60) rem(60) rem(60) 0;
+          margin: rem(10) 0 0;
+          display: none;
+          @media #{$md} {
+            display: block;
+          }
+        }
+        .sgi-header__title {
+          font-family: $degular !important;
+          font-weight: 600 !important;
+          color: $textdark !important;
+          @media #{$md} {
+            font-size: rem(40) !important;
+            line-height: rem(66) !important;
+            letter-spacing: rem(0.5) !important;
+            margin: 0 !important;
+          }
+        }
+        .sgi-header__subtitle {
+          color: $textdark !important;
+          @media #{$md} {
+            font-size: rem(17) !important;
+            line-height: rem(25) !important;
+            letter-spacing: 0 !important;
+          }
+        }
+        .sgi-footer__info-poweredby {
+          display: none !important;
+        }
+      }
+      .menu-close {
+        cursor: pointer;
+        position: absolute;
+        padding: 0;
+        width: rem(16);
+        height: rem(16);
+        border: 0;
+        right: rem(20);
+        top: rem(20);
+        @media #{$md} {
+          right: rem(30);
+          top: rem(30);
+        }
+      }
+      #sgi {
+        .sgi-calculator {
+          @media #{$md} {
+            max-width: calc(100% - 40px);
+          }
+        }
+      }
+    }
+  }
+}

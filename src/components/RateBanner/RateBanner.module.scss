@@ -1,0 +1,366 @@
+@import 'styles/global.scss';
+
+.RateBanner {
+  background-color: $theme-green;
+  padding: rem(30) 0 rem(60);
+  @media #{$md} {
+      padding: rem(70) 0 rem(165);
+  }
+  :global{
+    .RateBanner__wrapper {
+        max-width: rem(400);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        @media #{$md} {
+            max-width: rem(1165);
+        }
+        .left-side {
+            flex: 0 0 100%;
+            max-width: 100%;
+            @media #{$md} {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 rem(15);
+            }
+            h1 {
+                font-family: $degular;
+                font-weight: 900;
+                color: white;
+                font-size: rem(50);
+                line-height: rem(40);
+                letter-spacing: rem(0.4);
+                text-align: center;
+                margin: 0 0 rem(30);
+                @media #{$md} {
+                    font-size: rem(120);
+                    line-height: rem(94);
+                    letter-spacing: rem(3);
+                    text-align: left;
+                    margin: 0 0 rem(60);
+                }
+            }
+            p {
+                font-family: $aeonik;
+                font-weight: 500;
+                color: $textdark;
+                font-size: rem(30);
+                line-height: rem(35);
+                margin: 0;
+                display: none;
+                max-width: rem(433);
+                @media #{$md} {
+                    display: block;
+                }
+            }
+        }
+        .right-side {
+            flex: 0 0 100%;
+            max-width: 100%;
+            @media #{$md} {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 rem(15);
+                margin: rem(15) 0 0;
+            }
+            .RateBanner__main-rate {
+                background-color: white;
+                border-radius: rem(10);
+                padding: rem(20) rem(30);
+                margin: 0 auto;
+                @media #{$md} {
+                    padding: rem(40) rem(50);
+                }
+                .mn-tab-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 0 rem(25);
+                    @media #{$md} {
+                        margin: 0 0 rem(45);
+                    }
+                    .mntab-btn {
+                        font-family: $aeonik;
+                        font-weight: bold;
+                        color: rgba(0,0,0,0.45);
+                        font-size: rem(7);
+                        line-height: rem(10);
+                        letter-spacing: rem(0.12);
+                        border: rem(0.8) solid rgba(18,18,18,0.1);
+                        background-color: white;
+                        height: auto;
+                        padding: rem(2) rem(12);
+                        box-shadow: rem(0) rem(0) rem(5) rgba($color: #000000, $alpha: 0.3);
+                        position: relative;
+                        z-index: 1;
+                        cursor: pointer;
+                        transition: all 0.2s ease-in-out;
+                        @media #{$md} {
+                            font-size: rem(14);
+                            line-height: rem(20);
+                            letter-spacing: rem(0.24);
+                            padding: rem(5) rem(20);
+                        }
+                        &:first-child {
+                            border-radius: rem(3) 0 0 rem(3);
+                            border-right: 0;
+                            box-shadow: rem(-2) rem(2) rem(5) rgba($color: #000000, $alpha: 0.3);
+                            @media #{$md} {
+                                border-radius: rem(5) 0 0 rem(5);
+                            }
+                        }
+                        &:last-child {
+                            border-radius: 0 rem(3) rem(3) 0;
+                            border-left: 0;
+                            box-shadow: rem(2) rem(2) rem(5) rgba($color: #000000, $alpha: 0.3);
+                            @media #{$md} {
+                                border-radius: 0 rem(5) rem(5) 0;
+                            }
+                        }
+                        &.active {
+                            font-size: rem(9);
+                            line-height: rem(13);
+                            letter-spacing: rem(0.15);
+                            border-radius: rem(6);
+                            padding: rem(5) rem(14);
+                            z-index: 0;
+                            @media #{$md} {
+                                font-size: rem(17);
+                                line-height: rem(25);
+                                letter-spacing: rem(3);
+                                border-radius: rem(6);
+                                padding: rem(12) rem(30);
+                            }
+                            &.refinance {
+                                background-color: $theme-purple;
+                                border-color: $theme-purple;
+                                margin: 0 rem(-1) 0 0;
+                            }
+                            &.purchase {
+                                background-color: $theme-orange;
+                                border-color: $theme-orange;
+                                margin: 0 0 0 rem(-1);
+                            }
+                        }
+                    }
+                }
+                .tab-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    margin: 0 0 rem(15);
+                    @media #{$md} {
+                        margin: 0 0 rem(30);
+                    }
+                    .tab-btn {
+                        border: 0;
+                        padding: rem(6) rem(3.5);
+                        position: relative;
+                        margin: 0 rem(10);
+                        font-family: $aeonik;
+                        font-size: rem(10);
+                        font-weight: bold;
+                        line-height: rem(14);
+                        letter-spacing: rem(0.17);
+                        color: rgba($color: $textdark, $alpha: 0.5);
+                        text-transform: uppercase;
+                        cursor: pointer;
+                        height: auto;
+                        @media #{$md} {
+                            font-size: rem(17);
+                            line-height: rem(25);
+                            letter-spacing: rem(0.3);
+                        }
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: rem(5);
+                            left: 0;
+                            width: 100%;
+                            height: rem(2);
+                            background-color: $textdark;
+                            border-radius: 1px;
+                            opacity: 0;
+                            transition: all 0.2s ease-in;
+                            @media #{$md} {
+                                height: rem(4);
+                                border-radius: 2px;
+                            }
+                        }
+                        &.active {
+                            color: $textdark;
+                            &::after {
+                                opacity: 1;
+                                bottom: 0;
+                            }
+                        }
+                        &:hover {
+                            color: $textdark;
+                        }
+                    }
+                }
+                .rate-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    color: $textdark;
+                    margin: 0 0 rem(10);
+                    @media #{$md} {
+                        margin: 0 0 rem(35);
+                    }
+                    .rate {
+                        font-family: $degular;
+                        font-size: rem(83);
+                        font-weight: 900;
+                        line-height: 0.8;
+                        max-height: rem(66);
+                        @media #{$md} {
+                            font-size: rem(148);
+                            max-height: rem(118);
+                        }
+                        // Style for slot-machine animation
+                        .react-reel__group {
+                          transition-delay: 0ms;
+                          transition-timing-function: ease-in-out;
+                          transform: translate(0, 0);
+                        }
+
+                        .react-reel__group .react-reel__number {
+                          height: rem(83);
+                          text-align: center;
+                          @media #{$md} {
+                            height: rem(148);
+                          }
+                        }
+
+                        .react-reel__reel {
+                          height: rem(83);
+                          display: flex;
+                          align-items: flex-end;
+                          overflow-y: hidden;
+                          @media #{$md} {
+                            height: rem(148);
+                          }
+                        }
+                    }
+                    .right-side-rate {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        em {
+                            font-style: normal;
+                            font-size: rem(33);
+                            font-family: $aeonik;
+                            font-weight: 500;
+                            line-height: rem(35);
+                            letter-spacing: rem(-0.28);
+                            @media #{$md} {
+                                font-size: rem(59);
+                                line-height: rem(56);
+                                letter-spacing: rem(0.70);
+                                margin-left: rem(-5);
+                            }
+                        }
+                        span {
+                            font-size: rem(13);
+                            line-height: rem(17);
+                            font-family: $aeonik;
+                            font-weight: 500;
+                            letter-spacing: rem(-0.79);
+                            text-transform: uppercase;
+                            margin: 0 0 0 rem(5);
+                            @media #{$md} {
+                                font-size: rem(24);
+                                line-height: rem(30);
+                                letter-spacing: rem(-1.41);
+                                margin: 0 0 rem(5) rem(5);
+                            }
+                            sup {
+                                font-size: rem(8);
+                                margin-left: rem(5);
+                                @media #{$md} {
+                                    font-size: rem(14);
+                                    margin-left: rem(3);
+                                }
+                            }
+                        }
+                    }
+                }
+                .rate-details {
+                    font-family: $aeonik;
+                    font-size: rem(9);
+                    line-height: rem(14);
+                    color: $textdark;
+                    margin: 0 0 rem(3);
+                    @media #{$md} {
+                        font-size: rem(17);
+                        line-height: rem(25);
+                        margin: 0 0 rem(6);
+                    }
+                    &.small {
+                        font-size: rem(6);
+                        @media #{$md} {
+                            font-size: rem(10);
+                        }
+                        .rate-details-disclaimer {
+                          display: inline-block;
+                          text-decoration: underline;
+                          color: $textdark;
+                          margin: 0 0 0 rem(5);
+                          &:hover {
+                            color: $primary-black;
+                          }
+                        }
+                    }
+                }
+            }
+        }
+        .RateBanner__footer {
+            padding: rem(20) rem(10) 0;
+            flex: 0 0 100%;
+            @media #{$md} {
+                padding: rem(85) rem(15) 0;
+            }
+            .RateDetailCard__holder{
+                display: flex;
+                flex-wrap: wrap;
+                margin: 0 rem(-20);
+                @media #{$md} {
+                    margin: 0 rem(-20);
+                }
+                .RateDetailCard__wrapper {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    padding: 0 rem(10);
+                    margin: 0 0 rem(20);
+                    @media #{$md} {
+                        flex: 0 0 25%;
+                        max-width: 25%;
+                        margin: 0;
+                        padding: 0 rem(20);
+                    }
+                }
+            }
+        }
+        .RateBanner__cta-wrap {
+            flex: 0 0 100%;
+            text-align: center;
+            margin: rem(35) 0 0;
+            padding: 0 rem(20);
+            @media #{$md} {
+                margin: rem(140) 0 0;
+                padding: 0;
+            }
+            .RateBanner__disclaimer {
+              font-family: $aeonik;
+              font-weight: 400;
+              color: $textdark;
+              display: inline-block;
+              margin: 0 0 rem(20);
+              text-decoration: underline;
+              &:hover {
+                color: $primary-black;
+              }
+            }
+        }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@function em($value, $base: 16) {
+  $newValue: $value / $base * 1em;
+  @return $newValue;
+}
+@function rem($value) {
+  $newValue: $value / $bodySize * 1rem;
+  @return $newValue;
+}
+@function px2em($px) {
+  @return ($px / $bodyFontSize) * 1em;
+}
+@mixin font-size($font-size, $line-height: false) {
+  font-size: px2em($font-size);
+  @if $line-height != false {
+    line-height: ($line-height / $font-size);
+  }
+}
+$sm: 'screen and (min-width:' + (480px) + ')';
+$md: 'screen and (min-width:' + (991px) + ')';
+$lg: 'screen and (min-width:' + (1024px) + ')';
+$xl: 'screen and (min-width:' + (1216px) + ')';
+$xxl: 'screen and (min-width:' + (1366px) + ')';

@@ -1,0 +1,160 @@
+@use 'sass:math';
+@import 'styles/global.scss';
+
+.footer {
+  padding: rem(31) rem(15) rem(56);
+    @media #{$lg} {
+      padding:rem(68) rem(30) rem(122) rem(30);
+    }
+    @media #{$xl} {
+      padding:rem(68) rem(50) rem(122) rem(43);
+    }
+    :global{
+        .footer-wrapper{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto rem(10) ;
+            flex-wrap: wrap;
+            max-width: rem(1440);
+            @media #{$lg} {
+              justify-content: unset;
+              margin-bottom: rem(47) ;
+            }
+            @media #{$xl} {
+              flex-wrap: unset;
+            }
+            @media (max-width: 991px) {
+              max-width: rem(350);
+            }
+            .brand-logo{
+              flex: 0 0 100%;
+              margin: 0 0 rem(30);
+              @media #{$lg} {
+                margin: 0 11% rem(30) 0;
+              }
+              @media #{$xl} {
+                flex: initial;
+              }
+              @media #{$xxl} {
+                padding-left: rem(36);
+              }
+              img{
+                  height: rem(29);
+                  width:rem(87) ;
+                  @media #{$lg} {
+                    height: rem(41);
+                    width:rem(125) ;
+                  }
+              }
+            }
+            .right-menu-columns{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                @media #{$lg} {
+                  flex-wrap: unset;
+                }
+                .column{
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    margin-bottom: rem(55);
+                    @media #{$lg} {
+                      flex: unset;
+                      min-width: rem(166);
+                      max-width: rem(166);
+                      margin-right: rem(30);
+                      margin-bottom: 0;
+                    }
+                    &:nth-child(even) {
+                      padding-left: rem(15);
+                      @media #{$lg} {
+                        padding-left: 0;
+                      }
+                    }
+                    &:nth-last-child(1){
+                        margin-right: 0;
+                    }
+                    h6{
+                        color: $textdark;
+                        font-family: $aeonik;
+                        font-size: rem(17);
+                        font-weight: 700;
+                        letter-spacing: 0;
+                        line-height: rem(25);
+                        margin-bottom: rem(15);
+                        @media #{$lg} {
+                          font-size: rem(20);
+                          margin-bottom: rem(37);
+                        }
+                    }
+                    ul{
+                        li{
+                            a, span{
+                                font-size: rem(17);
+                                letter-spacing: 0;
+                                line-height: rem(25);
+                                font-family: $aeonik;
+                                font-weight: 400;
+                                color: $textdark;
+                                margin-bottom: rem(15);
+                                display: block;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                            span {
+                              &:hover{
+                                text-decoration: none;
+                              }
+                            }
+                        }
+                    }
+                    &.social{
+                      flex: 0 0 100%;
+                      max-width: 100%;
+                      @media #{$lg} {
+                        flex: unset;
+                      }
+                      h6{
+                        margin-bottom: rem(30);
+                      }
+                        ul{
+                            display: flex;
+                        }
+                        li{
+                            margin-right: rem(25);
+                            a{
+                                margin-bottom: 0;
+                                figure {
+                                  height: rem(20);
+                                  width: rem(20);
+                                  display: flex;
+                                  align-items: center;
+                                  justify-content: center;
+                                }
+                            }
+                            &:nth-last-child(1){
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-bottom-strip{
+            max-width: rem(1440);
+            margin: 0 auto;
+            @media (max-width: 991px) {
+              max-width: rem(350);
+            }
+            p{
+                font-family: $aeonik;
+                font-size: rem(17);
+                letter-spacing: 0;
+                line-height: rem(25);
+                color: $textdark;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="13px" viewBox="0 0 12 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Check</title>
+    <g id="Cake-Rates-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cake-Rate-Page-Refi-HD-Desktop" transform="translate(-172.000000, -1068.000000)" fill="#121212">
+            <g id="Group-10" transform="translate(150.000000, 870.000000)">
+                <g id="Price-10" transform="translate(0.000000, 1.000000)">
+                    <g id="Group-2" transform="translate(21.000000, 101.000000)">
+                        <g id="Icon/Check" transform="translate(0.000000, 95.500000)">
+                            <path d="M12.6,7 C12.6,10.09281 10.09281,12.6 7,12.6 C3.907204,12.6 1.4,10.09281 1.4,7 C1.4,3.907204 3.907204,1.4 7,1.4 C10.09281,1.4 12.6,3.907204 12.6,7 Z M11.2,7 C11.2,9.31959 9.31959,11.2 7,11.2 C4.680403,11.2 2.8,9.31959 2.8,7 C2.8,4.680403 4.680403,2.8 7,2.8 C8.26413,2.8 9.39785,3.358502 10.16785,4.242217 L7,7.41006 L6.094977,6.505023 C5.821606,6.231659 5.378394,6.231659 5.105023,6.505023 C4.831659,6.778394 4.831659,7.22162 5.105023,7.49497 L6.505023,8.89497 C6.778394,9.16832 7.22162,9.16832 7.49497,8.89497 L10.91468,5.475274 C11.09892,5.947928 11.2,6.462155 11.2,7 Z" id="Tick+Circle"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

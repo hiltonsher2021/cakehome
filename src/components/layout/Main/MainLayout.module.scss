@@ -1,0 +1,7 @@
+@import 'styles/global.scss';
+
+.main-wrapper{
+    :global{
+        min-height: 100vh;
+    }
+}

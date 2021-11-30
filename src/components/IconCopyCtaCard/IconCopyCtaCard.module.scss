@@ -1,0 +1,53 @@
+@import 'styles/global.scss';
+
+.IconCopyCtaCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  :global {
+    .IconCopyCtaCard__icon {
+        display: block;
+        max-width: rem(86);
+        height: rem(86);
+        margin: 0 auto rem(7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media #{$md} {
+            max-width: rem(105);
+            height: rem(105);
+        }
+    }
+    .IconCopyCtaCardTitle {
+        font-family: $aeonik;
+        font-weight: bold;
+        font-size: rem(21);
+        line-height: rem(25);
+        letter-spacing: rem(-0.16);
+        color: $textdark;
+        margin: 0 0 rem(12);
+        @media #{$md} {
+            font-size: rem(25);
+            line-height: rem(30);
+            letter-spacing: rem(-2);
+            margin: 0 0 rem(15);
+        }
+    }
+    .IconCopyCtaCardCopy {
+        font-family: $aeonik;
+        font-weight: 400;
+        color: $textdark;
+        font-size: rem(17);
+        line-height: rem(25);
+        letter-spacing: 0;
+        margin: 0 0 rem(35);
+        flex: 1;
+        @media #{$md} {
+            margin: 0 0 rem(53);
+        }
+    }
+
+  }
+}

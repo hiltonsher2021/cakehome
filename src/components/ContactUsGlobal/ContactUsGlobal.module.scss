@@ -1,0 +1,166 @@
+@import 'styles/global.scss';
+
+.ContactUsGlobal {
+  background-color: $theme-green;
+  padding: rem(64) 0 rem(95);
+  overflow: hidden;
+  @media #{$lg} {
+      padding: rem(120) 0 rem(42);
+  }
+  :global {
+    .ContactUsGlobal__wrap {
+        display: flex;
+        justify-content: center;
+        @media #{$xl} {
+            padding: 0 rem(30) 0 rem(150);
+            justify-content: unset;
+        }
+        .ContactUsGlobal__details {
+            flex: 0 0 100%;
+            max-width: rem(300);
+            @media #{$lg} {
+                flex: 0 0 35%;
+                max-width: 35%;
+                padding-right: rem(20);
+            }
+            .mob-cake-logo {
+                max-width: rem(265);
+                margin: 0 auto rem(30);
+            }
+            h2 {
+                font-family: $degular;
+                font-weight: 900;
+                font-size: rem(60);
+                line-height: rem(66);
+                margin: 0 0 rem(31);
+                color: $textdark;
+                letter-spacing: rem(0.15);
+                @media #{$lg} {
+                    font-size: rem(80);
+                    font-weight: 700;
+                    line-height: rem(66);
+                    letter-spacing: rem(3);
+                    margin: 0 0 rem(45);
+                }
+            }
+            .ContactUsGlobal__info {
+                margin: 0 0 rem(51);
+                @media #{$lg} {
+                    margin: 0 0 rem(56);
+                }
+                p {
+                    font-family: $aeonik;
+                    font-weight: 500;
+                    color: $textdark;
+                    margin: 0 0 rem(25);
+                    font-size: rem(24);
+                    line-height: rem(25);
+                    letter-spacing: 0;
+                    max-width: rem(360);
+                }
+            }
+            p.contact {
+                font-family: $aeonik;
+                font-weight: 500;
+                color: $textdark;
+                font-size: rem(30);
+                line-height: rem(35);
+                letter-spacing: 0;
+                margin: 0 0 rem(31);
+                text-align: center;
+                @media #{$lg} {
+                    margin: 0 0 rem(29);
+                    text-align: left;
+                }
+                a {
+                    text-decoration: none;
+                    outline: none;
+                    color: inherit;
+                }
+            }
+            .ContactUsGlobal__Chat {
+                p {
+                    font-family: $aeonik;
+                    font-weight: 500;
+                    color: $textdark;
+                    font-size: rem(21);
+                    line-height: rem(30);
+                    letter-spacing: rem(-0.2);
+                    margin: 0 0 rem(45);
+                    strong {
+                        display: block;
+                        font-weight: bold;
+                        font-size: rem(25);
+                    }
+                }
+                .Chat-box {
+                    display: flex;
+                    input {
+                        background-color: rgba(255,255,255,0.45);
+                        border: 0;
+                        border-radius: rem(5);
+                        color: $textdark;
+                        font-family: $aeonik;
+                        font-weight: 400;
+                        font-size: rem(17);
+                        line-height: rem(25);
+                        letter-spacing: 0;
+                        padding: rem(10) rem(15);
+                        margin: 0 rem(25) 0 0;
+                        outline: none;
+                        &::placeholder {
+                            color: rgba($color: #000000, $alpha: 0.45);
+                        }
+                    }
+                    .btn {
+                        font-size: rem(17);
+                        line-height: rem(25);
+                        letter-spacing: rem(0.3);
+                        text-transform: uppercase;
+                        min-height: auto;
+                        border: 0;
+                        padding: rem(10) rem(30);
+                    }
+                }
+            }
+            .ContactUsGlobal__ChatMob {
+                text-align: center;
+                .btn {
+                    min-height: auto;
+                    font-size: rem(17);
+                    line-height: rem(25);
+                    letter-spacing: rem(0.3);
+                    border: 0;
+                    padding: rem(10) rem(30);
+                    margin: 0 0 rem(30);
+                }
+                p {
+                    font-family: $aeonik;
+                    font-weight: bold;
+                    font-size: rem(24);
+                    line-height: rem(30);
+                    letter-spacing: re(-0.19);
+                    margin: 0 rem(-15);
+                }
+            }
+        }
+        .ContactUsGlobal__figure {
+            display: none;
+            @media #{$lg} {
+                display: block;
+            }
+            figure{
+                margin: 0;
+                &.door-map {
+                  position: relative;
+                  display: block;
+                  width: 65%;
+                  margin-left: auto;
+                  margin-right: 12%;
+                  margin-top: -25%;
+                }
+            }
+        }
+    }
+  }
+}

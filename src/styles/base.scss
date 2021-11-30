@@ -1,0 +1,90 @@
+// variables
+$aeonik: 'Aeonik';
+$degular: 'Degular';
+$grey: #b7b7b7;
+$primary-black:#121212;
+$lightgrey: #606060;
+$black: #000000;
+$darkgrey: rgba(0, 0, 0, 0.6);
+$border: #cccccc;
+$textdark: #414042;
+$theme-green:#6CEBCE;
+$theme-purple:#C6C6FA;
+$theme-orange:#FF8C00;
+
+
+html,
+body {
+  font-family: $degular;
+  padding: 0;
+  margin: 0;
+  &.navbar-open {
+    overflow: hidden;
+    @media #{$lg} {
+      overflow: visible;
+    }
+  }
+  &.isModal {
+    overflow: hidden;
+  }
+}
+body {
+  background-color: white;
+  padding-top: rem(123);
+  @media #{$sm} {
+    padding-top: rem(175);
+  }
+  &.is-loaded {
+    display: block;
+  }
+}
+::-moz-selection {
+  /* Code for Firefox */
+  color: #ffffff;
+  background: $black;
+}
+::selection {
+  color: #ffffff;
+  background: $black;
+}
+figure {
+  margin: 0;
+}
+button {
+  cursor: pointer;
+}
+
+.Plx {
+  @media (max-width: 991px) {
+    transform: none !important;
+  }
+}
+
+.customTooltip {
+  max-width: rem(200);
+  font-family: $aeonik;
+  @media #{$md} {
+    max-width: rem(300);
+  }
+}
+
+.calculatorContainer__wrapper{
+  border-radius: rem(10);
+}
+
+.calculatorContainer__wrapper > div {
+  flex: 1;
+}
+
+.posRelative {
+  position: relative;
+}
+
+#calculator-section, #refi-advice-section, #faq-section, #glossary-section, #home-buy-advice, #our-beliefs, #meet-team, #aboutcake, #our-mission {
+  position: absolute;
+  top: rem(-120);
+}
+#our-story {
+  position: absolute;
+  top: rem(-190);
+}

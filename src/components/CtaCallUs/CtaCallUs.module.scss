@@ -1,0 +1,60 @@
+@import 'styles/global.scss';
+
+.CtaCallUs{
+  font-family: $aeonik;
+  font-weight: bold;
+  :global{
+    .call-us{
+      flex-wrap: wrap;
+      .icon-wrapper{
+        margin-right: rem(11);
+        img{
+          height: rem(24);
+        }
+      }
+      .text-wrapper{
+        font-size: rem(17);
+        line-height: rem(25);
+        span{
+          display: block;
+          font-size: rem(14);
+          margin-top: rem(-6);
+        }
+      }
+    }
+  }
+  &:global(.ChatCall) {
+    :global {
+      .call-us {
+          padding: 0;
+          @media #{$md} {
+              padding: 0 rem(24) 0 rem(42);
+          }
+          .icon-wrapper {
+              margin-right: rem(24);
+              img {
+                  height: rem(43);
+              }
+          }
+          .text-wrapper {
+              font-size: rem(26);
+              line-height: rem(39);
+              letter-spacing: 0;
+              @media #{$md} {
+                  font-size: rem(34);
+                  line-height: rem(50);
+                  line-height: 1;
+              }
+              span {
+                  font-size: rem(22);
+                  margin-top: rem(-10);
+                  @media #{$md} {
+                      font-size: rem(28);
+                      margin-top: 0;
+                  }
+              }
+          }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import 'styles/global.scss';
+
+.InfoContent2Column {
+  padding: 0 0 rem(30);
+  @media #{$lg} {
+      padding: 0;
+  }
+  :global {
+    .InfoContent2Column__wrapper {
+        max-width: rem(1170);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .InfoContent2Column__item {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: rem(30) 0;
+            display: flex;
+            justify-content: center;
+            @media #{$lg} {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 rem(112);
+                margin: rem(60) 0;
+            }
+            &:nth-child(even) {
+                border-top: 1px solid rgba(18,18,18,0.1);
+                @media #{$lg} {
+                    border: 0;
+                    border-left: 1px solid rgba(18,18,18,0.1);
+                }
+            }
+        }
+    }
+  }
+}

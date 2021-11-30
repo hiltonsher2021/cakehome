@@ -1,0 +1,57 @@
+@import 'styles/global.scss';
+
+.CtaBig {
+  &:global(.btn) {
+    padding: 0 rem(25);
+    font-size: rem(25.5);
+    line-height: rem(75);
+    text-transform: uppercase;
+    @media #{$lg} {
+        padding: 0 rem(43);
+    }
+  }
+  &:global(.bannerCopyCta) {
+    padding: 0 rem(10);
+    display: block;
+    text-align: center;
+    @media #{$sm} {
+        display: inline-block;
+        padding: 0 rem(25);
+    }
+  }
+  &:global(.IconCopyCtaCard) {
+    padding: 0 rem(10);
+    text-align: center;
+    display: block;
+    font-size: rem(21);
+    line-height: rem(61);
+    min-height: rem(61);
+    @media #{$md} {
+        font-size: rem(25.5);
+        line-height: rem(75);
+        min-height: rem(75);
+    }
+  }
+  &:global(.FluidGraphics) {
+    font-size: rem(14);
+    line-height: rem(20);
+    letter-spacing: rem(0.25);
+    text-transform: uppercase;
+    min-height: rem(41);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    @media #{$sm} {
+        max-width: rem(320);
+        margin: 0 auto;
+    }
+  }
+  &:global(.RateBanner) {
+    @media (max-width: 990px) {
+      font-size: rem(19.2);
+      line-height: rem(19.2);
+      min-height: auto;
+      padding: rem(12);
+    }
+  }
+}

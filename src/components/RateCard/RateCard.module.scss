@@ -1,0 +1,248 @@
+@import 'styles/global.scss';
+
+.RateCard {
+  :global {
+    padding: rem(39) rem(21);
+    border-radius: rem(10);
+    background-color: $theme-purple;
+    box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.5);
+    @media #{$md} {
+        padding: rem(60) rem(30) rem(70);
+    }
+    @media #{$xl} {
+        padding: rem(60) rem(55) rem(70);
+    }
+    .title {
+        font-size: rem(39);
+        line-height: rem(22);
+        font-family: $aeonik;
+        font-weight: bold;
+        color: $textdark;
+        margin: 0 0 rem(15);
+        text-align: center;
+        letter-spacing: rem(-0.34);
+        @media #{$md} {
+            font-size: rem(70);
+            line-height: rem(40);
+            letter-spacing: rem(-0.6);
+            margin: 0 0 rem(27);
+        }
+    }
+    .tab-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 rem(10);
+        @media #{$md} {
+            margin: 0 0 rem(20);
+        }
+        .tab-btn {
+            border: 0;
+            padding: rem(6) rem(3.5);
+            position: relative;
+            margin: 0 rem(10);
+            font-family: $aeonik;
+            font-size: rem(10);
+            font-weight: bold;
+            line-height: rem(14);
+            letter-spacing: rem(0.17);
+            color: rgba($color: $textdark, $alpha: 0.5);
+            text-transform: uppercase;
+            cursor: pointer;
+            height: auto;
+            @media #{$md} {
+                font-size: rem(17);
+                line-height: rem(25);
+                letter-spacing: rem(0.3);
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: rem(5);
+                left: 0;
+                width: 100%;
+                height: rem(2);
+                background-color: $textdark;
+                border-radius: 1px;
+                opacity: 0;
+                transition: all 0.2s ease-in;
+                @media #{$md} {
+                    height: rem(4);
+                    border-radius: 2px;
+                }
+            }
+            &.active {
+                color: $textdark;
+                &::after {
+                    opacity: 1;
+                    bottom: 0;
+                }
+            }
+            &:hover {
+                color: $textdark;
+            }
+        }
+    }
+    .rate-wrapper {
+        display: flex;
+        justify-content: center;
+        color: $textdark;
+        margin: 0 0 rem(35);
+        .rate {
+            font-family: $degular;
+            font-size: rem(83);
+            font-weight: 900;
+            line-height: 0.8;
+            max-height: rem(66);
+            @media #{$md} {
+                font-size: rem(148);
+                max-height: rem(118);
+            }
+
+            // Style for slot-machine animation
+            .react-reel__group {
+              transition-delay: 0ms;
+              transition-timing-function: ease-in-out;
+              transform: translate(0, 0);
+            }
+
+            .react-reel__group .react-reel__number {
+              height: rem(83);
+              text-align: center;
+              @media #{$md} {
+                height: rem(148);
+              }
+            }
+
+            .react-reel__reel {
+              height: rem(83);
+              display: flex;
+              align-items: flex-end;
+              overflow-y: hidden;
+              @media #{$md} {
+                height: rem(148);
+              }
+            }
+        }
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            em {
+                font-style: normal;
+                font-size: rem(33);
+                font-family: $aeonik;
+                font-weight: 500;
+                line-height: rem(35);
+                letter-spacing: rem(-0.28);
+                @media #{$md} {
+                    font-size: rem(59);
+                    line-height: rem(56);
+                    letter-spacing: rem(0.70);
+                    margin-left: rem(-5);
+                }
+            }
+            span {
+                font-size: rem(13);
+                line-height: rem(17);
+                font-family: $aeonik;
+                font-weight: 500;
+                letter-spacing: rem(-0.79);
+                text-transform: uppercase;
+                margin: 0 0 0 rem(5);
+                @media #{$md} {
+                    font-size: rem(24);
+                    line-height: rem(30);
+                    letter-spacing: rem(-1.41);
+                    margin: 0 0 rem(5) rem(5);
+                }
+                sup {
+                    font-size: rem(8);
+                    margin-left: rem(5);
+                    @media #{$md} {
+                        font-size: rem(14);
+                        margin-left: rem(3);
+                    }
+                }
+            }
+        }
+    }
+    .year-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 rem(8);
+        @media #{$md} {
+            justify-content: space-between;
+            margin: 0 0 rem(15);
+        }
+        .choose-year {
+            font-family: $aeonik;
+            font-size: rem(8);
+            font-weight: bold;
+            line-height: rem(11);
+            letter-spacing: rem(0.13);
+            padding: 0 rem(6);
+            border-radius: rem(4.5);
+            background-color: #ECEBEB;
+            border: 0;
+            color: $textdark;
+            height: rem(23);
+            cursor: pointer;
+            margin: 0 rem(3.5);
+            transition: all 0.2s ease-in;
+            @media #{$md} {
+                font-size: rem(14);
+                line-height: rem(20);
+                letter-spacing: rem(0.24);
+                padding: 0 rem(13);
+                height: rem(40);
+                margin: 0 rem(5);
+                &:hover {
+                    background-color: $textdark;
+                    color: white;
+                }
+            }
+            &.active {
+                background-color: $textdark;
+                color: white;
+            }
+        }
+    }
+    .rate-details {
+        font-family: $aeonik;
+        font-size: rem(9);
+        line-height: rem(14);
+        color: $textdark;
+        margin: 0 0 rem(3);
+        text-align: center;
+        @media #{$md} {
+            font-size: rem(17);
+            line-height: rem(25);
+            margin: 0 0 rem(6);
+        }
+        &.small {
+            font-size: rem(6);
+            @media #{$md} {
+                font-size: rem(10);
+            }
+        }
+    }
+    .btn {
+        width: rem(200);
+        display: flex;
+        margin: rem(20) auto 0;
+      border: none;
+        @media #{$md} {
+            width: rem(354);
+            margin: rem(30) auto 0;
+        }
+    }
+  }
+  &:global(.orange) {
+    background-color: $theme-orange;
+    :global {
+      .title, .rate-wrapper {
+          color: white;
+      }
+    }
+  }
+}

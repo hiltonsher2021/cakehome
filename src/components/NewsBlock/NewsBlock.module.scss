@@ -1,0 +1,175 @@
+@import 'styles/global.scss';
+
+.NewsBlock {
+  overflow: hidden;
+  :global {
+    .NewsBlock__wrapper {
+        max-width: rem(1170);
+        margin: 0 auto;
+        padding: rem(60) 0 rem(64);
+        @media #{$md} {
+            padding: rem(100) 0 rem(110);
+        }
+        .NewsBlock__holder {
+          display: flex;
+          flex-wrap: wrap;
+          .NewsBlock__card-hold {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 0 rem(20);
+            @media #{$sm} {
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0 rem(15) rem(30);
+            }
+            @media #{$md} {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+            &.main {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 0;
+                @media #{$sm} {
+                    padding: 0 rem(15) rem(30);
+                }
+                @media #{$md} {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+
+                }
+            }
+            .NewsBlock__card {
+                background: linear-gradient(135deg, #F7F7F7 0%, #F2F2F2 100%);
+                height: 100%;
+                padding: rem(25) rem(15);
+                border-radius: rem(10);
+                &.main {
+                    border: 1px solid rgba(18,18,18,0.1);
+                    background: white;
+                    padding: rem(30);
+                    min-height: rem(260);
+                    @media #{$md} {
+                        min-height: auto;
+                    }
+                    .NewsBlock__logo {
+                        width: 100%;
+                        display: block;
+                        max-width: rem(181);
+                        @media #{$md} {
+                            margin: 0 auto;
+                            max-width: rem(355);
+                        }
+                    }
+                    .eyebrow {
+                        display: block;
+                        font-family: $degular;
+                        font-weight: 900;
+                        color: $textdark;
+                        font-family: rem(18);
+                        line-height: rem(20);
+                        margin: 0 0 rem(20);
+                    }
+                }
+                h6 {
+                    font-family: $aeonik;
+                    font-weight: bold;
+                    color: $textdark;
+                    font-size: rem(20);
+                    line-height: rem(25);
+                    letter-spacing: 0;
+                    margin: 0 0 rem(10);
+                }
+                p {
+                    font-family: $aeonik;
+                    font-weight: 400;
+                    color: $textdark;
+                    font-size: rem(17);
+                    line-height: rem(25);
+                    letter-spacing: 0;
+                }
+                .readmore {
+                    display: inline-flex;
+                    align-items: center;
+                    font-family: $aeonik;
+                    font-weight: bold;
+                    color: $theme-green;
+                    font-size: rem(17);
+                    line-height: rem(25);
+                    letter-spacing: rem(0.3);
+                    margin: rem(18) 0 0;
+                    &:hover {
+                      &::after {
+                        margin: 0 0 0 rem(10);
+                      }
+                    }
+                    &::after {
+                        content: '';
+                        width: rem(10);
+                        height: rem(10);
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        margin: 0 0 0 rem(15);
+                        background-image: url('/images/caret-right-dark.svg');
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+            }
+          }
+          &.desktop {
+            margin: 0 rem(-15);
+            @media #{$sm} {
+              margin: 0;
+            }
+            @media (max-width: 479px) {
+              .NewsBlock__card-hold {
+                .NewsBlock__card {
+                  &.main {
+                    border-radius: rem(10) 0 0 rem(10);
+                  }
+                }
+              }
+            }
+            .NewsBlock__card-hold:not(.main) {
+              display: none;
+              @media #{$sm} {
+                display: block;
+              }
+            }
+          }
+          &.mobile {
+            display: block;
+            margin-top: -90px;
+            position: relative;
+            z-index: 1;
+            padding: 0 rem(10);
+            @media #{$sm} {
+              display: none;
+            }
+            .slick-dots {
+              position: static;
+              margin: rem(30) 0 0;
+              li {
+                margin: 0;
+                button {
+                  &::before {
+                    font-size: rem(10);
+                    color: rgba(18,18,18,0.1);
+                    opacity: 1;
+                  }
+                }
+                &.slick-active {
+                  button {
+                    &::before {
+                      color: $textdark;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+  }
+}

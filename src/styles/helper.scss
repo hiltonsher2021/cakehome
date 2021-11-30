@@ -1,0 +1,261 @@
+* {
+  -webkit-font-smoothing: antialiased;
+}
+.main-wrapper{
+  min-height: calc(100vh - 175px);
+}
+.btn{
+  border-radius: rem(6);
+  color: $textdark;
+  min-height: rem(75);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  padding:rem(11) rem(15);
+  justify-content: center;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease-in-out;
+  .icon-wrapper{
+    margin-right: rem(5);
+  }
+  &.small{
+    min-height: rem(51);
+  }
+  &.green{
+    border: 1px solid $theme-green;
+    &--fill{
+      background-color: $theme-green;
+      &:hover{
+        border: 1px solid $textdark;
+      }
+    }
+    &--border{
+      background-color: white;
+      &:hover{
+        border: 1px solid $textdark;
+        background-color: $theme-green;
+      }
+    }
+  }
+  &.dark {
+		font-family: $aeonik;
+		background-color: $textdark;
+		color: white;
+		&:hover {
+			background-color: #ECEBEB;
+			color: $textdark;
+		}
+		&--lg {
+			font-size: rem(14);
+			letter-spacing: rem(0.25);
+			min-height: rem(42);
+			@media #{$md} {
+				font-size: rem(25.5);
+				letter-spacing: rem(0.45);
+				min-height: rem(75);
+			}
+		}
+	}
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
+p {
+  font-size: rem(24);
+  line-height: rem(30);
+  font-weight: 400;
+  margin: 0 0 rem(20);
+  font-family: $degular;
+  letter-spacing: 0em;
+  color: $black;
+  @media #{$lg} {
+    font-size: rem(24);
+    line-height: rem(30);
+  }
+  &:last-of-type {
+    margin: 0;
+  }
+  &:empty {
+    display: none;
+  }
+}
+.p1{
+  font-size: rem(30);
+  line-height: rem(35);
+  font-weight: 500;
+  font-family: $degular;
+  letter-spacing: 0;
+
+}
+.p2{
+  font-size: rem(17);
+  letter-spacing: 0;
+  line-height: rem(25);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $degular;
+  color: $black;
+  margin: 0 0 rem(20);
+  display: block;
+}
+
+h1 {
+  font-size: rem(110);
+  line-height: rem(90);
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-family: $degular;
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  @media #{$sm} {
+    font-size: rem(150);
+    line-height: rem(110);
+  }
+}
+
+h2 {
+  font-size: rem(90);
+  line-height: rem(63);
+  letter-spacing: 3.38px;
+  font-weight: 900;
+  font-family: $degular;
+}
+
+h3 {
+  font-size: rem(60);
+  font-weight: bold;
+  letter-spacing: -0.51px;
+  line-height: rem(40);
+}
+
+a {
+  text-decoration: none;
+  border-bottom: none;
+  color: $black;
+  cursor: pointer;
+}
+.center-align {
+  text-align: center;
+}
+.left-align {
+  text-align: left;
+}
+section.section {
+  .contents-wrap {
+    h2 {
+      margin-bottom: rem(16);
+    }
+  }
+  &:nth-last-child(1) {
+    .contents-wrap {
+      border-bottom: none;
+    }
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.l-desktop {
+  display: none;
+  @media #{$md} {
+    display: block;
+  }
+}
+.l-mobile {
+  display: block;
+  @media #{$md} {
+    display: none;
+  }
+}
+
+.section.section-head {
+  margin-bottom: rem(32);
+  h2 {
+    font-size: rem(21);
+    line-height: rem(25.2);
+    font-weight: 400;
+    margin-bottom: rem(8);
+    font-family: $degular;
+    @media #{$xl} {
+      font-size: rem(32);
+      line-height: rem(40);
+    }
+  }
+  p {
+    font-size: rem(14);
+    line-height: rem(20);
+    font-weight: 400;
+    margin: 0 0 rem(20);
+    font-family: $degular;
+    letter-spacing: 0em;
+    color: $black;
+    font-style: italic;
+    @media #{$lg} {
+      font-size: rem(16);
+      line-height: rem(24);
+    }
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+section.dark {
+  background-color: $black;
+  .contents-wrap {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    li {
+      color: white !important;
+    }
+  }
+}
+button {
+  background: transparent;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: rem(32);
+  line-height: rem(40);
+  font-weight: 400;
+  font-family: $degular;
+  padding: 0 30px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid $black;
+  height: rem(50);
+}
+
+.hid-mob {
+  display: none;
+  @media #{$lg} {
+    display: block;
+  }
+}
+.hid-dsktp {
+	display: block;
+	@media #{$lg} {
+		display: none;
+	}
+}

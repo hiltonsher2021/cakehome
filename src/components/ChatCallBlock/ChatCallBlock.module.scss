@@ -1,0 +1,62 @@
+@import 'styles/global.scss';
+
+.ChatCallBlock {
+  padding: rem(20) 0;
+  @media #{$md} {
+      padding: rem(60) 0;
+  }
+  :global {
+    .ChatCallBlock__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        max-width: rem(863);
+        margin: 0 auto;
+        @media #{$md} {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .ChatCallBlock_col {
+            padding: rem(12) rem(15);
+            @media #{$md} {
+                padding: 0;
+            }
+        }
+        .ChatCallBlock__chatbtn {
+            display: flex;
+            background-color: $theme-green;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+            padding: rem(14) rem(20);
+            align-items: center;
+            border-radius: rem(12);
+            transition: all 0.2s ease-in;
+            @media #{$md} {
+                padding: rem(25) rem(22);
+            }
+            figure {
+                max-width: rem(48);
+                margin: 0 rem(10) 0 0;
+                @media #{$md} {
+                    max-width: rem(60);
+                }
+            }
+            .text-wrap {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(26);
+                line-height: rem(39);
+                letter-spacing: 0;
+                @media #{$md} {
+                    font-size: rem(34);
+                    line-height: rem(50);
+                }
+            }
+            &:hover {
+                background-color: #ecebeb;
+            }
+        }
+    }
+  }
+}

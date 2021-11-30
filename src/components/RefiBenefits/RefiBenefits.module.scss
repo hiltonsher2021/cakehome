@@ -1,0 +1,119 @@
+@import 'styles/global.scss';
+
+.RefiBenefits {
+  background-color: $theme-purple;
+  padding: rem(40) 0 rem(65);
+  margin: 0 0 rem(24);
+  :global {
+    @media #{$md} {
+        padding: rem(66) 0 rem(76);
+    }
+    @media #{$lg} {
+        margin: 0 0 rem(40);
+    }
+    .RefiBenefits__title-wrap {
+        max-width: rem(750);
+        margin: 0 0 rem(67);
+        @media #{$md} {
+            margin: 0 auto rem(30);
+        }
+        h2 {
+            font-family: $degular;
+            font-weight: 900;
+            color: $textdark;
+            text-align: center;
+            font-size: rem(44);
+            line-height: rem(36);
+            letter-spacing: 0;
+            margin: 0 0 rem(25);
+            @media #{$md} {
+                font-size: rem(80);
+                line-height: rem(66);
+                letter-spacing: rem(3);
+            }
+        }
+        p {
+            font-family: $aeonik;
+            font-weight: bold;
+            color: $textdark;
+            text-align: center;
+            font-size: rem(17);
+            line-height: rem(17);
+            letter-spacing: 0;
+            @media #{$md} {
+                font-size: rem(20);
+                line-height: rem(30);
+            }
+        }
+    }
+    .RefiBenefits__main-wrap {
+        max-width: rem(1140);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        .left-side, .right-side {
+            flex: 0 0 100%;
+            max-width: 100%;
+            @media #{$md} {
+                padding: 0 rem(40);
+            }
+            @media #{$lg} {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        .left-side {
+            margin: 0 0 rem(45);
+            @media #{$lg} {
+                margin: 0;
+            }
+            .RefiBenefits__graphic {
+                display: block;
+                max-width: rem(413);
+                width: 100%;
+                margin: 0 auto;
+            }
+            .cake-video {
+              margin: 0 auto;
+            }
+        }
+        .right-side {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: rem(413);
+            margin: 0 auto;
+            @media #{$md} {
+                max-width: 100%;
+            }
+            .RefiBenefits__card-wrap {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 0 0 rem(30);
+                @media #{$md} {
+                    flex: 0 0 50%;
+                    max-width: 50%;
+                    padding: rem(20) rem(15);
+                }
+            }
+        }
+    }
+    .RefiBenefits__cta-wrapper {
+        padding: rem(40) 0 0;
+        text-align: center;
+        @media #{$lg} {
+            padding: rem(50) 0 0;
+        }
+    }
+  }
+  &:global(.orange) {
+    background-color: $theme-orange;
+    :global {
+      .RefiBenefits__title-wrap {
+        h2, p {
+            color: white;
+        }
+      }
+    }
+  }
+}

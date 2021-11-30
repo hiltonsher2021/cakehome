@@ -1,0 +1,8 @@
+@import 'styles/global.scss';
+
+.InfoContentBlock {
+  margin: 0 0 rem(24);
+  @media #{$lg} {
+      margin: 0 0 rem(40);
+  }
+}

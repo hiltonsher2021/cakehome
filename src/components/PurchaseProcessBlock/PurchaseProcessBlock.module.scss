@@ -1,0 +1,166 @@
+@import 'styles/global.scss';
+
+.PurchaseProcessBlock {
+  background-color: $theme-green;
+  padding: rem(40) 0;
+  margin: 0 0 rem(24);
+  @media #{$lg} {
+      margin: 0 0 rem(40);
+  }
+  @media #{$md} {
+      padding: rem(115) 0;
+  }
+  :global {
+    .PurchaseProcessBlock__wrapper {
+        max-width: rem(400);
+        margin: 0 auto;
+        @media #{$md} {
+            max-width: rem(1190);
+        }
+        .PurchaseProcessBlock__title-sec {
+            max-width: rem(950);
+            margin: 0 auto;
+            text-align: center;
+            h2 {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(40);
+                line-height: rem(36);
+                letter-spacing: 0;
+                margin: 0 0 rem(30);
+                @media #{$md} {
+                    font-family: $degular;
+                    font-weight: 700;
+                    font-size: rem(80);
+                    line-height: rem(66);
+                    letter-spacing: rem(1);
+                    margin: 0 0 rem(40);
+                }
+            }
+            p {
+                font-family: $aeonik;
+                font-weight: bold;
+                letter-spacing: 0;
+                font-size: rem(20);
+                line-height: rem(25);
+                color: $textdark;
+                margin: 0 0 rem(58);
+                @media #{$md} {
+                    margin: 0 auto rem(58);
+                    max-width: rem(590)
+                }
+            }
+        }
+        .PurchaseProcessBlock__card-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            .PurchaseProcessBlock__card-item {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 0 rem(15);
+                margin: 0 0 rem(40);
+                @media #{$xl} {
+                    padding: 0 rem(28);
+                }
+                @media #{$md} {
+                    flex: 0 0 33.33%;
+                    max-width: 33.33%;
+                    margin: 0 0 rem(20);
+                }
+            }
+        }
+    }
+    .calculatorContainer {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+      top: 0;
+      left: 0;
+      padding: rem(40) rem(10);
+      overflow: auto;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      @media #{$lg} {
+        padding: rem(100) rem(20);
+      }
+      * {
+        font-family: $aeonik !important;
+      }
+      &.anim {
+        .calculatorContainer__wrapper {
+          visibility: visible;
+          opacity: 1;
+          margin-top: 0;
+        }
+      }
+      .calculatorContainer__wrapper {
+        position: relative;
+        opacity: 0;
+        transition-delay: 0.4s;
+        transition: all 0.4s ease-in-out;
+        visibility: hidden;
+        background-color: white;
+        padding: rem(40) rem(10) 0;
+        @media #{$md} {
+          display: flex;
+          margin-top: rem(20);
+          padding: 0;
+        }
+        .calculatorContainer__ad {
+          flex: 0 0 30%;
+          padding: rem(60) rem(60) rem(60) 0;
+          margin: rem(10) 0 0;
+          display: none;
+          @media #{$md} {
+            display: block;
+          }
+        }
+        .sgi-header__title {
+          font-family: $degular !important;
+          font-weight: 600 !important;
+          color: $textdark !important;
+          @media #{$md} {
+            font-size: rem(40) !important;
+            line-height: rem(66) !important;
+            letter-spacing: rem(0.5) !important;
+            margin: 0 !important;
+          }
+        }
+        .sgi-header__subtitle {
+          color: $textdark !important;
+          @media #{$md} {
+            font-size: rem(17) !important;
+            line-height: rem(25) !important;
+            letter-spacing: 0 !important;
+          }
+        }
+        .sgi-footer__info-poweredby {
+          display: none !important;
+        }
+      }
+      .menu-close {
+        cursor: pointer;
+        position: absolute;
+        padding: 0;
+        width: rem(16);
+        height: rem(16);
+        border: 0;
+        right: rem(20);
+        top: rem(20);
+        @media #{$md} {
+          right: rem(30);
+          top: rem(30);
+        }
+      }
+      #sgi {
+        .sgi-calculator {
+          @media #{$md} {
+            max-width: calc(100% - 40px);
+          }
+        }
+      }
+    }
+  }
+
+}

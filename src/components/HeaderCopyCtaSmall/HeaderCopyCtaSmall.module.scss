@@ -1,0 +1,99 @@
+@import 'styles/global.scss';
+
+.HeaderCopyCtaSmall {
+  text-align: center;
+  max-width: rem(361);
+  :global {
+    h5 {
+        font-family: $aeonik;
+        font-weight: bold;
+        font-size: rem(20);
+        line-height: rem(20);
+        letter-spacing: rem(-0.16);
+        margin: 0 0 rem(8);
+        color: $textdark;
+        @media #{$lg} {
+            font-size: rem(25);
+            line-height: rem(30);
+            letter-spacing: rem(-0.2);
+            margin: 0 0 rem(7);
+        }
+    }
+    .decrptn {
+        font-family: $aeonik;
+        font-weight: 400;
+        font-size: rem(14);
+        line-height: rem(15);
+        margin: 0 0 rem(14);
+        @media #{$lg} {
+            font-size: rem(17);
+            line-height: rem(25);
+            margin: 0 0 rem(25);
+        }
+    }
+    a {
+        font-family: $aeonik;
+        font-weight: bold;
+        color: white;
+        font-size: rem(14);
+        line-height: rem(20);
+        letter-spacing: rem(0.24);
+        display: inline-flex;
+        align-items: center;
+        @media #{$lg} {
+            font-size: rem(17);
+            line-height: rem(25);
+            letter-spacing: rem(0.3);
+        }
+        &:hover {
+            &::after {
+                margin-left: rem(10);
+            }
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: rem(5);
+            height: rem(8);
+            background-image: url('/images/caret-right.svg');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-left: rem(5);
+            transition: all 0.2s ease;
+            @media #{$lg} {
+                width: rem(10);
+                height: rem(10);
+            }
+        }
+    }
+  }
+  &:global(.info) {
+    h5 {
+        margin: 0 0 rem(12);
+        @media (max-width: 991px) {
+            line-height: rem(25);
+        }
+    }
+    .decrptn {
+        margin: 0 0 rem(20);
+        @media (max-width: 991px) {
+            font-size: rem(17);
+            line-height: rem(25);
+        }
+    }
+    a {
+        color: $theme-green;
+        &::after {
+            background-image: url('/images/caret-right-green.svg');
+            width: rem(10);
+            height: rem(10);
+        }
+        @media (max-width: 991px) {
+            font-size: rem(17);
+            line-height: rem(25);
+            letter-spacing: rem(0.3);
+        }
+    }
+  }
+}

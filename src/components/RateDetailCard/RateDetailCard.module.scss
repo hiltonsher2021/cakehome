@@ -1,0 +1,134 @@
+@import 'styles/global.scss';
+
+.RateDetailCard {
+  border-radius: rem(7);
+  overflow: hidden;
+  background-color: #ECEBEB;
+  :global {
+    .RateDetailCard__header {
+        background-color: white;
+        padding: rem(8) 0 rem(13);
+        @media #{$md} {
+            padding: rem(15) 0 rem(25);
+        }
+        .rate-wrap {
+            display: flex;
+            justify-content: center;
+            color: $textdark;
+            margin: 0;
+            .rate {
+                font-family: $degular;
+                font-size: rem(30);
+                font-weight: 900;
+                line-height: 0.8;
+                @media #{$md} {
+                    font-size: rem(60);
+                }
+            }
+            .right-side-rate {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                em {
+                    font-style: normal;
+                    font-size: rem(10);
+                    font-family: $aeonik;
+                    font-weight: 500;
+                    line-height: rem(14);
+                    letter-spacing: rem(-0.09);
+                    color: $textdark;
+                    @media #{$md} {
+                        font-size: rem(20);
+                        line-height: rem(30);
+                        letter-spacing: rem(-0.17);
+                    }
+                }
+                span {
+                    font-size: rem(5);
+                    line-height: rem(15);
+                    font-family: $aeonik;
+                    font-weight: 500;
+                    letter-spacing: rem(-0.29);
+                    text-transform: uppercase;
+                    margin: rem(-5) 0 0;
+                    @media #{$md} {
+                        font-size: rem(10);
+                        line-height: rem(30);
+                        letter-spacing: rem(-0.59);
+                    }
+                    sup {
+                        font-size: rem(8);
+                        margin-left: rem(5);
+                        @media #{$md} {
+                            font-size: rem(14);
+                            margin-left: rem(3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .RateDetailCard__footer {
+        padding: rem(8) rem(10);
+        @media #{$md} {
+            padding: rem(20);
+        }
+        h2 {
+            font-family: $aeonik;
+            font-weight: bold;
+            color: $textdark;
+            font-size: rem(9);
+            line-height: rem(11);
+            letter-spacing: rem(-0.14);
+            margin: 0 0 rem(5);
+            @media #{$md} {
+                font-size: rem(18);
+                line-height: rem(21);
+                margin: 0 0 rem(11);
+            }
+        }
+        p {
+            font-family: $aeonik;
+            font-weight: 400;
+            color: $textdark;
+            font-size: rem(6);
+            line-height: rem(8);
+            letter-spacing: rem(-0.35);
+            margin: 0;
+            @media #{$md} {
+                font-size: rem(12);
+                line-height: rem(16);
+            }
+        }
+        ul {
+            font-family: $aeonik;
+            font-weight: 400;
+            font-size: rem(11);
+            line-height: rem(14);
+            letter-spacing: 0;
+            margin: rem(11) 0 0;
+            display: none;
+            @media #{$md} {
+                display: block;
+            }
+            li {
+                padding-left: rem(21);
+                position: relative;
+                padding-bottom: rem(10);
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: rem(14);
+                    height: rem(14);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-image: url('/images/check-icon.svg');
+                }
+            }
+        }
+    }
+  }
+}

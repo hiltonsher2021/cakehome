@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icon/Cross</title>
+    <g id="Cake-Home-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cake-Homepage-(Mobile)-Hamburger-Clear" transform="translate(-262.000000, -147.000000)" fill="white">
+            <g id="Group" transform="translate(0.000000, 113.000000)">
+                <g transform="translate(260.651088, 32.000000)" id="Cross">
+                    <path d="M3.70708,2.29289 C3.31658,1.90237 2.6834,1.90237 2.2929,2.29289 C1.90237,2.68342 1.90237,3.31658 2.2929,3.70711 L8.58578,10 L2.2929,16.2929 C1.90237,16.6834 1.90237,17.3166 2.2929,17.7071 C2.6834,18.0976 3.31658,18.0976 3.70708,17.7071 L9.99999,11.4142 L16.2929,17.7071 C16.6834,18.0976 17.3166,18.0976 17.7071,17.7071 C18.0976,17.3166 18.0976,16.6834 17.7071,16.2929 L11.4142,10 L17.7071,3.70711 C18.0976,3.31658 18.0976,2.68342 17.7071,2.29289 C17.3166,1.90237 16.6834,1.90237 16.2929,2.29289 L9.99999,8.58579 L3.70708,2.29289 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

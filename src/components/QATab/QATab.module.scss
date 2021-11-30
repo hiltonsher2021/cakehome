@@ -1,0 +1,142 @@
+@import 'styles/global.scss';
+
+.QATab {
+  :global {
+    .QATab__wrap {
+        max-width: rem(500);
+        margin: 0 auto;
+        @media #{$lg} {
+            max-width: 100%;
+        }
+        .QATab__tab-btn-holder {
+            display: flex;
+            .tab-btn {
+                flex: 1;
+                margin-right: rem(7);
+                border-radius: rem(10) rem(10) 0 0;
+                padding: rem(15);
+                height: auto;
+                font-family: $degular;
+                font-weight: 700;
+                color: white;
+                font-size: rem(14);
+                line-height: rem(14);
+                letter-spacing: rem(0.25);
+                border: 1px solid transparent;
+                border-bottom: 0;
+                cursor: pointer;
+                @media #{$lg} {
+                    font-size: rem(36);
+                    line-height: rem(66);
+                    letter-spacing: 0;
+                    margin-right: rem(18);
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                &.purple {
+                    background-color: $theme-purple;
+                    border-color: $theme-purple;
+                    &::after {
+                        background-color: $theme-purple;
+                    }
+                }
+                &.orange {
+                    background-color: $theme-orange;
+                    border-color: $theme-orange;
+                    &::after {
+                        background-color: $theme-orange;
+                    }
+                }
+                &.green {
+                    background-color: $theme-green;
+                    border-color: $theme-green;
+                    &::after {
+                        background-color: $theme-green;
+                    }
+                }
+                &.active {
+                    color: $textdark;
+                    border-color: $textdark;
+                    position: relative;
+                    z-index: 2;
+                    box-shadow: 2px -1px 4px 0 rgba(0,0,0,0.5);
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 20px;
+                        left: 0;
+                        bottom: -10px;
+                    }
+                }
+                &:hover {
+                    color: $textdark;
+                }
+            }
+        }
+        .QATab__tab-pane {
+            border: 1px solid $textdark;
+            border-radius: 0 0 rem(10) rem(10);
+            margin: rem(-1) 0 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.5);
+            &.purple {
+                background-color: $theme-purple;
+            }
+            &.orange {
+                background-color: $theme-orange;
+            }
+            &.green {
+                background-color: $theme-green;
+            }
+            .QATab__tab-pane-bg {
+                position: absolute;
+                margin: 0;
+                width: 100%;
+                top: 50%;
+                left: 0;
+                padding: 0 rem(30);
+                transform: translateY(-50%);
+                display: none;
+                @media #{$lg} {
+                    display: block;
+                }
+            }
+            .QATab__tab-pane-holder {
+                min-height: rem(650);
+                padding: rem(30) rem(20) rem(20);
+                display: flex;
+                flex-wrap: wrap;
+                @media #{$lg} {
+                    padding: rem(50) rem(22);
+                }
+                .QATab__tab-pane-item {
+                    position: relative;
+                    z-index: 1;
+                    display: flex;
+                    justify-content: center;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    padding: rem(0) rem(0) rem(22);
+                    @media #{$lg} {
+                        // flex: 0 0 33.33%;
+                        // max-width: 33.33%;
+                        // align-items: flex-end;
+                        flex: 0 0 50%;
+                        max-width: 50%;
+                        padding: rem(0) rem(15) rem(90);
+                    }
+                    // &:first-child, &:nth-child(2) {
+                    //     @media #{$lg} {
+                    //         flex: 0 0 50%;
+                    //         max-width: 50%;
+                    //     }
+                    // }
+                }
+            }
+        }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+@import 'styles/global.scss';
+
+.PersonalizeRateBlock {
+  background-color: $theme-purple;
+  padding: rem(30) 0 rem(43);
+  position: relative;
+  margin: 0 0 rem(26);
+  @media #{$md} {
+      padding: rem(104) 0;
+      margin: 0 0 rem(40);
+  }
+  :global {
+    .PersonalizeRateBlock__close {
+        position: absolute;
+        padding: 0;
+        border: 0;
+        height: auto;
+        right: rem(48);
+        top: rem(42);
+        cursor: pointer;
+        img {
+            width: rem(20);
+        }
+        display: none;
+        @media #{$md} {
+            display: block;
+        }
+    }
+    .PersonalizeRateBlock__wrap {
+        max-width: rem(500);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 0 0 rem(15);
+        @media #{$md} {
+            max-width: rem(1140);
+            justify-content: space-between;
+            padding: 0;
+        }
+        .PersonalizeRateBlock__left-side {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0 0 rem(16);
+            @media #{$md} {
+                flex: 0 0 58.33%;
+                max-width: 58.33%;
+                margin: 0;
+            }
+            .PersonalizeRateBlock__logo{
+                max-width: rem(578);
+                margin: 0 0 rem(70);
+                display: none;
+                @media #{$md} {
+                    display: block;
+                }
+            }
+            h1 {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(30);
+                line-height: rem(32);
+                letter-spacing: rem(-0.34);
+                margin: 0 0 rem(10);
+                @media #{$md} {
+                    font-size: rem(70);
+                    line-height: rem(75);
+                    letter-spacing: rem(-0.8);
+                }
+            }
+            h2 {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(19);
+                line-height: rem(21);
+                letter-spacing: rem(-0.17);
+                margin: 0 0 rem(8);
+                max-width: rem(160);
+                @media #{$md} {
+                    font-size: rem(45);
+                    line-height: rem(50);
+                    letter-spacing: rem(-0.4);
+                    margin: 0 0 rem(66);
+                    max-width: rem(360);
+                }
+            }
+            p {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(11);
+                line-height: rem(13);
+                letter-spacing: rem(-0.09);
+                @media #{$md} {
+                    font-size: rem(25);
+                    line-height: rem(30);
+                    letter-spacing: rem(-0.2);
+                    max-width: rem(500);
+                }
+            }
+            .PersonalizeRateBlock__foot-image {
+                display: block;
+                margin-left: auto;
+                max-width: 66.2%;
+                @media #{$md} {
+                    max-width: auto;
+                }
+            }
+        }
+        .PersonalizeRateBlock__right-side {
+            max-width: rem(313);
+            padding: 0 rem(15) 0 0;
+            @media #{$sm} {
+                padding: 0;
+            }
+            @media #{$md} {
+                max-width: rem(313);
+                margin: rem(45) 0 0 rem(30);
+            }
+            h5 {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(20);
+                line-height: rem(24);
+                letter-spacing: rem(-0.16);
+                margin: 0 0 rem(24);
+                @media #{$md} {
+                    font-size: rem(25);
+                    line-height: rem(30);
+                    letter-spacing: rem(-0.2);
+                    margin: 0 0 rem(30);
+                }
+            }
+            h6 {
+                font-family: $aeonik;
+                font-weight: bold;
+                color: $textdark;
+                font-size: rem(16);
+                line-height: rem(16);
+                letter-spacing: 0;
+                margin: rem(29) 0 rem(19);
+                @media #{$md} {
+                    font-size: rem(20);
+                    line-height: rem(20);
+                    margin: rem(37) 0 rem(23);
+                }
+            }
+            .CakeFormWrap {
+                .CakeFieldWrap {
+                    margin: 0 0 rem(18);
+                    @media #{$md} {
+                        margin: 0 0 rem(22);
+                    }
+                }
+                .btn {
+                    border: 0;
+                    cursor: pointer;
+                    font-family: $aeonik;
+                    font-weight: bold;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    @media #{$md} {
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                    a {
+                      color: inherit;
+                    }
+                    &.dark {
+                        font-size: rem(21);
+                        line-height: rem(61);
+                        letter-spacing: rem(0.36);
+                        padding: 0 rem(35);
+                        min-height: rem(61);
+                        margin-top: rem(34);
+                        text-transform: uppercase;
+                        text-align: center;
+                        @media #{$md} {
+                            font-size: rem(26);
+                            line-height: rem(75);
+                            letter-spacing: rem(0.45);
+                            padding: 0 rem(45);
+                            min-height: rem(75);
+                        }
+                    }
+                    &.light {
+                        background-color: #ecebeb;
+                        font-size: rem(14);
+                        line-height: rem(20);
+                        letter-spacing: rem(0.24);
+                        min-height: rem(40);
+                        padding: 0 rem(24);
+                        margin-top: rem(19);
+                        @media #{$md} {
+                            font-size: rem(17);
+                            line-height: rem(25);
+                            letter-spacing: rem(0.3);
+                            min-height: rem(50);
+                            padding: 0 rem(30);
+                            margin-top: rem(23);
+                        }
+                        &:hover {
+                            background-color: $textdark;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+  &:global(.purchase) {
+    background-color: $theme-orange;
+    :global {
+      .PersonalizeRateBlock__wrap {
+          .PersonalizeRateBlock__left-side {
+              .PersonalizeRateBlock__foot-image {
+                  @media #{$md} {
+                      max-width: auto;
+                  }
+              }
+          }
+      }
+    }
+  }
+}

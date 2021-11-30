@@ -1,0 +1,30 @@
+@import 'styles/global.scss';
+
+.InfoContent3Column {
+  padding: 0 0 rem(30);
+  @media #{$lg} {
+      padding: 0;
+  }
+  :global {
+    .InfoContent3Column__wrapper {
+        max-width: rem(1170);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .InfoContent3Column__item {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: rem(30) 0 rem(10);
+            display: flex;
+            justify-content: center;
+            @media #{$lg} {
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
+                padding: rem(50) rem(30);
+            }
+        }
+    }
+  }
+}
