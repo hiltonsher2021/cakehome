@@ -192,11 +192,10 @@ const RateBanner = (data) => {
                     </span>{' '}
                   </>
                 )}
-                <a>
-                <Link to="/disclosure" title="Disclosure">
+
+                <Link to="/disclosure" className="rate-details-disclaimer" title="Disclosure">
                   Disclosure
                 </Link>
-                </a>
 
               </p>
               <ReactTooltip
@@ -209,9 +208,9 @@ const RateBanner = (data) => {
           </div>
           <div className="RateBanner__cta-wrap">
             {/* className -  RateBanner*/}
-            <a><Link to="/disclosure" title="Disclosure">
+            <Link to="/disclosure" className="RateBanner__disclaimer" title="Disclosure">
               Disclosure
-            </Link></a>
+            </Link>
 
             <div onClick={showCalculator}>
               <CtaBig ctaText={modeledData?.ctaText} className="RateBanner" />

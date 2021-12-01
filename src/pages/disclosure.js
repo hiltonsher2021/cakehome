@@ -204,21 +204,21 @@ const Disclosure = ({}) => {
               file a complaint, contact the management of this financial
               institution or:
             </p>
-            <p>1350 Front Street, Suite 3064</p>
-            <p>San Diego, CA 92101-3687</p>
-            <p>2550 Mariposa Mall, Suite 3070</p>
-            <p>Fresno, CA 93721-2273</p>
 
-            <p>1651 Exposition Boulevard</p>
-            <p>Sacramento, CA 95815</p>
-            <p>P.O Box 137000 (mailing address)</p>
-            <p>Sacramento, CA 95813-7000</p>
+            <p><strong>1350 Front Street, Suite 3064</strong><br/>
+            San Diego, CA 92101-3687<br/>
+            2550 Mariposa Mall, Suite 3070<br/>
+            Fresno, CA 93721-2273</p>
 
-            <p>1515 Clay Street, Suite 702</p>
-            <p>Oakland, CA 94612-1462</p>
-            <p>320 W. 4th Street, Suite 350</p>
-            <p>Los Angeles, CA 90013-1105</p>
-            <p></p>
+            <p><strong>1651 Exposition Boulevard</strong><br/>
+            Sacramento, CA 95815<br/>
+            P.O Box 137000 (mailing address)<br/>
+            Sacramento, CA 95813-7000</p>
+
+            <p><strong>1515 Clay Street, Suite 702</strong><br/>
+            Oakland, CA 94612-1462<br/>
+            320 W. 4th Street, Suite 350<br/>
+            Los Angeles, CA 90013-1105</p>
 
             <h2>
               IMPORTANT INFORMATION ABOUT PROCEDURES FOR OBTAINING A MORTGAGE
