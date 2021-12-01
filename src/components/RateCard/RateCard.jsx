@@ -37,7 +37,7 @@ const RateCard = (data) => {
         })
         parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
         parseDataPurchase = JSON.parse(responsePurchaseData?.json_response)
-        setApiResponseForPurchase(parseDataRefinance)
+        setApiResponseForPurchase(parseDataPurchase)
         setApiResponseForRefinance(parseDataRefinance)
         if (cardData?.title === 'Purchase') {
           parseDataPurchase?.products?.map((item) => {
