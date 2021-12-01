@@ -1,8 +1,15 @@
 import React from 'react'
 import Layout from 'components/layout/Main/MainLayout'
 import SEO from 'components/seo'
+import { graphql } from 'gatsby'
+import * as PropTypes from 'prop-types'
 
-const Disclosure = ({}) => {
+
+const propTypes = {
+  data: PropTypes.object,
+}
+
+const Disclosure = ({data}) => {
   return (
     <Layout>
       <SEO title="Terms and Condition Page" />
@@ -12,7 +19,7 @@ const Disclosure = ({}) => {
             <h1>Disclosure</h1>
             <h4>
               {' '}
-              <a target="_blank">$1,000 Piece of Cake Price Reward </a>{' '}
+              <a target="_blank" href={ 'https:' + data?.contentfulAsset?.file?.url}>$1,000 Piece of Cake Price Reward </a>{' '}
             </h4>
             <h4>
               In accordance with state and federal regulations, the following
@@ -242,3 +249,17 @@ const Disclosure = ({}) => {
 }
 
 export default Disclosure
+
+
+export const query = graphql`
+  {
+    contentfulAsset {
+      title
+      file {
+        url
+        fileName
+        contentType
+      }
+    }
+  }
+`
