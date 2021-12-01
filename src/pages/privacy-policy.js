@@ -30,8 +30,8 @@ const PrivacyPolicy = ({}) => {
             <p>
               PLEASE READ THIS PRIVACY POLICY CAREFULLY. BY ACCESSING OR USING
               THE WEBSITE AT{' '}
-              <a href="https://mhlending.us" target="_blank">
-                https://mhlending.us
+              <a href="https://cakehome.com" target="_blank">
+              https://cakehome.com
               </a>{' '}
               (the “Site”) OR OUR MORTGAGE LENDING SERVICES (the “Services”), OR
               BY SUBMITTING ANY INFORMATION OR MATERIALS TO OR THROUGH THE SITE
@@ -387,7 +387,7 @@ const PrivacyPolicy = ({}) => {
               information or market to children under the age of 13. If a parent
               or guardian becomes aware that his or her child has provided us
               with information without their consent, he or she should contact
-              us at <a target="_blank">privacy@mhlending.us</a>. We will delete
+              us at <a target="_blank">privacy@cakehome.com</a>. We will delete
               such data from our files upon request.
             </p>
             <h4>TERMS OF USE</h4>
@@ -417,8 +417,8 @@ const PrivacyPolicy = ({}) => {
               If there are any questions regarding this Privacy Policy, you may
               contact us using the information below.
             </p>
-            <p>privacy@mhlending.us</p>
-            <p>Millennial Home Lending, Inc.</p>
+            <p>privacy@cakehome.com</p>
+            <p>Cake Mortgage Corp.</p>
             <p>9200 Oakdale Ave. Ste. 501, Chatsworth, CA 91311</p>
             <p>(818) 812-5150 or (877) 274-2610</p>
           </div>

@@ -22,11 +22,11 @@ const RateCard = (data) => {
 
   useEffect(() => {
     api({
-      url: '/rates',
+      url: 'rates/latest',
       method: 'GET',
-      params: {
-        page: 1
-      },
+      // params: {
+      //   page: 1
+      // },
     }).then((response) => {
         response?.data?.data.filter((item) => {
           if (item?.job === 1) {

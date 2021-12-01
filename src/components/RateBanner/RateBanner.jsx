@@ -19,11 +19,11 @@ const RateBanner = (data) => {
 
   const setValues = () => {
     api({
-      url: '/rates',
+      url: 'rates/latest',
       method: 'GET',
-      params: {
-        page: 1
-      },
+      // params: {
+      //   page: 1
+      // },
     })
       .then((response) => {
         response?.data?.data?.filter((item) => {
