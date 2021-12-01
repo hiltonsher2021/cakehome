@@ -253,7 +253,7 @@ export default Disclosure
 
 export const query = graphql`
   {
-    contentfulAsset {
+    contentfulAsset(title: {eq: "Piece of Cake - PDF"}) {
       title
       file {
         url
