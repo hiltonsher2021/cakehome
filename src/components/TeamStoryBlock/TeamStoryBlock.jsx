@@ -84,7 +84,7 @@ const TeamStoryBlock = (data) => {
                   <div className="timeline__content-item">
                     <h6>June 2007</h6>
                     <p>
-                      At 15, David Abelyn’s cousin drags him to work at a local
+                      At 15, David Abelyan’s cousin drags him to work at a local
                       mortgage broker. David sells his first loan that day.
                     </p>
                   </div>

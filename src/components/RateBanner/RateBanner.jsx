@@ -5,7 +5,8 @@ import RateDetailCard from 'components/RateDetailCard/RateDetailCard'
 import CtaBig from 'components/CtaBig/CtaBig'
 import sectionModel from 'models/Section'
 import api from 'utils/api'
-
+import ReactTooltip from 'react-tooltip'
+import { Link } from 'gatsby'
 
 const isBrowser = typeof window !== 'undefined'
 
@@ -24,40 +25,39 @@ const RateBanner = (data) => {
       // params: {
       //   page: 1
       // },
-    })
-      .then((response) => {
-        response?.data?.data?.filter((item) => {
-          if (item?.job === 1) {
-            responsePurchaseData = item
-          } else {
-            responseRefinanceData = item
-          }
-        })
-        parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
-        parseDataPurchase = JSON.parse(responsePurchaseData?.json_response)
-
-        if (currentTab === 'purchase') {
-          parseDataPurchase?.products.map((item) => {
-            if (item.loanTerm === '30' && tabSectionValue === 'apr') {
-              let formatNumber = Number(item?.apr).toFixed(3)
-              setValue(formatNumber.toString())
-            } else if (item.loanTerm === '30' && tabSectionValue === 'rate') {
-              let formatNumberRate = Number(item?.rate).toFixed(3)
-              setValue(formatNumberRate.toString())
-            }
-          })
+    }).then((response) => {
+      response?.data?.data?.filter((item) => {
+        if (item?.job === 1) {
+          responsePurchaseData = item
         } else {
-          parseDataRefinance?.products.map((item) => {
-            if (item.loanTerm === '10' && tabSectionValue === 'apr') {
-              let formatNumber = Number(item?.apr).toFixed(3)
-              setValue(formatNumber.toString())
-            } else if (item.loanTerm === '10' && tabSectionValue === 'rate') {
-              let formatNumberRate = Number(item?.rate).toFixed(3)
-              setValue(formatNumberRate.toString())
-            }
-          })
+          responseRefinanceData = item
         }
       })
+      parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
+      parseDataPurchase = JSON.parse(responsePurchaseData?.json_response)
+
+      if (currentTab === 'purchase') {
+        parseDataPurchase?.products.map((item) => {
+          if (item.loanTerm === '30' && tabSectionValue === 'apr') {
+            let formatNumber = Number(item?.apr).toFixed(3)
+            setValue(formatNumber.toString())
+          } else if (item.loanTerm === '30' && tabSectionValue === 'rate') {
+            let formatNumberRate = Number(item?.rate).toFixed(3)
+            setValue(formatNumberRate.toString())
+          }
+        })
+      } else {
+        parseDataRefinance?.products.map((item) => {
+          if (item.loanTerm === '10' && tabSectionValue === 'apr') {
+            let formatNumber = Number(item?.apr).toFixed(3)
+            setValue(formatNumber.toString())
+          } else if (item.loanTerm === '10' && tabSectionValue === 'rate') {
+            let formatNumberRate = Number(item?.rate).toFixed(3)
+            setValue(formatNumberRate.toString())
+          }
+        })
+      }
+    })
   }
 
   useEffect(() => {
@@ -178,34 +178,41 @@ const RateBanner = (data) => {
                 accusantium aut iure ut aut aut aut.
               </p> */}
               <p className="rate-details small">
-                <sup>*</sup> Rate based on a 10-year refinance / 30-year
-                purchase
-                <a
-                  href="https://www.termsfeed.com/live/6ee2ba10-e18e-44be-ba15-e09f965a81b4"
-                  className="rate-details-disclaimer"
-                  target="_blank"
-                >
-                  Legal Disclaimer
+                {/* <sup>*</sup> Rate based on a 10-year refinance / 30-year */}
+                {currentTab === 'purchase' ? (
+                  <>
+                    <span data-tip="Rate based on 30 Year Fixed, 760+ Credit Score, 400k Loan Amount, No Cash Out Refinance, Single Family Primary Residence, LTV <=50%">
+                      *Rate Terms
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span data-tip="Rate based on 10 Year Fixed, 760+ Credit Score, 400k Loan Amount, No Cash Out Refinance, Single Family Primary Residence, LTV <=50%">
+                      *Rate Terms
+                    </span>{' '}
+                  </>
+                )}
+                <a>
+                <Link to="/disclosure" title="Disclosure">
+                  Disclosure
+                </Link>
                 </a>
+
               </p>
+              <ReactTooltip
+                effect="solid"
+                place="top"
+                multiline={true}
+                className="customTooltip"
+              />
             </div>
           </div>
-          {/* <div className="RateBanner__footer">
-            <div className="RateDetailCard__holder">
-              <div className="RateDetailCard__wrapper">
-                <RateDetailCard />
-              </div>
-            </div>
-          </div> */}
           <div className="RateBanner__cta-wrap">
             {/* className -  RateBanner*/}
-            <a
-              href="https://www.termsfeed.com/live/6ee2ba10-e18e-44be-ba15-e09f965a81b4"
-              className="RateBanner__disclaimer"
-              target="_blank"
-            >
-              Legal Disclaimer
-            </a>
+            <a><Link to="/disclosure" title="Disclosure">
+              Disclosure
+            </Link></a>
+
             <div onClick={showCalculator}>
               <CtaBig ctaText={modeledData?.ctaText} className="RateBanner" />
             </div>

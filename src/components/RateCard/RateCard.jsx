@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as styles from './RateCard.module.scss'
 import Reel from 'react-reel'
 import api from 'utils/api'
+import { Link } from 'gatsby'
 
 const isBrowser = typeof window !== 'undefined'
 
@@ -216,7 +217,9 @@ const RateCard = (data) => {
         </button>
         <p className="rate-details small">
           <a href="/terms-conditions">
-            <sup>*</sup> Legal Disclaimer
+            <sup>*</sup> <Link to="/disclosure" title="Disclosure">
+                  Disclosure
+                </Link>
           </a>
         </p>
       </div>

@@ -151,12 +151,19 @@ const RefiRateBlock = (data) => {
                   accusantium aut iure ut aut aut aut.
                 </p> */}
                 <p className="rate-details small">
-                  {/* <sup>1</sup> */}
-                  <span data-tip="Rate based on 30 Year Fixed, 740+ Credit Score, 350k Loan Amount, Purchase, Single Family Residence, LTV < 80%">
-                    *Rate Terms
-                  </span>
-                  {/* Sit ullam voluptas accusantium aut eum sequi
-                  consequatur et saepe. */}
+                  {data?.handle === 'homepurchase' ? (
+                    <>
+                      <span data-tip="Rate based on 30 Year Fixed, 760+ Credit Score, 400k Loan Amount, No Cash Out Refinance, Single Family Primary Residence, LTV <=50%">
+                        *Rate Terms
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <span data-tip="Rate based on 10 Year Fixed, 760+ Credit Score, 400k Loan Amount, No Cash Out Refinance, Single Family Primary Residence, LTV <=50%">
+                        *Rate Terms
+                      </span>{' '}
+                    </>
+                  )}
                 </p>
                 <ReactTooltip
                   effect="solid"
