@@ -276,6 +276,11 @@
   }
 }
 
+#chat-widget-container {
+  transform: translateZ(32px);
+  z-index: 9999999999 !important;
+}
+
 .onetrust-pc-dark-filter {
   transform: translateZ(30px);
 }
