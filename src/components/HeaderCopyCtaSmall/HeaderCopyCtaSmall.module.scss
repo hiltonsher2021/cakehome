@@ -34,7 +34,7 @@
     a {
         font-family: $aeonik;
         font-weight: bold;
-        color: white;
+        // color: white;
         font-size: rem(14);
         line-height: rem(20);
         letter-spacing: rem(0.24);
@@ -50,22 +50,22 @@
                 margin-left: rem(10);
             }
         }
-        &::after {
-            content: '';
-            display: block;
-            width: rem(5);
-            height: rem(8);
-            background-image: url('/images/caret-right.svg');
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            margin-left: rem(5);
-            transition: all 0.2s ease;
-            @media #{$lg} {
-                width: rem(10);
-                height: rem(10);
-            }
-        }
+        // &::after {
+        //     content: '';
+        //     display: block;
+        //     width: rem(5);
+        //     height: rem(8);
+        //     background-image: url('/images/caret-right.svg');
+        //     background-position: center;
+        //     background-size: contain;
+        //     background-repeat: no-repeat;
+        //     margin-left: rem(5);
+        //     transition: all 0.2s ease;
+        //     @media #{$lg} {
+        //         width: rem(10);
+        //         height: rem(10);
+        //     }
+        // }
     }
   }
   &:global(.info) {

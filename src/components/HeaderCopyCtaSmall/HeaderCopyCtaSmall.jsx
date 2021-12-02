@@ -17,9 +17,9 @@ const HeaderCopyCtaSmall = (data) => {
         {(data?.multipleItems) ? (
           <>
           {data?.value?.cardItems.map((item, index) => {
-            return (<p className="decrptn" key={index}>
-            {item.title?.title }</p>)
-
+            return (<p className="decrptn" key={index} dangerouslySetInnerHTML={{
+              __html: item.title?.title }}>
+            </p>)
           })}
           </>
         ) : (<p className="decrptn">

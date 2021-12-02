@@ -234,7 +234,7 @@ const CheckYourSavings = (data) => {
   }
 
   return (
-    <div className={`${styles.CheckYourSavings}`}>
+    <div className={`${styles.CheckYourSavings}`} id="chi-mez-calculator">
       <div className="container">
         <div className="CheckYourSavings__wrap">
           <div className="CheckYourSavings__top">
