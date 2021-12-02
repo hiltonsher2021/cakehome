@@ -96,7 +96,7 @@ const Footer = ({ data }) => {
                         return (
                           <li key={index}>
                             <span>
-                              {menuItem?.label}00
+                              {menuItem?.label}
                             </span>
                         </li>
                         )

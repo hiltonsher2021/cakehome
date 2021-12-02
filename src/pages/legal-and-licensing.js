@@ -63,12 +63,9 @@ const LegalAndLicensing = ({ data }) => {
               <li>
                 Any dispute must be made in writing to Cake Mortgage and its
                 service providers at Cake Mortgage, 9200 Oakdale Ave STE 501,
-                Chatsworth, CA 91311. Or email us at
-                <a
-                  href="mailto:OfficeofthePresident@cakehome.com"
+                Chatsworth, CA 91311. Or email us at  <a href="mailto:OfficeofthePresident@cakehome.com"
                   target="_blank"
-                >
-                  OfficeofthePresident@cakehome.com
+                >  OfficeofthePresident@cakehome.com
                 </a>
                 .
               </li>
@@ -284,7 +281,7 @@ const LegalAndLicensing = ({ data }) => {
             </p>
             <p>
               <u>Connecticut</u> – Licensed by the Connecticut Department of
-              Banking, Lending License ML1734623
+              Banking, Lending License ML-1734623
             </p>
             <p>
               <u>Delaware</u> – Licensed by the Delaware Office of the State
