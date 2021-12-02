@@ -32,12 +32,7 @@ const LegalAndLicensing = ({ data }) => {
               dream that anyone can and should achieve – and we are committed to
               helping all borrowers reach that goal. Also, for both our
               customers and employees, our diversity and inclusion plan outlines
-              how we implement diversity into our business and culture across
-              the country. The plan establishes a foundation for addressing the
-              real life challenges and opportunities that companies face, while
-              setting forth our vision, goals, strategies and action items to
-              ensure we successfully recruit, hire and educate diverse
-              employees.
+              how we implement diversity into our business and culture.
             </p>
 
             <h2>EQUAL HOUSING OPPORTUNITY LENDER</h2>
@@ -120,7 +115,7 @@ const LegalAndLicensing = ({ data }) => {
             <p>
               Consumers who ask not to receive telephone solicitations from Cake
               Mortgage will be placed on the Cake Mortgage Do Not Call list and
-              will not be called in anyfuture campaigns, including those of Cake
+              will not be called in any future campaigns, including those of Cake
               Mortgage affiliates. If you communicate with us by telephone, we
               may monitor or record the call.
             </p>
@@ -285,11 +280,11 @@ const LegalAndLicensing = ({ data }) => {
 
             <p>
               <u>Colorado</u> – Licensed by the Colorado Department of
-              Regulatory Agencies
+              Regulatory Agencies, regulated by the	Division of Real Estate
             </p>
             <p>
               <u>Connecticut</u> – Licensed by the Connecticut Department of
-              Banking, Lending License ML- 1734623
+              Banking, Lending License ML1734623
             </p>
             <p>
               <u>Delaware</u> – Licensed by the Delaware Office of the State
@@ -432,7 +427,7 @@ const LegalAndLicensing = ({ data }) => {
             </p>
             <p>
               <u>Virginia</u> – Licensed by State Corporation Commission, Bureau
-              of Financial Institutions (BFI), in theCommonwealth of Virginia,
+              of Financial Institutions (BFI), in the Commonwealth of Virginia,
               Lender/Broker License MC-6958
             </p>
             <p>

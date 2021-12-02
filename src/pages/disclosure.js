@@ -4,12 +4,11 @@ import SEO from 'components/seo'
 import { graphql } from 'gatsby'
 import * as PropTypes from 'prop-types'
 
-
 const propTypes = {
   data: PropTypes.object,
 }
 
-const Disclosure = ({data}) => {
+const Disclosure = ({ data }) => {
   return (
     <Layout>
       <SEO title="Terms and Condition Page" />
@@ -19,7 +18,12 @@ const Disclosure = ({data}) => {
             <h1>Disclosure</h1>
             <h4>
               {' '}
-              <a target="_blank" href={ 'https:' + data?.contentfulAsset?.file?.url}>$1,000 Piece of Cake Price Reward </a>{' '}
+              <a
+                target="_blank"
+                href={'https:' + data?.contentfulAsset?.file?.url}
+              >
+                $1,000 Piece of Cake Price Reward{' '}
+              </a>{' '}
             </h4>
             <h4>
               In accordance with state and federal regulations, the following
@@ -44,12 +48,13 @@ const Disclosure = ({data}) => {
             <h2>Loan Assumptions </h2>
             <h3>Purchase Money Loans</h3>
             <p>
-              On Loan Amount up to $548,250 15 Year Fixed - First Mortgage Cake
+              On Loan Amount up to $548,250 <br />
+              15 Year Fixed - First Mortgage Cake <br />
               Mortgage Corp., d/b.a Millennial Home Lending (“Cake Mortgage”) is
               licensed by the Department of Financial Protection and Innovation
               under the California Residential Mortgage Lending Act.
               NMLS#1734623. Disclosed rate assumes the purchase of an
-              owner-occupied single-family residence of a loan amount from
+              owneroccupied single-family residence of a loan amount from
               $400,000 to the maximum conforming loan limit amount in the
               property’s county. Minimum 740 FICO score, 80% loan to value with
               no subordinate debt. If these factors are not met, you may still
@@ -66,8 +71,9 @@ const Disclosure = ({data}) => {
 
             <h2>Refinance Loans </h2>
             <p>
-              On Loan Amount up to $548,250 15 & 27 & 30 Year Fixed - First
-              Mortgage Cake Mortgage is licensed by the Department of Financial
+              On Loan Amount up to $548,250 <br />
+              15 & 27 & 30 Year Fixed - First Mortgage <br />
+              Cake Mortgage is licensed by the Department of Financial
               Protection and Innovation under the California Residential
               Mortgage Lending Act. NMLS#1734623. Disclosed rate assumes a rate
               and term refinance of an owner-occupied single-family residence of
@@ -84,58 +90,62 @@ const Disclosure = ({data}) => {
               refinancing the existing loan, the total finance charges may be
               higher over the life of the loan. Subject to underwriting
               approval.
+              <br />
+              Click here to see monthly payment
             </p>
             <p>
-              On Loan Amount over $548,250, up to $822,375 15 & 30 Year Fixed -
-              First Mortgage Cake Mortgage is licensed by the Department of
-              Financial Protection and Innovation under the California
-              Residential Mortgage Lending Act. NMLS#1734623. Disclosed rate
-              assumes a rate and term refinance of an owner-occupied
-              single-family residence of a loan amount from $600,000 to the
-              maximum conforming loan limit amount in the property’s county.
-              Minimum 740 FICO score, 55% loan to value with no subordinate
-              debt. If these factors are not met, you may still qualify for a
-              loan but higher interest rates and closing costs may apply. Cake
-              Mortgage will pay non-recurring closing costs not including
-              prepaid interest, taxes, insurance, mortgage insurance or lender
-              payoff fees. Sample payment does not include taxes, insurance or
-              assessments. Your actual payment obligation may be higher. Not all
-              applicants will be approved. Advertised rate and APR are subject
-              to change without notice. By refinancing the existing loan, the
-              total finance charges may be higher over the life of the loan.
-              Subject to underwriting approval.
+              On Loan Amount over $548,250, up to $822,375 <br />
+              15 & 30 Year Fixed - First Mortgage <br />
+              Cake Mortgage is licensed by the Department of Financial
+              Protection and Innovation under the California Residential
+              Mortgage Lending Act. NMLS#1734623. Disclosed rate assumes a rate
+              and term refinance of an owner-occupied single-family residence of
+              a loan amount from $600,000 to the maximum conforming loan limit
+              amount in the property’s county. Minimum 740 FICO score, 55% loan
+              to value with no subordinate debt. If these factors are not met,
+              you may still qualify for a loan but higher interest rates and
+              closing costs may apply. Cake Mortgage will pay non-recurring
+              closing costs not including prepaid interest, taxes, insurance,
+              mortgage insurance or lender payoff fees. Sample payment does not
+              include taxes, insurance or assessments. Your actual payment
+              obligation may be higher. Not all applicants will be approved.
+              Advertised rate and APR are subject to change without notice. By
+              refinancing the existing loan, the total finance charges may be
+              higher over the life of the loan. Subject to underwriting
+              approval.
             </p>
             <p>
-              On Loan Amount up to $2,000,000 30 Year Fixed - First Mortgage -
-              Jumbo Loan Cake Mortgage is licensed by the Department of
-              Financial Protection and Innovation under the California
-              Residential Mortgage Lending Act. NMLS#1734623. Disclosed rate
-              assumes a rate and term refinance of an owner-occupied
-              single-family residence of a loan amount of $1,000,000. Minimum
-              740 FICO score, 50% loan to value with no subordinate debt. If
-              these factors are not met, you may still qualify for a loan but
-              higher interest rates and closing costs may apply. Cake Mortgage
-              will pay non-recurring closing costs not including prepaid
-              interest, taxes, insurance, mortgage insurance or lender payoff
-              fees. Sample payment does not include taxes, insurance or
-              assessments. Your actual payment obligation may be higher. Not all
-              applicants will be approved. Advertised rate and APR are subject
-              to change without notice. By refinancing the existing loan, the
-              total finance charges may be higher over the life of the loan.
-              Subject to underwriting approval.{' '}
+              On Loan Amount up to $2,000,000 <br />
+              30 Year Fixed - First Mortgage - Jumbo Loan <br />
+              Cake Mortgage is licensed by the Department of Financial
+              Protection and Innovation under the California Residential
+              Mortgage Lending Act. NMLS#1734623. Disclosed rate assumes a rate
+              and term refinance of an owner-occupied single-family residence of
+              a loan amount of $1,000,000. Minimum 740 FICO score, 50% loan to
+              value with no subordinate debt. If these factors are not met, you
+              may still qualify for a loan but higher interest rates and closing
+              costs may apply. Cake Mortgage will pay non-recurring closing
+              costs not including prepaid interest, taxes, insurance, mortgage
+              insurance or lender payoff fees. Sample payment does not include
+              taxes, insurance or assessments. Your actual payment obligation
+              may be higher. Not all applicants will be approved. Advertised
+              rate and APR are subject to change without notice. By refinancing
+              the existing loan, the total finance charges may be higher over
+              the life of the loan. Subject to underwriting approval.{' '}
             </p>
             <p>
-              No Closing Costs (if applicable) Are available on rate/term and
-              limited cash out refinance transactions only. Cake Mortgage will
-              pay the following third party closing costs on behalf of the
-              Borrower: appraisal fees, credit report fees, flood certification
-              fees, escrow/closing fees, signing fees, title insurance fees
-              (lenders policy and endorsements). The Borrower is responsible for
-              paying: prepaid interest, property taxes, state mortgage/transfer
-              taxes, all types of insurance, existing lender payoff fees, survey
-              fees, inspection fees and discount points (if Borrower chooses to
-              pay discount points to buy down the inter---est rate). Minimum
-              loan amount is $300,000.
+              No Closing Costs (if applicable) <br />
+              Are available on rate/term and limited cash out refinance
+              transactions only. Cake Mortgage will pay the following third
+              party closing costs on behalf of the Borrower: appraisal fees,
+              credit report fees, flood certification fees, escrow/closing fees,
+              signing fees, title insurance fees (lenders policy and
+              endorsements). The Borrower is responsible for paying: prepaid
+              interest, property taxes, state mortgage/transfer taxes, all types
+              of insurance, existing lender payoff fees, survey fees, inspection
+              fees and discount points (if Borrower chooses to pay discount
+              points to buy down the inter---est rate). Minimum loan amount is
+              $300,000.
             </p>
             <h2>Equal Housing Lender</h2>
             <p>
@@ -158,11 +168,17 @@ const Disclosure = ({data}) => {
               a complaint of housing discrimination: 1-800-669-9777 (toll free),
               or 1-800-927-9275 (tdd), or send to:
             </p>
-            <p>Office of Fair Housing and Equal Opportunity</p>
-            <p>Department of Housing and Urban Development</p>
-            <p>Room 5204</p>
-            <p>451 Seventh St. SW</p>
-            <p>Washington, DC 20410-2000</p>
+            <p>
+              Office of Fair Housing and Equal Opportunity
+              <br />
+              Department of Housing and Urban Development
+              <br />
+              Room 5204
+              <br />
+              451 Seventh St. SW
+              <br />
+              Washington, DC 20410-2000
+            </p>
             <p>
               <a
                 target="_blank"
@@ -191,20 +207,22 @@ const Disclosure = ({data}) => {
               </li>
               <li>
                 Race, color, religion, sex, marital status, national origin, or
-                ancestry. It is illegal to consider the racial, ethnic,
-                religious, or national origin composition of a neighborhood or
-                geographic area surrounding a housing accommodation, or whether
-                or not such composition is undergoing change, or is expected to
-                undergo change, in appraising a housing accommodation or in
-                determining whether or not, and under what terms and conditions,
-                to provide financial assistance. These provisions govern
-                financial assistance for the purpose of the purchase,
-                construction, rehabilitation, or refinancing of one- to
-                four-unit family residences occupied by the owner and for the
-                purpose of the home improvement of any one to four-unit family
-                residence.
+                ancestry.
               </li>
             </ul>
+            <p>
+              It is illegal to consider the racial, ethnic, religious, or
+              national origin composition of a neighborhood or geographic area
+              surrounding a housing accommodation, or whether or not such
+              composition is undergoing change, or is expected to undergo
+              change, in appraising a housing accommodation or in determining
+              whether or not, and under what terms and conditions, to provide
+              financial assistance. These provisions govern financial assistance
+              for the purpose of the purchase, construction, rehabilitation, or
+              refinancing of one- to four-unit family residences occupied by the
+              owner and for the purpose of the home improvement of any one to
+              four-unit family residence.
+            </p>
 
             <p>
               If you have any questions about your rights, or if you wish to
@@ -212,20 +230,37 @@ const Disclosure = ({data}) => {
               institution or:
             </p>
 
-            <p><strong>1350 Front Street, Suite 3064</strong><br/>
-            San Diego, CA 92101-3687<br/>
-            2550 Mariposa Mall, Suite 3070<br/>
-            Fresno, CA 93721-2273</p>
+            <p>
+              1350 Front Street, Suite 3064
+              <br />
+              San Diego, CA 92101-3687
+            </p>
 
-            <p><strong>1651 Exposition Boulevard</strong><br/>
-            Sacramento, CA 95815<br/>
-            P.O Box 137000 (mailing address)<br/>
-            Sacramento, CA 95813-7000</p>
+            <p>
+              {' '}
+              2550 Mariposa Mall, Suite 3070
+              <br />
+              Fresno, CA 93721-2273
+            </p>
 
-            <p><strong>1515 Clay Street, Suite 702</strong><br/>
-            Oakland, CA 94612-1462<br/>
-            320 W. 4th Street, Suite 350<br/>
-            Los Angeles, CA 90013-1105</p>
+            <p>
+              1651 Exposition Boulevard
+              <br />
+              Sacramento, CA 95815
+              <br />
+              P.O Box 137000 (mailing address)
+              <br />
+              Sacramento, CA 95813-7000
+              <br />
+              1515 Clay Street, Suite 702
+              <br />
+              Oakland, CA 94612-1462
+            </p>
+            <p>
+              320 W. 4th Street, Suite 350
+              <br />
+              Los Angeles, CA 90013-1105
+            </p>
 
             <h2>
               IMPORTANT INFORMATION ABOUT PROCEDURES FOR OBTAINING A MORTGAGE
@@ -250,10 +285,9 @@ const Disclosure = ({data}) => {
 
 export default Disclosure
 
-
 export const query = graphql`
   {
-    contentfulAsset(title: {eq: "Piece of Cake - PDF"}) {
+    contentfulAsset(title: { eq: "Piece of Cake - PDF" }) {
       title
       file {
         url

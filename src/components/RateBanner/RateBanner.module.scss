@@ -349,6 +349,12 @@
                 margin: rem(140) 0 0;
                 padding: 0;
             }
+            &.cta-wrap--inside {
+              margin: rem(40) 0 0;
+              .RateBanner__disclaimer {
+                margin: rem(20) 0 0 ;
+              }
+            }
             .RateBanner__disclaimer {
               font-family: $aeonik;
               font-weight: 400;

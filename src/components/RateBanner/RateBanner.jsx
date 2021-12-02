@@ -193,10 +193,13 @@ const RateBanner = (data) => {
                   </>
                 )}
 
-                <Link to="/disclosure" className="rate-details-disclaimer" title="Disclosure">
+                <Link
+                  to="/disclosure"
+                  className="rate-details-disclaimer"
+                  title="Disclosure"
+                >
                   Disclosure
                 </Link>
-
               </p>
               <ReactTooltip
                 effect="solid"
@@ -205,17 +208,30 @@ const RateBanner = (data) => {
                 className="customTooltip"
               />
             </div>
-          </div>
-          <div className="RateBanner__cta-wrap">
-            {/* className -  RateBanner*/}
-            <Link to="/disclosure" className="RateBanner__disclaimer" title="Disclosure">
-              Disclosure
-            </Link>
+            <div className="RateBanner__cta-wrap cta-wrap--inside">
+              {/* className -  RateBanner*/}
 
-            <div onClick={showCalculator}>
-              <CtaBig ctaText={modeledData?.ctaText} className="RateBanner" />
+              <div onClick={showCalculator}>
+                <CtaBig ctaText={modeledData?.ctaText} className="RateBanner" />
+              </div>
+              <Link
+                to="/disclosure"
+                className="RateBanner__disclaimer"
+                title="Disclosure"
+              >
+                Disclosure
+              </Link>
             </div>
           </div>
+          {/* <div className="RateBanner__cta-wrap"> */}
+          {/* className -  RateBanner*/}
+          {/* <Link to="/disclosure" className="RateBanner__disclaimer" title="Disclosure">
+              Disclosure
+            </Link> */}
+          {/* <div onClick={showCalculator}>
+              <CtaBig ctaText={modeledData?.ctaText} className="RateBanner" />
+            </div>
+          </div> */}
         </div>
       </div>
       {/* <PersonalizeRateBlock /> */}
