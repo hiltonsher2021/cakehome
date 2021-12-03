@@ -7,7 +7,8 @@ import { Link } from 'gatsby'
 const isBrowser = typeof window !== 'undefined'
 
 const RateCard = (data) => {
-  let cardData = data.value
+  let cardData = data.value;
+  console.log(data, 'data')
 
   // on viewport slotmachine animation
   let flg = true
@@ -209,11 +210,11 @@ const RateCard = (data) => {
         {/* <a className="btn dark dark--lg" href="#"> */}
         {/* </a> */}
         <button
-          title="APPLY NOW"
+          title={data?.value?.ctaText}
           className="menu-item btn dark"
           onClick={() => updateCounter(cardData?.title)}
         >
-          APPLY NOW
+          {data?.value?.ctaText}
         </button>
         <p className="rate-details small">
           <a href="/terms-conditions">
