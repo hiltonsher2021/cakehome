@@ -56,7 +56,7 @@ const ToolsAdvice = ({ data }) => {
 
       <section className="posRelative">
         <span id="calculator-section"></span>
-        <SmartToolsBlock sectionData={dataSplit} />
+        {/* <SmartToolsBlock sectionData={dataSplit} /> */}
       </section>
 
       {/* Removed advice section from contentful */}

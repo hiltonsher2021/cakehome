@@ -84,7 +84,8 @@ const CalculatorScript = (data) => {
                 />
               </div>
               <p>{modeledData?.description?.description}</p>
-              {modeledData?.sectionReference.map((item, index) => {
+              {/* Commented as Signal intent is not working */}
+              {/* {modeledData?.sectionReference.map((item, index) => {
                 return (
                   <button
                     className={`btn ${index % 2 ? 'light' : 'dark'}`}
@@ -101,7 +102,7 @@ const CalculatorScript = (data) => {
                     {item?.title}
                   </button>
                 )
-              })}
+              })} */}
             </div>
             <div className="CalculatorScript__figure">
               <div className="figure-holder">

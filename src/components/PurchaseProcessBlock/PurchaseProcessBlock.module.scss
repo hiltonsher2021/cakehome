@@ -55,6 +55,7 @@
         .PurchaseProcessBlock__card-wrap {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             .PurchaseProcessBlock__card-item {
                 flex: 0 0 100%;
                 max-width: 100%;

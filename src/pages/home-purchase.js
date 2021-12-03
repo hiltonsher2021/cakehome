@@ -15,14 +15,14 @@ import { initCalculators, unloadCalculators } from 'helpers/calculator'
 import SEO from 'components/seo'
 import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
 
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 const propTypes = {
   data: PropTypes.object,
 }
 
 const HomeFinance = ({ data }) => {
-  let dataSplit = data?.contentfulPage?.sections;
+  let dataSplit = data?.contentfulPage?.sections
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
 
@@ -35,11 +35,11 @@ const HomeFinance = ({ data }) => {
   }
 
   useEffect(() => {
-    if(isBrowser) {
+    if (isBrowser) {
       initCalculators()
     }
     return () => {
-      if(isBrowser) {
+      if (isBrowser) {
         unloadCalculators()
       }
     }
@@ -57,7 +57,7 @@ const HomeFinance = ({ data }) => {
           showModal={showModal}
         />
 
-<div
+        <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
         >
@@ -69,7 +69,10 @@ const HomeFinance = ({ data }) => {
           />
         </div>
 
-        <RefiRateBlock sectionData={dataSplit} handle={data?.contentfulPage?.handle} />
+        <RefiRateBlock
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+        />
 
         <PurchaseProcessBlock sectionData={dataSplit} />
 
@@ -78,7 +81,6 @@ const HomeFinance = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
-
         />
 
         {/* className - green small-copy-sec refi purchase */}
@@ -101,9 +103,8 @@ const HomeFinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="refi"
           showModal={showModal}
-
         />
-{/* Removed as per requirement */}
+        {/* Removed as per requirement */}
         {/* <InfoContentBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}

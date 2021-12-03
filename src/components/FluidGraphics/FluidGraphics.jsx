@@ -63,9 +63,11 @@ const FluidGraphics = (data) => {
             </div>
             <div className="FluidGraphics__cta-wrapper hid-dsktp">
               {/* classname - FluidGraphics */}
-              <CtaBig className="FluidGraphics" ctaText="MONTHLY PAYMENT CALCULATOR" />
+              {/* <CtaBig className="FluidGraphics" ctaText="MONTHLY PAYMENT CALCULATOR" /> */}
             </div>
-            <div className="FluidGraphics__card-wrapper">
+            {/* Commented as Signal intent is not working  */}
+
+            {/* <div className="FluidGraphics__card-wrapper">
               {modeledData?.sectionReference.map((item) => {
                 return (
                   <>
@@ -75,11 +77,14 @@ const FluidGraphics = (data) => {
                           <h3>{list?.title}</h3>
                           <p className="FluidGraphics__card-copy">
                             {list?.subTitle}
-                          </p>
+                          </p> */}
+
                           {/* <a href="#" className="btn dark">
                           {list?.ctaText}
                         </a> */}
-                          <div>
+
+
+                          {/* <div>
                             <button
                               className={`btn dark`}
                               key={indexValue}
@@ -94,14 +99,15 @@ const FluidGraphics = (data) => {
                             >
                               {list?.ctaText}
                             </button>
-                          </div>
-                        </div>
+                          </div> */}
+                        {/* </div>
                       )
                     })}
                   </>
                 )
               })}
-            </div>
+            </div> */}
+
           </div>
         </div>
         <div

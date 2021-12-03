@@ -8,7 +8,6 @@ const isBrowser = typeof window !== 'undefined'
 
 const RateCard = (data) => {
   let cardData = data.value;
-  console.log(data, 'data')
 
   // on viewport slotmachine animation
   let flg = true

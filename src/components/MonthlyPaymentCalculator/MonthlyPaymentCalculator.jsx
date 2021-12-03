@@ -65,13 +65,14 @@ const MonthlyPaymentCalculator = (data) => {
                 />
               </div>
               <p>{modeledData?.description?.description}</p>
-              <button
+              {/* /* Commented as Signal intent is not working */}
+              {/* <button
                 className={`btn dark`}
                 data-element={modeledData?.ctaText}
                 onClick={() => handleCalculatorOpen(modeledData?.ctaText)}
               >
                 {modeledData?.ctaText}
-              </button>
+              </button> */}
             </div>
             <div className="MonthlyPaymentCalculator__figure">
               <div className="figure-holder">

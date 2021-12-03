@@ -263,20 +263,23 @@ const ImageAnimation = (data) => {
               {modeledData?.sectionReference?.map((item, index) => {
                 if (data?.handle !== 'aboutcake') {
                   return (
-                    <button
-                      className={`btn ${index % 2 ? 'light' : 'dark'}`}
-                      key={index}
-                      data-element={item?.title}
-                      onClick={() =>
-                        handleCalculatorOpen(
-                          index,
-                          item?.title,
-                          modeledData?.backgroundColour
-                        )
-                      }
-                    >
-                      {item?.title}
-                    </button>
+                    <>
+                    </>
+                                        /* Commented as Signal intent is not working */
+                    // <button
+                    //   className={`btn ${index % 2 ? 'light' : 'dark'}`}
+                    //   key={index}
+                    //   data-element={item?.title}
+                    //   onClick={() =>
+                    //     handleCalculatorOpen(
+                    //       index,
+                    //       item?.title,
+                    //       modeledData?.backgroundColour
+                    //     )
+                    //   }
+                    // >
+                    //   {item?.title}
+                    // </button>
                   )
                 } else if (data?.handle === 'aboutcake') {
                   return (

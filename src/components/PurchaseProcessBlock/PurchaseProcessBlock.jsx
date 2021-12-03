@@ -61,6 +61,7 @@ const PurchaseProcessBlock = (data) => {
                   <div className="PurchaseProcessBlock__card-item" key={index} onClick={() =>
                     handleCalculatorOpen(index)
                   }>
+                                  {/* /* Commented as Signal intent is not working - removed 2 items from contentful */}
                     <IconCopyCtaCard cardData={item} indexValue={index} />
                   </div>
                 )
