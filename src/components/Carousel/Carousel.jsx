@@ -28,6 +28,8 @@ const Carousel = (data) => {
           infinite: true,
           dots: true,
           arrows: false,
+          verticalSwiping: false,
+          draggable: false
         },
       },
     ],
