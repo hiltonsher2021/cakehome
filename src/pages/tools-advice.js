@@ -35,7 +35,9 @@ const ToolsAdvice = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Tools Advice Page" />
+      <SEO title={data?.contentfulPage?.name}
+        description={data?.contentfulPage?.description?.description}
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url} />
       <section>
         {/* ClassName - Tools */}
         <Banner bannerData={dataSplit} className="toolsadvice" />
@@ -47,7 +49,7 @@ const ToolsAdvice = ({ data }) => {
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
-          sectionValue='2'
+          sectionValue="2"
         />
       </section>
       <section>
@@ -56,6 +58,7 @@ const ToolsAdvice = ({ data }) => {
 
       <section className="posRelative">
         <span id="calculator-section"></span>
+        {/* /* Commented as Signal intent is not working */}
         {/* <SmartToolsBlock sectionData={dataSplit} /> */}
       </section>
 
@@ -69,7 +72,7 @@ const ToolsAdvice = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           className="tools-advise"
-          sectionValue='6'
+          sectionValue="6"
         />
       </section>
       <section className="posRelative">
@@ -92,6 +95,15 @@ export const query = graphql`
     contentfulPage(handle: { eq: "toolsadvice" }) {
       handle
       title
+      name
+      description {
+        description
+      }
+      metaImage {
+        file {
+          url
+        }
+      }
       sections {
         ... on ContentfulBanner {
           id

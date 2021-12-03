@@ -5,7 +5,7 @@ import SEO from 'components/seo'
 const TermsAndConditions = ({}) => {
   return (
     <Layout>
-      <SEO title="Terms and Condition Page" />
+      <SEO title="Cake Terms and Condition" />
       <section className="generic-section">
         <div className="container">
           <div className="title-section">

@@ -29,7 +29,7 @@ const GetStarted = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Get Started Page" />
+      <SEO title="Cake Get Started" />
       <section>
         <CheckOutRates
           sectionData={dataSplit}

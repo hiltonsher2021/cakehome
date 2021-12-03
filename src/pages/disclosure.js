@@ -11,7 +11,7 @@ const propTypes = {
 const Disclosure = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Terms and Condition Page" />
+      <SEO title="Cake Disclosure" />
       <section className="generic-section">
         <div className="container">
           <div className="title-section">

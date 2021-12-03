@@ -5,7 +5,7 @@ import SEO from 'components/seo'
 const PrivacyPolicy = ({}) => {
   return (
     <Layout>
-      <SEO title="Privacy Policy Page" />
+      <SEO title="Cake Privacy Policy" />
       <section className="generic-section">
         <div className="container">
           <div className="title-section">

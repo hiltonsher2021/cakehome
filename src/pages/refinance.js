@@ -46,7 +46,9 @@ const Refinance = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Refinance page" />
+      <SEO title={data?.contentfulPage?.name}
+        description={data?.contentfulPage?.description?.description}
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url} />
       <section>
         {/* classNames - Refinance */}
         <Banner bannerData={dataSplit} handle={data?.contentfulPage?.handle} showModal={showModal}/>
@@ -116,6 +118,15 @@ export const pageQuery = graphql`
     contentfulPage(handle: { eq: "refinance" }) {
       handle
       title
+      name
+      description {
+        description
+      }
+      metaImage {
+        file {
+          url
+        }
+      }
       sections {
         ... on ContentfulSection {
           id

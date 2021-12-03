@@ -47,7 +47,9 @@ const HomeFinance = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home Purchase Page" />
+      <SEO title={data?.contentfulPage?.name}
+        description={data?.contentfulPage?.description?.description}
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}  />
       <section className="">
         {/* classNames - Home Purchase */}
         <Banner
@@ -123,6 +125,15 @@ export const query = graphql`
     contentfulPage(handle: { eq: "homepurchase" }) {
       handle
       title
+      name
+      description {
+        description
+      }
+      metaImage {
+        file {
+          url
+        }
+      }
       sections {
         ... on ContentfulBanner {
           id

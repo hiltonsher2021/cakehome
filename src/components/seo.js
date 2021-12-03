@@ -17,16 +17,16 @@ function SEO({
       query={detailsQuery}
       render={data => {
         const metaDescription =
-          description || data.site.siteMetadata.description
+          description || 'Cakehome'
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
             title={title}
-            titleTemplate={
-              !ignoreTemplate ? `%s - ${data.site.siteMetadata.title}` : null
-            }
+            // titleTemplate={
+            //   !ignoreTemplate ? `%s - ${data.site.siteMetadata.title}` : null
+            // }
             meta={[
               {
                 name: 'description',
@@ -53,10 +53,6 @@ function SEO({
                 content: 'summary',
               },
               {
-                name: 'twitter:creator',
-                content: data.site.siteMetadata.author,
-              },
-              {
                 name: 'twitter:title',
                 content: title,
               },
@@ -66,7 +62,7 @@ function SEO({
               }
             ]
               .concat(
-                keywords.length > 0 ? 
+                keywords.length > 0 ?
                   {
                     name: 'keywords',
                     content: keywords.join(', '),

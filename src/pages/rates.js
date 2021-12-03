@@ -30,7 +30,9 @@ const Rates = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Rates Page" />
+      <SEO title={data?.contentfulPage?.name}
+        description={data?.contentfulPage?.description?.description}
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}  />
       <section>
         <RateBanner bannerData={dataSplit} showModal={showModal} />
         <div
@@ -69,6 +71,15 @@ export const query = graphql`
     contentfulPage(handle: { eq: "rates" }) {
       handle
       title
+      name
+      description {
+        description
+      }
+      metaImage {
+        file {
+          url
+        }
+      }
       sections {
         ... on ContentfulSection {
           handle

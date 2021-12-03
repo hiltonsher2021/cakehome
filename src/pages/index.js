@@ -50,7 +50,11 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home Page" />
+      <SEO
+        title={data?.contentfulPage?.name}
+        description={data?.contentfulPage?.description?.description}
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}
+      />
       <div className="home-page">
         <CheckOutRates
           sectionData={dataSplit}
@@ -73,7 +77,7 @@ const IndexPage = ({ data }) => {
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
-          sectionValue='2'
+          sectionValue="2"
         />
 
         <CheckYourSavings sectionData={dataSplit} />
@@ -93,7 +97,7 @@ const IndexPage = ({ data }) => {
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
-          sectionValue='6'
+          sectionValue="6"
         />
 
         <Testimonials sectionData={dataSplit} showModal={showModal} />
@@ -113,6 +117,15 @@ export const pageQuery = graphql`
     contentfulPage(handle: { eq: "homepage" }) {
       handle
       title
+      name
+      description {
+        description
+      }
+      metaImage {
+        file {
+          url
+        }
+      }
       sections {
         ... on ContentfulBanner {
           id

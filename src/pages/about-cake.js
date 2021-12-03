@@ -20,7 +20,9 @@ const AboutCake = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections;
   return (
     <Layout>
-      <SEO title="About Cake Page" />
+      <SEO title={data?.contentfulPage?.name}
+        description={data?.contentfulPage?.description?.description}
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url} />
       <section className="posRelative">
         {/* ClassName - Tools About */}
         <span id="our-mission"></span>
@@ -91,6 +93,15 @@ export const query = graphql`
     contentfulPage(handle: { eq: "aboutcake" }) {
       handle
       title
+      name
+      description {
+        description
+      }
+      metaImage {
+        file {
+          url
+        }
+      }
       sections {
         ... on ContentfulBanner {
           id
