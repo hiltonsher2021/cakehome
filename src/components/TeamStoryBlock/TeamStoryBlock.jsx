@@ -133,8 +133,8 @@ const TeamStoryBlock = (data) => {
                   <div className="timeline__content-item hid-mob">
                     <h6>September 2018</h6>
                     <p>
-                      Millenial Home Lending goes live with just 2 people. David
-                      on sales and 1 person cold calling.
+                      Millenial Home Lending goes live with just two people; David
+                      on sales and another employee cold calling customers.
                     </p>
                   </div>
                 </div>
@@ -148,8 +148,8 @@ const TeamStoryBlock = (data) => {
                   <div className="timeline__content-item">
                     <h6>September 2018</h6>
                     <p>
-                      Millenial Home Lending goes live with just 2 people. David
-                      on sales and 1 person cold calling.
+                      Millenial Home Lending goes live with just two people; David
+                      on sales and another employee cold calling customers.
                     </p>
                   </div>
                 </div>
@@ -171,7 +171,7 @@ const TeamStoryBlock = (data) => {
                   <div className="timeline__content-item hid-mob">
                     <h6>November 2021</h6>
                     <p>
-                      MHL becomes <strong>Cake.</strong> Same people and vision,
+                      MHL becomes <strong>Cake Mortgage Corp</strong>. Same people and vision,
                       new technology.
                     </p>
                   </div>
@@ -186,7 +186,7 @@ const TeamStoryBlock = (data) => {
                   <div className="timeline__content-item">
                     <h6>November 2021</h6>
                     <p>
-                      MHL becomes <strong>Cake.</strong> Same people and vision,
+                      MHL becomes <strong>Cake Mortgage Corp</strong>. Same people and vision,
                       new technology.
                     </p>
                   </div>
