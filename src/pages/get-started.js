@@ -105,13 +105,6 @@ export const query = graphql`
                       }
                       title
                     }
-                    ... on ContentfulCta {
-                      id
-                      linkPath
-                      link
-                      linkTextColour
-                      title
-                    }
                   }
                 }
               }

@@ -73,6 +73,10 @@ const ImageAnimation = (data) => {
     },
   }
 
+  const showCalculator = (e) => {
+    data.showModal('refinance')
+  }
+
   if (data) {
     switch (data?.handle) {
       case 'refinance':
@@ -263,23 +267,23 @@ const ImageAnimation = (data) => {
               {modeledData?.sectionReference?.map((item, index) => {
                 if (data?.handle !== 'aboutcake') {
                   return (
-                    <>
-                    </>
-                                        /* Commented as Signal intent is not working */
-                    // <button
-                    //   className={`btn ${index % 2 ? 'light' : 'dark'}`}
-                    //   key={index}
-                    //   data-element={item?.title}
-                    //   onClick={() =>
-                    //     handleCalculatorOpen(
-                    //       index,
-                    //       item?.title,
-                    //       modeledData?.backgroundColour
-                    //     )
-                    //   }
-                    // >
-                    //   {item?.title}
-                    // </button>
+                    <button
+                      className={`btn ${index % 2 ? 'light' : 'dark'}`}
+                      key={index}
+                      data-element={item?.title}
+                      onClick={showCalculator}
+
+              /* Commented as Signal intent is not working */
+                      // onClick={() =>
+                      //   handleCalculatorOpen(
+                      //     index,
+                      //     item?.title,
+                      //     modeledData?.backgroundColour
+                      //   )
+                      // }
+                    >
+                      {item?.title}
+                    </button>
                   )
                 } else if (data?.handle === 'aboutcake') {
                   return (

@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import * as styles from './CopyFigure2Column.module.scss'
 import sectionModel from 'models/Section'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
+
 
 const CopyFigure2Column = (data) => {
   let filterData = []
@@ -33,6 +35,10 @@ const CopyFigure2Column = (data) => {
   const [calculatorOpen, toggleCalculator] = useState(false)
   const [calculatorValue, setCalculatorDiv] = useState('')
   const [indexValue, setIndexValue] = useState('')
+
+  const showCalculator = (e) => {
+    data.showModal('purchase')
+  }
 
   const handleCalculatorToggle = (value) => {
     toggleCalculator(value)
@@ -88,20 +94,23 @@ const CopyFigure2Column = (data) => {
               {modeledData?.sectionReference?.map((item, index) => {
                 if (data?.handle !== 'aboutcake') {
                   return (
-                    <>
-                    </>
-                    /* Commented as Signal intent is not working */
-                    // <button
-                    //   className={`btn ${index % 2 ? 'light' : 'dark'}`}
-                    //   key={index}
-                    //   data-element={item?.title}
-                    //   onClick={() =>
-                    //     handleCalculatorOpen(
-                    //       index,
-                    //       item?.title,
-                    //       modeledData?.backgroundColour
-                    //     )
-                    //   }
+                    <Link
+                      className={`btn dark`}
+                      key={index}
+                      to={item?.link}
+                    >
+                      {item?.title}
+                    </Link>
+
+                      /* Commented as Signal intent is not working */
+
+                      // onClick={() =>
+                      //   handleCalculatorOpen(
+                      //     index,
+                      //     item?.title,
+                      //     modeledData?.backgroundColour
+                      //   )
+                      // }
                     // >
                     //   {item?.title}
                     // </button>

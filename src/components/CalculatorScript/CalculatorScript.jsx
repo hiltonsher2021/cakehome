@@ -5,6 +5,7 @@ import sectionModel from 'models/Section'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const CalculatorScript = (data) => {
+
   let filterData = []
   let modeledData = []
   let image
@@ -28,6 +29,14 @@ const CalculatorScript = (data) => {
 
   const [calculatorOpen, toggleCalculator] = useState(false)
   const [calculatorValue, setCalculatorDiv] = useState('')
+
+  const showCalculator = (e) => {
+    if(data?.handle === 'refinance') {
+      data.showModal('refinance')
+    }else {
+      data.showModal('purchase')
+    }
+  }
 
   const handleCalculatorToggle = (value) => {
     toggleCalculator(value)
@@ -84,25 +93,26 @@ const CalculatorScript = (data) => {
                 />
               </div>
               <p>{modeledData?.description?.description}</p>
-              {/* Commented as Signal intent is not working */}
-              {/* {modeledData?.sectionReference.map((item, index) => {
+              {modeledData?.sectionReference.map((item, index) => {
                 return (
                   <button
                     className={`btn ${index % 2 ? 'light' : 'dark'}`}
                     key={index}
                     data-element={item?.title}
-                    onClick={() =>
-                      handleCalculatorOpen(
-                        index,
-                        item?.title,
-                        modeledData?.backgroundColour
-                      )
-                    }
+                    onClick={showCalculator}
+                    /* Commented as Signal intent is not working */
+                    // onClick={() =>
+                    //   handleCalculatorOpen(
+                    //     index,
+                    //     item?.title,
+                    //     modeledData?.backgroundColour
+                    //   )
+                    // }
                   >
                     {item?.title}
                   </button>
                 )
-              })} */}
+              })}
             </div>
             <div className="CalculatorScript__figure">
               <div className="figure-holder">

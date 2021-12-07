@@ -84,6 +84,7 @@ const Refinance = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           className="refi light small-copy-sec"
+          showModal={showModal}
         />
 
         <RefiTestimonials
@@ -197,9 +198,8 @@ export const pageQuery = graphql`
             }
             ... on ContentfulCta {
               id
-              link
-              linkPath
               title
+              link
             }
           }
         }

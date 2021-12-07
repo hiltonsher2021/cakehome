@@ -4,7 +4,7 @@ import Banner from 'components/Banner/Banner'
 import CheckOutRates from 'components/CheckOutRates/CheckOutRates'
 import HowItWorks from 'components/HowItWorks/HowItWorks'
 import CheckYourSavings from 'components/CheckYourSavings/CheckYourSavings'
-import CopyFigure2Column from 'components/CopyFigure2Column/CopyFigure2Column'
+// import CopyFigure2Column from 'components/CopyFigure2Column/CopyFigure2Column'
 import ImageAnimation from 'components/ImageAnimation/ImageAnimation'
 import CalculatorScript from 'components/CalculatorScript/CalculatorScript'
 import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
@@ -89,10 +89,12 @@ const IndexPage = ({ data }) => {
         <ImageAnimation
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
+          showModal={showModal}
         />
         <CalculatorScript
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
+          showModal={showModal}
         />
         <PlainCopyBlock
           sectionData={dataSplit}
@@ -265,11 +267,6 @@ export const pageQuery = graphql`
                   ctaText
                   footerText
                 }
-                ... on ContentfulCta {
-                  id
-                  link
-                  title
-                }
               }
             }
             ... on ContentfulTabItems {
@@ -303,9 +300,6 @@ export const pageQuery = graphql`
             ... on ContentfulCta {
               id
               title
-              link
-              linkTextColour
-              backgroundColour
             }
           }
         }
