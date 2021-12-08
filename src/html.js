@@ -11,57 +11,84 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-         <link rel="preload"
-            as="font"
-            href="/fonts/Aeonik-AirItalic.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Aeonik-Air.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Aeonik-Black.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Aeonik-BlackItalic.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Aeonik-Bold.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Aeonik-Light.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Degular_Display-Black.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/Degular_Display-Bold.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-            <link rel="preload"
-            as="font"
-            href="/fonts/FiraSans-Black.woff2"
-            type="font/woff2"
-            crossOrigin="anonymous" />
-        <link rel="icon" href="/images/Cake_Favicon_mint.svg" type="image/svg+xml"/>
+        <meta
+          name="facebook-domain-verification"
+          content="44tnk5h8zfp89is5c60a3xxb711zp5"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Aeonik-AirItalic.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Aeonik-Air.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Aeonik-Black.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Aeonik-BlackItalic.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Aeonik-Bold.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Aeonik-Light.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Degular_Display-Black.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/Degular_Display-Bold.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="font"
+          href="/fonts/FiraSans-Black.woff2"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="icon"
+          href="/images/Cake_Favicon_mint.svg"
+          type="image/svg+xml"
+        />
         {props.headComponents}
 
         {/* <!-- Google Tag Manager --> */}
 
-        <script async
+        <script
+          async
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -73,7 +100,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* <!-- End Google Tag Manager --> */}
 
-        <script async
+        {/* <!-- Facebook Pixel Code --> */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1033947377369230');
+fbq('track', 'PageView');
+fbq('track', 'Contact');`,
+          }}
+        />
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1033947377369230&ev=PageView&noscript=1"`,
+          }}
+        />
+        {/* <!-- End Facebook Pixel Code → */}
+
+        <script
+          async
           id="chat-widget-container"
           dangerouslySetInnerHTML={{
             __html: `
@@ -86,14 +139,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         {/* CookiePro Cookies Consent Notice start for cakemillennialhomedevelop.gtsb.io */}
 
-        <script async
+        <script
+          async
           src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"
           data-language="en"
           type="text/javascript"
           charSet="UTF-8"
           data-domain-script="2dd02ff0-5ba4-437c-b1b6-697f4b9fab92-test"
         ></script>
-        <script async
+        <script
+          async
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `function OptanonWrapper() { }`,
@@ -101,7 +156,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ></script>
         {/* <!-- CookiePro Cookies Consent Notice end for cakemillennialhomedevelop.gtsb.io --> */}
 
-        <script async
+        <script
+          async
           async
           src="https://embed.signalintent.com/js/embedded.js?org-guid=2041f4e9-22f8-4175-b760-483ec13b2f6c"
         />
