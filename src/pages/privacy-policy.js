@@ -433,7 +433,7 @@ const PrivacyPolicy = ({}) => {
               information at any time by logging into their control panel and
               going to the ‘Your Account’ page. You may also discuss or exercise
               your privacy rights by contacting us at{' '}
-              <a href="privacy@cakehome.com" target="_blank">
+              <a href="mailto:privacy@cakehome.com" target="_blank">
                 {' '}
                 <u>privacy@cakehome.com</u>
               </a>
@@ -446,7 +446,7 @@ const PrivacyPolicy = ({}) => {
               children under the age of 13. If a parent or guardian becomes
               aware that his or her child has provided us with information
               without their consent, please contact us at{' '}
-              <a href="privacy@cakehome.com" target="_blank">
+              <a href="mailto:privacy@cakehome.com" target="_blank">
                 <u> privacy@cakehome.com</u>
               </a>
               .
@@ -470,7 +470,7 @@ const PrivacyPolicy = ({}) => {
               If there are any questions regarding this Privacy Policy, you may
               contact us using the information below.
             </p>
-            <p><a href="privacy@cakehome.com" target="_blank"><u>privacy@cakehome.com</u></a></p>
+            <p><a href="mailto:privacy@cakehome.com" target="_blank"><u>privacy@cakehome.com</u></a></p>
             <p>Cake Mortgage Corp.</p>
             <p>9200 Oakdale Ave. Ste. 501, Chatsworth, CA 91311</p>
             <p>(818) 812-5150 or (877) 274-2610</p>
