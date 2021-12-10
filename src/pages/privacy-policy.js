@@ -119,20 +119,20 @@ const PrivacyPolicy = ({}) => {
               automated means includes, for example:
               <ul>
                 <li>
-                  Usage Details about your interaction with our Services (such
+                  <i>Usage Details</i> about your interaction with our Services (such
                   as the date, time, and length of visits, and specific pages or
                   content accessed during the visits, search terms, frequency of
                   the visits, referring website addresses);
                 </li>
                 <li>
-                  Device Information including the IP address and other details
+                  <i>Device Information</i> including the IP address and other details
                   of a device that you use to connect with our Services (such as
                   device type and unique device identifier, operating system,
                   browser type, mobile network information, and the device’s
                   telephone number); and
                 </li>
                 <li>
-                  Location information, where you choose to provide us with
+                  <i>Location information</i>, where you choose to provide us with
                   information about your device’s location and subject to your
                   device settings.
                 </li>
