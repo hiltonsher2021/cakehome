@@ -125,6 +125,33 @@ src="https://www.facebook.com/tr?id=1033947377369230&ev=PageView&noscript=1"`,
         />
         {/* <!-- End Facebook Pixel Code → */}
 
+        {/* <!-- Global site tag (gtag.js) - Google Ads: 793052739 --> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-793052739"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-793052739');`,
+          }}
+        />
+        {/* end if global site tag */}
+
+        {/* Website Phone call conversion */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+gtag('config', 'AW-793052739/NP40CKTRq4cDEMOMlPoC', {
+'phone_conversion_number': '877-818-Cake (2253)'
+});`,
+          }}
+        />
+        {/* End of Website Phone call conversion */}
+
         <script
           async
           id="chat-widget-container"
@@ -137,6 +164,7 @@ src="https://www.facebook.com/tr?id=1033947377369230&ev=PageView&noscript=1"`,
           `,
           }}
         />
+
         {/* CookiePro Cookies Consent Notice start for cakemillennialhomedevelop.gtsb.io */}
 
         <script

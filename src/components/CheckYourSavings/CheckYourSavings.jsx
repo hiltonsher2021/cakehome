@@ -73,6 +73,21 @@ const CheckYourSavings = (data) => {
     setGifSrc('')
     event.preventDefault()
     calculateLoanFromUser(loanMonths, values, paymentsMade, interestRate)
+    // Google tag tracking
+
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+      window.location = url;
+      }
+      };
+      gtag('event', 'conversion', {
+      'send_to': 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
+      'event_callback': callback
+      });
+      return false;
+      
+      // end of Google tag tracking
+
   }
 
   function calculateLoanFromUser(
@@ -240,7 +255,7 @@ const CheckYourSavings = (data) => {
           <div className="CheckYourSavings__top">
             <div className="left-side">
               {' '}
-              <span className="eyebrow">{modeledData?.subTitle}</span>
+              <span className="eyebrow">{modeledData?.subTitle?.subtitle}</span>
               <h2>{modeledData?.mainTitle}</h2>
             </div>
             <div className="right-side">

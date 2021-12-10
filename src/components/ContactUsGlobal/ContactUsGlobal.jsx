@@ -9,7 +9,33 @@ const ContactUsGlobal = (data) => {
   let modeledData
   let referencedData
   const openChatWidget = (e) => {
-    maximizeChatWidget()
+    maximizeChatWidget();
+    // function gtag_report_conversion(url) {
+      var callback = function () {
+      if (typeof(url) != 'undefined') {
+      window.location = url;
+      }
+      };
+      gtag('event', 'conversion', {
+      'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+      'event_callback': callback
+      });
+      return false;
+      // }
+  }
+  const googleTagEmail = () => {
+    // function gtag_report_conversion(url) {
+      var callback = function () {
+      if (typeof(url) != 'undefined') {
+      window.location = url;
+      }
+      };
+      gtag('event', 'conversion', {
+      'send_to': 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
+      'event_callback': callback
+      });
+      return false;
+      // }
   }
 
   if (data) {
@@ -41,7 +67,7 @@ const ContactUsGlobal = (data) => {
             <p className="contact">
             <a className="dskt-res" href={'tel:+' + referencedData?.number}>{referencedData?.title}</a>
               </p>
-            <p className="contact">
+            <p className="contact" onClick={googleTagEmail}>
               <a href={referencedData?.ctaUrl}>{referencedData?.subTitle}</a>
             </p>
             <div className="ContactUsGlobal__Chat hid-mob">

@@ -10,7 +10,17 @@ const ChatCallBlock = (data) => {
 let modeledData = [];
 
 const openChatWidget = (e) => {
-  maximizeChatWidget()
+  maximizeChatWidget();
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+    window.location = url;
+    }
+    };
+    gtag('event', 'conversion', {
+    'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+    'event_callback': callback
+    });
+    return false;
 }
 
   if (data) {

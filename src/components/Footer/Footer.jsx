@@ -22,8 +22,33 @@ const Footer = ({ data }) => {
     image = getImage(modeledData?.image?.gatsbyImageData)
   }
 
+  const googleTagEmail = () => {
+    // function gtag_report_conversion(url) {
+      var callback = function () {
+      if (typeof(url) != 'undefined') {
+      window.location = url;
+      }
+      };
+      gtag('event', 'conversion', {
+      'send_to': 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
+      'event_callback': callback
+      });
+      return false;
+      // }
+  }
+
   const openChatWidget = (e) => {
-    maximizeChatWidget()
+    maximizeChatWidget();
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+      window.location = url;
+      }
+      };
+      gtag('event', 'conversion', {
+      'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+      'event_callback': callback
+      });
+      return false;
   }
 
   return (
@@ -84,7 +109,7 @@ const Footer = ({ data }) => {
                         )
                       }else if(menuItem?.subLabel === 'email') {
                         return (
-                          <li key={index}>
+                          <li key={index} onClick={googleTagEmail}>
                           <a
                             title={menuItem?.label}
                             href={menuItem?.url}
