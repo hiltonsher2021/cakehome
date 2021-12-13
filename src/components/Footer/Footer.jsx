@@ -101,7 +101,7 @@ const Footer = ({ data }) => {
                       } else if(menuItem?.subLabel === 'phonenumber') {
                         return (
                           <li key={index}>
-                            <a className="dskt-res"
+                            <a
                               title={menuItem?.label}
                               href="tel:+8778182253"
                             >{menuItem?.label}</a>

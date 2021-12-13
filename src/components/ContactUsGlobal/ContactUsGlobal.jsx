@@ -65,7 +65,7 @@ const ContactUsGlobal = (data) => {
               <p>{modeledData?.description?.description}</p>
             </div>
             <p className="contact">
-            <a className="dskt-res" href={'tel:+' + referencedData?.number}>{referencedData?.title}</a>
+            <a href={'tel:+' + referencedData?.number}>{referencedData?.title}</a>
               </p>
             <p className="contact" onClick={googleTagEmail}>
               <a href={referencedData?.ctaUrl}>{referencedData?.subTitle}</a>

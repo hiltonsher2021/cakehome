@@ -5,7 +5,7 @@ const CtaCallUs = (modelData) => {
 
     return (
         <div className={`${styles.CtaCallUs} ${modelData?.className}`}>
-            <a href="tel:+8778182253" className="btn call-us  dskt-res">
+            <a href="tel:+8778182253" className="btn call-us">
             {modelData?.data?.map((menu, index) => {
 
                     if(menu?.label === 'Call Us') {
