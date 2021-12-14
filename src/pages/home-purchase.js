@@ -47,9 +47,11 @@ const HomeFinance = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={data?.contentfulPage?.name}
+      <SEO
+        title={data?.contentfulPage?.name}
         description={data?.contentfulPage?.description?.description}
-        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}  />
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}
+      />
       <section className="">
         {/* classNames - Home Purchase */}
         <Banner
@@ -76,7 +78,7 @@ const HomeFinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
         />
 
-        <PurchaseProcessBlock sectionData={dataSplit} />
+        <PurchaseProcessBlock sectionData={dataSplit} showModal={showModal} />
 
         {/* className - orange */}
         <RefiBenefits

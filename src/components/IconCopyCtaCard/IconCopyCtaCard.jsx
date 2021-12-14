@@ -8,6 +8,12 @@ const IconCopyCtaCard = (data) => {
   let image;
   image = getImage(data?.cardData?.image?.gatsbyImageData);
 
+   const showCalculator = (e) => {
+     if(data?.indexValue !== 0) {
+      data.showModalText('purchase');
+     }
+  }
+
     return (
       <div className={`${styles.IconCopyCtaCard}`}>
         <div className="IconCopyCtaCard__top">
@@ -21,7 +27,7 @@ const IconCopyCtaCard = (data) => {
         <p className="IconCopyCtaCardCopy">
         {data?.cardData?.subTitle}
         </p>
-        <div className="IconCopyCtaCard__bottom" >
+        <div className="IconCopyCtaCard__bottom" onClick={showCalculator} >
           {/* ClassName - IconCopyCtaCard */}
           <CtaBig className="IconCopyCtaCard" ctaText={data?.cardData?.ctaText} ctaUrl={data?.cardData?.ctaUrl} indexValue={data?.indexValue} />
         </div>
