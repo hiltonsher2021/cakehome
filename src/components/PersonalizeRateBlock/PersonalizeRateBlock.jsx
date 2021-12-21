@@ -41,6 +41,11 @@ const PersonalizeRateBlock = (data) => {
 
   const closeModal = (e) => {
     data.closeModal()
+    setUrlValue('')
+    setZipCode('')
+    setCashOut([0])
+    setCurrentLoanBal([0])
+    setPropertyValue([0])
   }
 
   const setUrl = () => {
@@ -315,6 +320,7 @@ const PersonalizeRateBlock = (data) => {
                         )
                       }}
                     />
+
                   </div>
                 </div>
                 <div className="CakeFieldWrap">
@@ -373,6 +379,9 @@ const PersonalizeRateBlock = (data) => {
                       }}
                     />
                   </div>
+
+
+
                 </div>
               </div>
               {data.classname === 'refinance' && (
@@ -431,12 +440,17 @@ const PersonalizeRateBlock = (data) => {
                     </div>
                   </div>
                 )}
+                { (propertyValue[0] < currentLoanBal[0]) && <label> *{data.classname === 'refinance'
+                      ? 'Property Value'
+                      : 'Purchase Price'} can not be lesser than {data.classname === 'refinance'
+                      ? 'Current Loan Balance'
+                      : 'Down Payment'}</label>}
                 <a
                   className={`btn dark ${
                     zipCode !== '' &&
                     propertyValue > [0] &&
-                    propertyValue > [0] &&
                     currentLoanBal > [0] &&
+                    (propertyValue[0] > currentLoanBal[0]) &&
                     (creditRating !== '' &&  creditRating !== 'Choose Credit rating') &&
                     (propertyType !== '' && propertyType !== 'ChoosePropertyType') &&
                     (propertyUse !== '' && propertyUse !== 'ChoosePropertyUse')
