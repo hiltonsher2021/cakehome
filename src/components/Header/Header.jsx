@@ -1,28 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react'
-import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types'
 import * as styles from './Header.module.scss'
 import CtaCallUs from '../CtaCallUs/CtaCallUs'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import sectionModel from 'models/Section'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { closeChatWidget, maximizeChatWidget } from '../../utils/utils';
+import { closeChatWidget, maximizeChatWidget } from '../../utils/utils'
 // import { Location } from '@reach/router';
 import { Link } from 'gatsby'
 
-
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 const propTypes = {
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 }
 
 const Header = ({ data }) => {
-  let pathnameUrl = '';
+  let pathnameUrl = ''
   const closeWidget = () => {
     closeChatWidget()
   }
   if (isBrowser) {
-    pathnameUrl = location?.pathname;
+    pathnameUrl = location?.pathname
   }
   const layoutData = data
   let modeledData
@@ -64,35 +63,48 @@ const Header = ({ data }) => {
   }
 
   const openChatWidget = (e) => {
-    maximizeChatWidget();
+    maximizeChatWidget()
     var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
+      if (typeof url != 'undefined') {
+        window.location = url
       }
-      };
-      gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
+    }
+    gtag('event', 'conversion', {
+      send_to: 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+      event_callback: callback,
+    })
+    return false
   }
 
   return (
     <header className={styles.header}>
       <div className="header-wrapper">
         <div className="header-top-mob">
-          <a href="tel:+8778182253" className="icon-btn">
-            <img src="/images/support-icon.svg" alt="support-icon" />
-            Call Us
-          </a>
-          <a
-            className="icon-btn"
-          >
-            <div onClick={(e) => openChatWidget(e)}>
-            <img src="/images/chat-with-us-icon.svg" alt="chat-with-us-icon" />
-            Chat with Us
-            </div>
+          {modeledData?.section?.map((menu, index) => {
+            if (menu?.label === 'Call Us') {
+              return (
+                <>
+                  <a
+                    href={'tel:+' + menu?.url}
+                    className="icon-btn"
+                    key={index}
+                  >
+                    <img src="/images/support-icon.svg" alt="support-icon" />
+                    Call Us
+                  </a>
+                </>
+              )
+            }
+          })}
 
+          <a className="icon-btn">
+            <div onClick={(e) => openChatWidget(e)}>
+              <img
+                src="/images/chat-with-us-icon.svg"
+                alt="chat-with-us-icon"
+              />
+              Chat with Us
+            </div>
           </a>
           <a href="http://apply.cakehome.com/" className="icon-btn">
             <img src="/images/user-account-icon.svg" alt="user-account-icon" />
@@ -111,10 +123,7 @@ const Header = ({ data }) => {
         </div>
         <div className="right-menu">
           <div className="menu-links">
-            <button
-              className="menu-hamburger"
-              onClick={handleNavbarToggle}
-            >
+            <button className="menu-hamburger" onClick={handleNavbarToggle}>
               <img src="/images/hamburger-menu.svg" alt="hamburger-menu" />
             </button>
             <div className="mobile-menu-overlay" id="navbar-overlay"></div>
@@ -130,7 +139,12 @@ const Header = ({ data }) => {
                   if (menu?.type[0] === 'Link') {
                     if (menu?.handle[0] === 'sub-menu') {
                       return (
-                        <li className={`has-sub-menu ${(pathnameUrl?.includes(menu?.url)) ? 'active' : ''}`} key={index} >
+                        <li
+                          className={`has-sub-menu ${
+                            pathnameUrl?.includes(menu?.url) ? 'active' : ''
+                          }`}
+                          key={index}
+                        >
                           <Link
                             key={index}
                             title={`${menu?.label}`}
@@ -161,7 +175,11 @@ const Header = ({ data }) => {
                       )
                     } else {
                       return (
-                        <li className={`${(pathnameUrl?.includes(menu?.url)) ? 'active' : ''}`}>
+                        <li
+                          className={`${
+                            pathnameUrl?.includes(menu?.url) ? 'active' : ''
+                          }`}
+                        >
                           <AnchorLink
                             className={`menu-item`}
                             key={index}
@@ -188,14 +206,21 @@ const Header = ({ data }) => {
                     className="btn green green--border small chat-with-us-dektp"
                     key={index}
                   >
-
-                    <div className="icon-wrapper" onClick={(e) => openChatWidget(e)} key={index}>
+                    <div
+                      className="icon-wrapper"
+                      onClick={(e) => openChatWidget(e)}
+                      key={index}
+                    >
                       <figure>
                         <img src="/images/chat-icon-big.svg" alt="icon" />
-
                       </figure>
                     </div>
-                    <div className="text-wrapper" onClick={(e) => openChatWidget(e)}>{menu?.label}</div>
+                    <div
+                      className="text-wrapper"
+                      onClick={(e) => openChatWidget(e)}
+                    >
+                      {menu?.label}
+                    </div>
                   </AnchorLink>
                 )
               }

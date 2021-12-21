@@ -139,6 +139,7 @@ export const query = graphql`
               id
               ctaText
               ctaUrl
+              number
               footerText
               title
               subTitle

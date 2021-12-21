@@ -102,8 +102,7 @@ const Footer = ({ data }) => {
                         return (
                           <li key={index}>
                             <a
-                              title={menuItem?.label}
-                              href="tel:+8778182253"
+                              href={'tel:+' + menuItem?.url}
                             >{menuItem?.label}</a>
                           </li>
                         )
