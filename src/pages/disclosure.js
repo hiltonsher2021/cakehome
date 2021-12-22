@@ -3,6 +3,7 @@ import Layout from 'components/layout/Main/MainLayout'
 import SEO from 'components/seo'
 import { graphql } from 'gatsby'
 import * as PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const propTypes = {
   data: PropTypes.object,
@@ -16,20 +17,6 @@ const Disclosure = ({ data }) => {
         <div className="container">
           <div className="title-section">
             <h1>Disclosure</h1>
-            <h4>
-              {' '}
-              <a
-                target="_blank"
-                href={'https:' + data?.contentfulAsset?.file?.url}
-              >
-                $1,000 Piece of Cake Price Reward{' '}
-              </a>{' '}
-            </h4>
-            <h4>
-              In accordance with state and federal regulations, the following
-              disclosure and licensing information is available for you to
-              review online:
-            </h4>
           </div>
 
           <div className="content-section">
@@ -48,8 +35,8 @@ const Disclosure = ({ data }) => {
             <h2>Loan Assumptions </h2>
             <h3>Purchase Money Loans</h3>
             <p>
-              On Loan Amount up to $548,250 <br />
-              15 Year Fixed - First Mortgage Cake <br />
+              <p>On Loan Amount up to $548,250 </p>
+              <p>15 Year Fixed - First Mortgage Cake </p>
               Mortgage Corp., d/b.a Millennial Home Lending (“Cake Mortgage”) is
               licensed by the Department of Financial Protection and Innovation
               under the California Residential Mortgage Lending Act.
@@ -66,13 +53,13 @@ const Disclosure = ({ data }) => {
               higher. Offer requires use of Lenders Choice escrow and title
               services. Not all applicants will be approved. Advertised rate and
               APR are subject to change without notice. Subject to underwriting
-              approval.{' '}
+              approval.
             </p>
 
             <h2>Refinance Loans </h2>
             <p>
-              On Loan Amount up to $548,250 <br />
-              15 & 27 & 30 Year Fixed - First Mortgage <br />
+              <p>On Loan Amount up to $548,250 </p>
+              <p>15 & 27 & 30 Year Fixed - First Mortgage</p>
               Cake Mortgage is licensed by the Department of Financial
               Protection and Innovation under the California Residential
               Mortgage Lending Act. NMLS#1734623. Disclosed rate assumes a rate
@@ -91,11 +78,10 @@ const Disclosure = ({ data }) => {
               higher over the life of the loan. Subject to underwriting
               approval.
               <br />
-              Click here to see monthly payment
+              On Loan Amount over $548,250, up to $822,375 15 & 30 Year Fixed -
+              First Mortgage
             </p>
             <p>
-              On Loan Amount over $548,250, up to $822,375 <br />
-              15 & 30 Year Fixed - First Mortgage <br />
               Cake Mortgage is licensed by the Department of Financial
               Protection and Innovation under the California Residential
               Mortgage Lending Act. NMLS#1734623. Disclosed rate assumes a rate
@@ -115,8 +101,8 @@ const Disclosure = ({ data }) => {
               approval.
             </p>
             <p>
-              On Loan Amount up to $2,000,000 <br />
-              30 Year Fixed - First Mortgage - Jumbo Loan <br />
+              <p>On Loan Amount up to $2,000,000 </p>
+              <p>30 Year Fixed - First Mortgage - Jumbo Loan </p>
               Cake Mortgage is licensed by the Department of Financial
               Protection and Innovation under the California Residential
               Mortgage Lending Act. NMLS#1734623. Disclosed rate assumes a rate
@@ -144,8 +130,13 @@ const Disclosure = ({ data }) => {
               interest, property taxes, state mortgage/transfer taxes, all types
               of insurance, existing lender payoff fees, survey fees, inspection
               fees and discount points (if Borrower chooses to pay discount
-              points to buy down the inter---est rate). Minimum loan amount is
+              points to buy down the interest rate). Minimum loan amount is
               $300,000.
+              <p>
+                Current advertising promotion disclosure <u><Link to="/conditions-and-disclosures" title="click here">
+                  click here
+                </Link></u>
+              </p>
             </p>
             <h2>Equal Housing Lender</h2>
             <p>
@@ -274,7 +265,7 @@ const Disclosure = ({ data }) => {
               this means for you: When you apply for and/or obtain a mortgage
               loan, we will ask for your name, address, date of birth, and other
               information that will allow us to identify you. We may also ask to
-              see your driver's license or other id.{' '}
+              see your driver's license or other id.
             </p>
           </div>
         </div>
