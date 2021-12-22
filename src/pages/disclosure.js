@@ -77,10 +77,10 @@ const Disclosure = ({ data }) => {
               refinancing the existing loan, the total finance charges may be
               higher over the life of the loan. Subject to underwriting
               approval.
-              <br />
-              On Loan Amount over $548,250, up to $822,375 15 & 30 Year Fixed -
-              First Mortgage
+
             </p>
+            <p>On Loan Amount over $548,250, up to $822,375 15 & 30 Year Fixed -
+              First Mortgage</p>
             <p>
               Cake Mortgage is licensed by the Department of Financial
               Protection and Innovation under the California Residential
@@ -120,7 +120,7 @@ const Disclosure = ({ data }) => {
               the life of the loan. Subject to underwriting approval.{' '}
             </p>
             <p>
-              No Closing Costs (if applicable) <br />
+              <p>No Closing Costs (if applicable) </p>
               Are available on rate/term and limited cash out refinance
               transactions only. Cake Mortgage will pay the following third
               party closing costs on behalf of the Borrower: appraisal fees,
@@ -132,12 +132,13 @@ const Disclosure = ({ data }) => {
               fees and discount points (if Borrower chooses to pay discount
               points to buy down the interest rate). Minimum loan amount is
               $300,000.
-              <p>
+
+            </p>
+            <p>
                 Current advertising promotion disclosure <u><Link to="/conditions-and-disclosures" title="click here">
                   click here
                 </Link></u>
               </p>
-            </p>
             <h2>Equal Housing Lender</h2>
             <p>
               We conduct business in accordance with the Federal Fair Housing
