@@ -241,7 +241,7 @@ const PersonalizeRateBlock = (data) => {
                     </option>
                     <option
                       name="Detached Condominium"
-                      value="Detached Condominium"
+                      value="DetachedCondominium"
                     >
                       Detached Condominium
                     </option>
@@ -268,7 +268,7 @@ const PersonalizeRateBlock = (data) => {
                       Primary Residence
                     </option>
                     <option
-                      value="Secondary Vacation Home"
+                      value="SecondaryVacationHome"
                       name="Secondary Vacation Home"
                     >
                       Secondary Vacation Home
