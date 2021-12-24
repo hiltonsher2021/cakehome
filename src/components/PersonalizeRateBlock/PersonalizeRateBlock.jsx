@@ -65,8 +65,8 @@ const PersonalizeRateBlock = (data) => {
       '&propertyUse=' +
       propertyUse +
       '&propertyType=' +
-      propertyType +
-      '&isAutoClick=1&target=_blank'
+      propertyType
+      // + '&isAutoClick=1&target=_blank'
     setUrlValue(url);
   }
 
@@ -91,6 +91,7 @@ const PersonalizeRateBlock = (data) => {
     cashOut,
     currentLoanBal,
     propertyValue,
+    zipCode,
     urlValue
   ])
 
