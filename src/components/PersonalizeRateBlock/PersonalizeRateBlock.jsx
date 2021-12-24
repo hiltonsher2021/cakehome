@@ -40,12 +40,19 @@ const PersonalizeRateBlock = (data) => {
   let url = '';
 
   const closeModal = (e) => {
-    data.closeModal()
+    data.closeModal();
+    resetFormValues();
+  }
+
+  const resetFormValues = () => {
     setUrlValue('')
     setZipCode('')
     setCashOut([0])
     setCurrentLoanBal([0])
     setPropertyValue([0])
+    setPropertyUse('PrimaryResidence')
+    setPropertyType('SingleFamilyHome')
+    setCreditRating('780')
   }
 
   const setUrl = () => {
@@ -115,8 +122,9 @@ const PersonalizeRateBlock = (data) => {
     setPropertyType(propertyType)
     setUrl()
   }
-  const handleChangeCreditRating = (data) => {
-    setCreditRating(data)
+  const handleChangeCreditRating = (event) => {
+    event.preventDefault();
+    setCreditRating(event.target.value)
     setUrl()
   }
   const handleChangePropertyUse = (data) => {
@@ -176,7 +184,8 @@ const PersonalizeRateBlock = (data) => {
                   <label htmlFor="">Your credit rating</label>
                   <select
                     defaultValue="740+(Excellent)"
-                    onChange={(e) => handleChangeCreditRating(e.target.value)}
+                    value={creditRating}
+                    onChange={(e) => handleChangeCreditRating(e)}
                   >
                     {/* <option>Choose Credit rating</option> */}
                     <option value="780" name="740+(Excellent)">
@@ -217,6 +226,7 @@ const PersonalizeRateBlock = (data) => {
                   <label htmlFor="">Property Type</label>
                   <select
                     defaultValue="Single Family Home"
+                    value={propertyType}
                     onChange={(e) => handleChange(e.target.value)}
                   >
                     {/* <option>Choose Property Type</option> */}
@@ -250,6 +260,7 @@ const PersonalizeRateBlock = (data) => {
                   <label htmlFor="">Property Use</label>
                   <select
                     defaultValue="Primary Residence"
+                    value={propertyUse}
                     onChange={(e) => handleChangePropertyUse(e.target.value)}
                   >
                     {/* <option>Choose Property Use</option> */}
