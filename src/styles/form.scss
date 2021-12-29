@@ -135,20 +135,20 @@
         left: rem(15);
         top: rem(-8);
       }
-      @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (   min--moz-device-pixel-ratio: 2),
-      only screen and (     -o-min-device-pixel-ratio: 2/1),
-      only screen and (        min-device-pixel-ratio: 2),
-      only screen and (                min-resolution: 192dpi),
-      only screen and (                min-resolution: 2dppx) {
+      // @media
+      // only screen and (-webkit-min-device-pixel-ratio: 2),
+      // only screen and (   min--moz-device-pixel-ratio: 2),
+      // only screen and (     -o-min-device-pixel-ratio: 2/1),
+      // only screen and (        min-device-pixel-ratio: 2),
+      // only screen and (                min-resolution: 192dpi),
+      // only screen and (                min-resolution: 2dppx) {
 
-        /* Retina-specific stuff here */
-        top: 1px;
-        @media #{$lg} {
-          top: rem(-8);
-        }
-      }
+      //   /* Retina-specific stuff here */
+      //   top: 1px;
+      //   @media #{$lg} {
+      //     top: rem(-8);
+      //   }
+      // }
     }
     input {
       text-indent: rem(11);
@@ -181,6 +181,18 @@
       left: 50%;
       top: 100%;
       transform: translateX(-50%);
+    }
+  }
+}
+.cakeIOS {
+  .CakeFormWrap {
+    .input--dollar-wrap {
+      &::after {
+        top: 1px;
+        @media #{$lg} {
+          top: rem(-8);
+        }
+      }
     }
   }
 }

@@ -202,12 +202,27 @@ gtag('config', 'AW-793052739/NP40CKTRq4cDEMOMlPoC', {
         />
 
         {/* <!-- End Google Tag Manager (noscript) --> */}
+
         <div
           key={`body`}
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            const getMobileOS = () => {
+              const ua = navigator.userAgent
+              if (/iPad|iPhone|iPod/.test(ua)){
+                var body = document.body;
+                body.classList.add("cakeIOS");
+              }
+            }
+            getMobileOS()`,
+          }}
+        />
       </body>
     </html>
   )
