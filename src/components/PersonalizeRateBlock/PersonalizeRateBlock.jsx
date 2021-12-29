@@ -259,21 +259,21 @@ const PersonalizeRateBlock = (data) => {
                 <div className="CakeFieldWrap">
                   <label htmlFor="">Property Use</label>
                   <select
-                    defaultValue="Primary Residence"
+                    defaultValue="PrimaryResidence"
                     value={propertyUse}
                     onChange={(e) => handleChangePropertyUse(e.target.value)}
                   >
                     {/* <option>Choose Property Use</option> */}
-                    <option value="Primary Residence" name="Primary Residence">
+                    <option value="PrimaryResidence" name="Primary Residence">
                       Primary Residence
                     </option>
                     <option
-                      value="SecondaryVacationHome"
+                      value="SecondHome"
                       name="Secondary Vacation Home"
                     >
                       Secondary Vacation Home
                     </option>
-                    <option value="InvestmentRental" name="InvestmentRental">
+                    <option value="Investor" name="InvestmentRental">
                       Investment Rental
                     </option>
                   </select>
