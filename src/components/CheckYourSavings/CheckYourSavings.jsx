@@ -24,11 +24,28 @@ const CheckYourSavings = (data) => {
   const [yearCounter, setYearCounter] = useState(0)
   const [differenceNum, setDifferenceNum] = useState(0)
   const [showCustomCalculator, setShowCustomCalculator] = useState(false)
+  const [newRangeValue, setNewRangeValue] = useState(0)
+
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
 
-  const rangeValueChange = (value) => {
-    setRangeValue(value)
+  const rangeValueChange = (value, isInputValueChange) => {
+    let numConv
+    var testVal = value[0] || value
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
+      setNewRangeValue(test)
+      setRangeValue([numConv])
+    } else {
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
+      setNewRangeValue(test)
+      setRangeValue(value)
+
+    }
   }
 
   useEffect(() => {}, [showCustomCalculator, gif_src, values])
@@ -85,7 +102,7 @@ const CheckYourSavings = (data) => {
       'event_callback': callback
       });
       return false;
-      
+
       // end of Google tag tracking
 
   }
@@ -288,10 +305,10 @@ const CheckYourSavings = (data) => {
                       <span className="input--dollar-wrap">
                         <input
                           type="text"
-                          value={values}
+                          value={newRangeValue}
                           max="2000000"
                           placeholder="0"
-                          onChange={(e) => setRangeValue([e.target.value])}
+                          onChange={(e) => rangeValueChange([e.target.value], true)}
                         />
                       </span>
 
