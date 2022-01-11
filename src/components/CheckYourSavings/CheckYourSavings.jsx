@@ -29,12 +29,27 @@ const CheckYourSavings = (data) => {
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
 
-  const rangeValueChange = (value, isInputValueChange) => {
+    function onlyNumberKey(evt) {
+      // Only ASCII character in that range allowed
+      var ASCIICode = evt.which ? evt.which : evt.keyCode
+      if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+        return false
+      } else {
+        return true
+      }
+    }
+
+  const rangeValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
     let numConv
     var testVal = value[0] || value
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
+      if (numConv >= 2000000) {
+        event.preventDefault()
+        return
+      }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
       setNewRangeValue(test)
@@ -308,7 +323,7 @@ const CheckYourSavings = (data) => {
                           value={newRangeValue}
                           max="2000000"
                           placeholder="0"
-                          onChange={(e) => rangeValueChange([e.target.value], true)}
+                          onChange={(e) => rangeValueChange([e.target.value], true, e)}
                         />
                       </span>
 
@@ -318,7 +333,7 @@ const CheckYourSavings = (data) => {
                           min={0}
                           max={2000000}
                           values={values}
-                          onChange={(e) => rangeValueChange(e)}
+                          onChange={(e) => rangeValueChange(e, false, e)}
                           renderTrack={({ props, children }) => (
                             <div
                               className="custom-range__track"

@@ -80,12 +80,28 @@ const PersonalizeRateBlock = (data) => {
     setUrlValue(url)
   }
 
-  const rangeValueChange = (value, isInputValueChange) => {
+  function onlyNumberKey(evt) {
+    // Only ASCII character in that range allowed
+    var ASCIICode = evt.which ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const rangeValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
     let numConv
     var testVal = value[0] || value
+
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
+      if (numConv >= 2000000) {
+        event.preventDefault()
+        return
+      }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
       setNewNum(test)
@@ -97,13 +113,20 @@ const PersonalizeRateBlock = (data) => {
       setPropertyValue(value)
     }
     setUrl()
+    // }
   }
-  const cashOutValueChange = (value, isInputValueChange) => {
+  const cashOutValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
+
     let numConv
     var testVal = value[0] || value
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
+      if (numConv >= 1000000) {
+        event.preventDefault()
+        return
+      }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
       setNewCurrentCashout(test)
@@ -114,16 +137,19 @@ const PersonalizeRateBlock = (data) => {
       setNewCurrentCashout(test)
       setCashOut(value)
     }
-
-    setCashOut(value)
     setUrl()
   }
-  const currentLoanValueChange = (value, isInputValueChange) => {
+  const currentLoanValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
     let numConv
     var testVal = value[0] || value
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
+      if (numConv >= 2000000) {
+        event.preventDefault()
+        return
+      }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
       setCurrentLoanBalance(test)
@@ -333,7 +359,9 @@ const PersonalizeRateBlock = (data) => {
                     <input
                       type="text"
                       value={newNum}
-                      onChange={(e) => rangeValueChange([e.target.value], true)}
+                      onChange={(e) =>
+                        rangeValueChange([e.target.value], true, e)
+                      }
                     />
                   </span>
                   {/* <input type="range" /> */}
@@ -343,7 +371,7 @@ const PersonalizeRateBlock = (data) => {
                       min={0}
                       max={2000000}
                       values={propertyValue}
-                      onChange={(e) => rangeValueChange(e)}
+                      onChange={(e) => rangeValueChange(e, false, e)}
                       renderTrack={({ props, children }) => (
                         <div
                           className="custom-range__track"
@@ -391,7 +419,7 @@ const PersonalizeRateBlock = (data) => {
                       type="text"
                       value={newCurrentLoanBal}
                       onChange={(e) =>
-                        currentLoanValueChange([e.target.value], true)
+                        currentLoanValueChange([e.target.value], true, e)
                       }
                     />
                   </span>
@@ -402,7 +430,7 @@ const PersonalizeRateBlock = (data) => {
                       min={0}
                       max={2000000}
                       values={currentLoanBal}
-                      onChange={(e) => currentLoanValueChange(e)}
+                      onChange={(e) => currentLoanValueChange(e, false, e)}
                       renderTrack={({ props, children }) => (
                         <div
                           className="custom-range__track"
@@ -451,7 +479,7 @@ const PersonalizeRateBlock = (data) => {
                         type="text"
                         value={newCurrentCashout}
                         onChange={(e) =>
-                          cashOutValueChange([e.target.value], true)
+                          cashOutValueChange([e.target.value], true, e)
                         }
                       />
                     </span>
@@ -462,7 +490,7 @@ const PersonalizeRateBlock = (data) => {
                         min={0}
                         max={1000000}
                         values={cashOut}
-                        onChange={(e) => cashOutValueChange(e)}
+                        onChange={(e) => cashOutValueChange(e, false, e)}
                         renderTrack={({ props, children }) => (
                           <div
                             className="custom-range__track"
