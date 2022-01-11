@@ -9,7 +9,7 @@ const PersonalizeRateBlock = (data) => {
   let modeledData = []
   let filterData = []
   let dataContent = []
-  let image;
+  let image
 
   if (data) {
     filterData = bannerDetails?.filter((item) => {
@@ -33,15 +33,18 @@ const PersonalizeRateBlock = (data) => {
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
   const [propertyValue, setPropertyValue] = useState([0])
+  const [newNum, setNewNum] = useState(0)
+  const [newCurrentLoanBal, setCurrentLoanBalance] = useState(0)
+  const [newCurrentCashout, setNewCurrentCashout] = useState(0)
   const [currentLoanBal, setCurrentLoanBal] = useState([0])
   const [cashOut, setCashOut] = useState([0])
   const [zipCode, setZipCode] = useState('')
   const [urlValue, setUrlValue] = useState('')
-  let url = '';
+  let url = ''
 
   const closeModal = (e) => {
-    data.closeModal();
-    resetFormValues();
+    data.closeModal()
+    resetFormValues()
   }
 
   const resetFormValues = () => {
@@ -73,20 +76,65 @@ const PersonalizeRateBlock = (data) => {
       propertyUse +
       '&propertyType=' +
       propertyType
-      // + '&isAutoClick=1&target=_blank'
-    setUrlValue(url);
+    // + '&isAutoClick=1&target=_blank'
+    setUrlValue(url)
   }
 
-  const rangeValueChange = (value) => {
-    setPropertyValue(value)
+  const rangeValueChange = (value, isInputValueChange) => {
+    let numConv
+    var testVal = value[0] || value
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
+      setNewNum(test)
+      setPropertyValue([numConv])
+    } else {
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
+      setNewNum(test)
+      setPropertyValue(value)
+    }
     setUrl()
   }
-  const cashOutValueChange = (value) => {
+  const cashOutValueChange = (value, isInputValueChange) => {
+    let numConv
+    var testVal = value[0] || value
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
+      setNewCurrentCashout(test)
+      setCashOut([numConv])
+    } else {
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
+      setNewCurrentCashout(test)
+      setCashOut(value)
+    }
+
     setCashOut(value)
     setUrl()
   }
-  const currentLoanValueChange = (value) => {
-    setCurrentLoanBal(value)
+  const currentLoanValueChange = (value, isInputValueChange) => {
+    let numConv
+    var testVal = value[0] || value
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
+      setCurrentLoanBalance(test)
+      setCurrentLoanBal([numConv])
+    } else {
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
+      setCurrentLoanBalance(test)
+      setCurrentLoanBal(value)
+    }
+    // setCurrentLoanBal(value)
     setUrl()
   }
   useEffect(() => {
@@ -99,7 +147,7 @@ const PersonalizeRateBlock = (data) => {
     currentLoanBal,
     propertyValue,
     zipCode,
-    urlValue
+    urlValue,
   ])
 
   // const handleSubmit = async (event) => {
@@ -123,7 +171,7 @@ const PersonalizeRateBlock = (data) => {
     setUrl()
   }
   const handleChangeCreditRating = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     setCreditRating(event.target.value)
     setUrl()
   }
@@ -267,10 +315,7 @@ const PersonalizeRateBlock = (data) => {
                     <option value="PrimaryResidence" name="Primary Residence">
                       Primary Residence
                     </option>
-                    <option
-                      value="SecondHome"
-                      name="Secondary Vacation Home"
-                    >
+                    <option value="SecondHome" name="Secondary Vacation Home">
                       Secondary Vacation Home
                     </option>
                     <option value="Investor" name="InvestmentRental">
@@ -287,8 +332,8 @@ const PersonalizeRateBlock = (data) => {
                   <span className="input--dollar-wrap">
                     <input
                       type="text"
-                      value={propertyValue}
-                      onChange={(e) => rangeValueChange([e.target.value])}
+                      value={newNum}
+                      onChange={(e) => rangeValueChange([e.target.value], true)}
                     />
                   </span>
                   {/* <input type="range" /> */}
@@ -332,7 +377,6 @@ const PersonalizeRateBlock = (data) => {
                         )
                       }}
                     />
-
                   </div>
                 </div>
                 <div className="CakeFieldWrap">
@@ -345,8 +389,10 @@ const PersonalizeRateBlock = (data) => {
                   <span className="input--dollar-wrap">
                     <input
                       type="text"
-                      value={currentLoanBal}
-                      onChange={(e) => currentLoanValueChange([e.target.value])}
+                      value={newCurrentLoanBal}
+                      onChange={(e) =>
+                        currentLoanValueChange([e.target.value], true)
+                      }
                     />
                   </span>
                   {/* <input type="range" /> */}
@@ -391,9 +437,6 @@ const PersonalizeRateBlock = (data) => {
                       }}
                     />
                   </div>
-
-
-
                 </div>
               </div>
               {data.classname === 'refinance' && (
@@ -406,8 +449,10 @@ const PersonalizeRateBlock = (data) => {
                     <span className="input--dollar-wrap">
                       <input
                         type="text"
-                        value={cashOut}
-                        onChange={(e) => cashOutValueChange([e.target.value])}
+                        value={newCurrentCashout}
+                        onChange={(e) =>
+                          cashOutValueChange([e.target.value], true)
+                        }
                       />
                     </span>
                     {/* <input type="range" /> */}
@@ -452,20 +497,31 @@ const PersonalizeRateBlock = (data) => {
                     </div>
                   </div>
                 )}
-                { (propertyValue[0] < currentLoanBal[0]) && <label> *{data.classname === 'refinance'
+                {propertyValue[0] < currentLoanBal[0] && (
+                  <label>
+                    {' '}
+                    *
+                    {data.classname === 'refinance'
                       ? 'Property Value'
-                      : 'Purchase Price'} can not be lesser than {data.classname === 'refinance'
+                      : 'Purchase Price'}{' '}
+                    can not be lesser than{' '}
+                    {data.classname === 'refinance'
                       ? 'Current Loan Balance'
-                      : 'Down Payment'}</label>}
+                      : 'Down Payment'}
+                  </label>
+                )}
                 <a
                   className={`btn dark ${
                     zipCode !== '' &&
                     propertyValue > [0] &&
                     currentLoanBal > [0] &&
-                    (propertyValue[0] > currentLoanBal[0]) &&
-                    (creditRating !== '' &&  creditRating !== 'Choose Credit rating') &&
-                    (propertyType !== '' && propertyType !== 'ChoosePropertyType') &&
-                    (propertyUse !== '' && propertyUse !== 'ChoosePropertyUse')
+                    propertyValue[0] > currentLoanBal[0] &&
+                    creditRating !== '' &&
+                    creditRating !== 'Choose Credit rating' &&
+                    propertyType !== '' &&
+                    propertyType !== 'ChoosePropertyType' &&
+                    propertyUse !== '' &&
+                    propertyUse !== 'ChoosePropertyUse'
                       ? ''
                       : 'dis-btn'
                   }`}
