@@ -46,7 +46,7 @@ const CheckYourSavings = (data) => {
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
-      if (numConv >= 2000000) {
+      if (numConv > 2000000) {
         event.preventDefault()
         return
       }
