@@ -207,13 +207,13 @@ const PersonalizeRateBlock = (data) => {
     setUrl()
   }
 
-  function sendFormData() {
-    fetch(url)
-      .then((response) => {})
-      .catch((error) => {
-        console.error('There was an error!', error)
-      })
-  }
+  // function sendFormData() {
+  //   fetch(url)
+  //     .then((response) => {})
+  //     .catch((error) => {
+  //       console.error('There was an error!', error)
+  //     })
+  // }
 
   return (
     // for purchase block add class - "purchase"
@@ -291,10 +291,10 @@ const PersonalizeRateBlock = (data) => {
                 <div className="CakeFieldWrap">
                   <label htmlFor="">Property ZIP code</label>
                   <input
-                    type="number"
-                    max="6"
+                    type="text"
+                    maxlength="5"
                     value={zipCode}
-                    onChange={(e) => setZipCode(e.target.value)}
+                    onChange={(e) => setZipCode(e.target.value.replace(/[^\d.]/ig, ""))}
                   />
                 </div>
                 <div className="CakeFieldWrap">
