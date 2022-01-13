@@ -291,7 +291,8 @@ const PersonalizeRateBlock = (data) => {
                 <div className="CakeFieldWrap">
                   <label htmlFor="">Property ZIP code</label>
                   <input
-                    type="text"
+                    type="number"
+                    max="6"
                     value={zipCode}
                     onChange={(e) => setZipCode(e.target.value)}
                   />
@@ -465,6 +466,27 @@ const PersonalizeRateBlock = (data) => {
                       }}
                     />
                   </div>
+                  {propertyValue[0] < currentLoanBal[0] ? (
+                    <label>
+                      {' '}
+                      {data.classname === 'refinance'
+                        ? '*Current loan balance'
+                        : '*Down payment'}{' '}
+                      cannot be greater than{' '}
+                      {data.classname === 'refinance'
+                        ? 'estimated property value'
+                        : 'purchase price'}
+                    </label>
+                  ) : propertyValue[0] * (3 / 100) > currentLoanBal[0] ? (
+                    <label>
+                      {' '}
+                      {data.classname === 'refinance'
+                        ? '*Down payment must be at least 3% of purchase price, i.e. minimum $'
+                        : ''}{' '}
+                    </label>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
               {data.classname === 'refinance' && (
@@ -525,19 +547,15 @@ const PersonalizeRateBlock = (data) => {
                     </div>
                   </div>
                 )}
-                {propertyValue[0] < currentLoanBal[0] && (
+                {propertyValue[0] < currentLoanBal[0] + cashOut[0] && (
                   <label>
                     {' '}
-                    *
                     {data.classname === 'refinance'
-                      ? 'Property Value'
-                      : 'Purchase Price'}{' '}
-                    can not be lesser than{' '}
-                    {data.classname === 'refinance'
-                      ? 'Current Loan Balance'
-                      : 'Down Payment'}
+                      ? '*Combined current loan balance AND cash out amount cannot be greater than estimated property value.'
+                      : ''}
                   </label>
                 )}
+
                 <a
                   className={`btn dark ${
                     zipCode !== '' &&
@@ -552,7 +570,16 @@ const PersonalizeRateBlock = (data) => {
                     propertyUse !== 'ChoosePropertyUse'
                       ? ''
                       : 'dis-btn'
-                  }`}
+                  }
+                  ${
+                    data.classname === 'refinance'
+                      ? propertyValue[0] < currentLoanBal[0] + cashOut[0] ||
+                        propertyValue[0] * (3 / 100) > currentLoanBal[0]
+                        ? 'dis-btn'
+                        : ''
+                      : ''
+                  }
+                  `}
                   href={urlValue}
                   target="_blank"
                 >
