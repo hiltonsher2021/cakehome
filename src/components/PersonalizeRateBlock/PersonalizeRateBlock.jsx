@@ -56,6 +56,9 @@ const PersonalizeRateBlock = (data) => {
     setPropertyUse('PrimaryResidence')
     setPropertyType('SingleFamilyHome')
     setCreditRating('780')
+    setNewNum(0)
+    setCurrentLoanBalance(0)
+    setNewCurrentCashout(0)
   }
 
   const setUrl = () => {
@@ -466,7 +469,7 @@ const PersonalizeRateBlock = (data) => {
                       }}
                     />
                   </div>
-                  {propertyValue[0] < currentLoanBal[0] ? (
+                  {(propertyValue[0] <= currentLoanBal[0] && currentLoanBal[0] !== 0) ? (
                     <label>
                       {' '}
                       {data.classname === 'refinance'
@@ -480,7 +483,7 @@ const PersonalizeRateBlock = (data) => {
                   ) : propertyValue[0] * (3 / 100) > currentLoanBal[0] ? (
                     <label>
                       {' '}
-                      {data.classname === 'refinance'
+                      {data.classname !== 'refinance'
                         ? '*Down payment must be at least 3% of purchase price, i.e. minimum $'
                         : ''}{' '}
                     </label>
@@ -555,12 +558,19 @@ const PersonalizeRateBlock = (data) => {
                       : ''}
                   </label>
                 )}
+                {(currentLoanBal[0] === 0 && cashOut[0] === 0) && (
+                  <label>
+                    {' '}
+                    {data.classname === 'refinance'
+                      ? '*If you have no current loan balance, you must have a cash out amount.'
+                      : ''}
+                  </label>
+                )}
 
                 <a
                   className={`btn dark ${
                     zipCode !== '' &&
                     propertyValue > [0] &&
-                    currentLoanBal > [0] &&
                     propertyValue[0] > currentLoanBal[0] &&
                     creditRating !== '' &&
                     creditRating !== 'Choose Credit rating' &&
@@ -573,11 +583,10 @@ const PersonalizeRateBlock = (data) => {
                   }
                   ${
                     data.classname === 'refinance'
-                      ? propertyValue[0] < currentLoanBal[0] + cashOut[0] ||
-                        propertyValue[0] * (3 / 100) > currentLoanBal[0]
+                      ? propertyValue[0] < currentLoanBal[0] + cashOut[0] || (currentLoanBal[0] === 0 && cashOut[0] === 0)
                         ? 'dis-btn'
                         : ''
-                      : ''
+                      : (propertyValue[0] * (3 / 100) > currentLoanBal[0]) ? 'dis-btn' : ''
                   }
                   `}
                   href={urlValue}
