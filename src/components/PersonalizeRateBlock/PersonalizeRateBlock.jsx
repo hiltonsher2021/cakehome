@@ -484,7 +484,7 @@ const PersonalizeRateBlock = (data) => {
                     <label>
                       {' '}
                       {data.classname !== 'refinance'
-                        ? '*Down payment must be at least 3% of purchase price, i.e. minimum $'
+                        ? '*Down payment must be at least 3% of purchase price, i.e. minimum $'  + propertyValue[0] * (3 / 100)
                         : ''}{' '}
                     </label>
                   ) : (
