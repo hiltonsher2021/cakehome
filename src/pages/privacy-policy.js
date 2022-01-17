@@ -473,7 +473,7 @@ const PrivacyPolicy = ({}) => {
             <p><a href="mailto:privacy@cakehome.com" target="_blank"><u>privacy@cakehome.com</u></a></p>
             <p>Cake Mortgage Corp.</p>
             <p>9200 Oakdale Ave. Ste. 501, Chatsworth, CA 91311</p>
-            <p>(818) 812-5150 or (877) 274-2610</p>
+            <p>(818) 812-5150 or (833) 274-2610</p>
           </div>
         </div>
       </section>
