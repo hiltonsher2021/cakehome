@@ -587,6 +587,7 @@ const PersonalizeRateBlock = (data) => {
                 <a
                   className={`btn dark ${
                     zipCode !== '' &&
+                    zipCode.length === 5 &&
                     propertyValue > [0] &&
                     propertyValue[0] > currentLoanBal[0] &&
                     creditRating !== '' &&
