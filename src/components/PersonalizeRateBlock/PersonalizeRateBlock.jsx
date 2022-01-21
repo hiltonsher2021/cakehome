@@ -3,6 +3,7 @@ import * as styles from './PersonalizeRateBlock.module.scss'
 import { Range, getTrackBackground } from 'react-range'
 import sectionModel from 'models/Section'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import api from 'utils/api'
 
 const PersonalizeRateBlock = (data) => {
   let bannerDetails = data?.sectionData
@@ -10,6 +11,7 @@ const PersonalizeRateBlock = (data) => {
   let filterData = []
   let dataContent = []
   let image
+  let url = ''
 
   if (data) {
     filterData = bannerDetails?.filter((item) => {
@@ -40,7 +42,8 @@ const PersonalizeRateBlock = (data) => {
   const [cashOut, setCashOut] = useState([0])
   const [zipCode, setZipCode] = useState('')
   const [urlValue, setUrlValue] = useState('')
-  let url = ''
+  const [showValidationMessage, setShowValidationMessage] = useState(false)
+  // const [validationMessage, setValidationMessage] = useState('')
 
   const closeModal = (e) => {
     data.closeModal()
@@ -56,6 +59,10 @@ const PersonalizeRateBlock = (data) => {
     setPropertyUse('PrimaryResidence')
     setPropertyType('SingleFamilyHome')
     setCreditRating('780')
+    setNewNum(0)
+    setCurrentLoanBalance(0)
+    setNewCurrentCashout(0)
+    setShowValidationMessage(false)
   }
 
   const setUrl = () => {
@@ -115,9 +122,35 @@ const PersonalizeRateBlock = (data) => {
     setUrl()
     // }
   }
+  const validateZipcode = (data) => {
+    if (data.length === 5) {
+      fetchValidZipcode(data)
+    } else {
+      setShowValidationMessage(false)
+    }
+    setZipCode(data)
+  }
+
+  const fetchValidZipcode = (data) => {
+    api({
+      url: 'zipcodes/search',
+      method: 'GET',
+      params: {
+        zip: data,
+      },
+    })
+      .then((response) => {
+        setShowValidationMessage(false)
+        // setValidationMessage('')
+      })
+      .catch(function (error) {
+        setShowValidationMessage(true)
+        // setValidationMessage(error.message)
+      })
+  }
+
   const cashOutValueChange = (value, isInputValueChange, event) => {
     onlyNumberKey(event)
-
     let numConv
     var testVal = value[0] || value
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
@@ -176,21 +209,6 @@ const PersonalizeRateBlock = (data) => {
     urlValue,
   ])
 
-  // const handleSubmit = async (event) => {
-  // let formData = {
-  //   type: data?.classname,
-  //   zipcode: zipCode,
-  //   purchasePrice: propertyValue,
-  //   downPayment: currentLoanBal,
-  //   cashOut: cashOut,
-  //   creditRange: creditRating,
-  //   propertyType: propertyType,
-  //   propertyUse: propertyUse,
-  // }
-  // event.preventDefault();
-  // sendFormData()
-  // }
-
   const handleChange = (data) => {
     let propertyType = data.replaceAll(' ', '')
     setPropertyType(propertyType)
@@ -205,14 +223,6 @@ const PersonalizeRateBlock = (data) => {
     let propertyUse = data.replaceAll(' ', '')
     setPropertyUse(propertyUse)
     setUrl()
-  }
-
-  function sendFormData() {
-    fetch(url)
-      .then((response) => {})
-      .catch((error) => {
-        console.error('There was an error!', error)
-      })
   }
 
   return (
@@ -292,9 +302,18 @@ const PersonalizeRateBlock = (data) => {
                   <label htmlFor="">Property ZIP code</label>
                   <input
                     type="text"
+                    maxlength="5"
                     value={zipCode}
-                    onChange={(e) => setZipCode(e.target.value)}
+                    onChange={(e) =>
+                      validateZipcode(e.target.value.replace(/[^\d.]/gi, ''))
+                    }
                   />
+
+                  {showValidationMessage && (
+                    <label htmlFor="">
+                      Sorry, we're not licensed in this state, yet!
+                    </label>
+                  )}
                 </div>
                 <div className="CakeFieldWrap">
                   <label htmlFor="">Property Type</label>
@@ -465,6 +484,29 @@ const PersonalizeRateBlock = (data) => {
                       }}
                     />
                   </div>
+                  {propertyValue[0] <= currentLoanBal[0] &&
+                  currentLoanBal[0] !== 0 ? (
+                    <label>
+                      {' '}
+                      {data.classname === 'refinance'
+                        ? '*Current loan balance'
+                        : '*Down payment'}{' '}
+                      cannot be greater than{' '}
+                      {data.classname === 'refinance'
+                        ? 'estimated property value'
+                        : 'purchase price'}
+                    </label>
+                  ) : propertyValue[0] * (3 / 100) > currentLoanBal[0] ? (
+                    <label>
+                      {' '}
+                      {data.classname !== 'refinance'
+                        ? '*Down payment must be at least 3% of purchase price, i.e. minimum $' +
+                          propertyValue[0] * (3 / 100)
+                        : ''}{' '}
+                    </label>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
               {data.classname === 'refinance' && (
@@ -525,34 +567,50 @@ const PersonalizeRateBlock = (data) => {
                     </div>
                   </div>
                 )}
-                {propertyValue[0] < currentLoanBal[0] && (
+                {propertyValue[0] < currentLoanBal[0] + cashOut[0] && (
                   <label>
                     {' '}
-                    *
                     {data.classname === 'refinance'
-                      ? 'Property Value'
-                      : 'Purchase Price'}{' '}
-                    can not be lesser than{' '}
-                    {data.classname === 'refinance'
-                      ? 'Current Loan Balance'
-                      : 'Down Payment'}
+                      ? '*Combined current loan balance AND cash out amount cannot be greater than estimated property value.'
+                      : ''}
                   </label>
                 )}
+                {currentLoanBal[0] === 0 && cashOut[0] === 0 && (
+                  <label>
+                    {' '}
+                    {data.classname === 'refinance'
+                      ? '*If you have no current loan balance, you must have a cash out amount.'
+                      : ''}
+                  </label>
+                )}
+
                 <a
                   className={`btn dark ${
                     zipCode !== '' &&
+                    zipCode.length === 5 &&
                     propertyValue > [0] &&
-                    currentLoanBal > [0] &&
                     propertyValue[0] > currentLoanBal[0] &&
                     creditRating !== '' &&
                     creditRating !== 'Choose Credit rating' &&
                     propertyType !== '' &&
                     propertyType !== 'ChoosePropertyType' &&
                     propertyUse !== '' &&
-                    propertyUse !== 'ChoosePropertyUse'
+                    propertyUse !== 'ChoosePropertyUse' &&
+                    showValidationMessage === false
                       ? ''
                       : 'dis-btn'
-                  }`}
+                  }
+                  ${
+                    data.classname === 'refinance'
+                      ? propertyValue[0] < currentLoanBal[0] + cashOut[0] ||
+                        (currentLoanBal[0] === 0 && cashOut[0] === 0)
+                        ? 'dis-btn'
+                        : ''
+                      : propertyValue[0] * (3 / 100) > currentLoanBal[0]
+                      ? 'dis-btn'
+                      : ''
+                  }
+                  `}
                   href={urlValue}
                   target="_blank"
                 >
