@@ -5,16 +5,20 @@ import CampaignBanner from 'components/CampaignBanner/CampaignBanner';
 import CampaignHeader from 'components/CampaignHeader/CampaignHeader';
 
 const CampaignPage = ({}) => {
-  return (
-    <Layout>
-      <SEO title="Cake Privacy Policy" />
-      <section className="generic-section">
-        Campaign page
-        <CampaignHeader />
-        <CampaignBanner />
-      </section>
-    </Layout>
-  )
+    return ( <
+        Layout >
+        <
+        SEO title = "Campaign" / >
+        <
+        section className = "generic-section" >
+        <
+        CampaignHeader / >
+        <
+        CampaignBanner / >
+        <
+        /section> < /
+        Layout >
+    )
 }
 
 export default CampaignPage

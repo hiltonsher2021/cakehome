@@ -1,5 +1,4 @@
 @import 'styles/global.scss';
-
 .header {
     position: fixed;
     top: 0;
@@ -9,12 +8,12 @@
     z-index: 9;
     transform: translateZ(29px);
     @media #{$sm} {
-      height: rem(175);
+        height: rem(175);
     }
-    :global{
-        .header-wrapper{
+     :global {
+        .header-wrapper {
             height: 100%;
-            padding:rem(35) rem(8) rem(10) rem(15);
+            padding: rem(35) rem(8) rem(10) rem(15);
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -23,186 +22,188 @@
             max-width: rem(1440);
             margin: 0 auto;
             @media #{$sm} {
-              flex-wrap: unset;
+                flex-wrap: unset;
             }
             @media #{$md} {
-              padding:rem(15) rem(30) rem(35) rem(30);
+                padding: rem(15) rem(30) rem(35) rem(30);
             }
             @media #{$xl} {
-              padding:rem(15) rem(48) rem(35) rem(87);
+                padding: rem(15) rem(48) rem(35) rem(87);
             }
             .header-top-mob {
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex: 0 0 100%;
-              margin: 0 0 rem(8);
-              @media #{$sm} {
-                display: none;
-              }
-              .icon-btn {
-                display: inline-flex;
+                display: flex;
                 align-items: center;
-                font-size: rem(15);
-                line-height: rem(20);
-                font-family: $aeonik;
-                font-weight: bold;
-                color: $primary-black;
-                margin-right: rem(30);
-                & > div {
-                  display: flex;
-                }
-                &:last-child {
-                  margin-right: 0;
-                  max-width: rem(16);
-                }
-                img {
-                  margin: 0 rem(5) 0 0;
-                  max-width: rem(18);
-                }
-              }
-            }
-            .brand-logo{
-                padding-bottom: rem(15);
-                flex: 0 0 30%;
+                justify-content: center;
+                flex: 0 0 100%;
+                margin: 0 0 rem(8);
                 @media #{$sm} {
-                  flex: 1;
+                    display: none;
                 }
-                a{
-                    img{
-                      max-width: rem(75);
-                      height: rem(25);
-                      @media #{$sm} {
-                        max-width: rem(158.02);
-                        height: rem(54);
-                      }
+                .icon-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    font-size: rem(15);
+                    line-height: rem(20);
+                    font-family: $aeonik;
+                    font-weight: bold;
+                    color: $primary-black;
+                    margin-right: rem(30);
+                    &>div {
+                        display: flex;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                        max-width: rem(16);
+                    }
+                    img {
+                        margin: 0 rem(5) 0 0;
+                        max-width: rem(18);
                     }
                 }
             }
-            .right-menu{
+            .brand-logo {
+                padding-bottom: rem(15);
+                flex: 0 0 30%;
+                @media #{$sm} {
+                    flex: 1;
+                }
+                a {
+                    img {
+                        max-width: rem(75);
+                        height: rem(25);
+                        @media #{$sm} {
+                            max-width: rem(158.02);
+                            height: rem(54);
+                        }
+                    }
+                }
+            }
+            .right-menu {
                 display: flex;
                 justify-content: space-between;
                 flex: 0 0 60%;
                 @media (min-width: 767px) {
-                  flex: unset;
-                  justify-content: unset;
+                    flex: unset;
+                    justify-content: unset;
                 }
-                .menu-links{
+                .menu-links {
                     padding-right: rem(20);
                     display: flex;
                     align-items: flex-end;
                     @media #{$sm} {
-                      position: relative;
+                        position: relative;
                     }
                     @media #{$xxl} {
-                      padding-right: rem(72);
+                        padding-right: rem(72);
                     }
                     nav {
-                      position: absolute;
-                      top: 100%;
-                      width: calc(100vw - 35px);
-                      right: rem(20);
-                      background-color: white;
-                      border-radius: rem(10);
-                      padding: rem(16) rem(30);
-                      z-index: -1;
-                      opacity: 0;
-                      visibility: hidden;
-                      transition: all 0.2s ease-in-out;
-                      @media #{$sm} {
-                        width: rem(285);
-                        right: 0;
-                      }
-                      @media #{$lg} {
-                        opacity: 1;
-                        visibility: visible;
-                        z-index: 1;
-                        display: block !important;
-                        position: static;
-                        width: auto;
-                        background-color: transparent;
-                        padding: 0;
-                      }
-                      &.navbar-open{
-                        z-index: 1;
-                        opacity: 1;
-                        visibility: visible;
-                        top: calc(100% + 15px);
-                      }
+                        position: absolute;
+                        top: 100%;
+                        width: calc(100vw - 35px);
+                        right: rem(20);
+                        background-color: white;
+                        border-radius: rem(10);
+                        padding: rem(16) rem(30);
+                        z-index: -1;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: all 0.2s ease-in-out;
+                        @media #{$sm} {
+                            width: rem(285);
+                            right: 0;
+                        }
+                        @media #{$lg} {
+                            opacity: 1;
+                            visibility: visible;
+                            z-index: 1;
+                            display: block !important;
+                            position: static;
+                            width: auto;
+                            background-color: transparent;
+                            padding: 0;
+                        }
+                        &.navbar-open {
+                            z-index: 1;
+                            opacity: 1;
+                            visibility: visible;
+                            top: calc(100% + 15px);
+                        }
                     }
-                    .menu-hamburger, .menu-close {
-                      display: block;
-                      border: 0;
-                      padding: 0;
-                      display: flex;
-                      align-items: center;
-                      width: rem(26);
-                      cursor: pointer;
-                      @media #{$lg} {
-                        display: none;
-                      }
+                    .menu-hamburger,
+                    .menu-close {
+                        display: block;
+                        border: 0;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        width: rem(26);
+                        cursor: pointer;
+                        @media #{$lg} {
+                            display: none;
+                        }
                     }
                     .menu-close {
-                      position: absolute;
-                      right: rem(21);
-                      top: rem(18);
-                      z-index: 1;
-                      height: auto;
+                        position: absolute;
+                        right: rem(21);
+                        top: rem(18);
+                        z-index: 1;
+                        height: auto;
                     }
                     .mobile-menu-overlay {
-                      content: '';
-                      position: fixed;
-                      width: 100%;
-                      height: 100%;
-                      left: 0;
-                      top: rem(123);
-                      background-color: rgba($color: white, $alpha: 0.7);
-                      opacity: 0;
-                      visibility: hidden;
-                      z-index: -1;
-                      transition: all 0.2s ease-in-out;
-                      @media #{$sm} {
-                        top: rem(175);
-                      }
-                      @media #{$lg} {
-                        display: none !important;
-                      }
-                      &.navbar-open{
-                        z-index: 0;
-                        opacity: 1;
-                        visibility: visible;
-                      }
+                        content: '';
+                        position: fixed;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: rem(123);
+                        background-color: rgba($color: white, $alpha: 0.7);
+                        opacity: 0;
+                        visibility: hidden;
+                        z-index: -1;
+                        transition: all 0.2s ease-in-out;
+                        @media #{$sm} {
+                            top: rem(175);
+                        }
+                        @media #{$lg} {
+                            display: none !important;
+                        }
+                        &.navbar-open {
+                            z-index: 0;
+                            opacity: 1;
+                            visibility: visible;
+                        }
                     }
-                    ul{
+                    ul {
                         display: flex;
                         flex-direction: column;
                         padding-bottom: rem(15);
                         @media #{$lg} {
-                          flex-direction: row;
-                          padding-bottom: 0;
+                            flex-direction: row;
+                            padding-bottom: 0;
                         }
                         @media #{$xxl} {
-                          padding-bottom: rem(15);
+                            padding-bottom: rem(15);
                         }
-                        li{
-                          padding: 0 rem(18) rem(14) 0;
-                          @media #{$xxl} {
-                            padding: 0 rem(20.5);
-                          }
-                          &:last-child {
-                            padding: 0;
+                        li {
+                            padding: 0 rem(18) rem(14) 0;
                             @media #{$xxl} {
-                              padding: 0 rem(20.5);
+                                padding: 0 rem(20.5);
                             }
-                          }
-                            &:hover, &.active {
-                              > a {
-                                &::after {
-                                  opacity: 1;
+                            &:last-child {
+                                padding: 0;
+                                @media #{$xxl} {
+                                    padding: 0 rem(20.5);
                                 }
-                              }
                             }
-                            a{
+                            &:hover,
+                            &.active {
+                                >a {
+                                    &::after {
+                                        opacity: 1;
+                                    }
+                                }
+                            }
+                            a {
                                 font-family: $aeonik;
                                 font-weight: 700;
                                 color: $primary-black;
@@ -211,100 +212,100 @@
                                 transition: all 0.2s ease-in-out;
                                 position: relative;
                                 @media #{$md} {
-                                  font-size: rem(17);
+                                    font-size: rem(17);
                                 }
                                 &::after {
-                                  content: '';
-                                  position: absolute;
-                                  width: 100%;
-                                  height: 1px;
-                                  background-color: $theme-green;
-                                  left: 0;
-                                  bottom: rem(-2);
-                                  opacity: 0;
-                                  transition: all 0.2s ease-in-out;
+                                    content: '';
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 1px;
+                                    background-color: $theme-green;
+                                    left: 0;
+                                    bottom: rem(-2);
+                                    opacity: 0;
+                                    transition: all 0.2s ease-in-out;
                                 }
                             }
                             &.has-sub-menu {
-                              position: relative;
-                              > a {
-                                @media #{$md} {
-                                  &::before {
-                                    content: '+';
-                                    position: absolute;
-                                    right: rem(-12);
-                                    border-bottom: rem(-2);
-                                    font-weight: 300;
-                                    color: $theme-green;
-                                    opacity: 0;
-                                    transition: all 0.2s ease-in-out;
-                                  }
+                                position: relative;
+                                >a {
+                                    @media #{$md} {
+                                        &::before {
+                                            content: '+';
+                                            position: absolute;
+                                            right: rem(-12);
+                                            border-bottom: rem(-2);
+                                            font-weight: 300;
+                                            color: $theme-green;
+                                            opacity: 0;
+                                            transition: all 0.2s ease-in-out;
+                                        }
+                                    }
                                 }
-                              }
-                              &:hover {
-                                > a {
-                                  &::before {
-                                    opacity: 1;
-                                  }
+                                &:hover {
+                                    >a {
+                                        &::before {
+                                            opacity: 1;
+                                        }
+                                    }
+                                    .sub-menu {
+                                        visibility: visible;
+                                        opacity: 1;
+                                        top: calc(100% + 10px);
+                                    }
                                 }
                                 .sub-menu {
-                                  visibility: visible;
-                                  opacity: 1;
-                                  top: calc(100% + 10px);
+                                    position: absolute;
+                                    display: none;
+                                    width: rem(200);
+                                    background-color: white;
+                                    border: 1px solid $theme-green;
+                                    padding: rem(10) rem(8) rem(10) rem(21);
+                                    left: rem(20);
+                                    top: 100%;
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    transition: all 0.2s ease-in-out;
+                                    @media #{$md} {
+                                        display: block;
+                                    }
+                                    &::after {
+                                        content: '';
+                                        position: absolute;
+                                        left: 0;
+                                        top: rem(-11);
+                                        height: rem(11);
+                                        width: 100%;
+                                    }
+                                    li {
+                                        margin: 0 0 rem(5);
+                                        padding: 0;
+                                        a {
+                                            font-weight: 500;
+                                        }
+                                    }
                                 }
-                              }
-                              .sub-menu {
-                                position: absolute;
-                                display: none;
-                                width: rem(200);
-                                background-color: white;
-                                border: 1px solid $theme-green;
-                                padding: rem(10) rem(8) rem(10) rem(21);
-                                left: rem(20);
-                                top: 100%;
-                                visibility: hidden;
-                                opacity: 0;
-                                transition: all 0.2s ease-in-out;
-                                @media #{$md} {
-                                  display: block;
-                                }
-                                &::after {
-                                  content: '';
-                                  position: absolute;
-                                  left: 0;
-                                  top: rem(-11);
-                                  height: rem(11);
-                                  width: 100%;
-                                }
-                                li {
-                                  margin: 0 0 rem(5);
-                                  padding: 0;
-                                  a {
-                                    font-weight: 500;
-                                  }
-                                }
-                              }
                             }
                         }
                     }
                 }
-                .button-wrapper{
+                .button-wrapper {
                     max-width: rem(171);
                     position: relative;
                     display: flex;
                     align-items: center;
                     @media #{$sm} {
-                      display: block;
+                        display: block;
                     }
-                    a.btn{
+                    a.btn {
                         min-width: rem(171);
                         @media #{$lg} {
-                          font-family: $aeonik;
-                          font-size: rem(17);
-                          line-height: rem(25);
-                          letter-spacing: rem(0);
+                            font-family: $aeonik;
+                            font-size: rem(17);
+                            line-height: rem(25);
+                            letter-spacing: rem(0);
                         }
-                        &.call-us{
+                        &.call-us {
                             position: absolute;
                             left: rem(-175);
                             top: 0;
@@ -312,35 +313,35 @@
                             min-height: rem(50);
                             display: none;
                             @media #{$sm} {
-                              display: inline-flex;
+                                display: inline-flex;
                             }
                             @media #{$xxl} {
-                              left: rem(-240);
+                                left: rem(-240);
                             }
                         }
                         &.chat-with-us-dektp {
-                          padding: rem(11) rem(13);
-                          img {
-                            max-width: rem(30);
-                            position: relative;
-                            top: rem(2);
-                          }
+                            padding: rem(11) rem(13);
+                            img {
+                                max-width: rem(30);
+                                position: relative;
+                                top: rem(2);
+                            }
                         }
-                        &.green--border{
+                        &.green--border {
                             margin-bottom: rem(20);
                             display: none;
                             @media #{$sm} {
-                              display: inline-flex;
+                                display: inline-flex;
                             }
                         }
                         &.get-started {
-                          @media (max-width: 480px) {
-                            min-height: auto;
-                            font-size: rem(17);
-                            line-height: rem(25);
-                            padding: rem(7) rem(15);
-                            min-width: rem(151);
-                          }
+                            @media (max-width: 480px) {
+                                min-height: auto;
+                                font-size: rem(17);
+                                line-height: rem(25);
+                                padding: rem(7) rem(15);
+                                min-width: rem(151);
+                            }
                         }
                     }
                 }

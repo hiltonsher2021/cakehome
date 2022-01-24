@@ -1,31 +1,41 @@
 import React from 'react'
-import Slider from 'react-slick'
 import * as styles from './CampaignHeader.module.scss'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 
 const CampaignHeader = (data) => {
-  var settings = {
-    dots: true,
-    infinite: true,
-    centerMode: true,
-    centerPadding: '28px',
-    responsive: [
-      {
-        breakpoint: 9999,
-        settings: 'unslick',
-      },
-      {
-        breakpoint: 479,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    ],
-  }
   return (
     <div>
-      Header campaign component
+    <header className={styles.CampaignHeader}>
+      <div className="container">
+      <div className="header__wrapper">
+        <div className="header__logo">
+          <a href="#" title='logo'>
+            <img src="/images/cake-logo.svg" alt="logo"/>
+          </a>
+        </div>
+        <div className="header__wrap">
+            <a className='header__call-btn' href="telto:" alt="call">
+              <div className="header__call-thumb">
+                <img src="/images/headphone-icon.svg" alt="headphone"/>
+              </div>
+              <div className="header__call-text">
+                Call Us
+                <span>
+                833-818-CAKE
+                </span>
+              </div>
+            </a>
+          <a className="header__chat-btn" href='' title='chat'>
+            <div className="header__chat-thumb">
+              <img src="/images/chat-icon-big.svg" alt="chat-icon-big"/>
+            </div>
+            <div className="header__chat-text">
+               Chat With Us
+            </div>
+          </a>
+          </div>
+        </div>
+        </div>
+    </header>
     </div>
   )
 }
