@@ -6,6 +6,7 @@ import SEO from 'components/seo'
 import CampaignBanner from 'components/CampaignBanner/CampaignBanner'
 import CampaignHeader from 'components/CampaignHeader/CampaignHeader'
 import CampaignForm from 'components/CampaignForm/CampaignForm'
+import CampaignCard from 'components/CampaignCard/CampaignCard'
 import ChatCallBlock from 'components/ChatCallBlock/ChatCallBlock'
 
 const propTypes = {
@@ -13,7 +14,7 @@ const propTypes = {
 }
 
 const CampaignPage = ({data}) => {
-  const dataSplit = data?.contentfulPage?.sections
+  const dataSplit = data?.contentfulPage?.sections;
 
   return (
     <Layout>
@@ -21,6 +22,7 @@ const CampaignPage = ({data}) => {
       <section className="generic-section">
         <CampaignHeader />
         <CampaignBanner />
+        <CampaignCard />
         <CampaignForm />
         <ChatCallBlock sectionData={dataSplit} />
       </section>
