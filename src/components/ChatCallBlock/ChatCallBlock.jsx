@@ -8,7 +8,6 @@ import { maximizeChatWidget } from '../../utils/utils'
 
 const ChatCallBlock = (data) => {
   let modeledData = []
-
   const openChatWidget = (e) => {
     maximizeChatWidget()
     var callback = function () {
@@ -30,7 +29,7 @@ const ChatCallBlock = (data) => {
     modeledData = sectionModel(filterData[0])
   }
   return (
-    <div className={`${styles.ChatCallBlock}`}>
+    <div className={`${styles.ChatCallBlock} ${data?.className}`}>
       <div className="ChatCallBlock">
         <div className="container">
           <div className="ChatCallBlock__wrapper">

@@ -10,7 +10,7 @@ const CampaignForm = (data) => {
           <div className="form__head">
             <h1>You have questions, we have answers</h1>
           </div>
-          <ChatCallBlock sectionData={data?.sectionData} />
+          <ChatCallBlock sectionData={data?.sectionData} className="font-edit" />
 
           <div className="form__area">
             <div className="form__area-head">

@@ -45,7 +45,8 @@ const TestimonialCard = (data) => {
             <p>Chicago, IL</p>
           </div>
           <div className="right-side">
-            <img src="/images/google.png" alt="google-icon" />
+            <a title='social-media'><img src="/images/google.png" alt="google-icon" /></a>
+            
             {/* <AnchorLink href="#">Icon
               <GatsbyImage image={image} alt={data?.cardData?.image?.title} />
             </AnchorLink> */}

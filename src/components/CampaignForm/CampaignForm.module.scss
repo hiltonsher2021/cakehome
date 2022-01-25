@@ -71,7 +71,6 @@
                 outline: none;
                 @media #{$md}{
                     background-color: #ECEBEB;
-                    font-family: "DM Sans";
                     font-size: 17px;
                     letter-spacing: 0;
                     line-height: 25px;
@@ -96,7 +95,7 @@
                         letter-spacing: 0.27px;
                         line-height: 45px;
                         text-align: center;
-                        padding: 0 rm(52);
+                        padding: 0 rem(52);
                         border-radius: 3.6px;
                         background-color: #414042;
                         @media #{$md}{

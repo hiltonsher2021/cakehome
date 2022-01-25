@@ -285,7 +285,7 @@ const CheckYourSavingsCampaign = (data) => {
       <div className="container">
         <div className="CheckYourSavings__wrap">
           <div className="CheckYourSavings__top">
-            <div className="left-side">
+            <div className="left-side-head">
               {' '}
               {/* <span className="eyebrow">ttttttt</span> */}
               <h2>See hou much you could be saving with Cake today!</h2>

@@ -1,5 +1,6 @@
 import React from 'react'
 import * as styles from './CampaignHeader.module.scss'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
 const CampaignHeader = (data) => {
   return (
@@ -8,9 +9,11 @@ const CampaignHeader = (data) => {
       <div className="container">
       <div className="header__wrapper">
         <div className="header__logo">
-          <a href="#" title='logo'>
+          {/* <a href="#" title='logo'> */}
+          <AnchorLink to="/">
             <img src="/images/cake-logo.svg" alt="logo"/>
-          </a>
+           </AnchorLink>
+          {/* </a> */}
         </div>
         <div className="header__wrap">
             <a className='header__call-btn' href="telto:" alt="call">

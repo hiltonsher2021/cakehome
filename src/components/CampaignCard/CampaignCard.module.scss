@@ -9,18 +9,21 @@
   :global {
     .CampaignCard__title-wrap {
       display: block;
-      @media (min-width: 769px) {
-          display: none;
-      }
       margin: 0 0 rem(40);
       h2 {
           font-family: $aeonik;
+          color: #414042;
+          font-size: 30px;
           font-weight: bold;
-          color: $textdark;
+          letter-spacing: -0.26px;
+          line-height: 32px;
           text-align: center;
-          font-size: rem(35);
-          line-height: rem(40);
-          letter-spacing: rem(-0.3);
+          @media #{$md} {
+            color: #414042;
+            font-size: 80px;
+            letter-spacing: -0.91px;
+            line-height: 80px;
+          }
       }
       .CampaignCard__social-wrap {
           display: flex;
@@ -68,15 +71,7 @@
           padding: 0 rem(45) 0 rem(15) !important;
         }
       }
-      .slick-slide {
-        @media (max-width: 768px) {
-          opacity: 0.5;
-          transition: all 0.2s ease-in-out;
-          &.slick-center {
-            opacity: 1;
-          }
-        }
-      }
+      
       .slick-dots {
         bottom: rem(0);
         li {
@@ -84,8 +79,7 @@
           button {
             &::before {
               font-size: rem(10);
-              color: white;
-              opacity: 1;
+             color: rgba(18,18,18,0.25);
             }
           }
           &.slick-active {

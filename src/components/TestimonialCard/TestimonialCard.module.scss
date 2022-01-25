@@ -106,11 +106,11 @@
               h4 {
                   font-family: $aeonik;
                   font-weight: bold;
-                  color: $textdark;
                   font-size: rem(16);
                   line-height: rem(19);
                   letter-spacing: rem(-0.13);
                   margin: 0 0 rem(2);
+                  color: #121212;
                   @media (min-width: 769px) {
                     font-size: rem(25);
                     line-height: rem(30);
