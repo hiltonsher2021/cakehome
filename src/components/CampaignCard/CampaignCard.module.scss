@@ -40,11 +40,6 @@
       max-width: rem(1170);
       margin: 0 rem(-15);
       padding: 0 0 rem(80);
-      @media (min-width: 769px) {
-          display: flex;
-          flex-wrap: wrap;
-          padding: 0;
-      }
       @media #{$xl} {
           margin: 0 auto;
       }
@@ -56,6 +51,18 @@
             height: 100%;
           }
         }
+      }
+      .slick-prev:before, .slick-next:before{
+        color: #000;
+        font-size: 40px;
+        position: absolute;
+      }
+      .slick-next:before{
+        left: 35px;
+      }
+      .slick-prev:before{
+    
+        right: 35px;
       }
       .slick-list {
         @media (max-width: 768px) {
@@ -92,16 +99,7 @@
         }
       }
       .CampaignCard__item {
-          padding: 0 rem(20) 0 0;
-          @media (min-width: 769px) {
-              flex: 0 0 50%;
-              max-width: 50%;
-              padding: rem(15);
-          }
-          @media #{$lg} {
-              flex: 0 0 33.33%;
-              max-width: 33.33%;
-          }
+          padding: 0 rem(15) ;
       }
     }
 

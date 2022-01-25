@@ -38,7 +38,7 @@ const CampaignBanner = (data) => {
             </div>
           </div>
        </div>
-       <div className="slide-2">
+       {/* <div className="slide-2">
           <div className="container">
             <div className="banner__hero">
               <h1>Great to meet you Name.</h1>
@@ -65,7 +65,7 @@ const CampaignBanner = (data) => {
                     </div>
             </div>
           </div>
-       </div>
+       </div> */}
      </section>
     </div>
   )
