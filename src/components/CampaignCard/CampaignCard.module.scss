@@ -4,7 +4,6 @@
   padding: rem(60) 0;
   overflow: hidden;
   @media (max-width: 768px) {
-    background-color: $theme-green;
     padding: rem(37) 0 0;
   }
   :global {
@@ -172,10 +171,7 @@
     }
 
     .CampaignCard-desktopCards {
-      display: none;
-      @media (min-width: 769px) {
-        display: block;
-      }
+      display: block;
     }
     .CampaignCard-sliderMob {
       display: block;

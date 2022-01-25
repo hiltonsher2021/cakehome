@@ -5,8 +5,10 @@
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 25555; // remove this after integration
+        padding-bottom: 63px;
+        z-index: 255555;
         @media #{$md} {
+            padding-bottom: 0;
             padding: rem(56) rem(0) rem(43.5);
         }
          :global {

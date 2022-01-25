@@ -45,7 +45,7 @@ const CampaignCard = (data) => {
     <div className={`${styles.CampaignCard} purchase`}>
       <div className="container">
         <div className="CampaignCard__title-wrap">
-          <h2>{modeledData?.mainTitle}</h2>
+          <h2>Cake Customers Love Doing Business with Us!</h2>
           <div className="CampaignCard__social-wrap">
             {/* {iconsList?.items.map((item, index) => {
               iconImage = getImage(item?.image?.gatsbyImageData)
@@ -56,10 +56,6 @@ const CampaignCard = (data) => {
               )
             })} */}
           </div>
-        </div>
-
-        <div className="CampaignCard__title-wrap">
-          <h2>Title</h2>
         </div>
         <div className="CampaignCard-desktopCards">
           {/* slider section */}
