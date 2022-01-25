@@ -7,7 +7,6 @@ import CampaignBanner from 'components/CampaignBanner/CampaignBanner'
 import CampaignHeader from 'components/CampaignHeader/CampaignHeader'
 import CampaignForm from 'components/CampaignForm/CampaignForm'
 import CampaignCard from 'components/CampaignCard/CampaignCard'
-import ChatCallBlock from 'components/ChatCallBlock/ChatCallBlock'
 
 const propTypes = {
   data: PropTypes.object,
