@@ -23,8 +23,6 @@ const CampaignPage = ({data}) => {
         <CampaignHeader />
         <CampaignBanner />
         <CampaignCard />
-        <CampaignForm />
-        <ChatCallBlock sectionData={dataSplit} />
         <CampaignForm  sectionData={dataSplit}/>
       </section>
     </Layout>
