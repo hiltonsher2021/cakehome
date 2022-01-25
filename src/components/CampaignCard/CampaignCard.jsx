@@ -20,44 +20,6 @@ const CampaignCard = (data) => {
   let filterData = []
   let testimonialList = []
 
-  if (data) {
-    debugger
-
-    switch (data?.handle) {
-      case 'campaign':
-        filterData = data?.sectionData.filter((item) => {
-          return item
-        })
-        break
-    }
-    // console.log(filterData, 'filterData')
-
-    // modeledData = sectionModel(filterData[0])
-    // modeledStarList = sectionModel(filterData[2])
-    // modeledIcons = sectionModel(filterData[1])
-    // console.log(modeledStarList, 'modeledStarList')
-    // console.log(iconsList, 'iconsList')
-    // console.log(testimonialList, 'testimonialList')
-    // console.log(starList, 'starList')
-
-    modeledStarList?.sectionReference.filter((item) => {
-      if (item.name === 'Star lists') {
-        starList = item
-      }
-    })
-    modeledIcons?.sectionReference.filter((item) => {
-      if (item?.name === 'Social media icons list') {
-        iconsList = item
-      }
-
-      // else {
-      //   testimonialList = item;
-      // }
-    })
-    // console.log(iconsList, 'iconsList')
-    // console.log(testimonialList, 'testimonialList')
-    // console.log(starList, 'starList')
-  }
 
   var settings = {
     dots: true,

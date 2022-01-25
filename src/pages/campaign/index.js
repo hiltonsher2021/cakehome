@@ -7,6 +7,7 @@ import CampaignBanner from 'components/CampaignBanner/CampaignBanner'
 import CampaignHeader from 'components/CampaignHeader/CampaignHeader'
 import CampaignForm from 'components/CampaignForm/CampaignForm'
 import CampaignCard from 'components/CampaignCard/CampaignCard'
+import CheckYourSavingsCampaign from 'components/CheckYourSavingsCampaign/CheckYourSavingsCampaign'
 
 const propTypes = {
   data: PropTypes.object,
@@ -21,6 +22,7 @@ const CampaignPage = ({data}) => {
       <section className="generic-section">
         <CampaignHeader />
         <CampaignBanner />
+        <CheckYourSavingsCampaign />
         <CampaignCard />
         <CampaignForm  sectionData={dataSplit}/>
       </section>
