@@ -25,6 +25,7 @@ const CampaignPage = ({data}) => {
         <CampaignCard />
         <CampaignForm />
         <ChatCallBlock sectionData={dataSplit} />
+        <CampaignForm  sectionData={dataSplit}/>
       </section>
     </Layout>
   )
