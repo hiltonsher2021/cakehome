@@ -12,7 +12,7 @@ const propTypes = {
   data: PropTypes.object,
 }
 
-const CampaignPage = ({data}) => {
+const CampaignPage = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections
 
   return (
@@ -21,9 +21,8 @@ const CampaignPage = ({data}) => {
       <section className="generic-section">
         <CampaignHeader />
         <CampaignBanner />
-        <CampaignForm />
-        <ChatCallBlock sectionData={dataSplit} />
-      </section>
+        <CampaignForm  sectionData={dataSplit}/>
+      </section>{' '}
     </Layout>
   )
 }

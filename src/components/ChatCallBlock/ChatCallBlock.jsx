@@ -7,6 +7,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { maximizeChatWidget } from '../../utils/utils';
 
 const ChatCallBlock = (data) => {
+  console.log(data)
 let modeledData = [];
 
 const openChatWidget = (e) => {
@@ -24,8 +25,8 @@ const openChatWidget = (e) => {
 }
 
   if (data) {
-    let filterData = data.sectionData.filter((item) => {
-      if (item.handle.includes('1')) return item
+    let filterData = data?.sectionData.filter((item) => {
+      if (item?.handle.includes('1')) return item
     })
     modeledData = sectionModel(filterData[0]);
   }
