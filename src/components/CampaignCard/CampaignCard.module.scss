@@ -56,8 +56,17 @@
       }
       .slick-prev:before, .slick-next:before{
         color: #000;
-        font-size: 40px;
+        background-image: url('/images/campaign-slider-prev.svg');
+        width: rem(40);
+        height: rem(40);
+        content: "";
         position: absolute;
+        background-position: center;
+        background-size: contain;
+      }
+      .slick-prev:before{
+     
+        background-image: url('/images/campaign-slider-next.svg');
       }
       .slick-next:before{
         left: 35px;

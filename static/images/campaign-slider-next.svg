@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Button/Round/Secondary/Small Copy</title>
+    <g id="Cake-Campaign-Landing-pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cake-Refi-Landing-Steps_D1" transform="translate(-65.000000, -2579.000000)">
+            <g id="Group-21" transform="translate(1.000000, 770.000000)">
+                <g id="Button/Round/Secondary/Small-Copy" transform="translate(64.000000, 1809.000000)">
+                    <circle id="State" stroke="#000000" fill="#FFFFFF" cx="20" cy="20" r="19.5"></circle>
+                    <g id="Left" transform="translate(10.000000, 10.000000)" fill="#121212">
+                        <path d="M13.7071,3.70711 C14.0976,3.31658 14.0976,2.68342 13.7071,2.29289 C13.3166,1.90237 12.6834,1.90237 12.2929,2.29289 L5.29289,9.29289 C4.90237,9.68342 4.90237,10.3166 5.29289,10.7071 L12.2929,17.7071 C12.6834,18.0976 13.3166,18.0976 13.7071,17.7071 C14.0976,17.3166 14.0976,16.6834 13.7071,16.2929 L7.41421,10 L13.7071,3.70711 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

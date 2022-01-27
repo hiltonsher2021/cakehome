@@ -288,10 +288,10 @@ const CheckYourSavingsCampaign = (data) => {
             <div className="left-side-head">
               {' '}
               {/* <span className="eyebrow">ttttttt</span> */}
-              <h2>See hou much you could be saving with Cake today!</h2>
+              <h2>See how much you could be saving with Cake today!</h2>
             </div>
             {/* <div className="right-side">
-              <p>See hou much you could be saving with Cake today!</p>
+              <p>See how much you could be saving with Cake today!</p>
             </div> */}
           </div>
           <div className="CheckYourSavings__holder">
@@ -466,20 +466,13 @@ const CheckYourSavingsCampaign = (data) => {
                     )}
                   </>
                 )}
+                <a className='btn dark d-desktop' href="#">
+               GET MY PERSONALIZED RATE
+              </a>
               </div>
-              <div
-                className={`refinance__image ${
-                  differenceNum <= 0 ? '' : 'active'
-                }`}
-              >
-                <img
-                  src="/images/Chi-MezCalculatorDoor.png"
-                  alt="door"
-                  class="imgNormal"
-                />
-                <img src={gif_src} alt="door" class="imgAnimated" />
-              </div>
-           
+              <a className='btn dark d-mob' href="#">
+               GET MY PERSONALIZED RATE
+              </a>
             </div>
           </div>
         </div>

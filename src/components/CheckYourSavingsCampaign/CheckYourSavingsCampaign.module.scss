@@ -5,14 +5,28 @@
   padding: rem(40) 0 rem(0);
   margin: 0 0 rem(24);
   overflow: hidden;
+  text-align: center;
   @media #{$lg} {
       padding: rem(83) 0 rem(95);
       margin: 0 0 rem(40);
+      text-align: left;
   }
   :global {
     .CheckYourSavings__wrap {
         max-width: rem(1145);
         margin: 0 auto;
+    }
+    .d-mob {
+        display: block;
+        @media #{$md} {
+            display: none;
+        }
+    }
+    .d-desktop{
+        display: none;
+        @media #{$md} {
+            display: block;
+        }
     }
     .CheckYourSavings__top {
         display: flex;
@@ -319,16 +333,33 @@
             }
             .btn {
               border: 0;
-              width: 100%;
-              max-width: rem(258);
-              font-size: rem(26);
-              margin: rem(95) auto rem(18);
-              &.hid-dsktp {
-                display: flex;
-                @media #{$lg} {
-                  display: none;
+              margin: rem(40) 0;
+              display: inline-flex;
+              font-size: 15.3px;
+              font-weight: 700;
+              letter-spacing: 0.27px;
+              line-height: 45px;
+              padding-top: 0;
+              padding-bottom: 0;
+              @media #{$md} {
+                font-size: 25.5px;
+                letter-spacing: 0.45px;
+                line-height: 75px;
+              }
+              &.d-mob{
+                display: inline-flex;
+                @media #{$md}{
+                    display: none;
                 }
               }
+              &.d-desktop{
+                display: none;
+                @media #{$md}{
+                    display: inline-flex;
+                }
+              }
+
+            
             }
         }
     }

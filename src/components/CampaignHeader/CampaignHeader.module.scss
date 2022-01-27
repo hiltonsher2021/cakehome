@@ -5,8 +5,12 @@
         position: fixed;
         top: 0;
         width: 100%;
-        padding-bottom: 63px;
+        padding-bottom: 11px;
+
         z-index: 255555;
+        @media #{$sm}{
+            padding-bottom: 63px;  
+        }
         @media #{$md} {
             padding-bottom: 0;
             padding: rem(56) rem(0) rem(43.5);

@@ -98,6 +98,7 @@
                         padding: 0 rem(52);
                         border-radius: 3.6px;
                         background-color: #414042;
+                        min-height: 0;
                         @media #{$md}{
                             font-size: 25.5px;
                             font-weight: bold;

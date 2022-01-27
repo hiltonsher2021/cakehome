@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="134px" height="20px" viewBox="0 0 134 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Rating</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.423529 0 0 0 0 0.921569 0 0 0 0 0.807843 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Cake-Campaign-Landing-pages" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cake-Refi-Landing-Steps_D1" transform="translate(-266.000000, -2408.000000)">
+            <g id="Group-21" transform="translate(1.000000, 770.000000)">
+                <g id="Group-45" transform="translate(2.000000, 1238.000000)">
+                    <g id="Content" transform="translate(150.000000, 351.000000)">
+                        <g id="Group-19-Copy" transform="translate(25.000000, 47.000000)">
+                            <g id="Rating" transform="translate(87.000000, 0.000000)" filter="url(#filter-1)">
+                                <g>
+                                    <g id="Star-5" transform="translate(112.000000, 0.000000)">
+                                        <rect id="Box-24pt" x="0" y="0" width="24" height="24"></rect>
+                                        <polygon id="🎨-Style" fill="#E1E8F3" points="12 17.95 5.53436222 21.8991869 7.29227024 14.5296341 1.53837832 9.60081306 9.090463 8.99536588 12 2 14.909537 8.99536588 22.4616217 9.60081306 16.7077298 14.5296341 18.4656378 21.8991869"></polygon>
+                                    </g>
+                                    <g id="Star-4" transform="translate(84.000000, 0.000000)">
+                                        <rect id="Box-24pt" x="0" y="0" width="24" height="24"></rect>
+                                        <polygon id="🎨-Style" fill="#FFC040" points="12 17.95 5.53436222 21.8991869 7.29227024 14.5296341 1.53837832 9.60081306 9.090463 8.99536588 12 2 14.909537 8.99536588 22.4616217 9.60081306 16.7077298 14.5296341 18.4656378 21.8991869"></polygon>
+                                    </g>
+                                    <g id="Star-4" transform="translate(56.000000, 0.000000)">
+                                        <rect id="Box-24pt" x="0" y="0" width="24" height="24"></rect>
+                                        <polygon id="🎨-Style" fill="#FFC040" points="12 17.95 5.53436222 21.8991869 7.29227024 14.5296341 1.53837832 9.60081306 9.090463 8.99536588 12 2 14.909537 8.99536588 22.4616217 9.60081306 16.7077298 14.5296341 18.4656378 21.8991869"></polygon>
+                                    </g>
+                                    <g id="Star-4" transform="translate(28.000000, 0.000000)">
+                                        <rect id="Box-24pt" x="0" y="0" width="24" height="24"></rect>
+                                        <polygon id="🎨-Style" fill="#FFC040" points="12 17.95 5.53436222 21.8991869 7.29227024 14.5296341 1.53837832 9.60081306 9.090463 8.99536588 12 2 14.909537 8.99536588 22.4616217 9.60081306 16.7077298 14.5296341 18.4656378 21.8991869"></polygon>
+                                    </g>
+                                    <g id="Star-4">
+                                        <rect id="Box-24pt" x="0" y="0" width="24" height="24"></rect>
+                                        <polygon id="🎨-Style" fill="#FFC040" points="12 17.95 5.53436222 21.8991869 7.29227024 14.5296341 1.53837832 9.60081306 9.090463 8.99536588 12 2 14.909537 8.99536588 22.4616217 9.60081306 16.7077298 14.5296341 18.4656378 21.8991869"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
