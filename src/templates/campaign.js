@@ -37,6 +37,7 @@ export const query = graphql`
                   titleLongDescription {
                     titleLongDescription
                   }
+                  footerText
                   image {
                     gatsbyImageData
                   }

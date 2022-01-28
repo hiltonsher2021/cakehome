@@ -40,7 +40,7 @@ const TestimonialCard = (data) => {
         <div className="TestimonialCard__footer">
           <div className="left-side">
             <h4>{data?.item?.subTitle}</h4>
-            <p>Chicago, IL</p>
+            <p>{data?.item?.footerText}</p>
           </div>
           <div className="right-side">
             {/* <a title='social-media'><img src="/images/google.png" alt="google-icon" /></a> */}
