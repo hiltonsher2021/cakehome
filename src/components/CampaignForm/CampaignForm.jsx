@@ -75,7 +75,7 @@ const CampaignForm = (data) => {
                         required: 'This is a required field',
                       })}
                     />
-                    {/* <p>{errors.name?.message}</p> */}
+                    <p>{errors.name?.message}</p>
                     <input
                       placeholder="Email"
                       {...register('email', {
@@ -87,7 +87,7 @@ const CampaignForm = (data) => {
                       })}
                       type="text"
                     />
-                    {/* <p>{errors.email?.message}</p> */}
+                    <p>{errors.email?.message}</p>
 
                     <textarea
                       placeholder="How can we help?"
@@ -98,7 +98,7 @@ const CampaignForm = (data) => {
                       cols="30"
                       rows="10"
                     ></textarea>
-                    {/* <p>{errors.query?.message}</p> */}
+                    <p>{errors.query?.message}</p>
 
                     <div className="form__submit">
                       <button className="btn" type="submit" title="btn">

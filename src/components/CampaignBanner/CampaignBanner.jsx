@@ -39,28 +39,6 @@ const CampaignBanner = (data) => {
                 <input placeholder="Last Name" type="text" />
               </div>
             </div>
-            <div className="banner__slider-control">
-              <div className="banner__next">
-                <a href="#" title="next">
-                  <img src="/images/campaign-slider-grey.svg" alt="slider" />
-                </a>
-              </div>
-              <div className="banner__slider-dots">
-                {slugOrder.map((item, index) => {
-                  return (
-                    <>
-                      <AnchorLink
-                        className={`slider-dots ${
-                          data?.slug === item?.slug ? 'active' : ''
-                        } `}
-                        to={'/campaign/' + item?.slug}
-                        key={index}
-                      ></AnchorLink>
-                    </>
-                  )
-                })}
-              </div>
-            </div>
           </div>
         </div>
         <div className="slide-2">
@@ -105,7 +83,7 @@ const CampaignBanner = (data) => {
                 </select>
               </div>
             </div>
-            <div className="banner__slider-control">
+            {/* <div className="banner__slider-control">
               <div className="banner__next">
                 <a href="#" title="next">
                   <img src="/images/campaign-slider-grey.svg" alt="slider" />
@@ -126,7 +104,7 @@ const CampaignBanner = (data) => {
                   )
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="slide-3">
@@ -204,7 +182,7 @@ const CampaignBanner = (data) => {
                 </div>
               </div>
             </div>
-            <div className="banner__slider-control">
+            {/* <div className="banner__slider-control">
               <div className="banner__next">
                 <a href="#" title="next">
                   <img src="/images/campaign-slider-grey.svg" alt="slider" />
@@ -225,7 +203,7 @@ const CampaignBanner = (data) => {
                   )
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="slide-4">
@@ -253,7 +231,7 @@ const CampaignBanner = (data) => {
                 </div>
               </div>
             </div>
-            <div className="banner__slider-control">
+            {/* <div className="banner__slider-control">
               <div className="banner__next">
                 <a href="#" title="next">
                   <img src="/images/campaign-slider-grey.svg" alt="slider" />
@@ -274,7 +252,7 @@ const CampaignBanner = (data) => {
                   )
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="slide-5">
@@ -307,6 +285,28 @@ const CampaignBanner = (data) => {
             </div>
           </div>
         </div>
+        <div className="banner__slider-control">
+              <div className="banner__next">
+                <a href="#" title="next">
+                  <img src="/images/campaign-slider-grey.svg" alt="slider" />
+                </a>
+              </div>
+              <div className="banner__slider-dots">
+                {slugOrder.map((item, index) => {
+                  return (
+                    <>
+                      <AnchorLink
+                        className={`slider-dots ${
+                          data?.slug === item?.slug ? 'active' : ''
+                        } `}
+                        to={'/campaign/' + item?.slug}
+                        key={index}
+                      ></AnchorLink>
+                    </>
+                  )
+                })}
+              </div>
+            </div>
       </section>
     </div>
   )
