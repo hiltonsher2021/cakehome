@@ -9,7 +9,7 @@ const CampaignForm = (data) => {
   const [successMessage, setSuccessMessage] = useState('')
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   let modeledData
-  let titleData
+  let titledData
   const {
     register,
     handleSubmit,
@@ -20,10 +20,11 @@ const CampaignForm = (data) => {
     let filterData = data?.references.filter((item) => {
       if (item?.handle?.includes('1-toolsadvice')) return item
     })
-    titleData = data?.references.filter((item) => {
+    let titleData = data?.references.filter((item) => {
       if (item?.handle?.includes('formTitle-campaign')) return item
     })
     modeledData = sectionModel(filterData[0])
+    titledData = sectionModel(titleData[0])
   }
 
   const sendQuery = (data) => {
@@ -53,13 +54,13 @@ const CampaignForm = (data) => {
       <section className={styles.CampaignForm}>
         <div className="container">
           <div className="form__head">
-            <h1>{titleData[0].mainTitle}</h1>
+            <h1>{titledData?.mainTitle}</h1>
           </div>
           <ChatCallBlock sectionData={data?.references} className="font-edit" />
 
           <div className="form__area">
             <div className="form__area-head">
-              <h2>{titleData[0].subTitle?.subTitle}</h2>
+              <h2>{titledData?.subTitle?.subTitle}</h2>
               {!showSuccessMessage && (
                 <form
                   onSubmit={handleSubmit((data) => {

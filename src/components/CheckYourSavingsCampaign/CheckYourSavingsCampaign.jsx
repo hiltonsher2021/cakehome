@@ -5,13 +5,12 @@ import { Range, getTrackBackground } from 'react-range'
 import api from 'utils/api'
 
 const CheckYourSavingsCampaign = (data) => {
-  // let modeledData = []
   let referencedData = []
-  // let customCalcData = []
   let responseRefinanceData
   let responsePurchaseData
   let parseDataRefinance = []
-
+  let filterData
+  let modeledData
   const [values, setRangeValue] = useState([''])
   const [parseDataRefinanceValue, setParseDataRefinanceValue] = useState([''])
   const [loanMonths, setLoanMonths] = useState('')
@@ -25,19 +24,24 @@ const CheckYourSavingsCampaign = (data) => {
   const [differenceNum, setDifferenceNum] = useState(0)
   const [showCustomCalculator, setShowCustomCalculator] = useState(false)
   const [newRangeValue, setNewRangeValue] = useState(0)
-
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
 
-    function onlyNumberKey(evt) {
-      // Only ASCII character in that range allowed
-      var ASCIICode = evt.which ? evt.which : evt.keyCode
-      if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-        return false
-      } else {
-        return true
-      }
+  function onlyNumberKey(evt) {
+    // Only ASCII character in that range allowed
+    var ASCIICode = evt.which ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+      return false
+    } else {
+      return true
     }
+  }
+  if (data) {
+    filterData = data.references.filter((item) => {
+      if (item?.handle?.includes('calculatorTitle-campaign')) return item
+    })
+    modeledData = sectionModel(filterData[0])
+  }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
     onlyNumberKey(event)
@@ -59,7 +63,6 @@ const CheckYourSavingsCampaign = (data) => {
       let test = nf.format(value)
       setNewRangeValue(test)
       setRangeValue(value)
-
     }
   }
 
@@ -69,57 +72,39 @@ const CheckYourSavingsCampaign = (data) => {
     api({
       url: 'rates/latest',
       method: 'GET',
-      // params: {
-      //   page: 1
-      // },
     }).then((response) => {
-        response?.data?.data.filter((item) => {
-          if (item?.job === 1) {
-            responsePurchaseData = item
-          } else {
-            responseRefinanceData = item
-          }
-        })
-        parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
-        setParseDataRefinanceValue(parseDataRefinance)
+      response?.data?.data.filter((item) => {
+        if (item?.job === 1) {
+          responsePurchaseData = item
+        } else {
+          responseRefinanceData = item
+        }
       })
+      parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
+      setParseDataRefinanceValue(parseDataRefinance)
+    })
   }, [])
 
   const showCustomCalc = () => {
     setShowCustomCalculator(true)
   }
-  // if (data) {
-  //   let filterData = data.sectionData.filter((item) => {
-  //     if (item.handle === '3') return item
-  //   })
-  //   modeledData = sectionModel(filterData[0])
-  //   referencedData = modeledData?.sectionReference
-  //     ? modeledData?.sectionReference[0]
-  //     : modeledData?.section[0]
-  //   customCalcData = modeledData?.sectionReference
-  //     ? modeledData?.sectionReference[1]
-  //     : modeledData?.section[1]
-  // }
 
   const handleSubmit = async (event) => {
     setGifSrc('')
     event.preventDefault()
     calculateLoanFromUser(loanMonths, values, paymentsMade, interestRate)
     // Google tag tracking
-
     var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
+      if (typeof url != 'undefined') {
+        window.location = url
       }
-      };
-      gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
-
-      // end of Google tag tracking
-
+    }
+    gtag('event', 'conversion', {
+      send_to: 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
+      event_callback: callback,
+    })
+    return false
+    // end of Google tag tracking
   }
 
   function calculateLoanFromUser(
@@ -160,8 +145,6 @@ const CheckYourSavingsCampaign = (data) => {
     let cake_temp_principal
     let interestForDifference = ir / (12 * 100)
     let differenceMonthsRemaining = loanMonths - paymentsMade
-    // setMonthsDifference(differenceMonthsRemaining)
-
     let futureValue =
       values * Math.pow(1 + interestForDifference, paymentsMade) -
       emi *
@@ -231,9 +214,7 @@ const CheckYourSavingsCampaign = (data) => {
         cake_start = start
       }
     }
-
     // setActualInterestRate(temp_interest - cake_temp_interest); // Difference between old and new interest rates (monthly)
-
     let interest_to_pay = 0
     for (var j = paymentsMade; j < payment_schedule.length; j++) {
       interest_to_pay = interest_to_pay + payment_schedule[j]['interest']
@@ -286,31 +267,13 @@ const CheckYourSavingsCampaign = (data) => {
         <div className="CheckYourSavings__wrap">
           <div className="CheckYourSavings__top">
             <div className="left-side-head">
-              {' '}
-              {/* <span className="eyebrow">ttttttt</span> */}
-              <h2>See how much you could be saving with Cake today!</h2>
+              <h2>{modeledData?.mainTitle}</h2>
             </div>
-            {/* <div className="right-side">
-              <p>See how much you could be saving with Cake today!</p>
-            </div> */}
           </div>
           <div className="CheckYourSavings__holder">
             <div className="left-side">
-              <h5>Tell Us about your current loan </h5>
-              {/* {!showCustomCalculator && (
-                <button
-                  className={`btn dark hid-dsktp mobile-form-toggle`}
-                  onClick={showCustomCalc}
-                >
-                  CHECK YOUR SAVINGS WITH
-                  <img src="/images/cake-logo.png" alt="door" />
-
-                </button>
-              )} */}
-
-              <div
-                className={`CheckYourSavings__form `}
-              >
+              <h5>{modeledData?.subTitle?.subTitle}</h5>
+              <div className={`CheckYourSavings__form `}>
                 <form onSubmit={handleSubmit}>
                   <div className="CakeFormWrap">
                     <div className="CakeFieldWrap">
@@ -321,10 +284,11 @@ const CheckYourSavingsCampaign = (data) => {
                           value={newRangeValue}
                           max="2000000"
                           placeholder="0"
-                          onChange={(e) => rangeValueChange([e.target.value], true, e)}
+                          onChange={(e) =>
+                            rangeValueChange([e.target.value], true, e)
+                          }
                         />
                       </span>
-
                       <div className="custom-range">
                         <Range
                           step={1000}
@@ -416,9 +380,7 @@ const CheckYourSavingsCampaign = (data) => {
               </div>
             </div>
 
-            <div
-              className={`right-side`}
-            >
+            <div className={`right-side`}>
               <div className="refinance__wrap">
                 {calculatorMessage === '' && (
                   <h3 className="top">
@@ -466,12 +428,12 @@ const CheckYourSavingsCampaign = (data) => {
                     )}
                   </>
                 )}
-                <a className='btn dark d-desktop' href="#">
-               GET MY PERSONALIZED RATE
-              </a>
+                <a className="btn dark d-desktop" href="#">
+                  GET MY PERSONALIZED RATE
+                </a>
               </div>
-              <a className='btn dark d-mob' href="#">
-               GET MY PERSONALIZED RATE
+              <a className="btn dark d-mob" href="#">
+                GET MY PERSONALIZED RATE
               </a>
             </div>
           </div>

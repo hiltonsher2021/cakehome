@@ -69,7 +69,7 @@ const Campaign = (props) => {
       <section className="generic-section">
         <CampaignHeader />
         <CampaignBanner {...props.data.contentfulCampaign} />
-        <CheckYourSavingsCampaign />
+        <CheckYourSavingsCampaign {...props.data.contentfulCampaign} />
         <CampaignCard {...props.data.contentfulCampaign} />
         <CampaignForm {...props.data.contentfulCampaign} />
       </section>
