@@ -31,7 +31,7 @@ const CampaignForm = (data) => {
         setSuccessMessage(response?.data?.message)
       })
       .catch(function (error) {
-        
+
         setSuccessMessage(error.message)
         setShowSuccessMessage(error.status !== 'success' ? true : false)
 

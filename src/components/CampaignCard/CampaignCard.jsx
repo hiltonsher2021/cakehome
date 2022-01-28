@@ -55,21 +55,10 @@ const CampaignCard = (data) => {
     <div className={`${styles.CampaignCard} purchase`}>
       <div className="container">
         <div className="CampaignCard__title-wrap">
-          <h2>Cake Customers Love Doing Business with Us!</h2>
-          <div className="CampaignCard__social-wrap">
-            {/* {iconsList?.items.map((item, index) => {
-              iconImage = getImage(item?.image?.gatsbyImageData)
-              return (
-                <AnchorLink key={index}>
-                  <GatsbyImage image={iconImage} alt={item?.image?.title} />
-                </AnchorLink>
-              )
-            })} */}
-          </div>
+          <h2>{modeledData?.mainTitle}</h2>
         </div>
         <div className="CampaignCard-desktopCards">
           {/* slider section */}
-
           <Slider {...settings} className="CampaignCard__Wrapper">
             {modeledData?.sectionReference[0].cardItems.map((item, index) => {
               return (
@@ -80,16 +69,6 @@ const CampaignCard = (data) => {
                 </>
               )
             })}
-
-            {/* <div className="CampaignCard__item">
-              <TestimonialCard />
-            </div>
-            <div className="CampaignCard__item">
-              <TestimonialCard />
-            </div>
-            <div className="CampaignCard__item">
-              <TestimonialCard />
-            </div> */}
           </Slider>
         </div>
       </div>

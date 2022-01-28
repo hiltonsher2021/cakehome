@@ -60,7 +60,7 @@ const Campaign = (props) => {
         <CampaignBanner {...props.data.contentfulCampaign} />
         <CheckYourSavingsCampaign />
         <CampaignCard {...props.data.contentfulCampaign} />
-        {/* <CampaignForm  sectionData={dataSplit}/> */}
+        {/* <CampaignForm  {...props.data.contentfulCampaign}/> */}
       </section>
     </Layout>
   )

@@ -31,9 +31,7 @@ const TestimonialCard = (data) => {
           <h3>{data?.item?.title}</h3>
         </div>
         <div className="TestimonialCard__middle">
-          <p>
-          {data?.item?.titleLongDescription?.titleLongDescription}
-          </p>
+          <p>{data?.item?.titleLongDescription?.titleLongDescription}</p>
         </div>
       </div>
       <div className="TestimonialCard__bottom">
