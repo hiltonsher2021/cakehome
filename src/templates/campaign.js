@@ -26,7 +26,7 @@ export const query = graphql`
             subTitle
           }
           handle
-          section : sectionReference {
+          section: sectionReference {
             ... on ContentfulCard {
               id
               cardItems {
@@ -51,8 +51,8 @@ export const query = graphql`
               label
               handle
               image {
-                    gatsbyImageData
-                  }
+                gatsbyImageData
+              }
               url
             }
           }
@@ -71,86 +71,10 @@ const Campaign = (props) => {
         <CampaignBanner {...props.data.contentfulCampaign} />
         <CheckYourSavingsCampaign />
         <CampaignCard {...props.data.contentfulCampaign} />
-        <CampaignForm  {...props.data.contentfulCampaign}/>
+        <CampaignForm {...props.data.contentfulCampaign} />
       </section>
     </Layout>
   )
 }
 
 export default Campaign
-
-// const propTypes = {
-//   data: PropTypes.object,
-// }
-// CampaignPage.propTypes = propTypes
-
-// export const query = graphql`
-//   {
-//     contentfulPage(handle: { eq: "toolsadvice" }) {
-//       handle
-//       title
-//       name
-//       description {
-//         description
-//       }
-//       metaImage {
-//         file {
-//           url
-//         }
-//       }
-//       sections {
-//         ... on ContentfulBanner {
-//           id
-//           backgroundColour
-//           ctaText
-//           description {
-//             description
-//           }
-//           handle
-//           mainTitle
-//           subTitle {
-//             subTitle
-//           }
-//           headerText
-//           image {
-//             gatsbyImageData
-//             title
-//           }
-//         }
-//         ... on ContentfulSection {
-//           id
-//           backgroundColour
-//           ctaText
-//           ctaLink
-//           description {
-//             description
-//           }
-//           footerText
-//           handle
-//           image {
-//             gatsbyImageData
-//             title
-//           }
-//           mainTitle
-//           subTitle {
-//             subTitle
-//           }
-//           section: sectionReference {
-//             ... on ContentfulMenuItem {
-//               id
-//               backgroundColour
-//               handle
-//               image {
-//                 gatsbyImageData
-//                 title
-//               }
-//               url
-//               subLabel
-//               label
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
