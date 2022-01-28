@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 import * as PropTypes from 'prop-types'
 import Layout from 'components/layout/Main/MainLayout'
 import SEO from 'components/seo'
@@ -10,52 +10,67 @@ import CampaignCard from 'components/CampaignCard/CampaignCard'
 import CheckYourSavingsCampaign from 'components/CheckYourSavingsCampaign/CheckYourSavingsCampaign'
 
 export const query = graphql`
-  query($slug: String) {
+  query ($slug: String) {
     contentfulCampaign(slug: { eq: $slug }) {
       title
       slug
+      mainTitle
+      description {
+        description
+      }
+      references {
+        ... on ContentfulSection {
+          id
+          mainTitle
+          subTitle {
+            subTitle
+          }
+          handle
+          sectionReference {
+            ... on ContentfulCard {
+              id
+              cardItems {
+                ... on ContentfulCard {
+                  id
+                  title
+                  subTitle
+                  titleLongDescription {
+                    titleLongDescription
+                  }
+                  image {
+                    gatsbyImageData
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `
 
-const Campaign = props => {
-
+const Campaign = (props) => {
   return (
     <Layout>
-    <SEO title="Campaign" />
-    <section className="generic-section">
-      <CampaignHeader />
-      <CampaignBanner />
-      <CheckYourSavingsCampaign />
-      <CampaignCard />
-      {/* <CampaignForm  sectionData={dataSplit}/> */}
-    </section>
-  </Layout>
-    // <div>
-    //   <div className="campaign-post-container">
-    //     <article className="post">
-    //       <div className="post-thumbnail" >
-    //         <h1 className="post-title">{props.data.contentfulCampaign.title}</h1>
-    //         <div className="post-meta">{props.data.contentfulCampaign.slug}</div>
-    //       </div>
-    //     </article>
-    //   </div>
-    // </div>
+      <SEO title="Campaign" />
+      <section className="generic-section">
+        <CampaignHeader />
+        <CampaignBanner {...props.data.contentfulCampaign} />
+        <CheckYourSavingsCampaign />
+        <CampaignCard {...props.data.contentfulCampaign} />
+        {/* <CampaignForm  sectionData={dataSplit}/> */}
+      </section>
+    </Layout>
   )
 }
 
 export default Campaign
 
-
-
-
-
-
-
-
-
-
-
+// const propTypes = {
+//   data: PropTypes.object,
+// }
+// CampaignPage.propTypes = propTypes
 
 // export const query = graphql`
 //   {

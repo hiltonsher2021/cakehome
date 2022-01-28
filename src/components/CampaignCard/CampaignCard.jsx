@@ -20,6 +20,12 @@ const CampaignCard = (data) => {
   let filterData = []
   let testimonialList = []
 
+  if (data) {
+    let filterData = data.references.filter((item) => {
+      if (item?.handle?.includes('testimonial-campaign')) return item
+    })
+    modeledData = sectionModel(filterData[0])
+  }
 
   var settings = {
     dots: true,
@@ -30,19 +36,19 @@ const CampaignCard = (data) => {
     responsive: [
       {
         breakpoint: 992,
-        settings:{
-          arrows:false,
+        settings: {
+          arrows: false,
           slidesToShow: 2,
-        }
+        },
       },
       {
         breakpoint: 768,
-        settings:{
-          arrows:false,
+        settings: {
+          arrows: false,
           slidesToShow: 1,
-          centerMode:true,
-        }
-      }
+          centerMode: true,
+        },
+      },
     ],
   }
   return (
@@ -63,8 +69,19 @@ const CampaignCard = (data) => {
         </div>
         <div className="CampaignCard-desktopCards">
           {/* slider section */}
+
           <Slider {...settings} className="CampaignCard__Wrapper">
-            <div className="CampaignCard__item">
+            {modeledData?.sectionReference[0].cardItems.map((item, index) => {
+              return (
+                <>
+                  <div className="CampaignCard__item">
+                    <TestimonialCard item={item} />
+                  </div>
+                </>
+              )
+            })}
+
+            {/* <div className="CampaignCard__item">
               <TestimonialCard />
             </div>
             <div className="CampaignCard__item">
@@ -72,10 +89,7 @@ const CampaignCard = (data) => {
             </div>
             <div className="CampaignCard__item">
               <TestimonialCard />
-            </div>
-            <div className="CampaignCard__item">
-              <TestimonialCard />
-            </div>
+            </div> */}
           </Slider>
         </div>
       </div>

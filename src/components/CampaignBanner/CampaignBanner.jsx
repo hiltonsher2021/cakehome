@@ -1,21 +1,21 @@
 import React from 'react'
 import * as styles from './CampaignBanner.module.scss'
 const CampaignBanner = (data) => {
-  
+
   return (
     <div>
      <section className={styles.CampaginBanner}>
        <div className="slide-1">
           <div className="container">
             <div className="banner__hero">
-              <h1>Your Rate, Your Way.</h1>
+              <h1>{data?.mainTitle}</h1>
             </div>
             <div className="banner__content">
-              <h2>You’re just seconds away from getting your amazingly delicious personalized rate!</h2>
+              <h2>{data?.title}</h2>
             </div>
             <div className="banner__form">
               <div className="banner__form-head">
-              <h3>Let’s get started then!</h3>
+              <h3>{data?.description?.description}</h3>
               </div>
               <div className="banner__form-fields">
                 <label className='d-mob' htmlFor="field">My Legal Name Is</label>
@@ -116,7 +116,7 @@ const CampaignBanner = (data) => {
                 <option value="610" name="580-619(Poor)">580-619(Poor)</option>
               </select>
                 </div>
-              
+
               </div>
             </div>
             <div className="banner__slider-control">
@@ -153,10 +153,10 @@ const CampaignBanner = (data) => {
                 <input placeholder='$100,000' type="text"/>
                 </div>
                 <div className="banner__select">
-                <label  htmlFor="banner">Cash Out Amount</label> 
+                <label  htmlFor="banner">Cash Out Amount</label>
                 <input placeholder='$0' type="text"/>
                 </div>
-              
+
               </div>
             </div>
             <div className="banner__slider-control">

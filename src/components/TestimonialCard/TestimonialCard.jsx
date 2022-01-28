@@ -5,7 +5,7 @@ import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 
 const TestimonialCard = (data) => {
   let image
-  image = getImage(data?.cardData?.image.gatsbyImageData)
+  image = getImage(data?.item?.image.gatsbyImageData)
 
   return (
     <div className={`${styles.TestimonialCard}`}>
@@ -28,28 +28,26 @@ const TestimonialCard = (data) => {
 
             <img src="/images/star-green.png" alt="google-icon" />
           </div>
-          <h3>The entire process was very easy.</h3>
+          <h3>{data?.item?.title}</h3>
         </div>
         <div className="TestimonialCard__middle">
           <p>
-            Process was remarkably easy and fast. Best mortgage/refi experience
-            we have ever had. No hassles and excellent customer service! We will
-            definitely recommend them to our friends and family. (edited)
+          {data?.item?.titleLongDescription?.titleLongDescription}
           </p>
         </div>
       </div>
       <div className="TestimonialCard__bottom">
         <div className="TestimonialCard__footer">
           <div className="left-side">
-            <h4>Ellie Johnson</h4>
+            <h4>{data?.item?.subTitle}</h4>
             <p>Chicago, IL</p>
           </div>
           <div className="right-side">
-            <a title='social-media'><img src="/images/google.png" alt="google-icon" /></a>
-            
-            {/* <AnchorLink href="#">Icon
-              <GatsbyImage image={image} alt={data?.cardData?.image?.title} />
-            </AnchorLink> */}
+            {/* <a title='social-media'><img src="/images/google.png" alt="google-icon" /></a> */}
+
+            <AnchorLink>
+              <GatsbyImage image={image} alt={data?.item?.image?.title} />
+            </AnchorLink>
           </div>
         </div>
       </div>
