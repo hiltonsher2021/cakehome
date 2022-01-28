@@ -11,6 +11,15 @@ import CheckYourSavingsCampaign from 'components/CheckYourSavingsCampaign/CheckY
 
 export const query = graphql`
   query ($slug: String) {
+   allContentfulCampaign {
+    edges {
+      node {
+        title
+        slug
+        handle
+      }
+    }
+  }
     contentfulCampaign(slug: { eq: $slug }) {
       title
       slug
@@ -63,12 +72,13 @@ export const query = graphql`
 `
 
 const Campaign = (props) => {
+  console.log(props?.data?.allContentfulCampaign?.edges, 'props')
   return (
     <Layout>
       <SEO title="Campaign" />
       <section className="generic-section">
         <CampaignHeader />
-        <CampaignBanner {...props.data.contentfulCampaign} />
+        <CampaignBanner {...props.data.contentfulCampaign} {...props?.data?.allContentfulCampaign}/>
         <CheckYourSavingsCampaign {...props.data.contentfulCampaign} />
         <CampaignCard {...props.data.contentfulCampaign} />
         <CampaignForm {...props.data.contentfulCampaign} />
