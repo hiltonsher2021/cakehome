@@ -4,16 +4,13 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
 const CampaignBanner = (data) => {
   let slugOrder
-
   if (data) {
     let filterData = data?.edges.map((item) => {
       return { slug: item.node.slug, pageNo: item.node.handle }
     })
-    // console.log(filterData, 'filter data')
     slugOrder = filterData.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
-    // console.log(slugOrder, 'testdata data')
   }
 
   return (
@@ -44,9 +41,9 @@ const CampaignBanner = (data) => {
         <div className="slide-2">
           <div className="container">
             <div className="banner__hero">
-              <h1>Great to meet you Name.</h1>
+              <h1>{data?.title}</h1>
               <h1 className="d-mob">
-                How about that FICO score (don't trip, no credit pulls here)
+                {data?.mobDescription?.mobDescription}
               </h1>
               <h2 className="d-desktop"> Your credit rating...</h2>
             </div>
@@ -111,10 +108,10 @@ const CampaignBanner = (data) => {
           <div className="container">
             <div className="banner__hero">
               <h1 className="d-mob">
-                Thank you Name, and regarding the property
+              {data?.mobTitle}
               </h1>
-              <h1 className="d-desktop">Tell us about your property</h1>
-              <h2 className="d-mob">What type of property is it?</h2>
+              <h1 className="d-desktop">{data?.title}</h1>
+              <h2 className="d-mob">{data?.mobDescription?.mobDescription}</h2>
             </div>
             <div className="banner__form">
               <div className="banner__form-fields">
@@ -209,10 +206,10 @@ const CampaignBanner = (data) => {
         <div className="slide-4">
           <div className="container">
             <div className="banner__hero">
-              <h1 className="d-mob">Almost there Name, couple more steps</h1>
-              <h1 className="d-desktop">Nice work! Just a couple more steps</h1>
+              <h1 className="d-mob">{data?.mobTitle}</h1>
+              <h1 className="d-desktop">{data?.title}</h1>
               <h2 className="d-mob">
-                Tell us a bit more about your property and current loan
+              {data?.mobDescription?.mobDescription}
               </h2>
             </div>
             <div className="banner__form">
@@ -258,9 +255,9 @@ const CampaignBanner = (data) => {
         <div className="slide-5">
           <div className="container">
             <div className="banner__hero">
-              <h1 className="d-desktop">Where can we reach you?.</h1>
-              <h1 className="d-mob">You made it Name, last step!</h1>
-              <h2 className="d-mob">Where can we reach you?</h2>
+              <h1 className="d-desktop">{data?.title}</h1>
+              <h1 className="d-mob">{data?.mobTitle}</h1>
+              <h2 className="d-mob">{data?.mobDescription?.mobDescription}</h2>
             </div>
             <div className="banner__form">
               <div className="banner__form-fields">
