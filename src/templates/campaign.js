@@ -26,7 +26,7 @@ export const query = graphql`
             subTitle
           }
           handle
-          sectionReference {
+          section : sectionReference {
             ... on ContentfulCard {
               id
               cardItems {
@@ -44,6 +44,17 @@ export const query = graphql`
                 }
               }
             }
+            ... on ContentfulMenuItem {
+              id
+              type
+              subLabel
+              label
+              handle
+              image {
+                    gatsbyImageData
+                  }
+              url
+            }
           }
         }
       }
@@ -60,7 +71,7 @@ const Campaign = (props) => {
         <CampaignBanner {...props.data.contentfulCampaign} />
         <CheckYourSavingsCampaign />
         <CampaignCard {...props.data.contentfulCampaign} />
-        {/* <CampaignForm  {...props.data.contentfulCampaign}/> */}
+        <CampaignForm  {...props.data.contentfulCampaign}/>
       </section>
     </Layout>
   )

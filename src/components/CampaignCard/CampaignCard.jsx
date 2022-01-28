@@ -60,7 +60,7 @@ const CampaignCard = (data) => {
         <div className="CampaignCard-desktopCards">
           {/* slider section */}
           <Slider {...settings} className="CampaignCard__Wrapper">
-            {modeledData?.sectionReference[0].cardItems.map((item, index) => {
+            {modeledData?.section[0].cardItems.map((item, index) => {
               return (
                 <>
                   <div className="CampaignCard__item">
