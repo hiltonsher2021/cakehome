@@ -3,28 +3,31 @@ import * as styles from './CampaignBanner.module.scss'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 
 const CampaignBanner = (data) => {
-  let slugOrder
+  let slugOrder = []
   let currentPageData
+  let filterData = []
+  let currentPage = []
 
   if (data) {
-    let filterData = data?.edges.map((item) => {
+    filterData = data?.edges?.map((item) => {
       return { slug: item?.node?.slug, pageNo: item.node?.handle }
     })
-    slugOrder = filterData.sort(function (a, b) {
+    slugOrder = filterData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
 
-    currentPageData = slugOrder.filter((item) => {
+    currentPageData = slugOrder?.filter((item) => {
       if (data?.slug === item?.slug) {
         return item
       }
     })
+    currentPage = currentPageData?.shift();
   }
 
   return (
     <div>
       <section className={styles.CampaginBanner}>
-        {currentPageData[0].pageNo === 1 && (
+        {currentPage?.pageNo === 1 && (
           <>
             <div className="slide-1">
               <div className="container">
@@ -50,7 +53,7 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-        {currentPageData[0].pageNo === 2 && (
+        {currentPage?.pageNo === 2 && (
           <>
             <div className="slide-2">
               <div className="container">
@@ -120,7 +123,7 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-        {currentPageData[0].pageNo === 3 && (
+        {currentPage?.pageNo === 3 && (
           <>
             <div className="slide-3">
               <div className="container">
@@ -227,7 +230,7 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-        {currentPageData[0].pageNo === 4 && (
+        {currentPage?.pageNo === 4 && (
           <>
             <div className="slide-4">
               <div className="container">
@@ -280,7 +283,7 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-        {currentPageData[0].pageNo === 5 && (
+        {currentPage?.pageNo === 5 && (
           <>
             {' '}
             <div className="slide-5">
@@ -321,14 +324,14 @@ const CampaignBanner = (data) => {
           </>
         )}
 
-        <div className={`banner__slider-control ${currentPageData[0].pageNo === 5 ? 'page-5' : ''}`}>
+        <div className={`banner__slider-control ${currentPage?.pageNo === 5 ? 'page-5' : ''}`}>
           <div className="banner__next">
             <a href="#" title="next">
               <img src="/images/campaign-slider-grey.svg" alt="slider" />
             </a>
           </div>
           <div className="banner__slider-dots">
-            {slugOrder.map((item, index) => {
+            {slugOrder?.map((item, index) => {
               return (
                 <>
                   <AnchorLink

@@ -37,7 +37,7 @@ const CheckYourSavingsCampaign = (data) => {
     }
   }
   if (data) {
-    filterData = data.references.filter((item) => {
+    filterData = data?.references?.filter((item) => {
       if (item?.handle?.includes('calculatorTitle-campaign')) return item
     })
     modeledData = sectionModel(filterData[0])
@@ -73,7 +73,7 @@ const CheckYourSavingsCampaign = (data) => {
       url: 'rates/latest',
       method: 'GET',
     }).then((response) => {
-      response?.data?.data.filter((item) => {
+      response?.data?.data?.filter((item) => {
         if (item?.job === 1) {
           responsePurchaseData = item
         } else {
@@ -119,7 +119,7 @@ const CheckYourSavingsCampaign = (data) => {
     setInterestDifference(0)
     let rate_value
     if (parseDataRefinanceValue?.products.length !== 0) {
-      rate_value = parseDataRefinanceValue?.products.filter((item) => {
+      rate_value = parseDataRefinanceValue?.products?.filter((item) => {
         if (item.loanTerm === '10') {
           return item.rate
         }
