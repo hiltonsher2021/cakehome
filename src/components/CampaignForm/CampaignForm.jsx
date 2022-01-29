@@ -54,8 +54,8 @@ const CampaignForm = (data) => {
       <section className={styles.CampaignForm}>
         <div className="container">
           <div className="form__head">
-            <h1 className='d-desktop'>{titledData?.mainTitle}</h1>
-            <h1 className='d-mob'>{titledData?.mainTitle}</h1>  
+            <h1 className="d-desktop">{titledData?.mainTitle}</h1>
+            <h1 className="d-mob">{titledData?.description?.description}</h1>
             {/* // markup chnaged  */}
           </div>
           <ChatCallBlock sectionData={data?.references} className="font-edit" />
@@ -72,40 +72,41 @@ const CampaignForm = (data) => {
                   <div className="form__wrap">
                     {/* markup changed */}
                     <div className="form-field">
-                    <input
-                      placeholder="Name"
-                      type="text"
-                      {...register('name', {
-                        required: 'This is a required field',
-                      })}
-                    />
-                    <p className='error-message'>{errors.name?.message}</p>
+                      <input
+                        placeholder="Name"
+                        type="text"
+                        {...register('name', {
+                          required: 'This is a required field',
+                        })}
+                      />
+                      <p className="error-message">{errors.name?.message}</p>
                     </div>
                     {/* markup changed */}
-                    <div className="form-field"> 
-                    <input
-                      placeholder="Email"
-                      {...register('email', {
-                        required: 'This is a required field',
-                        pattern: {
-                          value: /\S+@\S+\.\S+/,
-                          message: 'Entered value does not match email format',
-                        },
-                      })}
-                      type="text"
-                    />
-                    <p className='error-message'>{errors.email?.message}</p>
-                  </div>
-                  {/* markup changed */}
-                  <div className="form-field textarea"> 
-                    <textarea
-                      placeholder="How can we help?"
-                      {...register('query', {
-                        required: 'This is a required field',
-                      })}
-                      id="help" // markup chnaged
-                    ></textarea>
-                    <p className='error-message'>{errors.query?.message}</p>
+                    <div className="form-field">
+                      <input
+                        placeholder="Email"
+                        {...register('email', {
+                          required: 'This is a required field',
+                          pattern: {
+                            value: /\S+@\S+\.\S+/,
+                            message:
+                              'Entered value does not match email format',
+                          },
+                        })}
+                        type="text"
+                      />
+                      <p className="error-message">{errors.email?.message}</p>
+                    </div>
+                    {/* markup changed */}
+                    <div className="form-field textarea">
+                      <textarea
+                        placeholder="How can we help?"
+                        {...register('query', {
+                          required: 'This is a required field',
+                        })}
+                        id="help" // markup chnaged
+                      ></textarea>
+                      <p className="error-message">{errors.query?.message}</p>
                     </div>
                     <div className="form__submit">
                       <button className="btn" type="submit" title="btn">
@@ -117,7 +118,7 @@ const CampaignForm = (data) => {
               )}
               {showSuccessMessage && (
                 // markup chnaged
-                <div className='success__message'>
+                <div className="success__message">
                   <p>{successMessage}</p>
                 </div>
               )}
