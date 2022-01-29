@@ -8,6 +8,18 @@
         .container {
             max-width: rem(1297);
             padding: rem(0) rem(20);
+            .d-mob {
+                display: block;
+                @media #{$md} {
+                    display: none;
+                }
+            }
+            .d-desktop{
+                display: none;
+                @media #{$md} {
+                    display: block;
+                }
+            }
             .ChatCallBlock{
                 .ChatCallBlock__wrapper{
                     flex-direction: row;

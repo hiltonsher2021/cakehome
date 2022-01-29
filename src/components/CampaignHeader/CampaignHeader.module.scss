@@ -5,15 +5,12 @@
         position: fixed;
         top: 0;
         width: 100%;
-        padding-bottom: 11px;
-
         z-index: 255555;
         @media #{$sm}{
-            padding-bottom: 63px;  
+            padding-bottom: 30px;  
         }
-        @media #{$md} {
-            padding-bottom: 0;
-            padding: rem(56) rem(0) rem(43.5);
+        @media #{$xl} {
+            padding: rem(56) rem(0) rem(30.5);
         }
          :global {
             .container {
@@ -28,16 +25,21 @@
                     width: 100%;
                     flex: 0 0 100%;
                     text-align: center;
-                    @media #{$md} {
+                    @media #{$smm} {
                         width: 38%;
                         flex: 0 0 38%;
                         text-align: left;
                     }
                     img {
-                        width: rem(75);
+                            width: rem(75);
                         height: rem(25);
                         margin-bottom: rem(14);
-                        @media #{$md} {
+                        @media #{$smm}{
+                            width: rem(100);
+                            height: auto;
+                            margin-bottom: rem(20);
+                        }
+                        @media #{$xl} {
                             width: rem(158.02);
                             height: rem(54);
                             margin-bottom: 0;
@@ -50,7 +52,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    @media #{$md} {
+                    @media #{$smm} {
                         width: 62%;
                         flex: 0 0 62%;
                     }
@@ -62,6 +64,9 @@
                         border-radius: 4.2px;
                         background-color: #FFFFFF;
                         padding: rem(3) rem(13);
+                        @media #{$smm}{
+                            padding: rem(8) rem(15);
+                        }
                         @media #{$md} {
                             border: 0;
                             border-radius: 0;
@@ -70,10 +75,14 @@
                         }
                         .header__call-thumb {
                             img {
-                                width: rem(18.28);
-                                height: rem(16.9);
-                                margin-right: rem(5.56);
-                                @media #{$md} {
+                                width: rem(16.45);
+                                height: rem(15.21);
+                                margin-right: rem(8.56);
+                                @media #{$smm}{
+                                    width: rem(30.45);
+                                height: rem(30.21);
+                                }
+                                @media #{$xl} {
                                     width: rem(41.05);
                                     height: rem(38.02);
                                     margin-right: rem(21.37);
@@ -82,12 +91,16 @@
                         }
                         .header__call-text {
                             font-size: rem(11.9);
-                            line-height: rem(17.5);
+                            line-height: rem(10);
                             color: #121212;
                             font-weight: 700;
-                            @media #{$md} {
+                            @media #{$smm}{
+                                font-size: rem(18.9);
+                                line-height: rem(13);
+                            }
+                            @media #{$xl} {
                                 font-size: rem(29.75);
-                                line-height: rem(43.75);
+                                line-height: rem(15);
                             }
                             span {
                                 font-size: rem(9.8);
@@ -95,7 +108,11 @@
                                 color: #121212;
                                 font-weight: 700;
                                 display: block;
-                                @media #{$md} {
+                                @media #{$smm}{
+                                    font-size: rem(15.8);
+                                    line-height: rem(25.5);
+                                }
+                                @media #{$xl} {
                                     font-size: rem(24.5);
                                     line-height: rem(43.75);
                                 }
@@ -110,20 +127,27 @@
                         border: 0.7px solid #6CEBCE;
                         border-radius: 4.2px;
                         padding: rem(8) rem(9) rem(10) rem(10);
-                        @media #{$md} {
+                        @media #{$smm}{
+                            padding: rem(15) rem(20) ;
+                        }
+                        @media #{$xl} {
                             padding: rem(20) rem(23) rem(25) rem(25);
                             border: 1.75px solid #6CEBCE;
                             border-radius: 10.5px;
                         }
                         .header__chat-thumb {
                             img {
-                                width: rem(21);
-                                height: rem(14);
-                                margin-right: rem(4);
-                                @media #{$md} {
+                                width: rem(21.05);
+                                height: rem(14.08);
+                                margin-right: rem(3.65);
+                                @media #{$smm}{
+                                    width: rem(30);
+                                    height: rem(30);
+                                    margin-right: rem(8.84);
+                                }
+                                @media #{$xl} {
                                     width: rem(52.5);
                                     height: rem(35);
-                                    margin-right: rem(8.84);
                                 }
                             }
                         }
@@ -132,7 +156,11 @@
                             line-height: rem(17.5);
                             color: #414042;
                             font-weight: 700;
-                            @media #{$md} {
+                            @media #{$smm}{
+                                font-size: rem(20.9);
+                                line-height: rem(28.5);
+                            }
+                            @media #{$xl} {
                                 font-size: rem(29.75);
                                 line-height: rem(43.75);
                             }
