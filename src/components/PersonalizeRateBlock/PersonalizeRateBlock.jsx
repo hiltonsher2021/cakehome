@@ -295,7 +295,7 @@ const PersonalizeRateBlock = (data) => {
                     <option value="650" name="640-659(Below Average)">
                       640-659(Below Average)
                     </option>
-                    <option value="0630" name="620-639(Fair)">
+                    <option value="630" name="620-639(Fair)">
                       620-639(Fair)
                     </option>
                     <option value="610" name="580-619(Poor)">

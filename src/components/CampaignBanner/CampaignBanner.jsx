@@ -1,14 +1,41 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import * as styles from './CampaignBanner.module.scss'
 import { Link } from 'gatsby'
+import api from 'utils/api'
+import { useForm } from 'react-hook-form'
+
+const isBrowser = typeof window !== 'undefined'
 
 const CampaignBanner = (data) => {
+  let sessionStorage
+  if (isBrowser) {
+    sessionStorage = window.sessionStorage
+  }
   let slugOrder = []
   let currentPageData
   let nextPageData = []
   let filterData = []
   let currentPage = []
   let nextPage = []
+  const [creditRating, setCreditRating] = useState('780')
+  const [propertyType, setPropertyType] = useState('SingleFamilyHome')
+  const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
+  const [zipCode, setZipCode] = useState('')
+  const [showValidationMessage, setShowValidationMessage] = useState(false)
+  const [showPhoneValidationMessage, setPhoneShowValidationMessage] = useState(false)
+  // const [newNum, setNewNum] = useState(0)
+  const [propertyValue, setPropertyValue] = useState(0)
+  const [currentLoanBal, setCurrentLoanBal] = useState(0)
+  const [cashOut, setCashOut] = useState(0)
+  const [phone, setPhone] = useState('')
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+
 
   if (data) {
     filterData = data?.edges?.map((item) => {
@@ -34,6 +61,150 @@ const CampaignBanner = (data) => {
     })
     nextPage = nextPageData?.shift()
   }
+
+  const handleChangeCreditRating = (event) => {
+    event.preventDefault()
+    setCreditRating(event.target.value)
+    setValuesStorage('creditRating', event.target.value);
+  }
+
+  const setValuesStorage = (name, value) => {
+    sessionStorage.setItem(name, value);
+  }
+
+  const handleChange = (data) => {
+    let propertyType = data.replaceAll(' ', '')
+    setPropertyType(propertyType)
+    setValuesStorage('propertyType', propertyType)
+  }
+  const handleChangePropertyUse = (data) => {
+    let propertyUse = data.replaceAll(' ', '')
+    setPropertyUse(propertyUse)
+    setValuesStorage('propertyUse', propertyUse)
+
+  }
+
+  const rangeValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
+    let numConv
+    var testVal = value
+
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      if (numConv > 2000000) {
+        event.preventDefault()
+        return
+      }
+      // let nf = new Intl.NumberFormat('en-US')
+      // let test = nf.format(numConv)
+      setPropertyValue(value)
+    } else {
+      // let nf = new Intl.NumberFormat('en-US')
+      // let test = nf.format(value)
+      setPropertyValue(value)
+    }
+    setValuesStorage('purchasePrice', value);
+  }
+
+  const currentLoanValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
+    let numConv
+    var testVal = value
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      if (numConv > 2000000) {
+        event.preventDefault()
+        return
+      }
+      // let nf = new Intl.NumberFormat('en-US')
+      // let test = nf.format(numConv)
+      setCurrentLoanBal(value)
+    } else {
+      // let nf = new Intl.NumberFormat('en-US')
+      // let test = nf.format(value)
+      setCurrentLoanBal(value)
+    }
+    setValuesStorage('downPayment', value);
+
+  }
+
+  const cashOutValueChange = (value, isInputValueChange, event) => {
+    onlyNumberKey(event)
+    let numConv
+    var testVal = value
+    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+      numConv = testVal.replace(/\,/g, '')
+      numConv = parseInt(numConv, 10)
+      if (numConv > 1000000) {
+        event.preventDefault()
+        return
+      }
+      // let nf = new Intl.NumberFormat('en-US')
+      // let test = nf.format(numConv)
+      setCashOut(value)
+    } else {
+      // let nf = new Intl.NumberFormat('en-US')
+      // let test = nf.format(value)
+      setCashOut(value)
+    }
+    setValuesStorage('cashOut', value);
+
+  }
+
+  function onlyNumberKey(evt) {
+    // Only ASCII character in that range allowed
+    var ASCIICode = evt.which ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const validateZipcode = (data) => {
+    if (data.length === 5) {
+      fetchValidZipcode(data)
+    } else {
+      setShowValidationMessage(false)
+    }
+    setZipCode(data)
+  }
+  
+  const setPhoneNumber = (data) => {
+    if (data.length < 10) {
+      setPhoneShowValidationMessage(true)
+    } else {
+      setValuesStorage('phone', data);
+    }
+    setPhone(data)
+  }
+
+  const fetchValidZipcode = (data) => {
+    api({
+      url: 'zipcodes/search',
+      method: 'GET',
+      params: {
+        zip: data,
+      },
+    })
+      .then((response) => {
+        setShowValidationMessage(false)
+        setValuesStorage('zipCode', zipCode);
+      })
+      .catch(function (error) {
+        setShowValidationMessage(true)
+      })
+  }
+
+  useEffect(() => {
+    setValuesStorage('propertyUse', propertyUse)
+    setValuesStorage('propertyType', propertyType)
+    setValuesStorage('creditRating', creditRating);
+
+  }, [])
+
 
   return (
     <div>
@@ -80,10 +251,12 @@ const CampaignBanner = (data) => {
                     <label className="d-mob" htmlFor="banner">
                       Please select your credit range
                     </label>
-                    <select>
-                      <option selected="" value="780" name="740+">
-                        740+
-                      </option>
+                    <select defaultValue="740+(Excellent)"
+                    value={creditRating}
+                    onChange={(e) => handleChangeCreditRating(e)}>
+                      <option value="780" name="740+(Excellent)">
+                      740+(Excellent)
+                    </option>
                       <option value="730" name="720-730(Very Good)">
                         720-730(Very Good)
                       </option>
@@ -99,7 +272,7 @@ const CampaignBanner = (data) => {
                       <option value="650" name="640-659(Below Average)">
                         640-659(Below Average)
                       </option>
-                      <option value="0630" name="620-639(Fair)">
+                      <option value="630" name="620-639(Fair)">
                         620-639(Fair)
                       </option>
                       <option value="610" name="580-619(Poor)">
@@ -149,68 +322,63 @@ const CampaignBanner = (data) => {
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">Property ZIP code</label>
-                      <input placeholder="90035" type="text" />
+                      <input placeholder="90035" type="text"
+                    maxlength="5"
+                    value={zipCode}
+                    onChange={(e) =>
+                      validateZipcode(e.target.value.replace(/[^\d.]/gi, ''))
+                    } />
+                    {showValidationMessage && (
+                    <label htmlFor="">
+                      Sorry, we're not licensed in this state, yet!
+                    </label>
+                  )}
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Property Type</label>
-                      <select>
+                      <select defaultValue="Single Family Home"
+                    value={propertyType}
+                    onChange={(e) => handleChange(e.target.value)}>
                         <option
-                          selected=""
-                          value="780"
-                          name="Single Family Home"
-                        >
-                          Single Family Home
-                        </option>
-                        <option value="730" name="720-730(Very Good)">
-                          720-730(Very Good)
-                        </option>
-                        <option value="710" name="700-719(Good)">
-                          700-719(Good)
-                        </option>
-                        <option value="690" name="680-699(Above Average)">
-                          680-699(Above Average)
-                        </option>
-                        <option value="670" name="660-679(Average)">
-                          660-679(Average)
-                        </option>
-                        <option value="650" name="640-659(Below Average)">
-                          640-659(Below Average)
-                        </option>
-                        <option value="0630" name="620-639(Fair)">
-                          620-639(Fair)
-                        </option>
-                        <option value="610" name="580-619(Poor)">
-                          580-619(Poor)
-                        </option>
+                      name="Single Family Home"
+                      value="Single Family Home"
+                    >
+                      Single Family Home
+                    </option>
+                    <option name="Condominium" value="Condominium">
+                      Condominium
+                    </option>
+                    <option
+                      name="Detached Condominium"
+                      value="DetachedCondominium"
+                    >
+                      Detached Condominium
+                    </option>
+                    <option name="Duplex" value="Duplex">
+                      Duplex
+                    </option>
+                    <option name="Triplex" value="Triplex">
+                      Triplex
+                    </option>
+                    <option name="Quadplex" value="Quadplex">
+                      Quadplex
+                    </option>
                       </select>
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Property Use</label>
-                      <select>
-                        <option selected="" value="780" name="740+">
-                          Primary Residence
-                        </option>
-                        <option value="730" name="720-730(Very Good)">
-                          720-730(Very Good)
-                        </option>
-                        <option value="710" name="700-719(Good)">
-                          700-719(Good)
-                        </option>
-                        <option value="690" name="680-699(Above Average)">
-                          680-699(Above Average)
-                        </option>
-                        <option value="670" name="660-679(Average)">
-                          660-679(Average)
-                        </option>
-                        <option value="650" name="640-659(Below Average)">
-                          640-659(Below Average)
-                        </option>
-                        <option value="0630" name="620-639(Fair)">
-                          620-639(Fair)
-                        </option>
-                        <option value="610" name="580-619(Poor)">
-                          580-619(Poor)
-                        </option>
+                      <select  defaultValue="PrimaryResidence"
+                    value={propertyUse}
+                    onChange={(e) => handleChangePropertyUse(e.target.value)}>
+                      <option value="PrimaryResidence" name="Primary Residence">
+                      Primary Residence
+                    </option>
+                    <option value="SecondHome" name="Secondary Vacation Home">
+                      Secondary Vacation Home
+                    </option>
+                    <option value="Investor" name="InvestmentRental">
+                      Investment Rental
+                    </option>
                       </select>
                     </div>
                   </div>
@@ -256,15 +424,27 @@ const CampaignBanner = (data) => {
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">Property Value Estimate</label>
-                      <input placeholder="$100,000" type="text" />
+                      <input placeholder="$100,000" type="text"
+                      value={propertyValue}
+                      onChange={(e) =>
+                        rangeValueChange(e.target.value, true, e)
+                      }/>
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Current Loan Balance</label>
-                      <input placeholder="$100,000" type="text" />
+                      <input placeholder="$100,000" type="text"
+                      value={currentLoanBal}
+                      onChange={(e) =>
+                        currentLoanValueChange(e.target.value, true, e)
+                      } />
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Cash Out Amount</label>
-                      <input placeholder="$0" type="text" />
+                      <input placeholder="$0" ttype="text"
+                        value={cashOut}
+                        onChange={(e) =>
+                          cashOutValueChange(e.target.value, true, e)
+                        } />
                     </div>
                   </div>
                 </div>
@@ -309,10 +489,30 @@ const CampaignBanner = (data) => {
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__inputs">
-                      <input placeholder="phone" type="text" />
+                      <input placeholder="Phone" type="text"
+                    maxlength="10"
+                    value={phone}
+                    onChange={(e) =>
+                      setPhoneNumber(e.target.value.replace(/[^\d.]/gi, ''))
+                    } />
+                    {showPhoneValidationMessage && (
+                    <label htmlFor="">
+                      Please enter 10 digits
+                    </label>
+                  )}
                     </div>
                     <div className="banner__inputs">
-                      <input placeholder="Email" type="text" />
+                      <input placeholder="Email" {...register('email', {
+                          required: 'This is a required field',
+                          pattern: {
+                            value: /\S+@\S+\.\S+/,
+                            message:
+                              'Entered value does not match email format',
+                          },
+                        })} />
+                    <label htmlFor="">
+                      {errors.email?.message}
+                    </label>
                     </div>
                   </div>
                   <a className="btn" href="#">
