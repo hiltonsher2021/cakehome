@@ -30,9 +30,8 @@ const CampaignBanner = (data) => {
 
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm({mode: 'onBlur'})
 
 
 
@@ -176,6 +175,7 @@ const CampaignBanner = (data) => {
       setPhoneShowValidationMessage(true)
     } else {
       setValuesStorage('phone', data);
+      setPhoneShowValidationMessage(false)
     }
     setPhone(data)
   }
@@ -434,14 +434,18 @@ const CampaignBanner = (data) => {
                   )}
                     </div>
                     <div className="banner__inputs">
-                      <input placeholder="Email" {...register('email', {
+                    <input
+                        placeholder="Email"
+                        {...register('email', {
                           required: 'This is a required field',
                           pattern: {
                             value: /\S+@\S+\.\S+/,
                             message:
                               'Entered value does not match email format',
                           },
-                        })} />
+                        })}
+                        type="text"
+                      />
                     <label htmlFor="">
                       {errors.email?.message}
                     </label>
