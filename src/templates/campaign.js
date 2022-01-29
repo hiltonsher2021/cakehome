@@ -24,6 +24,10 @@ export const query = graphql`
       title
       slug
       mainTitle
+      mobDescription {
+        mobDescription
+      }
+      mobTitle
       description {
         description
       }
@@ -72,7 +76,6 @@ export const query = graphql`
 `
 
 const Campaign = (props) => {
-  console.log(props?.data?.allContentfulCampaign?.edges, 'props')
   return (
     <Layout>
       <SEO title="Campaign" />
