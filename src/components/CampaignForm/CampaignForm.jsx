@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as styles from './CampaignForm.module.scss'
 import ChatCallBlock from 'components/ChatCallBlock/ChatCallBlock'
 import { useForm } from 'react-hook-form'
@@ -6,6 +6,7 @@ import api from 'utils/api'
 import sectionModel from 'models/Section'
 
 const CampaignForm = (data) => {
+  const isQuestionSent = sessionStorage.getItem('QuestionSent');
   const [successMessage, setSuccessMessage] = useState('')
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   let modeledData
@@ -27,6 +28,15 @@ const CampaignForm = (data) => {
     titledData = sectionModel(titleData[0])
   }
 
+  useEffect(() => {
+    if(isQuestionSent === "true") {
+      setShowSuccessMessage(true)
+      setSuccessMessage('Question successfully sent')
+    }
+  }, [successMessage, showSuccessMessage])
+
+
+
   const sendQuery = (data) => {
     api({
       url: 'contacts',
@@ -41,10 +51,12 @@ const CampaignForm = (data) => {
         setShowSuccessMessage(
           response.data?.status === 'success' ? true : false
         )
-        setSuccessMessage(response?.data?.message)
+        setSuccessMessage('Question successfully sent')
+        sessionStorage.setItem('QuestionSent', true);
+
       })
       .catch(function (error) {
-        setSuccessMessage(error.message)
+        setSuccessMessage('Hmmmm, something went wrong, please fill out each field')
         setShowSuccessMessage(error.status !== 'success' ? true : false)
       })
   }
