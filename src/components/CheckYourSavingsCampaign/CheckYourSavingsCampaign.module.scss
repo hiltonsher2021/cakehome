@@ -2,12 +2,11 @@
 
 .CheckYourSavings {
   background-color: $theme-green;
-  padding: rem(40) 0 rem(0);
-  margin: 0 0 rem(24);
+  padding: rem(49) 0 rem(54);
   overflow: hidden;
   text-align: center;
   @media #{$lg} {
-      padding: rem(83) 0 rem(95);
+      padding: rem(83) 0 rem(127);
       margin: 0 0 rem(40);
       text-align: left;
   }
@@ -16,29 +15,43 @@
         max-width: rem(1145);
         margin: 0 auto;
     }
+    label{
+        color: #414042;
+        font-family: Aeonik;
+        font-size: 9.35px;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 14.39px;
+        text-align: left;
+        margin-bottom: rem(7.2);
+        @media #{$xl}{
+            font-size: 13px;
+            line-height: 20px;
+            margin-bottom: rem(7.2);
+        } 
+    }
     .d-mob {
         display: block;
-        @media #{$md} {
+        @media #{$xl} {
             display: none;
         }
     }
     .d-desktop{
         display: none;
-        @media #{$md} {
+        @media #{$xl} {
             display: block;
         }
     }
     .CheckYourSavings__top {
-        display: flex;
-        flex-wrap: wrap;
         text-align: center;
-        @media #{$lg} {
-            margin: 0 0 rem(70);
+        margin: 0 0 rem(22.99);
+        @media #{$xl} {
+            margin: 0 0 rem(100);
         }
         .left-side {
             flex: 0 0 100%;
             max-width: 100%;
-            @media #{$lg} {
+            @media #{$xl} {
                 flex: 0 0 50%;
                 max-width: 50%;
             }
@@ -46,7 +59,7 @@
         .right-side {
             flex: 0 0 100%;
             max-width: 100%;
-            @media #{$lg} {
+            @media #{$xl} {
                 flex: 0 0 50%;
                 max-width: 50%;
                 padding-left: rem(20);
@@ -63,22 +76,26 @@
             text-transform: uppercase;
             margin: 0 0 rem(15);
             color: $textdark;
-            @media #{$lg} {
+            @media #{$xl} {
                 margin: 0 0 rem(26);
             }
         }
         h2 {
             font-family: $degular;
-            font-size: rem(44);
-            font-weight: 700;
-            line-height: rem(36);
-            letter-spacing: rem(1);
-            margin: 0 0 rem(40);
+            font-size: rem(30);
+            font-weight: 900;
+            line-height: rem(30);
+            letter-spacing: rem(0.16);
+            margin: 0;
             color: $textdark;
-            @media #{$lg} {
+            @media #{$smm} {
+                font-size: 50px;
+                line-height: 30px;
+            }
+            @media #{$xl} {
                 font-size: rem(80);
                 line-height: rem(66);
-                margin: 0;
+                font-weight: 700;
             }
         }
         p {
@@ -88,7 +105,7 @@
             font-weight: bold;
             color: $textdark;
             margin: 0 0 rem(31);
-            @media #{$lg} {
+            @media #{$xl} {
                 font-size: rem(21);
                 line-height: rem(25);
                 max-width: rem(487);
@@ -101,7 +118,7 @@
         .left-side {
             flex: 0 0 100%;
             max-width: 100%;
-            @media #{$lg} {
+            @media #{$xl} {
                 flex: 0 0 35%;
                 max-width: 35%;
             }
@@ -110,16 +127,16 @@
                 max-width: 40%;
             }
             h5 {
-                font-family: $aeonik;
+                font-family: Lato;
                 font-size: rem(25);
-                font-weight: 700;
+                font-weight: 900;
                 line-height: rem(30);
                 color: $textdark;
                 letter-spacing: rem(-0.2);
                 max-width: rem(315);
                 margin: 0 auto rem(51);
                 color: #121212;
-                @media #{$lg} {
+                @media #{$xl} {
                     max-width: 100%;
                     margin: 0 0 rem(30);
                 }
@@ -127,9 +144,25 @@
             .CakeFormWrap {
                 max-width: rem(230);
                 margin: 0 auto rem(56);
-                @media #{$lg} {
+                @media #{$smm}{
+                    max-width: 70%;
+                }
+                @media #{$xl} {
                     margin: 0;
                     max-width: rem(315);
+                }
+                .thumb-value{
+                    color: #414042;
+                    font-family: Aeonik;
+                    font-size: 12.23px;
+                    font-weight: 700;
+                    letter-spacing: 0.22px;
+                    line-height: 17.99px;
+                    @media #{$xl}{
+                        font-size: 17px;
+                        letter-spacing: 0.3px;
+                        line-height: 25px;
+                    }
                 }
                 .btn {
                     display: block;
@@ -141,7 +174,7 @@
                     padding: rem(21) rem(6);
                     border: 0;
                     margin: rem(38) 0 0;
-                    @media #{$lg} {
+                    @media #{$xl} {
                         margin: rem(53) 0 0;
                         padding: rem(30) rem(6);
                         font-size: rem(24);
@@ -152,7 +185,7 @@
                         max-width: rem(50);
                         margin: rem(2) 0 rem(2) rem(5);
                         vertical-align: bottom;
-                        @media #{$lg} {
+                        @media #{$xl} {
                             max-width: rem(70);
                         }
                     }
@@ -180,22 +213,27 @@
         .right-side {
             flex: 0 0 100%;
             max-width: 100%;
-            @media #{$lg} {
-                margin: rem(30) 0 0;
-                flex: 0 0 65%;
-                max-width: 65%;
-                padding-left: rem(25);
+            border-radius: rem(10);
+            @media #{$smm} {
+               max-width: 50%;
+               margin: 0 auto;
+                
             }
             @media #{$xl} {
+                margin: rem(30) 0 0;
                 flex: 0 0 60%;
                 max-width: 60%;
+                padding-left: rem(25);
             }
             .refinance__wrap {
                 background-color: white;
-                padding: rem(20) rem(8) rem(50);
+                padding: rem(20) rem(6) rem(27.07);
                 text-align: center;
                 margin: 0 rem(-15);
-                @media #{$lg} {
+                @media #{$smm} {
+                    padding: 20px 25px;
+                }
+                @media #{$xl} {
                     border-radius: rem(10);
                     margin: 0 auto;
                     max-width: rem(645);
@@ -212,7 +250,11 @@
                     letter-spacing: (-0.14);
                     color: $textdark;
                     margin: 0 auto rem(12);
-                    @media #{$lg} {
+                    @media #{$sm}{
+                        font-size: rem(30);
+                        line-height: rem(42);
+                    }
+                    @media #{$xl} {
                         font-size: rem(36);
                         line-height: rem(42);
                         letter-spacing: (0.29);
@@ -226,7 +268,7 @@
                         position: relative;
                         top: -10px;
                         left: -2px;
-                        @media #{$lg} {
+                        @media #{$xl} {
                             font-size: rem(10);
                             line-height: rem(25);
                             top: -15px;
@@ -237,7 +279,10 @@
                         color: $theme-purple;
                         font-weight: 900;
                         font-size: rem(20);
-                        @media #{$lg} {
+                        @media #{$smm}{
+                            font-size: rem(30);
+                        }
+                        @media #{$xl} {
                             font-size: rem(40);
                         }
                         &.block {
@@ -247,14 +292,17 @@
                     &.top {
                         max-width: rem(248);
                         color: #121212;
-                        @media #{$lg} {
+                        @media #{$sm}{
+                            max-width: 100%;
+                        }
+                        @media #{$xl} {
                             max-width: rem(512);
                         }
                         span {
                             font-family: $degular;
                             font-weight: 700;
                             letter-spacing: rem(-0.16);
-                            @media #{$lg} {
+                            @media #{$xl} {
                                 letter-spacing: rem(-0.32);
                             }
                         }
@@ -264,26 +312,30 @@
                     font-family: $degular;
                     // font-size: rem(73);
                     font-size: rem(50);
-                    line-height: 0.8;
+                    // line-height: 14.51px;
                     letter-spacing: rem(1.47);
+                    line-height: 1;
                     color: $textdark;
-                    margin: 0 0 rem(20);
-                    @media #{$lg} {
+                    margin: 0 0 rem(12.3);
+                    font-weight: 900;
+                    text-align: center;
+                    @media #{$smm} {
+                        font-size: 60px;
+                    }
+                    @media #{$xl} {
+                        text-align: left;
                         // font-size: rem(148);
                         font-size: rem(100);
                         letter-spacing: rem(3);
                         margin: 0 0 rem(40);
                     }
                     span {
-                        font-family: $aeonik;
                         font-size: rem(35);
                         font-weight: 500;
-                        line-height: 1;
+                        // line-height: rem(14.51);
                         display: inline-block;
-                        margin: 0 rem(8) 0 0;
                         vertical-align: middle;
-                        color: $theme-purple;
-                        @media #{$lg} {
+                        @media #{$xl} {
                             // font-size: rem(72);
                             font-size: rem(60);
                         }
@@ -293,9 +345,9 @@
                     font-family: $aeonik;
                     font-size: rem(5);
                     font-weight: 400;
-                    line-height: rem(12);
+                    line-height: rem(13);
                     color: $textdark;
-                    @media #{$lg} {
+                    @media #{$xl} {
                         font-size: rem(10);
                         line-height: rem(25);
                     }
@@ -333,7 +385,7 @@
             }
             .btn {
               border: 0;
-              margin: rem(40) 0;
+              margin-top: rem(50);
               display: inline-flex;
               font-size: 15.3px;
               font-weight: 700;
@@ -341,20 +393,28 @@
               line-height: 45px;
               padding-top: 0;
               padding-bottom: 0;
-              @media #{$md} {
+              min-height: auto;
+              padding: 0 rem(26);
+              height: auto;
+              @media #{$smm}{
+                font-size: 20px;
+                line-height: rem(50);
+              }
+              @media #{$xl} {
                 font-size: 25.5px;
                 letter-spacing: 0.45px;
                 line-height: 75px;
+                margin-top: rem(41);
               }
               &.d-mob{
                 display: inline-flex;
-                @media #{$md}{
+                @media #{$xl}{
                     display: none;
                 }
               }
               &.d-desktop{
                 display: none;
-                @media #{$md}{
+                @media #{$xl}{
                     display: inline-flex;
                 }
               }

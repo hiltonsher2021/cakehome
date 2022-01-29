@@ -275,7 +275,7 @@ const CheckYourSavingsCampaign = (data) => {
           </div>
           <div className="CheckYourSavings__holder">
             <div className="left-side">
-              <h5>{modeledData?.subTitle?.subTitle}</h5>
+              <h5 className='d-desktop'>{modeledData?.subTitle?.subTitle}</h5>
               <div className={`CheckYourSavings__form `}>
                 <form onSubmit={handleSubmit}>
                   <div className="CakeFormWrap">

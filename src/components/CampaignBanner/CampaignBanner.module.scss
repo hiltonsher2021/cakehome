@@ -3,6 +3,10 @@
     background-color: #6CEBCE;
      :global {
         .banner__slider-control {
+            padding-bottom: rem(59.5);
+            @media #{$xl} {
+                padding-bottom: rem(0);
+            }
             text-align: center;
             .banner__next {
                 margin-bottom: rem(17.3);
