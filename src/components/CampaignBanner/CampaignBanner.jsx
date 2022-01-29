@@ -321,7 +321,7 @@ const CampaignBanner = (data) => {
           </>
         )}
 
-        <div className="banner__slider-control">
+        <div className={`banner__slider-control ${currentPageData[0].pageNo === 5 ? 'page-5' : ''}`}>
           <div className="banner__next">
             <a href="#" title="next">
               <img src="/images/campaign-slider-grey.svg" alt="slider" />

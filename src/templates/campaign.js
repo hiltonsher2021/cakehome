@@ -42,6 +42,9 @@ export const query = graphql`
             subTitle
           }
           handle
+          description {
+            description
+          }
           section: sectionReference {
             ... on ContentfulCard {
               id
