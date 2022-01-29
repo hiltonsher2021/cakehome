@@ -42,7 +42,7 @@ const CampaignCard = (data) => {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 767,
         settings: {
           arrows: false,
           slidesToShow: 1,
@@ -64,7 +64,7 @@ const CampaignCard = (data) => {
               return (
                 <>
                   <div className="CampaignCard__item" key={index}>
-                    <TestimonialCard item={item} />
+                    <TestimonialCard className="campaign__testimonial" item={item} />
                   </div>
                 </>
               )
