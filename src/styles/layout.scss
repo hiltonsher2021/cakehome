@@ -521,3 +521,11 @@
 .hid-camp{
 display: none;
 }
+body{
+  padding-top: rem(118);
+}
+@media #{$smm} {
+  body{
+    padding-top: rem(122);
+  }
+}
