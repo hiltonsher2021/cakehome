@@ -38,6 +38,7 @@ const CampaignHeader = (data) => {
           </div>
         </div>
         </div>
+        <p className="child-campaign"></p>
     </header>
     </div>
   )

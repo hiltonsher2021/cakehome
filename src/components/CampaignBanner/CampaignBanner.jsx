@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import * as styles from './CampaignBanner.module.scss'
 import { Link } from 'gatsby'
 import api from 'utils/api'
@@ -17,23 +17,28 @@ const CampaignBanner = (data) => {
   let filterData = []
   let currentPage = []
   let nextPage = []
+  let url = ''
   const [creditRating, setCreditRating] = useState('780')
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
   const [zipCode, setZipCode] = useState('')
   const [showValidationMessage, setShowValidationMessage] = useState(false)
-  const [showPhoneValidationMessage, setPhoneShowValidationMessage] = useState(false)
+  const [showPhoneValidationMessage, setPhoneShowValidationMessage] =
+    useState(false)
   const [propertyValue, setPropertyValue] = useState(0)
   const [currentLoanBal, setCurrentLoanBal] = useState(0)
   const [cashOut, setCashOut] = useState(0)
   const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [urlValue, setUrlValue] = useState('')
+
 
   const {
     register,
     formState: { errors },
-  } = useForm({mode: 'onBlur'})
-
-
+  } = useForm({ mode: 'onBlur' })
 
   if (data) {
     filterData = data?.edges?.map((item) => {
@@ -63,11 +68,11 @@ const CampaignBanner = (data) => {
   const handleChangeCreditRating = (event) => {
     event.preventDefault()
     setCreditRating(event.target.value)
-    setValuesStorage('creditRating', event.target.value);
+    setValuesStorage('creditRating', event.target.value)
   }
 
   const setValuesStorage = (name, value) => {
-    sessionStorage.setItem(name, value);
+    sessionStorage.setItem(name, value)
   }
 
   const handleChange = (data) => {
@@ -79,7 +84,15 @@ const CampaignBanner = (data) => {
     let propertyUse = data.replaceAll(' ', '')
     setPropertyUse(propertyUse)
     setValuesStorage('propertyUse', propertyUse)
+  }
 
+  const setFirstUsername = (data) => {
+    setFirstName(data)
+    setValuesStorage('firstName', data)
+  }
+  const setLastUsername = (data) => {
+    setLastName(data)
+    setValuesStorage('lastName', data)
   }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
@@ -102,10 +115,12 @@ const CampaignBanner = (data) => {
       // let test = nf.format(value)
       setPropertyValue(value)
     }
-    setValuesStorage('purchasePrice', value);
+    console.log(propertyValue, 'p value')
+    setValuesStorage('purchasePrice', value)
   }
 
   const currentLoanValueChange = (value, isInputValueChange, event) => {
+    console.log(event, 'event')
     onlyNumberKey(event)
     let numConv
     var testVal = value
@@ -124,8 +139,8 @@ const CampaignBanner = (data) => {
       // let test = nf.format(value)
       setCurrentLoanBal(value)
     }
-    setValuesStorage('downPayment', value);
-
+    console.log(currentLoanBal, 'loan bal')
+    setValuesStorage('downPayment', value)
   }
 
   const cashOutValueChange = (value, isInputValueChange, event) => {
@@ -147,8 +162,9 @@ const CampaignBanner = (data) => {
       // let test = nf.format(value)
       setCashOut(value)
     }
-    setValuesStorage('cashOut', value);
+    console.log(cashOut, 'cashOut')
 
+    setValuesStorage('cashOut', value)
   }
 
   function onlyNumberKey(evt) {
@@ -168,16 +184,22 @@ const CampaignBanner = (data) => {
       setShowValidationMessage(false)
     }
     setZipCode(data)
+    setValuesStorage('zipCode', data)
   }
-  
+
   const setPhoneNumber = (data) => {
     if (data.length < 10) {
       setPhoneShowValidationMessage(true)
     } else {
-      setValuesStorage('phone', data);
+      setValuesStorage('phone', data)
       setPhoneShowValidationMessage(false)
     }
     setPhone(data)
+  }
+
+  const setUserEmail = (data) => {
+    setValuesStorage('email', data)
+    setEmail(data)
   }
 
   const fetchValidZipcode = (data) => {
@@ -190,7 +212,6 @@ const CampaignBanner = (data) => {
     })
       .then((response) => {
         setShowValidationMessage(false)
-        setValuesStorage('zipCode', zipCode);
       })
       .catch(function (error) {
         setShowValidationMessage(true)
@@ -200,9 +221,62 @@ const CampaignBanner = (data) => {
   useEffect(() => {
     setValuesStorage('propertyUse', propertyUse)
     setValuesStorage('propertyType', propertyType)
-    setValuesStorage('creditRating', creditRating);
+    setValuesStorage('creditRating', creditRating)
   }, [])
 
+  useEffect(() => {
+    let cashOut = sessionStorage.getItem('cashOut')
+    let downPayment = sessionStorage.getItem('downPayment')
+    let lastName = sessionStorage.getItem('lastName')
+    let firstName = sessionStorage.getItem('firstName')
+    let purchasePrice = sessionStorage.getItem('purchasePrice')
+    let zipCode = sessionStorage.getItem('zipCode')
+    let phone = sessionStorage.getItem('phone')
+    let email = sessionStorage.getItem('email')
+    validateZipcode(zipCode || 0)
+    setPropertyValue(parseInt(purchasePrice) || 0)
+    setFirstName(firstName)
+    setLastName(lastName)
+    setCashOut(parseInt(cashOut) || 0)
+    setCurrentLoanBal(parseInt(downPayment) || 0)
+    setEmail(email)
+    setPhone(phone)
+    if(currentPage?.pageNo === 5) {
+      setUrl()
+    }
+  }, [
+    creditRating,
+    propertyType,
+    propertyUse,
+    cashOut,
+    currentLoanBal,
+    propertyValue,
+    firstName,
+    lastName,
+  ])
+
+  const setUrl = () => {
+    debugger
+    url =
+      'http://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +
+      '&zipcode=' +
+      zipCode +
+      '&purchasePrice=' +
+      propertyValue +
+      '&downPayment=' +
+      currentLoanBal +
+      '&cashOut=' +
+      cashOut +
+      '&creditRange=' +
+      creditRating +
+      '&propertyUse=' +
+      propertyUse +
+      '&propertyType=' +
+      propertyType
+    + '&isAutoClick=1&target=_blank'
+    setUrlValue(url)
+    console.log(url, 'url')
+  }
 
   return (
     <div>
@@ -225,8 +299,23 @@ const CampaignBanner = (data) => {
                     <label className="d-mob" htmlFor="field">
                       My Legal Name Is
                     </label>
-                    <input placeholder="First Name" type="text" />
-                    <input placeholder="Last Name" type="text" />
+                    <input
+                      placeholder="First Name"
+                      value={firstName}
+                      {...register('firstName', {
+                        required: 'This is a required field',
+                      })}
+                      onChange={(e) => setFirstUsername(e.target.value)}
+                    />
+                    <input
+                      placeholder="Last Name"
+                      value={lastName}
+                      type="text"
+                      {...register('lastName', {
+                        required: 'This is a required field',
+                      })}
+                      onChange={(e) => setLastUsername(e.target.value)}
+                    />
                   </div>
                 </div>
               </div>
@@ -238,9 +327,13 @@ const CampaignBanner = (data) => {
             <div className="slide-2">
               <div className="container">
                 <div className="banner__hero">
-                  <h1>{data?.title}</h1>
+                  <h1>
+                    {data?.title}
+                    {firstName}
+                  </h1>
                   <h1 className="d-mob">
                     {data?.mobDescription?.mobDescription}
+                    {firstName}
                   </h1>
                   <h2 className="d-desktop"> Your credit rating...</h2>
                 </div>
@@ -249,12 +342,14 @@ const CampaignBanner = (data) => {
                     <label className="d-mob" htmlFor="banner">
                       Please select your credit range
                     </label>
-                    <select defaultValue="740+(Excellent)"
-                    value={creditRating}
-                    onChange={(e) => handleChangeCreditRating(e)}>
+                    <select
+                      defaultValue="740+(Excellent)"
+                      value={creditRating}
+                      onChange={(e) => handleChangeCreditRating(e)}
+                    >
                       <option value="780" name="740+(Excellent)">
-                      740+(Excellent)
-                    </option>
+                        740+(Excellent)
+                      </option>
                       <option value="730" name="720-730(Very Good)">
                         720-730(Very Good)
                       </option>
@@ -298,63 +393,80 @@ const CampaignBanner = (data) => {
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">Property ZIP code</label>
-                      <input placeholder="90035" type="text"
-                    maxlength="5"
-                    value={zipCode}
-                    onChange={(e) =>
-                      validateZipcode(e.target.value.replace(/[^\d.]/gi, ''))
-                    } />
-                    {showValidationMessage && (
-                    <label htmlFor="">
-                      Sorry, we're not licensed in this state, yet!
-                    </label>
-                  )}
+                      <input
+                        placeholder="90035"
+                        type="text"
+                        maxlength="5"
+                        value={zipCode}
+                        onChange={(e) =>
+                          validateZipcode(
+                            e.target.value.replace(/[^\d.]/gi, '')
+                          )
+                        }
+                      />
+                      {showValidationMessage && (
+                        <label htmlFor="">
+                          Sorry, we're not licensed in this state, yet!
+                        </label>
+                      )}
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Property Type</label>
-                      <select defaultValue="Single Family Home"
-                    value={propertyType}
-                    onChange={(e) => handleChange(e.target.value)}>
+                      <select
+                        defaultValue="Single Family Home"
+                        value={propertyType}
+                        onChange={(e) => handleChange(e.target.value)}
+                      >
                         <option
-                      name="Single Family Home"
-                      value="Single Family Home"
-                    >
-                      Single Family Home
-                    </option>
-                    <option name="Condominium" value="Condominium">
-                      Condominium
-                    </option>
-                    <option
-                      name="Detached Condominium"
-                      value="DetachedCondominium"
-                    >
-                      Detached Condominium
-                    </option>
-                    <option name="Duplex" value="Duplex">
-                      Duplex
-                    </option>
-                    <option name="Triplex" value="Triplex">
-                      Triplex
-                    </option>
-                    <option name="Quadplex" value="Quadplex">
-                      Quadplex
-                    </option>
+                          name="Single Family Home"
+                          value="Single Family Home"
+                        >
+                          Single Family Home
+                        </option>
+                        <option name="Condominium" value="Condominium">
+                          Condominium
+                        </option>
+                        <option
+                          name="Detached Condominium"
+                          value="DetachedCondominium"
+                        >
+                          Detached Condominium
+                        </option>
+                        <option name="Duplex" value="Duplex">
+                          Duplex
+                        </option>
+                        <option name="Triplex" value="Triplex">
+                          Triplex
+                        </option>
+                        <option name="Quadplex" value="Quadplex">
+                          Quadplex
+                        </option>
                       </select>
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Property Use</label>
-                      <select  defaultValue="PrimaryResidence"
-                    value={propertyUse}
-                    onChange={(e) => handleChangePropertyUse(e.target.value)}>
-                      <option value="PrimaryResidence" name="Primary Residence">
-                      Primary Residence
-                    </option>
-                    <option value="SecondHome" name="Secondary Vacation Home">
-                      Secondary Vacation Home
-                    </option>
-                    <option value="Investor" name="InvestmentRental">
-                      Investment Rental
-                    </option>
+                      <select
+                        defaultValue="PrimaryResidence"
+                        value={propertyUse}
+                        onChange={(e) =>
+                          handleChangePropertyUse(e.target.value)
+                        }
+                      >
+                        <option
+                          value="PrimaryResidence"
+                          name="Primary Residence"
+                        >
+                          Primary Residence
+                        </option>
+                        <option
+                          value="SecondHome"
+                          name="Secondary Vacation Home"
+                        >
+                          Secondary Vacation Home
+                        </option>
+                        <option value="Investor" name="InvestmentRental">
+                          Investment Rental
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -378,27 +490,61 @@ const CampaignBanner = (data) => {
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">Property Value Estimate</label>
-                      <input placeholder="$100,000" type="text"
-                      value={propertyValue}
-                      onChange={(e) =>
-                        rangeValueChange(e.target.value, true, e)
-                      }/>
+                      <input
+                        placeholder="$100,000"
+                        type="text"
+                        value={propertyValue}
+                        onChange={(e) =>
+                          rangeValueChange(e.target.value, true, e)
+                        }
+                      />
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Current Loan Balance</label>
-                      <input placeholder="$100,000" type="text"
-                      value={currentLoanBal}
-                      onChange={(e) =>
-                        currentLoanValueChange(e.target.value, true, e)
-                      } />
+                      <input
+                        placeholder="$100,000"
+                        type="text"
+                        value={currentLoanBal}
+                        onChange={(e) =>
+                          currentLoanValueChange(e.target.value, true, e)
+                        }
+                      />
+                      {propertyValue <= currentLoanBal &&
+                      currentLoanBal !== 0 &&
+                      propertyValue !== 0 ? (
+                        <label>
+                          *Current loan balance cannot be greater than estimated
+                          property value
+                        </label>
+                      ) : (
+                        ''
+                      )}
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Cash Out Amount</label>
-                      <input placeholder="$0" ttype="text"
+                      <input
+                        placeholder="$0"
+                        type="text"
                         value={cashOut}
                         onChange={(e) =>
                           cashOutValueChange(e.target.value, true, e)
-                        } />
+                        }
+                      />
+                      {propertyValue < currentLoanBal + cashOut &&
+                        propertyValue !== 0 && (
+                          <label>
+                            *Combined current loan balance AND cash out amount
+                            cannot be greater than estimated property value.
+                          </label>
+                        )}
+                      {currentLoanBal === 0 &&
+                        cashOut === 0 &&
+                        propertyValue !== 0 && (
+                          <label>
+                            *If you have no current loan balance, you must have
+                            a cash out amount.
+                          </label>
+                        )}
                     </div>
                   </div>
                 </div>
@@ -421,20 +567,21 @@ const CampaignBanner = (data) => {
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__inputs">
-                      <input placeholder="Phone" type="text"
-                    maxlength="10"
-                    value={phone}
-                    onChange={(e) =>
-                      setPhoneNumber(e.target.value.replace(/[^\d.]/gi, ''))
-                    } />
-                    {showPhoneValidationMessage && (
-                    <label htmlFor="">
-                      Please enter 10 digits
-                    </label>
-                  )}
+                      <input
+                        placeholder="Phone"
+                        type="text"
+                        maxlength="10"
+                        value={phone}
+                        onChange={(e) =>
+                          setPhoneNumber(e.target.value.replace(/[^\d.]/gi, ''))
+                        }
+                      />
+                      {showPhoneValidationMessage && (
+                        <label htmlFor="">Please enter 10 digits</label>
+                      )}
                     </div>
                     <div className="banner__inputs">
-                    <input
+                      <input
                         placeholder="Email"
                         {...register('email', {
                           required: 'This is a required field',
@@ -445,13 +592,31 @@ const CampaignBanner = (data) => {
                           },
                         })}
                         type="text"
+                        value={email}
+                        onChange={(e) => setUserEmail(e.target.value)}
                       />
-                    <label htmlFor="">
-                      {errors.email?.message}
-                    </label>
+                      <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
-                  <a className="btn" href="#">
+                  <a
+                    href={urlValue}
+
+                  target="_blank"
+                    className={`btn ${
+                      zipCode !== '' &&
+                      zipCode.length === 5 &&
+                      propertyValue > 0 &&
+                      currentLoanBal > 0 &&
+                      (cashOut === 0 && currentLoanBal !== 0) &&
+                      (propertyValue > currentLoanBal) &&
+                      creditRating !== '' &&
+                      propertyType !== '' &&
+                      propertyUse !== '' &&
+                      showValidationMessage === false
+                        ? ''
+                        : 'dis-btn'
+                    }`}
+                  >
                     <span className="d-mob">GET MY RATE</span>
                     <span className="d-desktop">GET MY PERSONALIZED RATE</span>
                   </a>
