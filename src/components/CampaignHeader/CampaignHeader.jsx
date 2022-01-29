@@ -1,8 +1,24 @@
 import React from 'react'
 import * as styles from './CampaignHeader.module.scss'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
+import { closeChatWidget, maximizeChatWidget } from '../../utils/utils';
 
 const CampaignHeader = (data) => {
+
+  const openChatWidget = (e) => {
+    maximizeChatWidget();
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+      window.location = url;
+      }
+      };
+      gtag('event', 'conversion', {
+      'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+      'event_callback': callback
+      });
+      return false;
+  }
+
   return (
     <div>
     <header className={styles.CampaignHeader}>
@@ -16,7 +32,7 @@ const CampaignHeader = (data) => {
           {/* </a> */}
         </div>
         <div className="header__wrap">
-            <a className='header__call-btn' href="telto:" alt="call">
+            <a className='header__call-btn' href="tel:+18338182253" alt="call">
               <div className="header__call-thumb">
                 <img src="/images/headphone-icon.svg" alt="headphone"/>
               </div>
@@ -27,8 +43,8 @@ const CampaignHeader = (data) => {
                 </span>
               </div>
             </a>
-          <a className="header__chat-btn" href='' title='chat'>
-            <div className="header__chat-thumb">
+          <a className="header__chat-btn" title='chat' onClick={(e) => openChatWidget(e)}>
+            <div className="header__chat-thumb" >
               <img src="/images/chat-icon-big.svg" alt="chat-icon-big"/>
             </div>
             <div className="header__chat-text">
