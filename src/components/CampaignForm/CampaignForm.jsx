@@ -16,6 +16,7 @@ const CampaignForm = (data) => {
   let isQuestionSent
   const [successMessage, setSuccessMessage] = useState('')
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [showFailureMessage, setShowFailureMessage] = useState(false)
   let modeledData
   let titledData
   const {
@@ -53,9 +54,9 @@ const CampaignForm = (data) => {
       url: 'contacts',
       method: 'POST',
       data: {
-        name: 'data',
-        email: 'test',
-        message: 'jdhfe',
+        name: data?.name,
+        email: data?.email,
+        message: data?.query,
       },
     })
       .then((response) => {
@@ -64,11 +65,13 @@ const CampaignForm = (data) => {
         )
         setSuccessMessage('Question successfully sent')
         sessionStorage.setItem('QuestionSent', true);
+        setShowFailureMessage(false)
 
       })
       .catch(function (error) {
         setSuccessMessage('Hmmmm, something went wrong, please fill out each field')
-        setShowSuccessMessage(error.status !== 'success' ? true : false)
+        setShowFailureMessage(error.status !== 'success' ? true : false)
+        setShowSuccessMessage(false)
       })
   }
 
@@ -140,8 +143,12 @@ const CampaignForm = (data) => {
                 </form>
               )}
               {showSuccessMessage && (
-                // markup chnaged
                 <div className="success__message">
+                  <p>{successMessage}</p>
+                </div>
+              )}
+              {showFailureMessage && (
+                <div >
                   <p>{successMessage}</p>
                 </div>
               )}

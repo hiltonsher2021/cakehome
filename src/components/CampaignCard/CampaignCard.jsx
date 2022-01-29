@@ -63,7 +63,7 @@ const CampaignCard = (data) => {
             {modeledData?.section[0].cardItems.map((item, index) => {
               return (
                 <>
-                  <div className="CampaignCard__item">
+                  <div className="CampaignCard__item" key={index}>
                     <TestimonialCard item={item} />
                   </div>
                 </>
