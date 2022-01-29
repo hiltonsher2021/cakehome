@@ -8,7 +8,7 @@ const TestimonialCard = (data) => {
   image = getImage(data?.item?.image.gatsbyImageData)
 
   return (
-    <div className={`${styles.TestimonialCard}`}>
+    <div className={`${styles.TestimonialCard} ${data?.className}`}>
       <div>
         <div className="TestimonialCard__top">
           <div className="TestimonialCard__rating-wrap">
