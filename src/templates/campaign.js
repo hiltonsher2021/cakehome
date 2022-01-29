@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { graphql } from 'gatsby'
 import * as PropTypes from 'prop-types'
 import Layout from 'components/layout/Main/MainLayout'
@@ -8,6 +8,7 @@ import CampaignHeader from 'components/CampaignHeader/CampaignHeader'
 import CampaignForm from 'components/CampaignForm/CampaignForm'
 import CampaignCard from 'components/CampaignCard/CampaignCard'
 import CheckYourSavingsCampaign from 'components/CheckYourSavingsCampaign/CheckYourSavingsCampaign'
+import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
 
 export const query = graphql`
   query ($slug: String) {
@@ -23,6 +24,8 @@ export const query = graphql`
     contentfulCampaign(slug: { eq: $slug }) {
       title
       slug
+      handle
+      campaignPageIdentification
       mainTitle
       mobDescription {
         mobDescription
@@ -76,13 +79,35 @@ export const query = graphql`
 `
 
 const Campaign = (props) => {
+  const [showModalSection, changeModalValue] = useState(false)
+  const [tabSelection, changeTabSelection] = useState('')
+
+  const showModal = (value) => {
+    changeTabSelection(value)
+    changeModalValue(true)
+  }
+  const closeModal = (e) => {
+    changeModalValue(false)
+  }
+
+  useEffect(() => {}, [showModalSection])
   return (
     <Layout>
       <SEO title="Campaign" />
       <section className="generic-section">
         <CampaignHeader />
         <CampaignBanner {...props.data.contentfulCampaign} {...props?.data?.allContentfulCampaign}/>
-        <CheckYourSavingsCampaign {...props.data.contentfulCampaign} />
+        <CheckYourSavingsCampaign {...props.data.contentfulCampaign} showModal={showModal}/>
+        <div
+          className="PersonalizeModal"
+          style={{ display: showModalSection ? 'block' : 'none' }}
+        >
+          <PersonalizeRateBlock
+            closeModal={closeModal}
+            sectionData={props.data.contentfulCampaign}
+            classname={tabSelection}
+          />
+        </div>
         <CampaignCard {...props.data.contentfulCampaign} />
         <CampaignForm {...props.data.contentfulCampaign} />
       </section>

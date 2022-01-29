@@ -88,6 +88,9 @@ const CheckYourSavingsCampaign = (data) => {
   const showCustomCalc = () => {
     setShowCustomCalculator(true)
   }
+  const showCalculator = (e) => {
+    data.showModal('refinance')
+  }
 
   const handleSubmit = async (event) => {
     setGifSrc('')
@@ -428,13 +431,13 @@ const CheckYourSavingsCampaign = (data) => {
                     )}
                   </>
                 )}
-                <a className="btn dark d-desktop" href="#">
+                <button className="btn dark d-desktop" onClick={showCalculator}>
                   GET MY PERSONALIZED RATE
-                </a>
+                </button>
               </div>
-              <a className="btn dark d-mob" href="#">
+              <button className="btn dark d-mob" onClick={showCalculator}>
                 GET MY PERSONALIZED RATE
-              </a>
+              </button>
             </div>
           </div>
         </div>
