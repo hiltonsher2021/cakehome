@@ -23,7 +23,6 @@ const CampaignBanner = (data) => {
   const [zipCode, setZipCode] = useState('')
   const [showValidationMessage, setShowValidationMessage] = useState(false)
   const [showPhoneValidationMessage, setPhoneShowValidationMessage] = useState(false)
-  // const [newNum, setNewNum] = useState(0)
   const [propertyValue, setPropertyValue] = useState(0)
   const [currentLoanBal, setCurrentLoanBal] = useState(0)
   const [cashOut, setCashOut] = useState(0)
@@ -202,7 +201,6 @@ const CampaignBanner = (data) => {
     setValuesStorage('propertyUse', propertyUse)
     setValuesStorage('propertyType', propertyType)
     setValuesStorage('creditRating', creditRating);
-
   }, [])
 
 
@@ -281,28 +279,6 @@ const CampaignBanner = (data) => {
                     </select>
                   </div>
                 </div>
-                {/* <div className="banner__slider-control">
-              <div className="banner__next">
-                <a href="#" title="next">
-                  <img src="/images/campaign-slider-grey.svg" alt="slider" />
-                </a>
-              </div>
-              <div className="banner__slider-dots">
-                {slugOrder.map((item, index) => {
-                  return (
-                    <>
-                      <AnchorLink
-                        className={`slider-dots ${
-                          data?.slug === item?.slug ? 'active' : ''
-                        } `}
-                        to={'/campaign/' + item?.slug}
-                        key={index}
-                      ></AnchorLink>
-                    </>
-                  )
-                })}
-              </div>
-            </div> */}
               </div>
             </div>
           </>
@@ -383,28 +359,6 @@ const CampaignBanner = (data) => {
                     </div>
                   </div>
                 </div>
-                {/* <div className="banner__slider-control">
-              <div className="banner__next">
-                <a href="#" title="next">
-                  <img src="/images/campaign-slider-grey.svg" alt="slider" />
-                </a>
-              </div>
-              <div className="banner__slider-dots">
-                {slugOrder.map((item, index) => {
-                  return (
-                    <>
-                      <AnchorLink
-                        className={`slider-dots ${
-                          data?.slug === item?.slug ? 'active' : ''
-                        } `}
-                        to={'/campaign/' + item?.slug}
-                        key={index}
-                      ></AnchorLink>
-                    </>
-                  )
-                })}
-              </div>
-            </div> */}
               </div>
             </div>
           </>
@@ -448,28 +402,6 @@ const CampaignBanner = (data) => {
                     </div>
                   </div>
                 </div>
-                {/* <div className="banner__slider-control">
-            <div className="banner__next">
-              <a href="#" title="next">
-                <img src="/images/campaign-slider-grey.svg" alt="slider" />
-              </a>
-            </div>
-            <div className="banner__slider-dots">
-              {slugOrder.map((item, index) => {
-                return (
-                  <>
-                    <AnchorLink
-                      className={`slider-dots ${
-                        data?.slug === item?.slug ? 'active' : ''
-                      } `}
-                      to={'/campaign/' + item?.slug}
-                      key={index}
-                    ></AnchorLink>
-                  </>
-                )
-              })}
-            </div>
-          </div> */}
               </div>
             </div>
           </>
