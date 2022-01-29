@@ -34,7 +34,6 @@ const CampaignBanner = (data) => {
   const [lastName, setLastName] = useState('')
   const [urlValue, setUrlValue] = useState('')
 
-
   const {
     register,
     formState: { errors },
@@ -115,12 +114,10 @@ const CampaignBanner = (data) => {
       // let test = nf.format(value)
       setPropertyValue(value)
     }
-    console.log(propertyValue, 'p value')
     setValuesStorage('purchasePrice', value)
   }
 
   const currentLoanValueChange = (value, isInputValueChange, event) => {
-    console.log(event, 'event')
     onlyNumberKey(event)
     let numConv
     var testVal = value
@@ -139,7 +136,6 @@ const CampaignBanner = (data) => {
       // let test = nf.format(value)
       setCurrentLoanBal(value)
     }
-    console.log(currentLoanBal, 'loan bal')
     setValuesStorage('downPayment', value)
   }
 
@@ -162,8 +158,6 @@ const CampaignBanner = (data) => {
       // let test = nf.format(value)
       setCashOut(value)
     }
-    console.log(cashOut, 'cashOut')
-
     setValuesStorage('cashOut', value)
   }
 
@@ -241,7 +235,7 @@ const CampaignBanner = (data) => {
     setCurrentLoanBal(parseInt(downPayment) || 0)
     setEmail(email)
     setPhone(phone)
-    if(currentPage?.pageNo === 5) {
+    if (currentPage?.pageNo === 5) {
       setUrl()
     }
   }, [
@@ -256,7 +250,6 @@ const CampaignBanner = (data) => {
   ])
 
   const setUrl = () => {
-    debugger
     url =
       'http://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +
       '&zipcode=' +
@@ -272,10 +265,9 @@ const CampaignBanner = (data) => {
       '&propertyUse=' +
       propertyUse +
       '&propertyType=' +
-      propertyType
-    + '&isAutoClick=1&target=_blank'
+      propertyType +
+      '&isAutoClick=1&target=_blank'
     setUrlValue(url)
-    console.log(url, 'url')
   }
 
   return (
@@ -600,15 +592,15 @@ const CampaignBanner = (data) => {
                   </div>
                   <a
                     href={urlValue}
-
-                  target="_blank"
+                    target="_blank"
                     className={`btn ${
                       zipCode !== '' &&
                       zipCode.length === 5 &&
                       propertyValue > 0 &&
                       currentLoanBal > 0 &&
-                      (cashOut === 0 && currentLoanBal !== 0) &&
-                      (propertyValue > currentLoanBal) &&
+                      cashOut === 0 &&
+                      currentLoanBal !== 0 &&
+                      propertyValue > currentLoanBal &&
                       creditRating !== '' &&
                       propertyType !== '' &&
                       propertyUse !== '' &&
