@@ -138,6 +138,26 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
+                .form-field{
+                    width: 100%;
+                    margin-bottom: rem(17);
+                    @media #{$md}{
+                        width: calc(50% - 15px);
+                        margin-bottom: rem(20);
+                    }
+                    &.textarea{
+                        margin-bottom: rem(41);
+                        @media #{$md}{
+                            width: 100%;
+                            margin-bottom: rem(17);
+                        }
+                    }
+                    .error-message{
+                        color: red;
+                        font-weight: 500;
+                        margin-bottom: 0;
+                    }
+                }
                 input,
                 textarea{
                 border-radius: 5px;
@@ -148,7 +168,6 @@
                 letter-spacing: 0;
                 line-height: 25px;
                 padding: rem(12) rem(15);
-                margin-bottom: rem(17);
                 width: 100%;
                 border: 0;
                 outline: none;
@@ -156,14 +175,12 @@
                     background-color: #ECEBEB;
                     font-size: 17px;
                     letter-spacing: 0;
-                    line-height: 25px;
-                    width: calc(50% - 15px);
-                    margin-bottom: rem(20);
+                    line-height: 25px;        
+                   
                      }
                 }
                 textarea{
                     min-height: rem(150);
-                    margin-bottom: rem(41);
                     resize: none;
                     @media #{$md}{
                         width: 100%;
@@ -195,7 +212,13 @@
                         }
                     }
                 }
-                
+            }
+            .success__message {
+                text-align: center;
+                p{
+                    color: green;
+                    font-weight: 500;
+                }
             }
         }
     }

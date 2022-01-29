@@ -54,7 +54,9 @@ const CampaignForm = (data) => {
       <section className={styles.CampaignForm}>
         <div className="container">
           <div className="form__head">
-            <h1>{titledData?.mainTitle}</h1>
+            <h1 className='d-desktop'>{titledData?.mainTitle}</h1>
+            <h1 className='d-mob'>{titledData?.mainTitle}</h1>  
+            {/* // markup chnaged  */}
           </div>
           <ChatCallBlock sectionData={data?.references} className="font-edit" />
 
@@ -68,6 +70,8 @@ const CampaignForm = (data) => {
                   })}
                 >
                   <div className="form__wrap">
+                    {/* markup changed */}
+                    <div className="form-field">
                     <input
                       placeholder="Name"
                       type="text"
@@ -75,7 +79,10 @@ const CampaignForm = (data) => {
                         required: 'This is a required field',
                       })}
                     />
-                    <p>{errors.name?.message}</p>
+                    <p className='error-message'>{errors.name?.message}</p>
+                    </div>
+                    {/* markup changed */}
+                    <div className="form-field"> 
                     <input
                       placeholder="Email"
                       {...register('email', {
@@ -87,17 +94,19 @@ const CampaignForm = (data) => {
                       })}
                       type="text"
                     />
-                    <p>{errors.email?.message}</p>
-
+                    <p className='error-message'>{errors.email?.message}</p>
+                  </div>
+                  {/* markup changed */}
+                  <div className="form-field textarea"> 
                     <textarea
                       placeholder="How can we help?"
                       {...register('query', {
                         required: 'This is a required field',
                       })}
-                      id="help" // markup chnaged here
+                      id="help" // markup chnaged
                     ></textarea>
-                    <p>{errors.query?.message}</p>
-
+                    <p className='error-message'>{errors.query?.message}</p>
+                    </div>
                     <div className="form__submit">
                       <button className="btn" type="submit" title="btn">
                         SEND
@@ -106,9 +115,9 @@ const CampaignForm = (data) => {
                   </div>
                 </form>
               )}
-
               {showSuccessMessage && (
-                <div>
+                // markup chnaged
+                <div className='success__message'>
                   <p>{successMessage}</p>
                 </div>
               )}
