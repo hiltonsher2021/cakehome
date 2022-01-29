@@ -6,13 +6,13 @@
             text-align: center;
             .banner__next {
                 margin-bottom: rem(17.3);
-                @media #{$md} {
+                @media #{$xl} {
                     margin-bottom: rem(15);
                 }
                 img {
-                    width: rem(57);
-                    height: rem(58);
-                    @media #{$md} {
+                    width: rem(58);
+                    height: rem(57);
+                    @media #{$xl} {
                         width: rem(90);
                         height: rem(90);
                     }
@@ -20,15 +20,15 @@
             }
             .banner__prev {
                padding-bottom:rem(17.3);
-                @media #{$md} {
+                @media #{$xl} {
                     padding-bottom:rem(15);
                 }
                 img {
                     width: rem(57);
                     height: rem(58);
-                    @media #{$md} {
-                        width: rem(90);
-                        height: rem(90);
+                    @media #{$xl} {
+                        width: rem(60);
+                        height: rem(59);
                     }
                 }
             }
@@ -54,12 +54,18 @@
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 background-image: url(/images/drop-down-icon.svg);
-                background-position: calc(100% - 10px);
+                background-position: calc(100% - 14px);
                 background-repeat: no-repeat;
                 background-size: 1.0625rem 0.5rem;
                 padding: rem(6.8) rem(8.3);
-                padding-right: rem(54.03);  
-                @media #{$md}{
+                padding-right: rem(54.03);
+                @media #{$smm}{
+                    font-size: rem(18);
+                    line-height: 25px;
+                    padding: rem(8) rem(12);
+                    background-position: calc(100% - 29px);
+                }
+                @media #{$xl}{
                 font-size: 24px;
                 font-weight: 300;
                 letter-spacing: -0.21px;
@@ -79,7 +85,7 @@
                 margin: 0 rem(4.3);
                 border-radius: 100%;
                 display: inline-block;
-                @media #{$md} {
+                @media #{$xl} {
                     height: rem(10.5);
                     width: rem(10.5);
                     margin: 0 rem(6.8);
@@ -91,13 +97,13 @@
         }
         .d-mob {
             display: block;
-            @media #{$md} {
+            @media #{$smm} {
                 display: none;
             }
         }
         .d-desktop{
             display: none;
-            @media #{$md} {
+            @media #{$smm} {
                 display: block;
             }
         }
@@ -115,7 +121,7 @@
             outline: 0;
             border: 0;
             margin-bottom: rem(6.36);
-            @media #{$md} {
+            @media #{$xl} {
                 max-width: 330px;
                 padding: rem(13) rem(15);
                 font-family: Aeonik;
@@ -130,16 +136,29 @@
         label{
             color: #414042;
             font-family: Aeonik;
-            font-size: 14px;
-            letter-spacing: -0.11px;
-            line-height: 26.54px;
+            // font-size: 14px;
+            // letter-spacing: -0.11px;
+            // line-height: 26.54px;
+            font-size: 9.2px;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 14.15px;
+            margin-bottom: rem(6.85);
             display: block;
-            @media #{$md}{
+            @media #{$smm}{
+                // font-size: 16px;
+                // font-weight: 700;
                 font-size: 13px;
                 line-height: 20px;
                 margin-bottom: rem(10);
-                font-weight: 700;
-                letter-spacing: 0;
+            }
+            @media #{$xl}{
+                // color: rgba(0,0,0,0.45);
+                // font-size: 24px;
+                // font-weight: 300;
+                // letter-spacing: -0.21px;
+                // line-height: 29px;
+               
             }
         }
         .btn{
@@ -153,29 +172,28 @@
             border-radius: 3.6px;
             background-color: #414042;
             min-height: 0;
-            @media #{$md}{
+            @media #{$xl}{
+                font-size: 18.5px;
+            }
+            @media #{$xl}{
                 font-size: 25.5px;
-                font-weight: bold;
                 letter-spacing: 0.45px;
                 line-height: 75px;
                 padding: 0 rem(44); 
                 border-radius: 6px;
             }
         }
-        // .banner__form {
-        //     max-width: rem(230);
-        //     margin: 0 auto;
-        //     @media #{$md}{
-        //         max-width: rem(750);
-        //     }
-        // }
         .slide-1 {
-            padding: rem(9) 0 rem(59);
-            @media #{$md} {
-                padding: rem(13) 0 rem(83);
+            padding: rem(9) 0 rem(50);
+            @media #{$xl} {
+                padding: rem(13) 0 rem(68);
             }
             .banner__hero {
-                margin-bottom: rem(36);
+                margin-bottom: rem(10);
+                @media #{$xl}{
+                    margin-bottom: rem(36);
+                }
+            
                 h1 {
                     color: #FFFFFF;
                     font-family: "Degular";
@@ -184,7 +202,12 @@
                     letter-spacing: -0.41px;
                     line-height: 32.16px;
                     text-align: center;
-                    @media #{$md} {
+                    margin-bottom: 0;
+                    @media #{$smm}{
+                        font-size: 60px;
+                        line-height: 80px;
+                    }
+                    @media #{$xl} {
                         font-size: 120px;
                         letter-spacing: 3px;
                         line-height: 90px;
@@ -192,12 +215,12 @@
                 }
             }
             .banner__content {
-                margin-bottom: rem(26);
+                margin-bottom: rem(24);
                 max-width: rem(780);
                 margin: 0 auto;
-                @media #{$md} {
+                @media #{$xl} {
                     margin: 0 auto;
-                    margin-bottom: rem(55);
+                    margin-bottom: rem(60);
                 }
                 h2 {
                     color: #121212;
@@ -206,7 +229,11 @@
                     letter-spacing: -0.12px;
                     line-height: 16px;
                     text-align: center;
-                    @media #{$md} {
+                    @media #{$smm} {
+                        font-size: 25px;
+                        line-height: 30px;
+                    }
+                    @media #{$xl} {
                         color: #414042;
                         font-size: 40px;
                         letter-spacing: -0.32px;
@@ -218,12 +245,19 @@
             .banner__form {
                 max-width: rem(230);
                 margin: 0 auto;
-                @media #{$md}{
-                    max-width: rem(750);
+                @media #{$smm}{
+                    max-width: 70%;
+                }
+                @media #{$xl}{
+                    margin-left: rem(129);
+                    max-width: 100%;
                 }
                 .banner__form-head {
                     margin-bottom: rem(13.46);
-                    @media #{$md} {
+                    @media #{$smm}{
+                        margin-bottom: rem(25);
+                    }
+                    @media #{$xl} {
                         margin-bottom: rem(40);
                     }
                     h3 {
@@ -232,7 +266,12 @@
                         font-weight: 700;
                         letter-spacing: -0.13px;
                         line-height: 26.54px;
-                        @media #{$md} {
+                        margin-bottom: 0;
+                        @media #{$smm}{
+                            font-size: 30px;
+                            line-height: 45px; 
+                        }
+                        @media #{$xl} {
                             font-size: 50px;
                             letter-spacing: -0.4px;
                             line-height: 36px;
@@ -242,10 +281,6 @@
                 .banner__form-fields {
                     display: flex;
                     flex-wrap: wrap;
-                    margin-bottom: rem(50);
-                    @media #{$md} {
-                        margin-bottom: rem(68);
-                    }
                     input {
                         color: rgba(0, 0, 0, 0.45);
                         font-family: Aeonik;
@@ -260,13 +295,17 @@
                         outline: 0;
                         border: 0;
                         margin-bottom: rem(6.36);
-                        @media #{$md} {
-                            width: 330px;
+                        @media #{$smm}{
+                            font-size: 18px;
+                            line-height: 29px;
+                        }
+                        @media #{$xl} {
+                            min-width: 330px;
                             padding: rem(13) rem(15);
-                            font-family: Aeonik;
-                            font-size: 17px;
-                            letter-spacing: 0;
-                            line-height: 25px;
+                            font-size: 24px;
+                            font-weight: 300;
+                            letter-spacing: -0.21px;
+                            line-height: 29px;
                             margin-right: rem(30);
                             border-radius: 5px;
                             margin-bottom: rem(0);
@@ -276,9 +315,12 @@
             }
         }
         .slide-2 {
-            padding: rem(13) 0 rem(59.5);
-            @media #{$md} {
-                padding: rem(131) 0 rem(0);
+            padding: rem(13) rem(30) rem(59.5);
+            @media #{$smm}{
+                padding: rem(50) 0 rem(59.5);
+            }
+            @media #{$xl} {
+                padding: rem(131) 0 rem(118);
             }
             .banner__hero {
                 h1 {
@@ -287,12 +329,19 @@
                     font-weight: 700;
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
-                    margin-bottom: rem(6.92);
-                    @media #{$md} {
+                    margin-bottom: rem(23.46);
+                    @media #{$smm}{
+                        font-size: 60px;
+                        line-height: 80px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
                         line-height: 36px;
                         margin-bottom: rem(60);
+                    }
+                    &.d-mob{
+                        margin-bottom: rem(6.92);
                     }
                 }
                 h2 {
@@ -300,7 +349,11 @@
                     font-size: 14px;
                     letter-spacing: -0.11px;
                     line-height: 26.54px;
-                    @media #{$md} {
+                    @media #{$smm} {
+                        font-size: 25px;
+                        line-height: 30px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
@@ -311,17 +364,25 @@
                 
             }
             .banner__form{
-                margin-bottom: rem(114.18);
-                @media #{$md}{
-                    margin-bottom: rem(118); 
+                @media #{$smm}{
+                    max-width: 70%;
+                    margin: 0 auto;
+                }
+                @media #{$xl}{
+                    max-width: 100%;
+                    margin: 0;
                 }
             }
         }
         .slide-3{
+            max-width: rem(985);
+            margin: 0 auto;
+            padding: rem(13) rem(30) rem(39);
+            @media #{$xl}{
+                padding: rem(246) 0 rem(118);
+            }
             .banner__hero {
-                @media #{$md}{
-                    padding-top: rem(218);
-                }
+
                 h1 {
                     color: #414042;
                     font-size: 16px;
@@ -329,11 +390,15 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
-                    @media #{$md} {
+                    @media #{$smm}{
+                        font-size: 30px;
+                        line-height: 35px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
                         line-height: 36px;
-                        margin-bottom: rem(60);
+                        margin-bottom: rem(30);
                     }
                 }
                 h2 {
@@ -341,7 +406,11 @@
                     font-size: 14px;
                     letter-spacing: -0.11px;
                     line-height: 26.54px;
-                    @media #{$md} {
+                    @media #{$smm} {
+                        font-size: 25px;
+                        line-height: 30px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
@@ -353,22 +422,67 @@
             }
             .banner__form{
                 margin-bottom: rem(39);
-                @media #{$md}{
-                    margin-bottom: rem(118);
+                @media #{$smm}{
+                    max-width: 70%;
+                    margin: 0 auto;
+                }
+                @media #{$xl}{
+                    max-width: 100%;
+                    margin: 0;
                 }
                 .banner__form-fields{
-                    @media #{$md}{
+                    @media #{$xl}{
                         display: flex;
                         justify-content: space-between;
                     }
                 }
             }
-        }
-        .slide-4{
-            .banner__hero {
-                @media #{$md}{
-                    padding-top: rem(218);
+            input,select {
+                color: rgba(0, 0, 0, 0.45);
+                font-family: Aeonik;
+                font-size: 15.36px;
+                padding: rem(6.8) rem(8.3);
+                font-weight: 300;
+                letter-spacing: -0.14px;
+                line-height: 18px;
+                width: 100%;
+                background-color: #FFFFFF;
+                border-radius: 3.2px;
+                outline: 0;
+                border: 0;
+                margin-bottom: rem(6.36);
+                @media #{$smm}{
+                    font-size: 18px;
+                    line-height: 29px;
                 }
+                @media #{$xl} {
+                    min-width: rem(260);
+                    max-width: rem(260);
+                    padding: rem(10) rem(5);
+                    font-size: 24px;
+                    font-weight: 300;
+                    letter-spacing: -0.21px;
+                    line-height: 29px;
+                    margin-right: rem(30);
+                    border-radius: 5px;
+                    margin-bottom: rem(0);
+                }
+            
+            }
+            .banner__select{
+                &:last-child{
+                    select{
+                        margin-right: 0;
+                    }
+                }
+            }
+    }
+        .slide-4{
+            padding: rem(13) rem(30) rem(27);
+            @media #{$xl}{
+                padding: rem(227) 0 rem(118);
+            }
+            .banner__hero {
                 h1 {
                     color: #414042;
                     font-size: 16px;
@@ -376,19 +490,28 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
-                    @media #{$md} {
+                    @media #{$smm}{
+                        font-size: 60px;
+                        line-height: 80px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
                         line-height: 36px;
-                        margin-bottom: rem(60);
+                        margin-bottom: rem(30);
                     }
                 }
                 h2 {
-                    color: #414042;
+                    color: #121212;
                     font-size: 14px;
                     letter-spacing: -0.11px;
-                    line-height: 26.54px;
-                    @media #{$md} {
+                    line-height: 16px;
+                    font-weight: 400;
+                    @media #{$smm} {
+                        font-size: 25px;
+                        line-height: 30px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
@@ -399,12 +522,8 @@
                 
             }
             .banner__form{
-                margin-bottom: rem(39);
-                @media #{$md}{
-                    margin-bottom: rem(118);
-                }
                 .banner__form-fields{
-                    @media #{$md}{
+                    @media #{$xl}{
                         display: flex;
                         justify-content: space-between;
                     }
@@ -412,10 +531,13 @@
             }
         }
         .slide-5{
-            .banner__hero {
-                @media #{$md}{
-                    padding-top: rem(218);
-                }
+            padding: rem(13) rem(30) ;
+            max-width: rem(839);
+            margin: 0 auto;
+            @media #{$xl}{
+                padding: rem(227) rem(0) rem(50)
+            }
+            .banner__hero { 
                 h1 {
                     color: #414042;
                     font-size: 16px;
@@ -423,7 +545,11 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
-                    @media #{$md} {
+                    @media #{$smm}{
+                        font-size: 60px;
+                        line-height: 80px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
                         line-height: 36px;
@@ -431,11 +557,17 @@
                     }
                 }
                 h2 {
-                    color: #414042;
+                    color: #121212;
                     font-size: 14px;
                     letter-spacing: -0.11px;
-                    line-height: 26.54px;
-                    @media #{$md} {
+                    line-height: 16px;
+                    font-weight: 400;
+                    margin-bottom: rem(10);
+                    @media #{$smm} {
+                        font-size: 25px;
+                        line-height: 30px;
+                    }
+                    @media #{$xl} {
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
@@ -448,17 +580,59 @@
             .banner__form{
                 text-align: center;
                     .banner__form-fields{
-                        margin-bottom: rem(39);
-                        @media #{$md}{
+                        margin-bottom: rem(76);
+                        @media #{$xl}{
                             margin-bottom: rem(118);
                             display: flex;
-                            justify-content: space-between;
+                            flex-wrap: wrap;
+                        }
+                        .banner__inputs{
+                            input {
+                                color: rgba(0, 0, 0, 0.45);
+                                font-family: Aeonik;
+                                font-size: 15.36px;
+                                padding: rem(6.8) rem(8.3);
+                                font-weight: 300;
+                                letter-spacing: -0.14px;
+                                line-height: 18px;
+                                width: 100%;
+                                background-color: #FFFFFF;
+                                border-radius: 3.2px;
+                                outline: 0;
+                                border: 0;
+                                margin-bottom: rem(6.36);
+                                @media #{$smm}{
+                                    font-size: 18px;
+                                    line-height: 29px;
+                                }
+                                @media #{$xl} {
+                                    min-width: 330px;
+                                    padding: rem(13) rem(15);
+                                    font-size: 24px;
+                                    font-weight: 300;
+                                    letter-spacing: -0.21px;
+                                    line-height: 29px;
+                                    margin-right: rem(30);
+                                    border-radius: 5px;
+                                    margin-bottom: rem(0);
+                                }
+                            }
+                           
                         }
                     }
                     .btn{
                         margin-bottom: rem(35.75);
-                        @media #{$md}{
+                        font-size: 22.95px;
+                        font-weight: bold;
+                        letter-spacing: 0.41px;
+                        line-height: 67.5px;
+                        padding:rem(0) rem(39)rem(0) rem(40);
+                        @media #{$xl}{
+                            font-size: 25.5px;
+                            letter-spacing: 0.45px;
+                            line-height: 75px;
                             margin-bottom: rem(22);
+                            padding: rem(0)rem(44)rem(0) rem(43.5);
                         }
                     }
             }
