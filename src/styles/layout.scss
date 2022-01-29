@@ -509,8 +509,6 @@
     }
   }
 }
-
-
 .perspectiveWrap {
   @media (max-width: 1024px) {
     transform: none !important;
@@ -523,9 +521,10 @@ display: none;
 }
 body{
   padding-top: rem(118);
-}
-@media #{$smm} {
-  body{
+  @media #{$smm}{
     padding-top: rem(122);
+  }
+  @media #{$xl}{
+    padding-top: rem(175);
   }
 }
