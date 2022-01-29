@@ -1,12 +1,14 @@
 import React from 'react'
 import * as styles from './CampaignBanner.module.scss'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
+import { Link } from 'gatsby'
 
 const CampaignBanner = (data) => {
   let slugOrder = []
   let currentPageData
+  let nextPageData = []
   let filterData = []
   let currentPage = []
+  let nextPage = []
 
   if (data) {
     filterData = data?.edges?.map((item) => {
@@ -21,7 +23,16 @@ const CampaignBanner = (data) => {
         return item
       }
     })
-    currentPage = currentPageData?.shift();
+    currentPage = currentPageData?.shift()
+
+    nextPageData = slugOrder?.filter((item, index) => {
+      if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
+        return item
+      } else if (currentPage?.pageNo === 5 && index + 1 === 4) {
+        return item
+      }
+    })
+    nextPage = nextPageData?.shift()
   }
 
   return (
@@ -311,12 +322,12 @@ const CampaignBanner = (data) => {
                 </div>
                 <div className="banner__slider-control">
                   <div className="banner__prev">
-                    <a href="#" title="next">
+                    <Link to={'/campaign/' + nextPage?.slug}>
                       <img
                         src="/images/campaign-slide-white.svg"
                         alt="slider"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -324,23 +335,27 @@ const CampaignBanner = (data) => {
           </>
         )}
 
-        <div className={`banner__slider-control ${currentPage?.pageNo === 5 ? 'page-5' : ''}`}>
+        <div
+          className={`banner__slider-control ${
+            currentPage?.pageNo === 5 ? 'page-5' : ''
+          }`}
+        >
           <div className="banner__next">
-            <a href="#" title="next">
+            <Link to={'/campaign/' + nextPage?.slug}>
               <img src="/images/campaign-slider-grey.svg" alt="slider" />
-            </a>
+            </Link>
           </div>
           <div className="banner__slider-dots">
             {slugOrder?.map((item, index) => {
               return (
                 <>
-                  <AnchorLink
+                  <Link
                     className={`slider-dots ${
                       data?.slug === item?.slug ? 'active' : ''
                     } `}
                     to={'/campaign/' + item?.slug}
                     key={index}
-                  ></AnchorLink>
+                  ></Link>
                 </>
               )
             })}
