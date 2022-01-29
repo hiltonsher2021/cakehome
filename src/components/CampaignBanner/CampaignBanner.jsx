@@ -5,16 +5,17 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 const CampaignBanner = (data) => {
   let slugOrder
   let currentPageData
+  let filterData = []
 
   if (data) {
-    let filterData = data?.edges.map((item) => {
+    filterData = data?.edges?.map((item) => {
       return { slug: item?.node?.slug, pageNo: item.node?.handle }
     })
-    slugOrder = filterData.sort(function (a, b) {
+    slugOrder = filterData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
 
-    currentPageData = slugOrder.filter((item) => {
+    currentPageData = slugOrder?.filter((item) => {
       if (data?.slug === item?.slug) {
         return item
       }

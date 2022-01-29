@@ -5,8 +5,15 @@ import { useForm } from 'react-hook-form'
 import api from 'utils/api'
 import sectionModel from 'models/Section'
 
+const isBrowser = typeof window !== 'undefined'
+
+
 const CampaignForm = (data) => {
-  const isQuestionSent = sessionStorage.getItem('QuestionSent');
+  let sessionStorage
+  if (isBrowser) {
+    sessionStorage = window.sessionStorage
+  }
+  let isQuestionSent
   const [successMessage, setSuccessMessage] = useState('')
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   let modeledData
@@ -29,6 +36,10 @@ const CampaignForm = (data) => {
   }
 
   useEffect(() => {
+    if (isBrowser) {
+
+    isQuestionSent = sessionStorage.getItem('QuestionSent');
+    }
     if(isQuestionSent === "true") {
       setShowSuccessMessage(true)
       setSuccessMessage('Question successfully sent')
