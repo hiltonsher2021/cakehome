@@ -94,9 +94,7 @@ const CampaignForm = (data) => {
                       {...register('query', {
                         required: 'This is a required field',
                       })}
-                      id="help"
-                      cols="30"
-                      rows="10"
+                      id="help" // markup chnaged here
                     ></textarea>
                     <p>{errors.query?.message}</p>
 

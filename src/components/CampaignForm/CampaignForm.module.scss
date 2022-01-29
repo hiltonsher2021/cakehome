@@ -8,6 +8,89 @@
         .container {
             max-width: rem(1297);
             padding: rem(0) rem(20);
+            .ChatCallBlock{
+                .ChatCallBlock__wrapper{
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .text-wrapper{
+                        color: #121212;
+                        font-size: 11.9px;
+                        font-weight: 700;
+                        letter-spacing: 0;
+                        line-height: rem(23);
+                        @media #{$md}{
+                            font-size: 30.6px;
+                            line-height: rem(35);
+                        }
+                        span{
+                            font-size: 9.8px;
+                            @media #{$md}{
+                                font-size: 25.2px;
+                            } 
+                        }
+                    }
+                    .ChatCallBlock__chatbtn{
+                        box-shadow: none;
+                        background-color: #6CEBCE;
+                        border: 0.7px solid #6CEBCE;
+                        border-radius: 4.2px;
+                        padding: rem(7.7) rem(9.19) rem(9.8) rem(9.82);
+                        @media #{$md}{
+                            border-radius: 10.8px;
+                            padding: rem(19.8) rem(23.19) rem(25.2) rem(25.18);
+                            border: 0;
+                        }
+                        figure{
+                            height: 14.08px;
+                            max-width: 21.05px;
+                            @media #{$md}{
+                                height: 36px;
+                               max-width: 53.95px;
+                            }
+                        }
+                        .text-wrap{
+                            font-size: 11.9px;
+                            font-weight: 700;
+                            letter-spacing: 0;
+                            line-height: 17.5px;
+                              color: #414042;
+                            @media #{$md}{
+                                font-size: 30.6px;
+                                line-height: 45px;
+                            }
+                        }
+                    }
+                    .btn.call-us{
+                        border: 0.7px solid #6CEBCE;
+                        border-radius: 4.2px;
+                        background-color: #6CEBCE;
+                        padding:rem(3) rem(13.06) rem(2.6) rem(13);
+                        min-height: auto;
+                        @media #{$md}{
+                            border: 0;
+                            border-radius: 0;
+                            background-color: transparent;
+                            padding: 0;
+                        }
+                        .icon-wrapper{
+                            margin-right: rem(3.65);
+                            @media #{$md}{
+                                margin-right: rem(8.98);
+                            }
+                            img{
+                                height: 15.21px;
+                                width: 16.45px;
+                                margin-right: rem(7.64);
+                                @media #{$md}{
+                                    height: 38.88px;
+                                    width: 42.2px;
+                                    margin-right: rem(22);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             .form__head{
                 max-width: rem(681);
                 margin: 0 auto;
@@ -81,6 +164,7 @@
                 textarea{
                     min-height: rem(150);
                     margin-bottom: rem(41);
+                    resize: none;
                     @media #{$md}{
                         width: 100%;
                     }
@@ -99,6 +183,8 @@
                         border-radius: 3.6px;
                         background-color: #414042;
                         min-height: 0;
+                        height: auto;
+                        border: 0;
                         @media #{$md}{
                             font-size: 25.5px;
                             font-weight: bold;

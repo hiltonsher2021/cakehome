@@ -45,6 +45,9 @@
       @media #{$xl} {
           margin: 0 auto;
       }
+      .TestimonialCard__top h3 {
+        font-weight: 900;
+      }
       .slick-track {
         display: flex;
         .slick-slide {
