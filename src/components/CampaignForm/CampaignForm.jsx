@@ -43,7 +43,7 @@ const CampaignForm = (data) => {
     }
     if(isQuestionSent === "true") {
       setShowSuccessMessage(true)
-      setSuccessMessage('Question successfully sent')
+      setSuccessMessage("Great question! We'll be in touch ASAP with answers")
     }
   }, [successMessage, showSuccessMessage])
 
@@ -63,7 +63,7 @@ const CampaignForm = (data) => {
         setShowSuccessMessage(
           response.data?.status === 'success' ? true : false
         )
-        setSuccessMessage('Question successfully sent')
+        setSuccessMessage("Great question! We'll be in touch ASAP with answers")
         sessionStorage.setItem('QuestionSent', true);
         setShowFailureMessage(false)
 
