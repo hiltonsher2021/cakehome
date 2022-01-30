@@ -519,17 +519,12 @@
 .hid-camp{
 display: none;
 }
-body{
-  padding-top: rem(118);
-  @media #{$smm}{
-    padding-top: rem(122);
+#campaign-header.child-campaign {
+    padding-top: rem(116);
+    @media screen and (min-width: 480px){
+      padding-top: rem(122);
+    }
+    @media #{$xl}{
+      padding-top: rem(175);
+    }
   }
-  @media #{$xl}{
-    padding-top: rem(175);
-  }
-}
-#campaign-header {
-  .child-campaign {
-    // add style
-  }
-}

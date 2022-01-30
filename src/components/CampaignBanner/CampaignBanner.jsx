@@ -481,6 +481,7 @@ const CampaignBanner = (data) => {
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">Property Value Estimate</label>
+                      <span className='form__dollar-wrap'>
                       <input
                         placeholder="$100,000"
                         type="text"
@@ -489,9 +490,11 @@ const CampaignBanner = (data) => {
                           rangeValueChange(e.target.value, true, e)
                         }
                       />
+                      </span>
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Current Loan Balance</label>
+                      <span className='form__dollar-wrap'>
                       <input
                         placeholder="$100,000"
                         type="text"
@@ -500,6 +503,7 @@ const CampaignBanner = (data) => {
                           currentLoanValueChange(e.target.value, true, e)
                         }
                       />
+                      </span>
                       {propertyValue <= currentLoanBal &&
                       currentLoanBal !== 0 &&
                       propertyValue !== 0 ? (
@@ -513,6 +517,7 @@ const CampaignBanner = (data) => {
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Cash Out Amount</label>
+                      <span className='form__dollar-wrap'>
                       <input
                         placeholder="$0"
                         type="text"
@@ -521,6 +526,7 @@ const CampaignBanner = (data) => {
                           cashOutValueChange(e.target.value, true, e)
                         }
                       />
+                      </span>
                       {propertyValue < currentLoanBal + cashOut &&
                         propertyValue !== 0 && (
                           <label>
