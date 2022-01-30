@@ -77,6 +77,7 @@
         background-size: contain;
         top: 50%;
         transform: translateY(-50%);
+        margin-top: -2.5rem;
       }
       .slick-prev:before{
         background-image: url('/images/campaign-slider-next.svg');
@@ -85,7 +86,6 @@
         left: 35px;
       }
       .slick-prev:before{
-    
         right: 35px;
       }
       .slick-list {
