@@ -289,40 +289,40 @@ const CampaignBanner = (data) => {
                   </div>
                   <div className="banner__form-fields">
                     <div className="banner__inputs">
-                    <label className="d-mob" htmlFor="field">
-                      My Legal Name Is
-                    </label>
-                    <input
-                      placeholder="First Name"
-                      value={firstName}
-                      type="text"
-                      {...register('firstName', {
-                        required: 'This is a required field',
-                        pattern: {
-                          value: /^[A-Za-z]+$/,
-                          message: 'Please enter a valid name',
-                        },
-                      })}
-                      onChange={(e) => setFirstUsername(e.target.value)}
-                    />
-                    <label htmlFor="">{errors.firstName?.message}</label>
+                      <label className="d-mob" htmlFor="field">
+                        My Legal Name Is
+                      </label>
+                      <input
+                        placeholder="First Name"
+                        value={firstName}
+                        type="text"
+                        {...register('firstName', {
+                          required: 'This is a required field',
+                          pattern: {
+                            value: /^[A-Za-z]+$/,
+                            message: 'Please enter a valid name',
+                          },
+                        })}
+                        onChange={(e) => setFirstUsername(e.target.value)}
+                      />
+                      <label htmlFor="">{errors.firstName?.message}</label>
                     </div>
                     <div className="banner__inputs">
-                    <input
-                      placeholder="Last Name"
-                      value={lastName}
-                      type="text"
-                      {...register('lastName', {
-                        required: 'This is a required field',
-                        pattern: {
-                          value: /^[A-Za-z]+$/,
-                          message: 'Please enter a valid name',
-                        },
-                      })}
-                      type="text"
-                      onChange={(e) => setLastUsername(e.target.value)}
-                    />
-                    <label htmlFor="">{errors.lastName?.message}</label>
+                      <input
+                        placeholder="Last Name"
+                        value={lastName}
+                        type="text"
+                        {...register('lastName', {
+                          required: 'This is a required field',
+                          pattern: {
+                            value: /^[A-Za-z]+$/,
+                            message: 'Please enter a valid name',
+                          },
+                        })}
+                        type="text"
+                        onChange={(e) => setLastUsername(e.target.value)}
+                      />
+                      <label htmlFor="">{errors.lastName?.message}</label>
                     </div>
                   </div>
                 </div>
@@ -491,7 +491,11 @@ const CampaignBanner = (data) => {
             <div className="slide-4">
               <div className="container">
                 <div className="banner__hero">
-                  <h1 className="d-mob">{data?.mobTitle}</h1>
+                  <h1 className="d-mob">
+                    {data?.mobTitle}
+                    {firstName}
+                    {data?.body}
+                  </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -576,7 +580,11 @@ const CampaignBanner = (data) => {
               <div className="container">
                 <div className="banner__hero">
                   <h1 className="d-desktop">{data?.title}</h1>
-                  <h1 className="d-mob">{data?.mobTitle}</h1>
+                  <h1 className="d-mob">
+                    {data?.mobTitle}
+                    {firstName}
+                    {data?.body}
+                  </h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h2>
