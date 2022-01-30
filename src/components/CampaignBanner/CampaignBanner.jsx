@@ -294,20 +294,33 @@ const CampaignBanner = (data) => {
                     <input
                       placeholder="First Name"
                       value={firstName}
+                      type="text"
                       {...register('firstName', {
                         required: 'This is a required field',
+                        pattern: {
+                          value: /^[A-Za-z]+$/,
+                          message: 'Please enter a valid name',
+                        },
                       })}
                       onChange={(e) => setFirstUsername(e.target.value)}
                     />
+                    <label htmlFor="">{errors.firstName?.message}</label>
+
                     <input
                       placeholder="Last Name"
                       value={lastName}
                       type="text"
                       {...register('lastName', {
                         required: 'This is a required field',
+                        pattern: {
+                          value: /^[A-Za-z]+$/,
+                          message: 'Please enter a valid name',
+                        },
                       })}
+                      type="text"
                       onChange={(e) => setLastUsername(e.target.value)}
                     />
+                    <label htmlFor="">{errors.lastName?.message}</label>
                   </div>
                 </div>
               </div>
@@ -374,7 +387,11 @@ const CampaignBanner = (data) => {
             <div className="slide-3">
               <div className="container">
                 <div className="banner__hero">
-                  <h1 className="d-mob">{data?.mobTitle}{firstName}{data?.body}</h1>
+                  <h1 className="d-mob">
+                    {data?.mobTitle}
+                    {firstName}
+                    {data?.body}
+                  </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -481,28 +498,28 @@ const CampaignBanner = (data) => {
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">Property Value Estimate</label>
-                      <span className='form__dollar-wrap'>
-                      <input
-                        placeholder="$100,000"
-                        type="text"
-                        value={propertyValue}
-                        onChange={(e) =>
-                          rangeValueChange(e.target.value, true, e)
-                        }
-                      />
+                      <span className="form__dollar-wrap">
+                        <input
+                          placeholder="$100,000"
+                          type="text"
+                          value={propertyValue}
+                          onChange={(e) =>
+                            rangeValueChange(e.target.value, true, e)
+                          }
+                        />
                       </span>
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Current Loan Balance</label>
-                      <span className='form__dollar-wrap'>
-                      <input
-                        placeholder="$100,000"
-                        type="text"
-                        value={currentLoanBal}
-                        onChange={(e) =>
-                          currentLoanValueChange(e.target.value, true, e)
-                        }
-                      />
+                      <span className="form__dollar-wrap">
+                        <input
+                          placeholder="$100,000"
+                          type="text"
+                          value={currentLoanBal}
+                          onChange={(e) =>
+                            currentLoanValueChange(e.target.value, true, e)
+                          }
+                        />
                       </span>
                       {propertyValue <= currentLoanBal &&
                       currentLoanBal !== 0 &&
@@ -517,15 +534,15 @@ const CampaignBanner = (data) => {
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">Cash Out Amount</label>
-                      <span className='form__dollar-wrap'>
-                      <input
-                        placeholder="$0"
-                        type="text"
-                        value={cashOut}
-                        onChange={(e) =>
-                          cashOutValueChange(e.target.value, true, e)
-                        }
-                      />
+                      <span className="form__dollar-wrap">
+                        <input
+                          placeholder="$0"
+                          type="text"
+                          value={cashOut}
+                          onChange={(e) =>
+                            cashOutValueChange(e.target.value, true, e)
+                          }
+                        />
                       </span>
                       {propertyValue < currentLoanBal + cashOut &&
                         propertyValue !== 0 && (
