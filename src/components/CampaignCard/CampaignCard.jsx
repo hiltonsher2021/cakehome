@@ -33,6 +33,7 @@ const CampaignCard = (data) => {
     slidesToShow: 3,
     slidesToScroll: 3,
     arrows: true,
+    swipe:true,
     responsive: [
       {
         breakpoint: 1150,

@@ -33,7 +33,7 @@ const CampaignHeader = (data) => {
             <div className="header__logo">
               {/* <a href="#" title='logo'> */}
               <AnchorLink to="/">
-                <img src="/images/campaign-logo.svg" alt="logo" />
+                <img src="/images/camapaign__logo.svg" alt="logo" />
               </AnchorLink>
               {/* </a> */}
             </div>

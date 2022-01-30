@@ -135,7 +135,7 @@ const CampaignForm = (data) => {
                       <p className="error-message">{errors.query?.message}</p>
                     </div>
                     <div className="form__submit">
-                      <button className="btn" type="submit" title="btn">
+                      <button className="btn" type="submit" title="SEND">
                         SEND
                       </button>
                     </div>

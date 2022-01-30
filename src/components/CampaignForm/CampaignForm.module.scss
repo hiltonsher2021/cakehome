@@ -30,13 +30,16 @@
                     margin: 0 -15px;
                     .ChatCallBlock_col{
                         padding-top: 0;
-                        padding-bottom: rem(28);
+                        padding-bottom: rem(29.55);
+                        @media #{$md}{
+                            padding-bottom: rem(42);
+                        }
                     }
                     @media #{$md}{
                         justify-content: space-between;
                         margin: 0 auto;
+                     
                     }
-                
                     .text-wrapper{
                         color: #121212;
                         font-size: 11.9px;

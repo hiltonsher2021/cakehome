@@ -46,6 +46,7 @@
     .CheckYourSavings__top {
         text-align: center;
         margin: 0 0 rem(22.99);
+        max-width: 1032px;
         @media #{$xl} {
             margin: 0 0 rem(100);
         }
@@ -324,7 +325,6 @@
                         font-size: 60px;
                     }
                     @media #{$xl} {
-                        text-align: left;
                         // font-size: rem(148);
                         font-size: rem(100);
                         letter-spacing: rem(3);
@@ -421,6 +421,12 @@
               }
 
             
+            }
+        }
+        .custom-range{
+            margin-bottom: rem(45);
+            @media #{$xl} {
+                margin-bottom: rem(60);
             }
         }
     }
