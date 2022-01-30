@@ -42,10 +42,9 @@ const TestimonialCard = (data) => {
           </div>
           <div className="right-side">
             {/* <a title='social-media'><img src="/images/google.png" alt="google-icon" /></a> */}
-
-            <AnchorLink>
-              <GatsbyImage image={image} alt={data?.item?.image?.title} />
-            </AnchorLink>
+            <a href={data?.item?.ctaUrl} target="_blank">
+              <GatsbyImage  image={image} alt={data?.item?.image?.title} />
+            </a>
           </div>
         </div>
       </div>

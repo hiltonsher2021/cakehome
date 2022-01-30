@@ -61,6 +61,7 @@ export const query = graphql`
                   image {
                     gatsbyImageData
                   }
+                  ctaUrl
                 }
               }
             }
