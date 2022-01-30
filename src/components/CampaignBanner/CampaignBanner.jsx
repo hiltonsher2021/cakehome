@@ -251,7 +251,7 @@ const CampaignBanner = (data) => {
 
   const setUrl = () => {
     url =
-      'http://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +
+      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +
       '&zipcode=' +
       zipCode +
       '&purchasePrice=' +
@@ -265,8 +265,8 @@ const CampaignBanner = (data) => {
       '&propertyUse=' +
       propertyUse +
       '&propertyType=' +
-      propertyType +
-      '&isAutoClick=1&target=_blank'
+      propertyType
+    // '&isAutoClick=1&target=_blank'
     setUrlValue(url)
   }
 
