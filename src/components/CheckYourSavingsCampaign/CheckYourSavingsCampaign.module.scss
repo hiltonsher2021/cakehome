@@ -1,4 +1,5 @@
 @import 'styles/global.scss';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 
 .CheckYourSavings {
   background-color: $theme-green;
@@ -128,7 +129,7 @@
             }
             h5 {
                 font-family: Lato;
-                font-size: rem(25);
+                font-family: 'Lato', sans-serif;
                 font-weight: 900;
                 line-height: rem(30);
                 color: $textdark;
