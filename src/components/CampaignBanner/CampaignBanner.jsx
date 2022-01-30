@@ -23,8 +23,7 @@ const CampaignBanner = (data) => {
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
   const [zipCode, setZipCode] = useState('')
   const [showValidationMessage, setShowValidationMessage] = useState(false)
-  const [showPhoneValidationMessage, setPhoneShowValidationMessage] =
-    useState(false)
+  const [showPhoneValidationMessage, setPhoneShowValidationMessage] = useState(false)
   const [propertyValue, setPropertyValue] = useState(0)
   const [currentLoanBal, setCurrentLoanBal] = useState(0)
   const [cashOut, setCashOut] = useState(0)
@@ -33,6 +32,9 @@ const CampaignBanner = (data) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [urlValue, setUrlValue] = useState('')
+  const [isFirstNameValid, setFirstNameValid] = useState(false)
+  const [isLastNameValid, setLastNameValid] = useState(false)
+  const [isValidEmail, setValidEmail] = useState(false)
 
   const {
     register,
@@ -88,10 +90,13 @@ const CampaignBanner = (data) => {
   const setFirstUsername = (data) => {
     setFirstName(data)
     setValuesStorage('firstName', data)
+    setFirstNameValid(/^[A-Za-z]+$/.test(data))
+
   }
   const setLastUsername = (data) => {
     setLastName(data)
     setValuesStorage('lastName', data)
+    setLastNameValid(/^[A-Za-z]+$/.test(data))
   }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
@@ -137,6 +142,28 @@ const CampaignBanner = (data) => {
       setCurrentLoanBal(value)
     }
     setValuesStorage('downPayment', value)
+  }
+
+  const sendUserData = () => {
+    api({
+      url: 'contacts',
+      method: 'POST',
+      data: {
+        first_name: firstName,
+        email: email,
+        last_name: lastName,
+        phone: phone,
+        get_my_personalized_rate: 'From Get My Personalized Rate',
+      },
+    })
+      .then((response) => {
+// console.log(response, 'success')
+
+      })
+      .catch(function (error) {
+        // console.log(error, 'error')
+
+      })
   }
 
   const cashOutValueChange = (value, isInputValueChange, event) => {
@@ -194,6 +221,7 @@ const CampaignBanner = (data) => {
   const setUserEmail = (data) => {
     setValuesStorage('email', data)
     setEmail(data)
+    setValidEmail(/\S+@\S+\.\S+/.test(data))
   }
 
   const fetchValidZipcode = (data) => {
@@ -229,12 +257,12 @@ const CampaignBanner = (data) => {
     let email = sessionStorage.getItem('email')
     validateZipcode(zipCode || 0)
     setPropertyValue(parseInt(purchasePrice) || 0)
-    setFirstName(firstName)
-    setLastName(lastName)
+    setFirstUsername(firstName || '')
+    setLastUsername(lastName || '')
     setCashOut(parseInt(cashOut) || 0)
     setCurrentLoanBal(parseInt(downPayment) || 0)
-    setEmail(email)
-    setPhone(phone)
+    setUserEmail(email || '')
+    setPhone(phone || '')
     if (currentPage?.pageNo === 5) {
       setUrl()
     }
@@ -247,6 +275,7 @@ const CampaignBanner = (data) => {
     propertyValue,
     firstName,
     lastName,
+    email
   ])
 
   const setUrl = () => {
@@ -637,10 +666,23 @@ const CampaignBanner = (data) => {
                       creditRating !== '' &&
                       propertyType !== '' &&
                       propertyUse !== '' &&
+                      phone !== '' &&
+                      email !== '' &&
+                      firstName !== '' &&
+                      lastName !== '' &&
+                      phone !== null &&
+                      phone.length === 10 &&
+                      email !== null &&
+                      (isValidEmail === true) &&
+                      (isFirstNameValid === true) &&
+                      (isLastNameValid === true) &&
+                      firstName !== null &&
+                      lastName !== null &&
                       showValidationMessage === false
                         ? ''
                         : 'dis-btn'
                     }`}
+                    onClick={sendUserData}
                   >
                     <span className="d-mob">GET MY RATE</span>
                     <span className="d-desktop">GET MY PERSONALIZED RATE</span>
