@@ -288,6 +288,7 @@ const CampaignBanner = (data) => {
                     <h3>{data?.description?.description}</h3>
                   </div>
                   <div className="banner__form-fields">
+                    <div className="banner__inputs">
                     <label className="d-mob" htmlFor="field">
                       My Legal Name Is
                     </label>
@@ -305,7 +306,8 @@ const CampaignBanner = (data) => {
                       onChange={(e) => setFirstUsername(e.target.value)}
                     />
                     <label htmlFor="">{errors.firstName?.message}</label>
-
+                    </div>
+                    <div className="banner__inputs">
                     <input
                       placeholder="Last Name"
                       value={lastName}
@@ -321,6 +323,7 @@ const CampaignBanner = (data) => {
                       onChange={(e) => setLastUsername(e.target.value)}
                     />
                     <label htmlFor="">{errors.lastName?.message}</label>
+                    </div>
                   </div>
                 </div>
               </div>

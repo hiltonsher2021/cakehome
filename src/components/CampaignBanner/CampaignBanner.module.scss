@@ -323,6 +323,16 @@
                 .banner__form-fields {
                     display: flex;
                     flex-wrap: wrap;
+                    .banner__inputs{
+                        margin-bottom: rem(6.36);
+                        width: 100%;
+                        @media #{$xl}{
+                            min-width: 330px;
+                            margin-right: rem(30);
+                            margin-bottom: rem(0);
+                            width: auto;
+                        }
+                    }
                     input {
                         color: rgba(0, 0, 0, 0.45);
                         font-family: Aeonik;
@@ -342,15 +352,13 @@
                             line-height: 29px;
                         }
                         @media #{$xl} {
-                            min-width: 330px;
                             padding: rem(13) rem(15);
                             font-size: 24px;
                             font-weight: 300;
                             letter-spacing: -0.21px;
                             line-height: 29px;
-                            margin-right: rem(30);
                             border-radius: 5px;
-                            margin-bottom: rem(0);
+                       
                         }
                     }
                 }

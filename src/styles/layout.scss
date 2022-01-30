@@ -520,6 +520,9 @@
 display: none;
 }
 #campaign-header.child-campaign {
+    .header-main{
+      display: none;
+    }
     padding-top: rem(116);
     @media screen and (min-width: 480px){
       padding-top: rem(122);

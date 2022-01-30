@@ -85,7 +85,7 @@ const Header = ({ data }) => {
   }
 
   return (
-    <header  className={`${styles.header} ${pathValue}`}>
+    <header  className={`${styles.header} ${pathValue} header-main`}>
       <div className="header-wrapper">
         <div className="header-top-mob">
           {modeledData?.section?.map((menu, index) => {
