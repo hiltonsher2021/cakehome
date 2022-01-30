@@ -242,7 +242,7 @@ const CampaignBanner = (data) => {
 
   useEffect(() => {
     setValuesStorage('propertyUse', propertyUse)
-    setValuesStorage('propertyType', propertyType)
+    // setValuesStorage('propertyType', propertyType)
     setValuesStorage('creditRating', creditRating)
   }, [])
 
@@ -255,6 +255,9 @@ const CampaignBanner = (data) => {
     let zipCode = sessionStorage.getItem('zipCode')
     let phone = sessionStorage.getItem('phone')
     let email = sessionStorage.getItem('email')
+    let propertyUse = sessionStorage.getItem('propertyUse')
+    let propertyType = sessionStorage.getItem('propertyType')
+    let creditRating = sessionStorage.getItem('creditRating')
     validateZipcode(zipCode || 0)
     setPropertyValue(parseInt(purchasePrice) || 0)
     setFirstUsername(firstName || '')
@@ -263,6 +266,7 @@ const CampaignBanner = (data) => {
     setCurrentLoanBal(parseInt(downPayment) || 0)
     setUserEmail(email || '')
     setPhone(phone || '')
+    setPropertyType('SecondHome')
     if (currentPage?.pageNo === 5) {
       setUrl()
     }
