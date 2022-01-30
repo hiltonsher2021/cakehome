@@ -35,7 +35,7 @@ const CampaignCard = (data) => {
     arrows: true,
     responsive: [
       {
-        breakpoint: 992,
+        breakpoint: 1150,
         settings: {
           arrows: false,
           slidesToShow: 2,

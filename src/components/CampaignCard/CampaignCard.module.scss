@@ -46,12 +46,12 @@
           }
       }
     }
-    .CampaignCard__Wrapper {
-      max-width: rem(1170);
-      margin: 0 rem(-15);
-    
-      @media #{$xl} {
-          margin: 0 auto;
+    .CampaignCard__Wrapper { 
+        max-width: rem(900);
+        margin: 0 auto;
+      @media (min-width:1350px){
+        max-width: rem(1170);
+        margin: 0 auto;
       }
       .TestimonialCard__top h3 {
         font-weight: 900;
