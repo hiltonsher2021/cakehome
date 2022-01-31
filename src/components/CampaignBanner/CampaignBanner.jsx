@@ -18,6 +18,12 @@ const CampaignBanner = (data) => {
   let currentPage = []
   let nextPage = []
   let url = ''
+  let propertyUseValues = [
+    {name: 'Primary Residence', value: 'PrimaryResidence'},
+    {name: 'Secondary Vacation Home', value: 'SecondaryVacationHome'},
+    {name: 'Investment Rental', value: 'InvestmentRental'}
+  ]
+  let defaultValuePropertyUse = {}
   const [creditRating, setCreditRating] = useState('780')
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
@@ -245,9 +251,9 @@ const CampaignBanner = (data) => {
   }
 
   useEffect(() => {
-    setValuesStorage('propertyUse', propertyUse)
+    // setValuesStorage('propertyUse', 'Condominium')
     // setValuesStorage('propertyType', propertyType)
-    setValuesStorage('creditRating', creditRating)
+    // setValuesStorage('creditRating', creditRating)
   }, [])
 
   useEffect(() => {
@@ -259,9 +265,9 @@ const CampaignBanner = (data) => {
     let zipCode = sessionStorage.getItem('zipCode')
     let phone = sessionStorage.getItem('phone')
     let email = sessionStorage.getItem('email')
-    let propertyUse = sessionStorage.getItem('propertyUse')
-    let propertyType = sessionStorage.getItem('propertyType')
-    let creditRating = sessionStorage.getItem('creditRating')
+    let propertyUseStorage = sessionStorage.getItem('propertyUse')
+    let propertyTypeStorage = sessionStorage.getItem('propertyType')
+    let creditRatingStorage = sessionStorage.getItem('creditRating')
     validateZipcode(zipCode || 0)
     setPropertyValue(parseInt(purchasePrice) || 0)
     setFirstUsername(firstName || '')
@@ -270,10 +276,17 @@ const CampaignBanner = (data) => {
     setCurrentLoanBal(parseInt(downPayment) || 0)
     setUserEmail(email || '')
     setPhone(phone || '')
-    setPropertyType('SecondHome')
+    // setPropertyType('SecondHome')
+    setPropertyUse(propertyUseStorage || propertyUse)
     if (currentPage?.pageNo === 5) {
       setUrl()
     }
+    defaultValuePropertyUse = propertyUseValues.filter((item) => {
+      if(item.value === propertyUse) {
+        return item
+      }
+    })
+
   }, [
     creditRating,
     propertyType,
@@ -494,7 +507,7 @@ const CampaignBanner = (data) => {
                     <div className="banner__select">
                       <label htmlFor="banner">Property Use</label>
                       <select
-                        defaultValue="PrimaryResidence"
+                        defaultValue={defaultValuePropertyUse[0]?.value}
                         value={propertyUse}
                         onChange={(e) =>
                           handleChangePropertyUse(e.target.value)
