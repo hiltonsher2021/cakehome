@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import * as styles from './CampaignHeader.module.scss'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { closeChatWidget, maximizeChatWidget } from '../../utils/utils'
+import sectionModel from 'models/Section'
 
 const CampaignHeader = (data) => {
+  let modeledData
   const openChatWidget = (e) => {
     maximizeChatWidget()
     var callback = function () {
@@ -16,6 +18,13 @@ const CampaignHeader = (data) => {
       event_callback: callback,
     })
     return false
+  }
+
+  if (data) {
+    let filterData = data?.references.filter((item) => {
+      if (item?.handle.includes('1')) return item
+    })
+    modeledData = sectionModel(filterData[0])
   }
 
   useEffect(() => {
@@ -38,19 +47,23 @@ const CampaignHeader = (data) => {
               {/* </a> */}
             </div>
             <div className="header__wrap">
-              <a
-                className="header__call-btn"
-                href="tel:+18338182253"
-                alt="call"
-              >
-                <div className="header__call-thumb">
-                  <img src="/images/headphone-icon.svg" alt="headphone" />
-                </div>
-                <div className="header__call-text">
-                  Call Us
-                  <span>833-818-CAKE</span>
-                </div>
-              </a>
+            {modeledData?.section?.map((menu, index) => {
+        if (menu?.label === 'Call Us') {
+          return (<> <a
+            className="header__call-btn"
+            href={'tel:+' + menu?.url}
+            alt="call"
+          >
+            <div className="header__call-thumb">
+              <img src="/images/headphone-icon.svg" alt="headphone" />
+            </div>
+            <div className="header__call-text">
+            {menu?.label}
+              <span>{menu?.subLabel}</span>
+            </div>
+          </a></>)
+        }})}
+
               <a
                 className="header__chat-btn"
                 title="chat"
