@@ -212,14 +212,13 @@ const CampaignBanner = (data) => {
     if (data.length < 10) {
       setPhoneShowValidationMessage(true)
     } else {
-      setValuesStorage('phone', data)
       setPhoneShowValidationMessage(false)
     }
     let valueFormat
     if (data) {
       valueFormat = data.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
     }
-
+    setValuesStorage('phone', valueFormat)
     setPhone(valueFormat)
   }
 
