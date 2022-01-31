@@ -717,6 +717,7 @@
                                 }
                                 @media #{$xl} {
                                     min-width: 330px;
+                                    max-width: 330px;
                                     padding: rem(13) rem(15);
                                     font-size: 24px;
                                     font-weight: 300;
