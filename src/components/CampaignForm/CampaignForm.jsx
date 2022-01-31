@@ -23,7 +23,7 @@ const CampaignForm = (data) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm({ mode: 'onBlur' })
 
   if (data) {
     let filterData = data?.references.filter((item) => {
