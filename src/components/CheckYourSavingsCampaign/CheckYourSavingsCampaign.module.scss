@@ -178,6 +178,7 @@
                     margin: rem(38) 0 0;
                     @media #{$smm}{
                         margin: 0 auto;
+                        margin-top: 34px;
                     }
                     @media #{$xl} {
                         margin: rem(53) 0 0;

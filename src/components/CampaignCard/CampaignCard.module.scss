@@ -7,6 +7,9 @@
     padding: rem(107) 0 rem(37);
   }
   :global {
+    .TestimonialCard__footer .right-side a{
+      right: -10px;
+    }
     .container{
       padding: 0;
     }

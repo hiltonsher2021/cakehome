@@ -225,7 +225,7 @@
                     
                     @media #{$smm}{
                         font-size: 18px;
-                        line-height: 1;
+                        line-height: 29px;
                         transform: translateY(calc(-50% - 5px));
                     }
                     @media #{$xl} {
@@ -471,7 +471,7 @@
             margin: 0 auto;
             padding: rem(13) rem(30) rem(29);
             @media #{$xl}{
-                padding: rem(246) 0 rem(118);
+                padding: rem(218) 0 rem(118);
             }
             .container{
                 max-width: rem(1060);
@@ -569,7 +569,7 @@
         .slide-4{
             padding: rem(13) rem(30) rem(27);
             @media #{$xl}{
-                padding: rem(227) 0 rem(118);
+                padding: rem(232) 0 rem(118);
             }
             .container{
                 max-width: rem(1060);
