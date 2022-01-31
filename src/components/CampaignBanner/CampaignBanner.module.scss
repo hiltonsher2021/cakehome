@@ -736,7 +736,13 @@
                         margin-bottom: rem(40);
                     }
                 }
-                
+                margin-bottom:0; 
+                @media #{$smm}{
+                    margin-bottom: rem(20px); 
+                }
+                @media #{$smm}{
+                    margin-bottom: 0;
+                }
             }
             .banner__form{
                 text-align: center;
