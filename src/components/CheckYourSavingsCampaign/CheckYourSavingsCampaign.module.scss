@@ -333,10 +333,12 @@
                     span {
                         font-size: rem(35);
                         font-weight: 500;
+                        margin-top: rem(-10);
                         // line-height: rem(14.51);
                         display: inline-block;
                         vertical-align: middle;
                         @media #{$xl} {
+                            margin-top: 0;
                             // font-size: rem(72);
                             font-size: rem(60);
                         }

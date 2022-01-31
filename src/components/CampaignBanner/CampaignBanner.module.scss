@@ -86,8 +86,9 @@
                 width: rem(6.72);
                 background-color: #000000;
                 opacity: 0.3;
-                margin: 0 rem(4.3);
+                margin: 0 rem(6);
                 border-radius: 100%;
+                padding: 5px;
                 display: inline-block;
                 @media #{$xl} {
                     height: rem(10.5);
@@ -378,7 +379,7 @@
             font-size: 14px;
             letter-spacing: -0.11px;
             line-height: 26.54px;
-            font-weight: 400    ;
+            font-weight: 400;
             }
         }
         .slide-2 {
@@ -392,6 +393,7 @@
             .container{
                 max-width: rem(1060);
             }
+            
             .banner__hero {
                 h1 {
                     color: #414042;
@@ -446,7 +448,7 @@
         }
         .slide-3{
             margin: 0 auto;
-            padding: rem(13) rem(30) rem(39);
+            padding: rem(13) rem(30) rem(29);
             @media #{$xl}{
                 padding: rem(246) 0 rem(118);
             }
@@ -493,7 +495,6 @@
                 
             }
             .banner__form{
-                margin-bottom: rem(39);
                 @media #{$smm}{
                     max-width: 70%;
                     margin: 0 auto;
@@ -523,7 +524,7 @@
                 border-radius: 3.2px;
                 outline: 0;
                 border: 0;
-                margin-bottom: rem(6.36);
+                margin-bottom: rem(10);
                 @media #{$smm}{
                     font-size: 18px;
                     line-height: 29px;
@@ -656,7 +657,7 @@
                     border-radius: 3.2px;
                     outline: 0;
                     border: 0;
-                    margin-bottom: rem(6.36);
+                    margin-bottom: rem(10);
                     @media #{$smm}{
                         font-size: 18px;
                         line-height: 29px;

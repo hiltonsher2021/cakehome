@@ -264,6 +264,9 @@
 // Cookie Bar
 #onetrust-consent-sdk {
   font-family: $aeonik;
+  .ot-sdk-container{
+    padding: 20px;
+  }
   #onetrust-banner-sdk {
     outline: none;
     background-color: $primary-black !important;
@@ -523,7 +526,7 @@ display: none;
     .header-main{
       display: none;
     }
-    padding-top: rem(116);
+    padding-top: rem(113);
     @media screen and (min-width: 480px){
       padding-top: rem(122);
     }
