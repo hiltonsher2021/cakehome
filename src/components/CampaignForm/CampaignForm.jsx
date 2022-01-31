@@ -103,6 +103,11 @@ const CampaignForm = (data) => {
                         type="text"
                         {...register('name', {
                           required: 'This is a required field',
+                          pattern: {
+                            value: /^[^\s]+(?:$|.*[^\s]+$)/,
+                            message:
+                              'Please enter a valid name',
+                          },
                         })}
                       />
                       <p className="error-message">{errors.name?.message}</p>
@@ -129,6 +134,11 @@ const CampaignForm = (data) => {
                         placeholder="How can we help?"
                         {...register('query', {
                           required: 'This is a required field',
+                          pattern: {
+                            value: /^[^\s]+(?:$|.*[^\s]+$)/,
+                            message:
+                              'Please enter a valid question',
+                          },
                         })}
                         id="help" // markup chnaged
                       ></textarea>

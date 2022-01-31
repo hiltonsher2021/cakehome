@@ -100,7 +100,7 @@ const Campaign = (props) => {
     <Layout>
       <SEO title="Campaign" />
       <section className="generic-section">
-        <CampaignHeader />
+        <CampaignHeader {...props.data.contentfulCampaign} />
         <CampaignBanner {...props.data.contentfulCampaign} {...props?.data?.allContentfulCampaign}/>
         <CheckYourSavingsCampaign {...props.data.contentfulCampaign} showModal={showModal}/>
         <div
