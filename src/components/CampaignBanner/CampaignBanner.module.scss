@@ -737,10 +737,10 @@
                     }
                 }
                 margin-bottom:0; 
-                @media #{$smm}{
-                    margin-bottom: rem(20); 
+                @media (min-width:767px){
+                    margin-bottom: rem(30); 
                 }
-                @media #{$smm}{
+                @media #{$xl}{
                     margin-bottom: 0;
                 }
             }
