@@ -3,6 +3,7 @@ import * as styles from './CampaignBanner.module.scss'
 import { Link } from 'gatsby'
 import api from 'utils/api'
 import { useForm } from 'react-hook-form'
+import ReactTooltip from 'react-tooltip'
 
 const isBrowser = typeof window !== 'undefined'
 
@@ -670,11 +671,19 @@ const CampaignBanner = (data) => {
                       )}
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Cash Out Amount
-                      <a className='tool-ask d-mob' title='If you have no current loan balance, you must have
-                            a cash out amount.'>
-                        <img src="/images/campaign-question.png" alt="image" />
-                        </a></label>
+                      <label htmlFor="banner">
+                        Cash Out Amount
+                        <a
+                          className="tool-ask d-mob"
+                          title="If you have no current loan balance, you must have
+                            a cash out amount."
+                        >
+                          <img
+                            src="/images/campaign-question.png"
+                            alt="image"
+                          />
+                        </a>
+                      </label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$0"
@@ -684,9 +693,15 @@ const CampaignBanner = (data) => {
                             cashOutValueChange(e.target.value, true, e)
                           }
                         />
-                        <a className='tool-ask d-desktop' title='If you have no current loan balance, you must have
-                            a cash out amount.'>
-                        <img src="/images/campaign-question.png" alt="image" />
+                        <a
+                          className="tool-ask d-desktop"
+                          title="If you have no current loan balance, you must have
+                            a cash out amount."
+                        >
+                          <img
+                            src="/images/campaign-question.png"
+                            alt="image"
+                          />
                         </a>
                       </span>
                       {propertyValue < currentLoanBal + cashOut &&
@@ -704,6 +719,18 @@ const CampaignBanner = (data) => {
                             a cash out amount.
                           </label>
                         )}
+
+                      <p className="rate-details small">
+                        <span data-tip="Rate based on 10 Year Fixed, 760+ Credit Score, 400k Loan Amount, No Cash Out Refinance, Single Family Primary Residence, LTV <=50%">
+                          *Rate Terms
+                        </span>
+                      </p>
+                      <ReactTooltip
+                        effect="solid"
+                        place="top"
+                        multiline={true}
+                        className="customTooltip"
+                      />
                     </div>
                   </div>
                 </div>
