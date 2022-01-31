@@ -39,7 +39,7 @@ const CampaignBanner = (data) => {
     { name: '660-679(Average)', value: '670' },
     { name: '640-659(Below Average)', value: '650' },
     { name: '620-639(Fair)', value: '630' },
-    { name: '580-619(Poor)', value: '610' }
+    { name: '580-619(Poor)', value: '610' },
   ]
   let defaultValuePropertyUse = {}
   let defaultValuePropertyType = {}
@@ -63,6 +63,9 @@ const CampaignBanner = (data) => {
   const [isLastNameValid, setLastNameValid] = useState(false)
   const [isValidEmail, setValidEmail] = useState(false)
 
+  const [propValue, setPropValue] = useState(0)
+  const [curLoanBalValue, setCurLoanBalValue] = useState(0)
+  const [cashOutValue, setCashOutValue] = useState(0)
   const {
     register,
     formState: { errors },
@@ -129,21 +132,30 @@ const CampaignBanner = (data) => {
     onlyNumberKey(event)
     let numConv
     var testVal = value
-
-    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+    if (
+      isInputValueChange &&
+      value !== 0 &&
+      value[0] !== '' &&
+      value !== [] &&
+      value !== ''
+    ) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
       if (numConv > 2000000) {
         event.preventDefault()
         return
       }
-      // let nf = new Intl.NumberFormat('en-US')
-      // let test = nf.format(numConv)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
       setPropertyValue(value)
+      setPropValue(test)
+      setValuesStorage('purchasePriceValue', test)
     } else {
-      // let nf = new Intl.NumberFormat('en-US')
-      // let test = nf.format(value)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
       setPropertyValue(value)
+      setPropValue(test)
+      setValuesStorage('purchasePriceValue', test)
     }
     setValuesStorage('purchasePrice', value)
   }
@@ -152,20 +164,30 @@ const CampaignBanner = (data) => {
     onlyNumberKey(event)
     let numConv
     var testVal = value
-    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+    if (
+      isInputValueChange &&
+      value !== 0 &&
+      value[0] !== '' &&
+      value !== [] &&
+      value !== ''
+    ) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
       if (numConv > 2000000) {
         event.preventDefault()
         return
       }
-      // let nf = new Intl.NumberFormat('en-US')
-      // let test = nf.format(numConv)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
       setCurrentLoanBal(value)
+      setValuesStorage('currentBalValue', test)
+      setCurLoanBalValue(test)
     } else {
-      // let nf = new Intl.NumberFormat('en-US')
-      // let test = nf.format(value)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
       setCurrentLoanBal(value)
+      setValuesStorage('currentBalValue', test)
+      setCurLoanBalValue(test)
     }
     setValuesStorage('downPayment', value)
   }
@@ -194,20 +216,30 @@ const CampaignBanner = (data) => {
     onlyNumberKey(event)
     let numConv
     var testVal = value
-    if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
+    if (
+      isInputValueChange &&
+      value !== 0 &&
+      value[0] !== '' &&
+      value !== [] &&
+      value !== ''
+    ) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
       if (numConv > 1000000) {
         event.preventDefault()
         return
       }
-      // let nf = new Intl.NumberFormat('en-US')
-      // let test = nf.format(numConv)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(numConv)
       setCashOut(value)
+      setCashOutValue(test)
+      setValuesStorage('cashoutValue', test)
     } else {
-      // let nf = new Intl.NumberFormat('en-US')
-      // let test = nf.format(value)
+      let nf = new Intl.NumberFormat('en-US')
+      let test = nf.format(value)
       setCashOut(value)
+      setCashOutValue(test)
+      setValuesStorage('cashoutValue', test)
     }
     setValuesStorage('cashOut', value)
   }
@@ -276,10 +308,13 @@ const CampaignBanner = (data) => {
 
   useEffect(() => {
     let cashOut = sessionStorage.getItem('cashOut')
+    let cashOutValue = sessionStorage.getItem('cashoutValue')
     let downPayment = sessionStorage.getItem('downPayment')
+    let currentBalValue = sessionStorage.getItem('currentBalValue')
     let lastName = sessionStorage.getItem('lastName')
     let firstName = sessionStorage.getItem('firstName')
     let purchasePrice = sessionStorage.getItem('purchasePrice')
+    let purchasePriceValue = sessionStorage.getItem('purchasePriceValue')
     let zipCode = sessionStorage.getItem('zipCode')
     let phone = sessionStorage.getItem('phone')
     let email = sessionStorage.getItem('email')
@@ -296,7 +331,10 @@ const CampaignBanner = (data) => {
     setPhone(phone || '')
     setPropertyType(propertyTypeStorage || propertyType)
     setPropertyUse(propertyUseStorage || propertyUse)
-    setCreditRating(creditRatingStorage|| creditRating)
+    setCreditRating(creditRatingStorage || creditRating)
+    setPropValue(purchasePriceValue || 0)
+    setCurLoanBalValue(currentBalValue || 0)
+    setCashOutValue(cashOutValue || 0)
     if (currentPage?.pageNo === 5) {
       setUrl()
     }
@@ -344,7 +382,7 @@ const CampaignBanner = (data) => {
       propertyUse +
       '&propertyType=' +
       propertyType +
-    '&isAutoClick=1&target=_blank'
+      '&isAutoClick=1&target=_blank'
     setUrlValue(url)
   }
 
@@ -481,7 +519,9 @@ const CampaignBanner = (data) => {
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
-                      <label htmlFor="banner">Property ZIP code<sup>*</sup></label>
+                      <label htmlFor="banner">
+                        Property ZIP code<sup>*</sup>
+                      </label>
                       <input
                         placeholder="90035"
                         type="text"
@@ -500,7 +540,9 @@ const CampaignBanner = (data) => {
                       )}
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Property Type<sup>*</sup></label>
+                      <label htmlFor="banner">
+                        Property Type<sup>*</sup>
+                      </label>
                       <select
                         defaultValue={defaultValuePropertyType[0]?.value}
                         value={propertyType}
@@ -533,7 +575,9 @@ const CampaignBanner = (data) => {
                       </select>
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Property Use<sup>*</sup></label>
+                      <label htmlFor="banner">
+                        Property Use<sup>*</sup>
+                      </label>
                       <select
                         defaultValue={defaultValuePropertyUse[0]?.value}
                         value={propertyUse}
@@ -582,25 +626,33 @@ const CampaignBanner = (data) => {
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
-                      <label htmlFor="banner">Property Value Estimate<sup>*</sup></label>
+                      <label htmlFor="banner">
+                        Property Value Estimate<sup>*</sup>
+                      </label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$100,000"
                           type="text"
-                          value={propertyValue}
+                          value={propValue}
                           onChange={(e) =>
-                            rangeValueChange(e.target.value, true, e)
+                            rangeValueChange(
+                              e.target.value.replace(/\,/g, ''),
+                              true,
+                              e
+                            )
                           }
                         />
                       </span>
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Current Loan Balance<sup>*</sup></label>
+                      <label htmlFor="banner">
+                        Current Loan Balance<sup>*</sup>
+                      </label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$100,000"
                           type="text"
-                          value={currentLoanBal}
+                          value={curLoanBalValue}
                           onChange={(e) =>
                             currentLoanValueChange(e.target.value, true, e)
                           }
@@ -618,21 +670,29 @@ const CampaignBanner = (data) => {
                       )}
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Cash Out Amount
-                      <a className='tool-ask d-mob' href="#" title='help'>
-                        <img src="/images/campaign-question.png" alt="image" />
-                        </a></label>
+                      <label htmlFor="banner">
+                        Cash Out Amount
+                        <a className="tool-ask d-mob" href="#" title="help">
+                          <img
+                            src="/images/campaign-question.png"
+                            alt="image"
+                          />
+                        </a>
+                      </label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$0"
                           type="text"
-                          value={cashOut}
+                          value={cashOutValue}
                           onChange={(e) =>
                             cashOutValueChange(e.target.value, true, e)
                           }
                         />
-                        <a className='tool-ask d-desktop' href="#" title='help'>
-                        <img src="/images/campaign-question.png" alt="image" />
+                        <a className="tool-ask d-desktop" href="#" title="help">
+                          <img
+                            src="/images/campaign-question.png"
+                            alt="image"
+                          />
                         </a>
                       </span>
 
@@ -716,7 +776,6 @@ const CampaignBanner = (data) => {
                       zipCode.length === 5 &&
                       propertyValue > 0 &&
                       currentLoanBal > 0 &&
-                      cashOut === 0 &&
                       currentLoanBal !== 0 &&
                       propertyValue > currentLoanBal &&
                       creditRating !== '' &&
@@ -740,6 +799,7 @@ const CampaignBanner = (data) => {
                     }`}
                     onClick={sendUserData}
                   >
+                    {/*  (cashOut === 0 ||*/}
                     <span className="d-mob">GET MY RATE</span>
                     <span className="d-desktop">GET MY PERSONALIZED RATE</span>
                   </a>
