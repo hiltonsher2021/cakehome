@@ -1,11 +1,9 @@
 import React from 'react'
 import * as styles from './TestimonialCard.module.scss'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
 
 const TestimonialCard = (data) => {
   let image
-  image = getImage(data?.item?.image.gatsbyImageData)
+  image = data?.item?.image?.file?.url;
 
   return (
     <div className={`${styles.TestimonialCard} ${data?.className}`}>
@@ -43,7 +41,7 @@ const TestimonialCard = (data) => {
           <div className="right-side">
             {/* <a title='social-media'><img src="/images/google.png" alt="google-icon" /></a> */}
             <a href={data?.item?.ctaUrl} target="_blank">
-              <GatsbyImage  image={image} alt={data?.item?.image?.title} />
+              <img src={'https:' + image} alt="Social media icon" />
             </a>
           </div>
         </div>
