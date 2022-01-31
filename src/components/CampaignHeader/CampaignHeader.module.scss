@@ -127,8 +127,10 @@
                         border: 0.7px solid #6CEBCE;
                         border-radius: 4.2px;
                         padding: rem(8) rem(9) rem(10) rem(10);
+                        max-height: rem(35);
                         @media #{$smm}{
                             padding: rem(15) rem(20) ;
+                            max-height: none;
                         }
                         @media #{$xl} {
                             padding: rem(20) rem(23) rem(25) rem(25);

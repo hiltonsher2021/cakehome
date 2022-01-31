@@ -227,7 +227,7 @@
                 }
             }
         .slide-1 {
-            padding: rem(9) 0 rem(50);
+            padding: rem(9) 0 rem(37);
             @media #{$xl} {
                 padding: rem(13) 0 rem(68);
             }
@@ -366,6 +366,12 @@
                         }
                     }
                 }
+            }
+            label{
+            font-size: 14px;
+            letter-spacing: -0.11px;
+            line-height: 26.54px;
+            font-weight: 400    ;
             }
         }
         .slide-2 {

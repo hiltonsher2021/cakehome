@@ -7,6 +7,15 @@
     padding: rem(107) 0 rem(37);
   }
   :global {
+    .container{
+      padding: 0;
+    }
+    @media (max-width: 768px){
+      .CampaignCard-desktopCards .slick-slider .slick-list {
+        padding: 0 0 0 5px!important;
+      }
+    }
+
     .CampaignCard__title-wrap {
       display: block;
       margin: 0 rem(20) rem(40);
@@ -116,7 +125,10 @@
         }
       }
       .CampaignCard__item {
-          padding: 0 rem(15) ;
+        padding: 0 rem(10) ;
+          @media #{$smm}{
+            padding: 0 rem(15) ;
+          }
       }
     }
     .campaign__testimonial{
