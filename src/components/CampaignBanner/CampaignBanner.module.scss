@@ -146,6 +146,9 @@
                 border-radius: 5px;
                 margin-bottom: rem(0);
             }
+            &::placeholder{
+                color: #8CB2C3;
+            }
         }
         label{
             color: #414042;
