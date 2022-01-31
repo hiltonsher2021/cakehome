@@ -556,6 +556,11 @@
                 max-width: rem(1060);
             }
             label{
+                @media #{$xl}{
+                    div{
+                        display: none!important;
+                    }
+                }
                 display: inline-block;
                 .tool-ask{
                     width: 10px;
@@ -564,10 +569,14 @@
                     top: 1px;
                     position: relative;
                     display: inline-block;
+                  
                     @media #{$smm}{
                     width: 15px;
                     height: 15px;
                     top: 3px;
+                    div{
+                        display: none;
+                    }
                     }
                     img{
                         object-fit: contain;
@@ -579,6 +588,12 @@
                 }
             }
             .form__dollar-wrap{
+                div{
+                    display: none;
+                    @media #{$xl}{
+                        display: inline-block;
+                    }
+                }
                 .tool-ask{
                     display: none;
                     @media #{$xl}{
