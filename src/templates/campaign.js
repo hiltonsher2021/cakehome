@@ -60,6 +60,9 @@ export const query = graphql`
                   footerText
                   image {
                     gatsbyImageData
+                    file {
+                      url
+                    }
                   }
                   ctaUrl
                 }
