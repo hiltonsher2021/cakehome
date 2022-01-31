@@ -440,7 +440,7 @@ const CampaignBanner = (data) => {
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
-                      <label htmlFor="banner">Property ZIP code</label>
+                      <label htmlFor="banner">Property ZIP code<sup>*</sup></label>
                       <input
                         placeholder="90035"
                         type="text"
@@ -459,7 +459,7 @@ const CampaignBanner = (data) => {
                       )}
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Property Type</label>
+                      <label htmlFor="banner">Property Type<sup>*</sup></label>
                       <select
                         defaultValue="Single Family Home"
                         value={propertyType}
@@ -492,7 +492,7 @@ const CampaignBanner = (data) => {
                       </select>
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Property Use</label>
+                      <label htmlFor="banner">Property Use<sup>*</sup></label>
                       <select
                         defaultValue="PrimaryResidence"
                         value={propertyUse}
@@ -541,7 +541,7 @@ const CampaignBanner = (data) => {
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
-                      <label htmlFor="banner">Property Value Estimate</label>
+                      <label htmlFor="banner">Property Value Estimate<sup>*</sup></label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$100,000"
@@ -554,7 +554,7 @@ const CampaignBanner = (data) => {
                       </span>
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Current Loan Balance</label>
+                      <label htmlFor="banner">Current Loan Balance<sup>*</sup></label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$100,000"
@@ -577,7 +577,10 @@ const CampaignBanner = (data) => {
                       )}
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">Cash Out Amount</label>
+                      <label htmlFor="banner">Cash Out Amount
+                      <a className='tool-ask d-mob' href="#" title='help'>
+                        <img src="/images/campaign-question.png" alt="image" />
+                        </a></label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$0"
@@ -587,7 +590,11 @@ const CampaignBanner = (data) => {
                             cashOutValueChange(e.target.value, true, e)
                           }
                         />
+                        <a className='tool-ask d-desktop' href="#" title='help'>
+                        <img src="/images/campaign-question.png" alt="image" />
+                        </a>
                       </span>
+                     
                       {propertyValue < currentLoanBal + cashOut &&
                         propertyValue !== 0 && (
                           <label>

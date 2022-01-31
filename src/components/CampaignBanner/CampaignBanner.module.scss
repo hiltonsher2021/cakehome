@@ -111,6 +111,13 @@
                 display: block;
             }
         }
+        sup{
+            font-size: 9.2px;
+            top: -1px;
+            @media #{$smm}{
+                font-size: 13px;
+            }
+        }
         input {
             color: rgba(0, 0, 0, 0.45);
             font-family: Aeonik;
@@ -545,6 +552,38 @@
             .container{
                 max-width: rem(1060);
             }
+            label{
+                display: inline-block;
+                .tool-ask{
+                    width: 10px;
+                    height: 10px;
+                    margin-left: rem(25);
+                    top: 1px;
+                    position: relative;
+                    display: inline-block;
+                    img{
+                        object-fit: contain;
+                    }
+                    @media #{$smm}{
+                      display: none;  
+                    }
+                   
+                }
+            }
+            .form__dollar-wrap{
+                .tool-ask{
+                        position: absolute;
+                        right: -36px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                    img{
+                        object-fit: contain;
+                    }
+                }
+            }
+
             .banner__hero {
                 h1 {
                     color: #414042;
