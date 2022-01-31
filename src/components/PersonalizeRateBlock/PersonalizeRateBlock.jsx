@@ -85,7 +85,7 @@ const PersonalizeRateBlock = (data) => {
       propertyUse +
       '&propertyType=' +
       propertyType
-    // + '&isAutoClick=1&target=_blank'
+    + '&isAutoClick=1&target=_blank'
     setUrlValue(url)
   }
 

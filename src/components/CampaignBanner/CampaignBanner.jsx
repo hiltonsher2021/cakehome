@@ -343,8 +343,8 @@ const CampaignBanner = (data) => {
       '&propertyUse=' +
       propertyUse +
       '&propertyType=' +
-      propertyType
-    // '&isAutoClick=1&target=_blank'
+      propertyType +
+    '&isAutoClick=1&target=_blank'
     setUrlValue(url)
   }
 
@@ -635,7 +635,7 @@ const CampaignBanner = (data) => {
                         <img src="/images/campaign-question.png" alt="image" />
                         </a>
                       </span>
-                     
+
                       {propertyValue < currentLoanBal + cashOut &&
                         propertyValue !== 0 && (
                           <label>
