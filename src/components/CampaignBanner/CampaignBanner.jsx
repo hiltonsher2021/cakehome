@@ -286,7 +286,7 @@ const CampaignBanner = (data) => {
     let propertyUseStorage = sessionStorage.getItem('propertyUse')
     let propertyTypeStorage = sessionStorage.getItem('propertyType')
     let creditRatingStorage = sessionStorage.getItem('creditRating')
-    validateZipcode(zipCode || 0)
+    validateZipcode(zipCode || '')
     setPropertyValue(parseInt(purchasePrice) || 0)
     setFirstUsername(firstName || '')
     setLastUsername(lastName || '')
