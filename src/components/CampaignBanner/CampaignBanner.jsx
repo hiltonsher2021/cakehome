@@ -215,7 +215,12 @@ const CampaignBanner = (data) => {
       setValuesStorage('phone', data)
       setPhoneShowValidationMessage(false)
     }
-    setPhone(data)
+    let valueFormat
+    if (data) {
+      valueFormat = data.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+    }
+
+    setPhone(valueFormat)
   }
 
   const setUserEmail = (data) => {
@@ -628,7 +633,7 @@ const CampaignBanner = (data) => {
                       <input
                         placeholder="Phone"
                         type="text"
-                        maxlength="10"
+                        maxlength="12"
                         value={phone}
                         onChange={(e) =>
                           setPhoneNumber(e.target.value.replace(/[^\d.]/gi, ''))
