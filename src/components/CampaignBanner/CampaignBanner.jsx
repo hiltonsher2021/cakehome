@@ -31,8 +31,19 @@ const CampaignBanner = (data) => {
     { name: 'Triplex', value: 'Triplex' },
     { name: 'Quadplex', value: 'Quadplex' },
   ]
+  let creditRangeValues = [
+    { name: '740+(Excellent)', value: '780' },
+    { name: '720-730(Very Good)', value: '730' },
+    { name: '700-719(Good)', value: '710' },
+    { name: '680-699(Above Average)', value: '690' },
+    { name: '660-679(Average)', value: '670' },
+    { name: '640-659(Below Average)', value: '650' },
+    { name: '620-639(Fair)', value: '630' },
+    { name: '580-619(Poor)', value: '610' }
+  ]
   let defaultValuePropertyUse = {}
   let defaultValuePropertyType = {}
+  let defaultValueCreditRange = {}
   const [creditRating, setCreditRating] = useState('780')
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
@@ -285,6 +296,7 @@ const CampaignBanner = (data) => {
     setPhone(phone || '')
     setPropertyType(propertyTypeStorage || propertyType)
     setPropertyUse(propertyUseStorage || propertyUse)
+    setCreditRating(creditRatingStorage|| creditRating)
     if (currentPage?.pageNo === 5) {
       setUrl()
     }
@@ -295,6 +307,11 @@ const CampaignBanner = (data) => {
     })
     defaultValuePropertyType = propertyTypeValues.filter((item) => {
       if (item.value === propertyType) {
+        return item
+      }
+    })
+    defaultValueCreditRange = creditRangeValues.filter((item) => {
+      if (item.value === creditRating) {
         return item
       }
     })
@@ -411,7 +428,7 @@ const CampaignBanner = (data) => {
                       Please select your credit range
                     </label>
                     <select
-                      defaultValue="740+(Excellent)"
+                      defaultValue={defaultValueCreditRange[0]?.value}
                       value={creditRating}
                       onChange={(e) => handleChangeCreditRating(e)}
                     >
