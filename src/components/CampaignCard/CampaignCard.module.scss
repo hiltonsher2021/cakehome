@@ -12,7 +12,7 @@
     }
     @media (max-width: 768px){
       .CampaignCard-desktopCards .slick-slider .slick-list {
-        padding: 0 0 0 5px!important;
+        padding: 0 0 0 10px!important;
       }
     }
 
@@ -125,7 +125,7 @@
         }
       }
       .CampaignCard__item {
-        padding: 0 rem(10) ;
+        padding: 0 rem(15) ;
           @media #{$smm}{
             padding: 0 rem(15) ;
           }
