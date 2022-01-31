@@ -533,4 +533,8 @@ display: none;
     @media #{$xl}{
       padding-top: rem(175);
     }
+    .main-wrapper{
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
   }

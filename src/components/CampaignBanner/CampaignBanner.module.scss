@@ -562,10 +562,15 @@
                     top: 1px;
                     position: relative;
                     display: inline-block;
+                    @media #{$smm}{
+                    width: 15px;
+                    height: 15px;
+                    top: 3px;
+                    }
                     img{
                         object-fit: contain;
                     }
-                    @media #{$smm}{
+                    @media #{$xl}{
                       display: none;  
                     }
                    
@@ -573,15 +578,19 @@
             }
             .form__dollar-wrap{
                 .tool-ask{
+                    display: none;
+                    @media #{$xl}{
                         position: absolute;
                         right: -36px;
                         top: 50%;
                         transform: translateY(-50%);
                         width: 20px;
                         height: 20px;
+                        display: block;
                     img{
                         object-fit: contain;
                     }
+                      }
                 }
             }
 
