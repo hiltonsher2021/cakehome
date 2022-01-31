@@ -670,15 +670,11 @@ const CampaignBanner = (data) => {
                       )}
                     </div>
                     <div className="banner__select">
-                      <label htmlFor="banner">
-                        Cash Out Amount
-                        <a className="tool-ask d-mob" href="#" title="help">
-                          <img
-                            src="/images/campaign-question.png"
-                            alt="image"
-                          />
-                        </a>
-                      </label>
+                      <label htmlFor="banner">Cash Out Amount
+                      <a className='tool-ask d-mob' href="#" title='If you have no current loan balance, you must have
+                            a cash out amount.'>
+                        <img src="/images/campaign-question.png" alt="image" />
+                        </a></label>
                       <span className="form__dollar-wrap">
                         <input
                           placeholder="$0"
@@ -688,14 +684,11 @@ const CampaignBanner = (data) => {
                             cashOutValueChange(e.target.value, true, e)
                           }
                         />
-                        <a className="tool-ask d-desktop" href="#" title="help">
-                          <img
-                            src="/images/campaign-question.png"
-                            alt="image"
-                          />
+                        <a className='tool-ask d-desktop' href="#" title='If you have no current loan balance, you must have
+                            a cash out amount.'>
+                        <img src="/images/campaign-question.png" alt="image" />
                         </a>
                       </span>
-
                       {propertyValue < currentLoanBal + cashOut &&
                         propertyValue !== 0 && (
                           <label>

@@ -176,6 +176,9 @@
                     padding: rem(21) rem(6);
                     border: 0;
                     margin: rem(38) 0 0;
+                    @media #{$smm}{
+                        margin: 0 auto;
+                    }
                     @media #{$xl} {
                         margin: rem(53) 0 0;
                         padding: rem(30) rem(6);
@@ -216,7 +219,7 @@
             flex: 0 0 100%;
             max-width: 100%;
             border-radius: rem(10);
-            @media #{$smm} {
+            @media #{$md} {
                max-width: 50%;
                margin: 0 auto;
                 
@@ -333,10 +336,12 @@
                     span {
                         font-size: rem(35);
                         font-weight: 500;
+                        margin-top: rem(-10);
                         // line-height: rem(14.51);
                         display: inline-block;
                         vertical-align: middle;
                         @media #{$xl} {
+                            margin-top: 0;
                             // font-size: rem(72);
                             font-size: rem(60);
                         }

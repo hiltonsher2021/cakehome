@@ -63,10 +63,13 @@
                         border: 0.7px solid #6CEBCE;
                         border-radius: 4.2px;
                         padding: rem(7.7) rem(9.19) rem(9.8) rem(9.82);
+                        max-height: 38px;
+                        min-height: 38px;
                         @media #{$md}{
                             border-radius: 10.8px;
                             padding: rem(19.8) rem(23.19) rem(25.2) rem(25.18);
                             border: 0;
+                            max-height: none;
                         }
                         figure{
                             height: 14.08px;
@@ -93,12 +96,14 @@
                         border-radius: 4.2px;
                         background-color: #6CEBCE;
                         padding:rem(3) rem(13.06) rem(2.6) rem(13);
-                        min-height: auto;
+                        min-height: 38px;
+                        max-height: 38px;
                         @media #{$md}{
                             border: 0;
                             border-radius: 0;
                             background-color: transparent;
                             padding: 0;
+                            max-height: none;
                         }
                         .icon-wrapper{
                             margin-right: rem(3.65);
