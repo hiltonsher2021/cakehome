@@ -95,6 +95,7 @@ const CampaignBanner = (data) => {
       }
     })
     nextPage = nextPageData?.shift()
+    console.log(nextPage, 'nextPage')
   }
 
   const handleChangeCreditRating = (event) => {
@@ -390,7 +391,7 @@ const CampaignBanner = (data) => {
   return (
     <div>
       <section className={styles.CampaginBanner}>
-        {currentPage?.pageNo === 1 && (
+        {(currentPage?.pageNo !== 2 && currentPage?.pageNo !== 3  && currentPage?.pageNo !== 4  && currentPage?.pageNo !== 5 ) &&(
           <>
             <div className="slide-1">
               <div className="container">
@@ -400,6 +401,9 @@ const CampaignBanner = (data) => {
                 <div className="banner__content">
                   <h2>{data?.title}</h2>
                 </div>
+
+                {currentPage?.pageNo === 1 && (
+          <>
                 <div className="banner__form">
                   <div className="banner__form-head">
                     <h3>{data?.description?.description}</h3>
@@ -443,6 +447,9 @@ const CampaignBanner = (data) => {
                     </div>
                   </div>
                 </div>
+
+                </>)}
+
               </div>
             </div>
           </>
@@ -844,11 +851,14 @@ const CampaignBanner = (data) => {
             currentPage?.pageNo === 5 ? 'page-5' : ''
           }`}
         >
-          <div className="banner__next">
-            <Link to={'/campaign/' + nextPage?.slug}>
-              <img src="/images/campaign-slider-grey.svg" alt="slider" />
-            </Link>
-          </div>
+          {(nextPage !== undefined) &&
+            <div className="banner__next">
+              <Link to={'/campaign/' + nextPage?.slug}>
+                <img src="/images/campaign-slider-grey.svg" alt="slider" />
+              </Link>
+            </div>
+          }
+
           <div className="banner__slider-dots">
             {slugOrder?.map((item, index) => {
               return (
