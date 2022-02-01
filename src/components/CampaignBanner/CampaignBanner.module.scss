@@ -3,7 +3,7 @@
     background-color: #6CEBCE;
      :global {
         .banner__slider-control {
-            padding-bottom: rem(59.5);
+            padding-bottom: rem(5);
             @media #{$xl} {
                 padding-bottom: rem(0);
             }
@@ -45,7 +45,8 @@
                 background-color: #fff;
                 border: 0;
                 border-radius: 0.3125rem;
-                color: rgba(0,0,0,0.45);
+                // color: rgba(0,0,0,0.45);
+                color: #121212;
                 font-family: Aeonik;
                 font-size: 15.36px;
                 font-weight: 300;
@@ -67,16 +68,16 @@
                     font-size: rem(18);
                     line-height: 25px;
                     padding: rem(8) rem(12);
-                    background-position: calc(100% - 29px);
                 }
                 @media #{$xl}{
-                font-size: 24px;
+                font-size: 17px;
                 font-weight: 300;
                 letter-spacing: -0.21px;
-                line-height: 29px;
+                line-height: 25px;
                 padding: rem(13) rem(15);
-                padding-right: rem(39);
-                max-width: 360px;
+                padding-right: rem(32);
+                max-width: 300px;
+                min-width: 300px;
                 }
             }
         }
@@ -120,7 +121,8 @@
             }
         }
         input {
-            color: rgba(0, 0, 0, 0.45);
+            // color: rgba(0, 0, 0, 0.45);
+            color: #121212;
             font-family: Aeonik;
             font-size: 15.36px;
             padding: rem(6.8) rem(8.3);
@@ -134,9 +136,14 @@
             border: 0;
             margin-bottom: rem(6.36);
             padding-right: 50px;
+            @media #{$smm}{
+                font-size: rem(18);
+                line-height: 25px;
+                padding: rem(8) rem(12);
+            }
             @media #{$xl} {
-                max-width: 360px;
-                min-width: 360px;
+                max-width: 300px;
+                min-width: 300px;
                 padding: rem(13) rem(15);
                 font-family: Aeonik;
                 font-size: 17px;
@@ -219,17 +226,17 @@
                     font-weight: 300;
                     letter-spacing: -0.14px;
                     line-height: 18px;
-                    color: rgba(0, 0, 0, 0.45);
+                    // color: rgba(0, 0, 0, 0.45);
+                    color: #121212;
                     top: 50%;
-                    transform: translateY(calc(-50% - 2.6px));
-                    
-                    @media #{$smm}{
-                        font-size: 18px;
-                        line-height: 1;
-                        transform: translateY(calc(-50% - 5px));
-                    }
+                    transform: translateY(calc(-50% - 3px));
+                    // @media #{$smm}{
+                    //     font-size: 18px;
+                    //     line-height: 29px;
+                    //     transform: translateY(calc(-50% - 5px));
+                    // }
                     @media #{$xl} {
-                        font-size: 24px;
+                        font-size: 17px;
                         font-weight: 300;
                         letter-spacing: -0.21px;
                         transform: translateY(-50%) ;
@@ -237,9 +244,9 @@
                 }
             }
         .slide-1 {
-            padding: rem(9) 0 rem(37);
+            padding: rem(39) 0 rem(7);
             @media #{$xl} {
-                padding: rem(13) 0 rem(68);
+                padding: rem(13) 0 rem(60);
             }
             .container{
                 max-width: rem(1060);
@@ -341,40 +348,40 @@
                         margin-bottom: rem(6.36);
                         width: 100%;
                         @media #{$xl}{
-                            min-width: 330px;
+                            min-width: 300px;
                             margin-right: rem(30);
                             margin-bottom: rem(0);
                             width: auto;
                         }
                     }
-                    input {
-                        color: rgba(0, 0, 0, 0.45);
-                        font-family: Aeonik;
-                        font-size: 15.36px;
-                        padding: rem(6.8) rem(8.3);
-                        font-weight: 300;
-                        letter-spacing: -0.14px;
-                        line-height: 18px;
-                        width: 100%;
-                        background-color: #FFFFFF;
-                        border-radius: 3.2px;
-                        outline: 0;
-                        border: 0;
-                        margin-bottom: rem(6.36);
-                        @media #{$smm}{
-                            font-size: 18px;
-                            line-height: 29px;
-                        }
-                        @media #{$xl} {
-                            padding: rem(13) rem(15);
-                            font-size: 24px;
-                            font-weight: 300;
-                            letter-spacing: -0.21px;
-                            line-height: 29px;
-                            border-radius: 5px;
+                    // input {
+                    //     color: rgba(0, 0, 0, 0.45);
+                    //     font-family: Aeonik;
+                    //     font-size: 15.36px;
+                    //     padding: rem(6.8) rem(8.3);
+                    //     font-weight: 300;
+                    //     letter-spacing: -0.14px;
+                    //     line-height: 18px;
+                    //     width: 100%;
+                    //     background-color: #FFFFFF;
+                    //     border-radius: 3.2px;
+                    //     outline: 0;
+                    //     border: 0;
+                    //     margin-bottom: rem(6.36);
+                    //     @media #{$smm}{
+                    //         font-size: 18px;
+                    //         line-height: 29px;
+                    //     }
+                    //     @media #{$xl} {
+                    //         padding: rem(13) rem(15);
+                    //         font-size: 24px;
+                    //         font-weight: 300;
+                    //         letter-spacing: -0.21px;
+                    //         line-height: 29px;
+                    //         border-radius: 5px;
                        
-                        }
-                    }
+                    //     }
+                    // }
                 }
             }
             label{
@@ -385,12 +392,12 @@
             }
         }
         .slide-2 {
-            padding: rem(13) rem(30) rem(59.5);
+            padding: rem(39) rem(30) rem(24);
             @media #{$smm}{
                 padding: rem(50) 0 rem(59.5);
             }
             @media #{$xl} {
-                padding: rem(131) 0 rem(118);
+                padding: rem(125) 0 rem(118);
             }
             .container{
                 max-width: rem(1060);
@@ -447,12 +454,31 @@
                     margin: 0;
                 }
             }
+            label{
+                font-size: 14px;
+                letter-spacing: -0.11px;
+                line-height: 26.54px;
+                font-weight: 400;
+                @media #{$smm}{
+                    font-size: 13px;
+                    line-height: 20px;
+                    letter-spacing: 0;
+                }
+                @media #{$xl}{
+                    // color: rgba(0,0,0,0.45);
+                    // font-size: 24px;
+                    // font-weight: 300;
+                    // letter-spacing: -0.21px;
+                    // line-height: 29px;
+                   
+                }
+            }
         }
         .slide-3{
             margin: 0 auto;
-            padding: rem(13) rem(30) rem(29);
+            padding: rem(39) rem(30) rem(29);
             @media #{$xl}{
-                padding: rem(246) 0 rem(118);
+                padding: rem(156) 0 rem(168);
             }
             .container{
                 max-width: rem(1060);
@@ -512,50 +538,29 @@
                     }
                 }
             }
-            input,select {
-                color: rgba(0, 0, 0, 0.45);
-                font-family: Aeonik;
-                font-size: 15.36px;
-                padding: rem(6.8) rem(8.3);
-                padding-right: rem(50);
-                font-weight: 300;
-                letter-spacing: -0.14px;
-                line-height: 18px;
-                width: 100%;
-                background-color: #FFFFFF;
-                border-radius: 3.2px;
-                outline: 0;
-                border: 0;
-                margin-bottom: rem(10);
-                @media #{$smm}{
-                    font-size: 18px;
-                    line-height: 29px;
-                }
-                @media #{$xl} {
-                    min-width: rem(260);
-                    max-width: rem(260);
-                    padding: rem(10) rem(5);
-                    padding-right: rem(50);
-                    font-size: 24px;
-                    font-weight: 300;
-                    letter-spacing: -0.21px;
-                    line-height: 29px;
-                    margin-right: rem(75);
-                    border-radius: 5px;
-                    margin-bottom: rem(0);
-                }
-            
-            }
     }
         .slide-4{
-            padding: rem(13) rem(30) rem(27);
+            padding: rem(32) rem(30) rem(27);
             @media #{$xl}{
-                padding: rem(227) 0 rem(118);
+                padding: rem(181) 0 rem(158);
             }
             .container{
                 max-width: rem(1060);
             }
             label{
+                div{
+                    color: #fff!important;
+                    background: #222!important;
+                    border: 1px solid transparent!important;
+                }
+                @media #{$xl}{
+                    div{
+                        display: none!important;
+                        color: #fff;
+                        background: #222;
+                        border: 1px solid transparent;
+                    }
+                }
                 display: inline-block;
                 .tool-ask{
                     width: 10px;
@@ -564,10 +569,15 @@
                     top: 1px;
                     position: relative;
                     display: inline-block;
+                    margin: 3px 9px 2px;
+                  
                     @media #{$smm}{
                     width: 15px;
                     height: 15px;
                     top: 3px;
+                    div{
+                        display: none;
+                    }
                     }
                     img{
                         object-fit: contain;
@@ -579,6 +589,12 @@
                 }
             }
             .form__dollar-wrap{
+                div{
+                    display: none;
+                    @media #{$xl}{
+                        display: inline-block;
+                    }
+                }
                 .tool-ask{
                     display: none;
                     @media #{$xl}{
@@ -646,54 +662,56 @@
                         max-width: 100%;
                         display: flex;
                         justify-content: space-between;
+                        max-width: 959px;
+                        margin: 0;
                     }
                 }
                 .banner__select{
                     @media #{$xl}{
-                        min-width: rem(260);
-                        max-width: rem(260);
+                        min-width: rem(300);
+                        max-width: rem(300);
                     }
                 }
-                input{
-                    color: rgba(0, 0, 0, 0.45);
-                    font-family: Aeonik;
-                    font-size: 15.36px;
-                    padding: rem(6.8) rem(8.3);
-                    padding-right: rem(50);
-                    font-weight: 300;
-                    letter-spacing: -0.14px;
-                    line-height: 18px;
-                    width: 100%;
-                    background-color: #FFFFFF;
-                    border-radius: 3.2px;
-                    outline: 0;
-                    border: 0;
-                    margin-bottom: rem(10);
-                    @media #{$smm}{
-                        font-size: 18px;
-                        line-height: 29px;
-                    }
-                    @media #{$xl} {
-                        min-width: rem(260);
-                        max-width: rem(260);
-                        padding: rem(10) rem(5);
-                        padding-right: rem(50);
-                        font-size: 24px;
-                        font-weight: 300;
-                        letter-spacing: -0.21px;
-                        line-height: 29px;
-                        margin-right: rem(75);
-                        border-radius: 5px;
-                        margin-bottom: rem(0);
-                    }
-                }
+                // input{
+                //     color: rgba(0, 0, 0, 0.45);
+                //     font-family: Aeonik;
+                //     font-size: 15.36px;
+                //     padding: rem(6.8) rem(8.3);
+                //     padding-right: rem(50);
+                //     font-weight: 300;
+                //     letter-spacing: -0.14px;
+                //     line-height: 18px;
+                //     width: 100%;
+                //     background-color: #FFFFFF;
+                //     border-radius: 3.2px;
+                //     outline: 0;
+                //     border: 0;
+                //     margin-bottom: rem(10);
+                //     @media #{$smm}{
+                //         font-size: 18px;
+                //         line-height: 29px;
+                //     }
+                //     @media #{$xl} {
+                //         min-width: rem(300);
+                //         max-width: rem(300);
+                //         padding: rem(10) rem(5);
+                //         padding-right: rem(50);
+                //         font-size: 24px;
+                //         font-weight: 300;
+                //         letter-spacing: -0.21px;
+                //         line-height: 29px;
+                //         margin-right: rem(75);
+                //         border-radius: 5px;
+                //         margin-bottom: rem(0);
+                //     }
+                // }
             }
         }
         .slide-5{
-            padding: rem(13) rem(30) ;
+            padding: rem(39) rem(30) rem(10) ;
             margin: 0 auto;
             @media #{$xl}{
-                padding: rem(227) rem(0) rem(50)
+                padding: rem(157) rem(0) rem(50)
             }
             .container{
                 max-width: rem(1060);
@@ -747,46 +765,46 @@
             .banner__form{
                 text-align: center;
                     .banner__form-fields{
-                        margin-bottom: rem(76);
+                        margin-bottom: rem(35);
                         @media #{$xl}{
                             margin-bottom: rem(118);
                             display: flex;
                             flex-wrap: wrap;
                         }
-                        .banner__inputs{
-                            input {
-                                color: rgba(0, 0, 0, 0.45);
-                                font-family: Aeonik;
-                                font-size: 15.36px;
-                                padding: rem(6.8) rem(8.3);
-                                font-weight: 300;
-                                letter-spacing: -0.14px;
-                                line-height: 18px;
-                                width: 100%;
-                                background-color: #FFFFFF;
-                                border-radius: 3.2px;
-                                outline: 0;
-                                border: 0;
-                                margin-bottom: rem(6.36);
-                                @media #{$smm}{
-                                    font-size: 18px;
-                                    line-height: 29px;
-                                }
-                                @media #{$xl} {
-                                    min-width: 330px;
-                                    max-width: 330px;
-                                    padding: rem(13) rem(15);
-                                    font-size: 24px;
-                                    font-weight: 300;
-                                    letter-spacing: -0.21px;
-                                    line-height: 29px;
-                                    margin-right: rem(30);
-                                    border-radius: 5px;
-                                    margin-bottom: rem(0);
-                                }
-                            }
+                        // .banner__inputs{
+                        //     input {
+                        //         color: rgba(0, 0, 0, 0.45);
+                        //         font-family: Aeonik;
+                        //         font-size: 15.36px;
+                        //         padding: rem(6.8) rem(8.3);
+                        //         font-weight: 300;
+                        //         letter-spacing: -0.14px;
+                        //         line-height: 18px;
+                        //         width: 100%;
+                        //         background-color: #FFFFFF;
+                        //         border-radius: 3.2px;
+                        //         outline: 0;
+                        //         border: 0;
+                        //         margin-bottom: rem(6.36);
+                        //         @media #{$smm}{
+                        //             font-size: 18px;
+                        //             line-height: 29px;
+                        //         }
+                        //         @media #{$xl} {
+                        //             min-width: 300px;
+                        //             max-width: 300px;
+                        //             padding: rem(13) rem(15);
+                        //             font-size: 24px;
+                        //             font-weight: 300;
+                        //             letter-spacing: -0.21px;
+                        //             line-height: 29px;
+                        //             margin-right: rem(30);
+                        //             border-radius: 5px;
+                        //             margin-bottom: rem(0);
+                        //         }
+                        //     }
                            
-                        }
+                        // }
                     }
                     .btn{
                         margin-bottom: rem(35.75);

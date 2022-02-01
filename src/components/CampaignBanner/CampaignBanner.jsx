@@ -680,16 +680,21 @@ const CampaignBanner = (data) => {
                     <div className="banner__select">
                       <label htmlFor="banner">
                         Cash Out Amount
-                        <a
-                          className="tool-ask d-mob"
-                          title="If you have no current loan balance, you must have
-                            a cash out amount."
-                        >
+                        <p className="rate-details tool-ask d-mob small">
+                        <span data-tip="If you have no current loan balance, you must have
+                            a cash out amount">
                           <img
                             src="/images/campaign-question.png"
                             alt="image"
                           />
-                        </a>
+                        </span>
+                      </p>
+                      <ReactTooltip
+                        effect="solid"
+                        place="top"
+                        multiline={true}
+                        className="customTooltip"
+                      />
                       </label>
                       <span className="form__dollar-wrap">
                         <input
@@ -700,16 +705,21 @@ const CampaignBanner = (data) => {
                             cashOutValueChange(e.target.value, true, e)
                           }
                         />
-                        <a
-                          className="tool-ask d-desktop"
-                          title="If you have no current loan balance, you must have
-                            a cash out amount."
-                        >
+                        <p className="rate-details tool-ask d-desktop small">
+                        <span data-tip="If you have no current loan balance, you must have
+                            a cash out amount">
                           <img
                             src="/images/campaign-question.png"
                             alt="image"
                           />
-                        </a>
+                        </span>
+                      </p>
+                      <ReactTooltip
+                        effect="solid"
+                        place="top"
+                        multiline={true}
+                        className="customTooltip"
+                      />
                       </span>
                       {propertyValue < currentLoanBal + cashOut &&
                         propertyValue !== 0 && (
@@ -727,17 +737,6 @@ const CampaignBanner = (data) => {
                           </label>
                         )}
 
-                      <p className="rate-details small">
-                        <span data-tip="Rate based on 10 Year Fixed, 760+ Credit Score, 400k Loan Amount, No Cash Out Refinance, Single Family Primary Residence, LTV <=50%">
-                          *Rate Terms
-                        </span>
-                      </p>
-                      <ReactTooltip
-                        effect="solid"
-                        place="top"
-                        multiline={true}
-                        className="customTooltip"
-                      />
                     </div>
                   </div>
                 </div>

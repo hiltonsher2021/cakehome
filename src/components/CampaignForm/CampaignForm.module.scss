@@ -164,6 +164,9 @@
                         letter-spacing: 0;
                         line-height: 17.5px;
                         text-align: center;
+                        @media #{$smm}{
+                            font-size: 21px;
+                        }
                         @media #{$md}{
                             color: #121212;
                             font-size: 24px;
