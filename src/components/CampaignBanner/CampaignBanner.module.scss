@@ -548,6 +548,11 @@
                 max-width: rem(1060);
             }
             label{
+                div{
+                    color: #fff!important;
+                    background: #222!important;
+                    border: 1px solid transparent!important;
+                }
                 @media #{$xl}{
                     div{
                         display: none!important;
