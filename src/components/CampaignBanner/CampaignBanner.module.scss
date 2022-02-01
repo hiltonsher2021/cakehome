@@ -229,7 +229,7 @@
                     // color: rgba(0, 0, 0, 0.45);
                     color: #121212;
                     top: 50%;
-                    transform: translateY(calc(-50% - 5px));
+                    transform: translateY(calc(-50% - 3px));
                     // @media #{$smm}{
                     //     font-size: 18px;
                     //     line-height: 29px;
@@ -397,7 +397,7 @@
                 padding: rem(50) 0 rem(59.5);
             }
             @media #{$xl} {
-                padding: rem(131) 0 rem(118);
+                padding: rem(125) 0 rem(118);
             }
             .container{
                 max-width: rem(1060);
@@ -478,7 +478,7 @@
             margin: 0 auto;
             padding: rem(39) rem(30) rem(29);
             @media #{$xl}{
-                padding: rem(168) 0 rem(168);
+                padding: rem(156) 0 rem(168);
             }
             .container{
                 max-width: rem(1060);
@@ -540,9 +540,9 @@
             }
     }
         .slide-4{
-            padding: rem(13) rem(30) rem(27);
+            padding: rem(32) rem(30) rem(27);
             @media #{$xl}{
-                padding: rem(192) 0 rem(158);
+                padding: rem(181) 0 rem(158);
             }
             .container{
                 max-width: rem(1060);
@@ -551,6 +551,9 @@
                 @media #{$xl}{
                     div{
                         display: none!important;
+                        color: #fff;
+                        background: #222;
+                        border: 1px solid transparent;
                     }
                 }
                 display: inline-block;
@@ -561,6 +564,7 @@
                     top: 1px;
                     position: relative;
                     display: inline-block;
+                    margin: 3px 9px 2px;
                   
                     @media #{$smm}{
                     width: 15px;
@@ -699,7 +703,7 @@
             }
         }
         .slide-5{
-            padding: rem(39) rem(30) ;
+            padding: rem(39) rem(30) rem(10) ;
             margin: 0 auto;
             @media #{$xl}{
                 padding: rem(157) rem(0) rem(50)
