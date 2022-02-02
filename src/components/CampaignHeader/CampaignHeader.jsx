@@ -21,7 +21,7 @@ const CampaignHeader = (data) => {
   }
 
   if (data) {
-    let filterData = data?.references.filter((item) => {
+    let filterData = data?.references?.filter((item) => {
       if (item?.handle.includes('1')) return item
     })
     modeledData = sectionModel(filterData[0])

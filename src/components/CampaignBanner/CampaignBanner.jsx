@@ -12,6 +12,7 @@ const CampaignBanner = (data) => {
   if (isBrowser) {
     sessionStorage = window.sessionStorage
   }
+  const { parentSlug } = data
   let slugOrder = []
   let currentPageData
   let nextPageData = []
@@ -74,14 +75,14 @@ const CampaignBanner = (data) => {
 
   if (data) {
     filterData = data?.edges?.map((item) => {
-      return { slug: item?.node?.slug, pageNo: item.node?.handle }
+      return { childSlug: item?.node?.childSlug, pageNo: item.node?.handle }
     })
     slugOrder = filterData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
 
     currentPageData = slugOrder?.filter((item) => {
-      if (data?.slug === item?.slug) {
+      if (data?.childSlug === item?.childSlug) {
         return item
       }
     })
@@ -95,7 +96,6 @@ const CampaignBanner = (data) => {
       }
     })
     nextPage = nextPageData?.shift()
-    console.log(nextPage, 'nextPage')
   }
 
   const handleChangeCreditRating = (event) => {
@@ -832,7 +832,7 @@ const CampaignBanner = (data) => {
                 </div>
                 <div className="banner__slider-control">
                   <div className="banner__prev">
-                    <Link to={'/campaign/' + nextPage?.slug}>
+                    <Link to={`/campaign/${parentSlug}/${nextPage?.childSlug}`}>
                       <img
                         src="/images/campaign-slide-white.svg"
                         alt="slider"
@@ -852,7 +852,7 @@ const CampaignBanner = (data) => {
         >
           {(nextPage !== undefined) &&
             <div className="banner__next">
-              <Link to={'/campaign/' + nextPage?.slug}>
+              <Link to={`/campaign/${parentSlug}/${nextPage?.childSlug}`}>
                 <img src="/images/campaign-slider-grey.svg" alt="slider" />
               </Link>
             </div>
@@ -864,9 +864,9 @@ const CampaignBanner = (data) => {
                 <>
                   <Link
                     className={`slider-dots ${
-                      data?.slug === item?.slug ? 'active' : ''
+                      data?.childSlug === item?.childSlug ? 'active' : ''
                     } `}
-                    to={'/campaign/' + item?.slug}
+                    to={`/campaign/${parentSlug}/${item?.childSlug}`}
                     key={index}
                   ></Link>
                 </>

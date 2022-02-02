@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import * as PropTypes from 'prop-types'
 import Layout from 'components/layout/Main/MainLayout'
@@ -12,72 +12,78 @@ import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRat
 
 export const query = graphql`
   query ($slug: String) {
-   allContentfulCampaign {
-    edges {
-      node {
-        title
-        slug
-        handle
+    allContentfulCampaign {
+      edges {
+        node {
+          title
+          childSlug
+          handle
+        }
       }
     }
-  }
-    contentfulCampaign(slug: { eq: $slug }) {
+    contentfulCampaignMainPage(parentSlug: { eq: $slug }) {
       title
-      slug
-      handle
-      campaignPageIdentification
-      mainTitle
-      mobDescription {
-        mobDescription
-      }
-      body
-      mobTitle
-      description {
-        description
-      }
-      references {
-        ... on ContentfulSection {
-          id
-          mainTitle
-          subTitle {
-            subTitle
-          }
-          handle
-          description {
-            description
-          }
-          section: sectionReference {
-            ... on ContentfulCard {
-              id
-              cardItems {
-                ... on ContentfulCard {
-                  id
-                  title
-                  subTitle
-                  titleLongDescription {
-                    titleLongDescription
-                  }
-                  footerText
-                  image {
-                    gatsbyImageData
-                    file {
-                      url
+      id
+      parentSlug
+      reference {
+        id
+        title
+        childSlug
+        handle
+        campaignPageIdentification
+        mainTitle
+        mobDescription {
+          mobDescription
+        }
+        body
+        mobTitle
+        description {
+          description
+        }
+        references {
+          ... on ContentfulSection {
+            id
+            mainTitle
+            subTitle {
+              subTitle
+            }
+            handle
+            description {
+              description
+            }
+            section: sectionReference {
+              ... on ContentfulCard {
+                id
+                cardItems {
+                  ... on ContentfulCard {
+                    id
+                    title
+                    subTitle
+                    titleLongDescription {
+                      titleLongDescription
                     }
+                    footerText
+                    image {
+                      gatsbyImageData
+                      file {
+                        url
+                      }
+                    }
+                    ctaUrl
                   }
-                  ctaUrl
                 }
               }
-            }
-            ... on ContentfulMenuItem {
-              id
-              type
-              subLabel
-              label
-              handle
-              image {
-                gatsbyImageData
+              ... on ContentfulMenuItem {
+                id
+                type
+                subLabel
+                label
+                handle
+                image {
+                  gatsbyImageData
+                }
+                url
               }
-              url
             }
           }
         }
@@ -89,6 +95,8 @@ export const query = graphql`
 const Campaign = (props) => {
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
+  const {childSlug, slug} = props?.pageContext
+  const pageData = props?.data?.contentfulCampaignMainPage.reference.find(ref => ref.childSlug === childSlug)
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -103,21 +111,29 @@ const Campaign = (props) => {
     <Layout>
       <SEO title="Campaign" />
       <section className="generic-section">
-        <CampaignHeader {...props.data.contentfulCampaign} />
-        <CampaignBanner {...props.data.contentfulCampaign} {...props?.data?.allContentfulCampaign}/>
-        <CheckYourSavingsCampaign {...props.data.contentfulCampaign} showModal={showModal}/>
+        <CampaignHeader {...pageData} />
+        <CampaignBanner
+          {...pageData}
+          {...props?.data?.allContentfulCampaign}
+          {...props?.location}
+          parentSlug = {slug}
+        />
+        <CheckYourSavingsCampaign
+          {...pageData}
+          showModal={showModal}
+        />
         <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
         >
           <PersonalizeRateBlock
             closeModal={closeModal}
-            sectionData={props.data.contentfulCampaign}
+            sectionData={pageData}
             classname={tabSelection}
           />
         </div>
-        <CampaignCard {...props.data.contentfulCampaign} />
-        <CampaignForm {...props.data.contentfulCampaign} />
+        <CampaignCard {...pageData} />
+        <CampaignForm {...pageData} />
       </section>
     </Layout>
   )

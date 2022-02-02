@@ -10,31 +10,40 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allContentfulCampaign {
+            allContentfulCampaignMainPage {
               edges {
                 node {
+                  id
+                  parentSlug
                   title
-                  slug
+                  reference {
+                    id
+                    childSlug
+                  }
                 }
               }
             }
           }
         `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           // console.log(result.errors)
           reject(result.errors)
         }
 
-        const posts = result.data.allContentfulCampaign.edges
-        posts.forEach(post => {
-          createPage({
-            path: `/campaign/${post.node.slug}/`,
-            component: campaignPost,
-            context: {
-              slug: post.node.slug,
-            },
+        const posts = result?.data?.allContentfulCampaignMainPage?.edges
+        posts.forEach((post) => {
+          post?.node?.reference.forEach((ref)=>{
+            createPage({
+              path: `/campaign/${post?.node?.parentSlug}/${ref?.childSlug}`,
+              component: campaignPost,
+              context: {
+                slug: post.node.parentSlug,
+                childSlug: ref.childSlug
+              },
+            })
           })
+
         })
       })
     )
