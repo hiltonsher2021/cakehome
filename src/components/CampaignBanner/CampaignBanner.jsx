@@ -393,9 +393,7 @@ const CampaignBanner = (data) => {
 
   const setUrl = () => {
     url =
-      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=' +
-      type +
-      '&zipcode=' +
+      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +      '&zipcode=' +
       zipCode +
       '&purchasePrice=' +
       propertyValue +
