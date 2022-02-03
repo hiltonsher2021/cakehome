@@ -25,6 +25,7 @@ export const query = graphql`
       title
       id
       parentSlug
+      type
       reference {
         id
         title
@@ -95,8 +96,11 @@ export const query = graphql`
 const Campaign = (props) => {
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
-  const {childSlug, slug} = props?.pageContext
-  const pageData = props?.data?.contentfulCampaignMainPage.reference.find(ref => ref.childSlug === childSlug)
+  const { childSlug, slug } = props?.pageContext
+  const pageData = props?.data?.contentfulCampaignMainPage.reference.find(
+    (ref) => ref.childSlug === childSlug
+  )
+  const campaignType = props?.data?.contentfulCampaignMainPage?.type
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -116,11 +120,13 @@ const Campaign = (props) => {
           {...pageData}
           {...props?.data?.allContentfulCampaign}
           {...props?.location}
-          parentSlug = {slug}
+          parentSlug={slug}
+          campaignType={campaignType}
         />
         <CheckYourSavingsCampaign
           {...pageData}
           showModal={showModal}
+          campaignType={campaignType}
         />
         <div
           className="PersonalizeModal"
