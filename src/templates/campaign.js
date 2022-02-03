@@ -101,6 +101,7 @@ const Campaign = (props) => {
     (ref) => ref.childSlug === childSlug
   )
   const campaignType = props?.data?.contentfulCampaignMainPage?.type
+  const pagesTotal = props?.data?.contentfulCampaignMainPage.reference;
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -120,6 +121,7 @@ const Campaign = (props) => {
           {...pageData}
           {...props?.data?.allContentfulCampaign}
           {...props?.location}
+          pagesTotal={pagesTotal}
           parentSlug={slug}
           campaignType={campaignType}
         />

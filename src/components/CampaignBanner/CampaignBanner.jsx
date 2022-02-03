@@ -49,6 +49,7 @@ const CampaignBanner = (data) => {
   let defaultValuePropertyUse = {}
   let defaultValuePropertyType = {}
   let defaultValueCreditRange = {}
+  // let pageDetails 
   const [creditRating, setCreditRating] = useState('780')
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
@@ -67,7 +68,6 @@ const CampaignBanner = (data) => {
   const [isFirstNameValid, setFirstNameValid] = useState(false)
   const [isLastNameValid, setLastNameValid] = useState(false)
   const [isValidEmail, setValidEmail] = useState(false)
-
   const [propValue, setPropValue] = useState(0)
   const [curLoanBalValue, setCurLoanBalValue] = useState(0)
   const [cashOutValue, setCashOutValue] = useState(0)
@@ -80,7 +80,38 @@ const CampaignBanner = (data) => {
     filterData = data?.edges?.map((item) => {
       return { childSlug: item?.node?.childSlug, pageNo: item.node?.handle }
     })
-    slugOrder = filterData?.sort(function (a, b) {
+// --------------
+
+const pageDetails = (filterData, pagesTotal) => {
+let res = []
+  res = filterData.filter(item => {
+    return pagesTotal.find(
+      slug => {
+        return item.childSlug === slug.childSlug
+      });
+});
+    return res;
+}
+  // data?.pagesTotal.map((slug) => {
+  //    if(slug.childSlug === item?.childSlug) {
+  //   return slug
+  // }
+  // })
+  // resultFilter = (firstArray, secondArray) => {
+  //   return firstArray.filter(firstArrayItem =>
+  //     !secondArray.some(
+  //       secondArrayItem => firstArrayItem._user === secondArrayItem._user
+  //     )
+  //   );
+  // };
+// })
+const pageOrderData = pageDetails(filterData, data?.pagesTotal)
+
+
+
+
+    // -------------
+    slugOrder = pageOrderData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
 
