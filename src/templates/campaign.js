@@ -100,7 +100,7 @@ const Campaign = (props) => {
   const pageData = props?.data?.contentfulCampaignMainPage.reference.find(
     (ref) => ref.childSlug === childSlug
   )
-  const campaignType = props?.data?.contentfulCampaignMainPage?.type
+  // const campaignType = props?.data?.contentfulCampaignMainPage?.type;
   const pagesTotal = props?.data?.contentfulCampaignMainPage.reference;
 
   const showModal = (value) => {
@@ -123,15 +123,14 @@ const Campaign = (props) => {
           {...props?.location}
           pagesTotal={pagesTotal}
           parentSlug={slug}
-          campaignType={campaignType}
+          // campaignType={campaignType}
         />
-        {campaignType.toLowerCase() === 'refinance' &&
           <CheckYourSavingsCampaign
           {...pageData}
           showModal={showModal}
-          campaignType={campaignType}
+          // campaignType={campaignType}
         />
-        }
+        
 
         <div
           className="PersonalizeModal"
