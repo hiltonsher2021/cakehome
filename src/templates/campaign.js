@@ -123,11 +123,14 @@ const Campaign = (props) => {
           parentSlug={slug}
           campaignType={campaignType}
         />
-        <CheckYourSavingsCampaign
+        {campaignType.toLowerCase() === 'refinance' &&
+          <CheckYourSavingsCampaign
           {...pageData}
           showModal={showModal}
           campaignType={campaignType}
         />
+        }
+
         <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}

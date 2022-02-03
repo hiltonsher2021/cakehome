@@ -620,7 +620,7 @@ const CampaignBanner = (data) => {
         )}
         {currentPage?.pageNo === 4 && (
           <>
-            <div className="slide-4">
+            <div className={`slide-4 ${campaignType.toLowerCase() === 'refinance' ? '' : 'isPurchase'}`}>
               <div className="container">
                 <div className="banner__hero">
                   <h1 className="d-mob">
@@ -884,7 +884,7 @@ const CampaignBanner = (data) => {
                     <span className="d-desktop">GET MY PERSONALIZED RATE</span>
                   </a>
                 </div>
-                <div className="banner__slider-control">
+                <div className={`banner__slider-control ${campaignType.toLowerCase() === 'refinance' ? '' : 'isPurchase'}`}>
                   <div className="banner__prev">
                     <Link to={`/campaign/${parentSlug}/${nextPage?.childSlug}`}>
                       <img
@@ -900,7 +900,7 @@ const CampaignBanner = (data) => {
         )}
 
         <div
-          className={`banner__slider-control ${
+          className={`banner__slider-control ${campaignType.toLowerCase() === 'refinance' ? '' : 'isPurchase'} ${
             currentPage?.pageNo === 5 ? 'page-5' : ''
           }`}
         >

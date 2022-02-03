@@ -39,6 +39,12 @@
             &.page-5{
                 display: none;
             }
+            &.isPurchase {
+              padding-bottom: rem(50);
+              @media #{$xl} {
+                padding-bottom: rem(100);
+            }
+            }
         }
         .banner__form-fields{
             select{
@@ -180,7 +186,7 @@
                 // font-weight: 300;
                 // letter-spacing: -0.21px;
                 // line-height: 29px;
-               
+
             }
         }
         .btn{
@@ -201,7 +207,7 @@
                 font-size: 25.5px;
                 letter-spacing: 0.45px;
                 line-height: 75px;
-                padding: 0 rem(44); 
+                padding: 0 rem(44);
                 border-radius: 6px;
             }
         }
@@ -256,7 +262,7 @@
                 @media #{$xl}{
                     margin-bottom: rem(36);
                 }
-            
+
                 h1 {
                     color: #FFFFFF;
                     font-family: "Degular";
@@ -332,7 +338,7 @@
                         margin-bottom: 0;
                         @media #{$smm}{
                             font-size: 30px;
-                            line-height: 45px; 
+                            line-height: 45px;
                         }
                         @media #{$xl} {
                             font-size: 50px;
@@ -379,7 +385,7 @@
                     //         letter-spacing: -0.21px;
                     //         line-height: 29px;
                     //         border-radius: 5px;
-                       
+
                     //     }
                     // }
                 }
@@ -402,7 +408,7 @@
             .container{
                 max-width: rem(1060);
             }
-            
+
             .banner__hero {
                 h1 {
                     color: #414042;
@@ -442,7 +448,7 @@
                         margin-bottom: rem(60);
                     }
                 }
-                
+
             }
             .banner__form{
                 @media #{$smm}{
@@ -470,7 +476,7 @@
                     // font-weight: 300;
                     // letter-spacing: -0.21px;
                     // line-height: 29px;
-                   
+
                 }
             }
         }
@@ -520,7 +526,7 @@
                         margin-bottom: rem(40);
                     }
                 }
-                
+
             }
             .banner__form{
                 @media #{$smm}{
@@ -570,7 +576,7 @@
                     position: relative;
                     display: inline-block;
                     margin: 3px 9px 2px;
-                  
+
                     @media #{$smm}{
                     width: 15px;
                     height: 15px;
@@ -583,9 +589,9 @@
                         object-fit: contain;
                     }
                     @media #{$xl}{
-                      display: none;  
+                      display: none;
                     }
-                   
+
                 }
             }
             .form__dollar-wrap{
@@ -649,7 +655,7 @@
                         margin-bottom: rem(40);
                     }
                 }
-                
+
             }
             .banner__form{
                 .banner__form-fields{
@@ -706,6 +712,21 @@
                 //     }
                 // }
             }
+            &.isPurchase {
+              .banner__form{
+                .banner__form-fields{
+
+                    @media #{$xl}{
+                        justify-content: flex-start;
+                    }
+                }
+                .banner__select{
+                    @media #{$xl}{
+                        margin-right: rem(91)
+                    }
+                }
+              }
+            }
         }
         .slide-5{
             padding: rem(39) rem(30) rem(10) ;
@@ -716,7 +737,7 @@
             .container{
                 max-width: rem(1060);
             }
-            .banner__hero { 
+            .banner__hero {
                 h1 {
                     color: #414042;
                     font-size: 16px;
@@ -754,9 +775,9 @@
                         margin-bottom: rem(40);
                     }
                 }
-                margin-bottom:0; 
+                margin-bottom:0;
                 @media (min-width:767px){
-                    margin-bottom: rem(30); 
+                    margin-bottom: rem(30);
                 }
                 @media #{$xl}{
                     margin-bottom: 0;
@@ -803,7 +824,7 @@
                         //             margin-bottom: rem(0);
                         //         }
                         //     }
-                           
+
                         // }
                     }
                     .btn{
@@ -823,6 +844,6 @@
                     }
             }
         }
-        
+
     }
 }
