@@ -101,9 +101,9 @@ const Campaign = (props) => {
   const pageData = props?.data?.contentfulCampaignMainPage.reference.find(
     (ref) => ref.childSlug === childSlug
   )
-  const campaignType = props?.data?.contentfulCampaignMainPage?.type;
-  const pagesTotal = props?.data?.contentfulCampaignMainPage.reference;
-const typeValue = campaignType.toLowerCase()
+  const campaignType = props?.data?.contentfulCampaignMainPage?.type || 'refinance';
+  const pagesTotal = props?.data?.contentfulCampaignMainPage?.reference;
+const typeValue = campaignType?.toLowerCase()
 
   const showModal = (value) => {
     changeTabSelection(value)
