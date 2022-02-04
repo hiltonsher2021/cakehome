@@ -23,12 +23,15 @@ const Header = ({ data }) => {
   }
   if (isBrowser) {
     pathnameUrl = location?.pathname
+    var element = document.getElementById('campaign-header')
 
     const isCampaignPage = pathnameUrl.includes('campaign')
-    if(isCampaignPage === true) {
-      pathValue = 'hid-camp'
+    if (isCampaignPage === true) {
+      element.classList.add('child-campaign')
     } else {
-      pathValue = ''
+      if (element) {
+        element.classList.remove('child-campaign')
+      }
     }
   }
   const layoutData = data
@@ -85,7 +88,7 @@ const Header = ({ data }) => {
   }
 
   return (
-    <header  className={`${styles.header} ${pathValue} header-main`}>
+    <header className={`${styles.header} ${pathValue} header-main`}>
       <div className="header-wrapper">
         <div className="header-top-mob">
           {modeledData?.section?.map((menu, index) => {

@@ -27,12 +27,12 @@ const CampaignHeader = (data) => {
     modeledData = sectionModel(filterData[0])
   }
 
-  useEffect(() => {
-    var element = document.getElementById('campaign-header')
-    if (element) {
-      element.classList.add('child-campaign')
-    }
-  }, [])
+  // useEffect(() => {
+  //   var element = document.getElementById('campaign-header')
+  //   if (element) {
+  //     element.classList.add('child-campaign')
+  //   }
+  // }, [])
 
   return (
     <div>
@@ -47,22 +47,31 @@ const CampaignHeader = (data) => {
               {/* </a> */}
             </div>
             <div className="header__wrap">
-            {modeledData?.section?.map((menu, index) => {
-        if (menu?.label === 'Call Us') {
-          return (<> <a
-            className="header__call-btn"
-            href={'tel:+' + menu?.url}
-            alt="call"
-          >
-            <div className="header__call-thumb">
-              <img src="/images/headphone-icon.svg" alt="headphone" />
-            </div>
-            <div className="header__call-text">
-            {menu?.label}
-              <span>{menu?.subLabel}</span>
-            </div>
-          </a></>)
-        }})}
+              {modeledData?.section?.map((menu, index) => {
+                if (menu?.label === 'Call Us') {
+                  return (
+                    <>
+                      {' '}
+                      <a
+                        className="header__call-btn"
+                        href={'tel:+' + menu?.url}
+                        alt="call"
+                      >
+                        <div className="header__call-thumb">
+                          <img
+                            src="/images/headphone-icon.svg"
+                            alt="headphone"
+                          />
+                        </div>
+                        <div className="header__call-text">
+                          {menu?.label}
+                          <span>{menu?.subLabel}</span>
+                        </div>
+                      </a>
+                    </>
+                  )
+                }
+              })}
 
               <a
                 className="header__chat-btn"
