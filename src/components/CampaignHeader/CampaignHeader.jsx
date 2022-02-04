@@ -27,13 +27,6 @@ const CampaignHeader = (data) => {
     modeledData = sectionModel(filterData[0])
   }
 
-  // useEffect(() => {
-  //   var element = document.getElementById('campaign-header')
-  //   if (element) {
-  //     element.classList.add('child-campaign')
-  //   }
-  // }, [])
-
   return (
     <div>
       <header className={styles.CampaignHeader}>
