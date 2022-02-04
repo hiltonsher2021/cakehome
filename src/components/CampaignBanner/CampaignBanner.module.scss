@@ -727,6 +727,34 @@
                 }
               }
             }
+            .banner__content {
+              margin-bottom: rem(24);
+              max-width: rem(780);
+              // margin: 0 auto;
+              @media #{$xl} {
+                  // margin: 0 auto;
+                  margin-bottom: rem(60);
+              }
+              h2 {
+                  color: #121212;
+                  font-size: 14px;
+                  font-weight: 500;
+                  letter-spacing: -0.12px;
+                  line-height: 16px;
+                  text-align: left;
+                  @media #{$smm} {
+                      font-size: 25px;
+                      line-height: 30px;
+                  }
+                  @media #{$xl} {
+                      color: #414042;
+                      font-size: 40px;
+                      letter-spacing: -0.32px;
+                      line-height: 45px;
+                      text-align: left;
+                  }
+              }
+          }
         }
         .slide-5{
             padding: rem(39) rem(30) rem(10) ;
