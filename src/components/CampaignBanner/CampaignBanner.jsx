@@ -644,11 +644,16 @@ const CampaignBanner = (data) => {
                     {firstName}
                     {data?.body}
                   </h1>
+
                   <h1 className="d-desktop">{data?.title}</h1>
+
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h2>
                 </div>
+                <div className="banner__content">
+                    <h2>{data?.mobDescription?.mobDescription}</h2>
+                  </div>
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
