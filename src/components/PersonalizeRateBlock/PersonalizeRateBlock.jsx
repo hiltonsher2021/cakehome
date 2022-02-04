@@ -14,22 +14,24 @@ const PersonalizeRateBlock = (data) => {
   let url = ''
 
   if (data) {
-    filterData = bannerDetails?.filter((item) => {
-      if (item?.handle === '1-rates') {
-        return item
-      } else if (item?.handle === '0' && data?.handle !== 'homepage') {
-        return item
-      } else if (item?.handle === 'homepage-modal') {
-        return item
-      }
-    })
+    if (bannerDetails?.length > 0) {
+      filterData = bannerDetails?.filter((item) => {
+        if (item?.handle === '1-rates') {
+          return item
+        } else if (item?.handle === '0' && data?.handle !== 'homepage') {
+          return item
+        } else if (item?.handle === 'homepage-modal') {
+          return item
+        }
+      })
 
-    modeledData = sectionModel(filterData[0])
-    dataContent = modeledData?.sectionReference
-      ? modeledData?.sectionReference[0]
-      : modeledData?.bannerReference[0]
+      modeledData = sectionModel(filterData[0])
+      dataContent = modeledData?.sectionReference
+        ? modeledData?.sectionReference[0]
+        : modeledData?.bannerReference[0]
 
-    image = getImage(dataContent?.image?.gatsbyImageData)
+      image = getImage(dataContent?.image?.gatsbyImageData)
+    }
   }
   const [creditRating, setCreditRating] = useState('780')
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
@@ -245,16 +247,19 @@ const PersonalizeRateBlock = (data) => {
               <p>{dataContent?.titleLongDescription?.titleLongDescription}</p>
               <p>{dataContent?.ctaText}</p>
               <p>{dataContent?.footerText}</p>
-              {/* <img
-                className="PersonalizeRateBlock__foot-image"
-                src="/images/door.png"
-                alt="cake"
-              /> */}
-              <GatsbyImage
-                className="PersonalizeRateBlock__foot-image"
-                image={image}
-                alt={modeledData?.image?.title}
-              />
+              {image ? (
+                <GatsbyImage
+                  className="PersonalizeRateBlock__foot-image"
+                  image={image}
+                  alt={modeledData?.image?.title}
+                />
+              ) : (
+                <img
+                  className="PersonalizeRateBlock__foot-image"
+                  src="/images/door.png"
+                  alt="cake"
+                />
+              )}
             </div>
             <div className="PersonalizeRateBlock__right-side">
               <h5>
@@ -289,7 +294,7 @@ const PersonalizeRateBlock = (data) => {
                     <option value="650" name="640-659(Below Average)">
                       640-659(Below Average)
                     </option>
-                    <option value="0630" name="620-639(Fair)">
+                    <option value="630" name="620-639(Fair)">
                       620-639(Fair)
                     </option>
                     <option value="610" name="580-619(Poor)">

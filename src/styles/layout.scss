@@ -264,6 +264,9 @@
 // Cookie Bar
 #onetrust-consent-sdk {
   font-family: $aeonik;
+  .ot-sdk-container{
+    padding: 20px;
+  }
   #onetrust-banner-sdk {
     outline: none;
     background-color: $primary-black !important;
@@ -509,10 +512,29 @@
     }
   }
 }
-
-
 .perspectiveWrap {
   @media (max-width: 1024px) {
     transform: none !important;
   }
 }
+
+// for removing header part in campaign page
+.hid-camp{
+display: none;
+}
+#campaign-header.child-campaign {
+    .header-main{
+      display: none;
+    }
+    padding-top: rem(113);
+    @media screen and (min-width: 480px){
+      padding-top: rem(122);
+    }
+    @media #{$xl}{
+      padding-top: rem(175);
+    }
+    .main-wrapper{
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }

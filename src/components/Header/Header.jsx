@@ -17,11 +17,19 @@ const propTypes = {
 
 const Header = ({ data }) => {
   let pathnameUrl = ''
+  let pathValue = ''
   const closeWidget = () => {
     closeChatWidget()
   }
   if (isBrowser) {
     pathnameUrl = location?.pathname
+
+    const isCampaignPage = pathnameUrl.includes('campaign')
+    if(isCampaignPage === true) {
+      pathValue = 'hid-camp'
+    } else {
+      pathValue = ''
+    }
   }
   const layoutData = data
   let modeledData
@@ -77,7 +85,7 @@ const Header = ({ data }) => {
   }
 
   return (
-    <header className={styles.header}>
+    <header  className={`${styles.header} ${pathValue} header-main`}>
       <div className="header-wrapper">
         <div className="header-top-mob">
           {modeledData?.section?.map((menu, index) => {

@@ -190,7 +190,7 @@ gtag('config', 'AW-793052739/NP40CKTRq4cDEMOMlPoC', {
           src="https://embed.signalintent.com/js/embedded.js?org-guid=2041f4e9-22f8-4175-b760-483ec13b2f6c"
         />
       </head>
-      <body {...props.bodyAttributes}>
+      <body {...props.bodyAttributes} id='campaign-header'>
         {props.preBodyComponents}
 
         {/* <!-- Google Tag Manager (noscript) --> */}

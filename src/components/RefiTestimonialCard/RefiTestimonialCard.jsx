@@ -19,22 +19,22 @@ const RefiTestimonialCard = (data) => {
               )
             })}
           </div>
-          <h3>{data?.cardData?.title}</h3>
+          <h3>{data?.cardData?.title}Title</h3>
         </div>
         <div className="RefiTestimonialCard__middle">
-          <p>{data?.cardData?.titleLongDescription?.titleLongDescription}</p>
+          <p>{data?.cardData?.titleLongDescription?.titleLongDescription}Description</p>
         </div>
       </div>
       <div className="RefiTestimonialCard__bottom">
         <div className="RefiTestimonialCard__footer">
           <div className="left-side">
             <h4>
-              {data?.cardData?.subTitle}
+              {data?.cardData?.subTitle}Sub title
             </h4>
-            <p>{data?.cardData?.footerText}</p>
+            <p>{data?.cardData?.footerText}Footer text</p>
           </div>
           <div className="right-side">
-            <AnchorLink href="#">
+            <AnchorLink href="#">Icon
               <GatsbyImage image={image} alt={data?.cardData?.image?.title} />
             </AnchorLink>
           </div>
