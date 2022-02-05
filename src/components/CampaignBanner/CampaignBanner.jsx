@@ -14,7 +14,7 @@ const CampaignBanner = (data) => {
   }
   const { parentSlug } = data
   const { campaignType } = data
-  const type = campaignType.includes('refinance') ? 'refinance' : 'purchase';
+  const type = campaignType.includes('refinance') ? 'refinance' : 'purchase'
   let slugOrder = []
   let currentPageData
   let nextPageData = []
@@ -196,6 +196,7 @@ const CampaignBanner = (data) => {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
       setCurrentLoanBal(numConv)
+      setValuesStorage('downPayment', numConv)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
       setValuesStorage('downPayment', numConv)
@@ -203,6 +204,7 @@ const CampaignBanner = (data) => {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
       setCurrentLoanBal(numConv || 0)
+      setValuesStorage('downPayment', numConv || 0)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
       setValuesStorage('downPayment', numConv)
@@ -248,17 +250,17 @@ const CampaignBanner = (data) => {
       }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
-      setCashOut(value)
+      setCashOut(numConv)
       setCashOutValue(test)
       setValuesStorage('cashoutValue', test)
       setValuesStorage('cashOut', numConv)
     } else {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
-      setCashOut(value)
+      setCashOut(numConv || 0)
       setCashOutValue(test)
       setValuesStorage('cashoutValue', test)
-      setValuesStorage('cashOut', numConv)
+      setValuesStorage('cashOut', numConv || 0)
     }
   }
 
@@ -277,7 +279,7 @@ const CampaignBanner = (data) => {
   // }
 
   const validateZipcode = (data) => {
-    if (data.length === 5) {
+    if (data?.length === 5) {
       fetchValidZipcode(data)
     } else {
       setShowValidationMessage(false)
@@ -286,8 +288,10 @@ const CampaignBanner = (data) => {
     setValuesStorage('zipCode', data)
   }
 
-  const setPhoneNumber = (data) => {
-    if (data.length < 10) {
+  const setPhoneNumber = (data, event) => {
+    onlyNumberKey(event)
+
+    if (data?.length < 10) {
       setPhoneShowValidationMessage(true)
     } else {
       setPhoneShowValidationMessage(false)
@@ -296,7 +300,7 @@ const CampaignBanner = (data) => {
     if (data) {
       valueFormat = data.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')
     }
-    setValuesStorage('phone', valueFormat)
+    setValuesStorage('phone', valueFormat || 0)
     setPhone(valueFormat)
   }
 
@@ -383,7 +387,8 @@ const CampaignBanner = (data) => {
 
   const setUrl = () => {
     url =
-      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=' + type +
+      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=' +
+      type +
       '&zipcode=' +
       zipCode +
       '&purchasePrice=' +
@@ -654,8 +659,8 @@ const CampaignBanner = (data) => {
                   </h2>
                 </div>
                 <div className="banner__content">
-                    <h2>{data?.mobDescription?.mobDescription}</h2>
-                  </div>
+                  <h2>{data?.mobDescription?.mobDescription}</h2>
+                </div>
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
@@ -701,7 +706,7 @@ const CampaignBanner = (data) => {
                       currentLoanBal !== 0 &&
                       propertyValue !== 0 ? (
                         <label>
-                              {type === 'refinance'
+                          {type === 'refinance'
                             ? '*Current loan balance'
                             : '*Down payment'}{' '}
                           cannot be greater than{' '}
@@ -709,58 +714,20 @@ const CampaignBanner = (data) => {
                             ? 'estimated property value'
                             : 'purchase price'}
                         </label>
-                      ) : (
-                        propertyValue * (3 / 100) > currentLoanBal ? (
-                    <label>
-                      <>
-                      {type !== 'refinance'
-                        ? '*Down payment must be at least 3% of purchase price, i.e. minimum $' +
-                          propertyValue * (3 / 100)
-                        : ''}
-                        </>
-                    </label>
-                  ) : (
-                    ''
-                      ))}
-
-
-
-{/*propertyValue[0] <= currentLoanBal[0] &&
-                  currentLoanBal[0] !== 0 ? (
-                    <label>
-                      {' '}
-                      {data.classname === 'refinance'
-                        ? '*Current loan balance'
-                        : '*Down payment'}{' '}
-                      cannot be greater than{' '}
-                      {data.classname === 'refinance'
-                        ? 'estimated property value'
-                        : 'purchase price'}
-                    </label>
-                  ) : propertyValue[0] * (3 / 100) > currentLoanBal[0] ? (
-                    <label>
-                      {' '}
-                      {data.classname !== 'refinance'
-                        ? '*Down payment must be at least 3% of purchase price, i.e. minimum $' +
-                          propertyValue[0] * (3 / 100)
-                        : ''}{' '}
-                    </label>
-                  ) : (
-                    ''
-                  )}
-
-                      */}
-
-                      {/* {propertyValue <= currentLoanBal &&
-                      currentLoanBal !== 0 &&
-                      propertyValue !== 0 ? (
+                      ) : propertyValue * (3 / 100) > currentLoanBal ? (
                         <label>
-                          *Current loan balance cannot be greater than estimated
-                          property value
+                          <>
+                            {type !== 'refinance'
+                              ? '*Down payment must be at least 3% of purchase price, i.e. minimum $' +
+                                propertyValue * (3 / 100)
+                              : ''}
+                          </>
                         </label>
                       ) : (
                         ''
-                      )} */}
+                      )}
+
+
                     </div>
 
                     {type !== 'purchase' && (
@@ -863,7 +830,10 @@ const CampaignBanner = (data) => {
                         maxlength="12"
                         value={phone}
                         onChange={(e) =>
-                          setPhoneNumber(e.target.value.replace(/[^\d.]/gi, ''))
+                          setPhoneNumber(
+                            e.target.value.replace(/[^\d.]/gi, ''),
+                            e
+                          )
                         }
                       />
                       {showPhoneValidationMessage && (
@@ -893,7 +863,7 @@ const CampaignBanner = (data) => {
                     target="_blank"
                     className={`btn ${
                       zipCode !== '' &&
-                      zipCode.length === 5 &&
+                      zipCode?.length === 5 &&
                       propertyValue > 0 &&
                       currentLoanBal > 0 &&
                       currentLoanBal !== 0 &&
@@ -906,7 +876,7 @@ const CampaignBanner = (data) => {
                       firstName !== '' &&
                       lastName !== '' &&
                       phone !== null &&
-                      phone.length === 12 &&
+                      phone?.length === 12 &&
                       email !== null &&
                       isValidEmail === true &&
                       isFirstNameValid === true &&
@@ -918,11 +888,14 @@ const CampaignBanner = (data) => {
                         : 'dis-btn'
                     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 0eaaceb (Added refinance/ home purchase changes)
 
 
+=======
+>>>>>>> 5b7ca1c (Minor issue fixes)
                     ${
                       type === 'refinance'
                         ? propertyValue < currentLoanBal + cashOut ||
@@ -933,7 +906,6 @@ const CampaignBanner = (data) => {
                         ? 'dis-btn'
                         : ''
                     }
-
                     `}
                     onClick={sendUserData}
                   >
@@ -955,7 +927,6 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-
         <div
           className={`banner__slider-control ${
             type === 'purchase' ? 'isPurchase' : ''
@@ -968,7 +939,6 @@ const CampaignBanner = (data) => {
               </Link>
             </div>
           )}
-
           <div className="banner__slider-dots">
             {slugOrder?.map((item, index) => {
               return (
