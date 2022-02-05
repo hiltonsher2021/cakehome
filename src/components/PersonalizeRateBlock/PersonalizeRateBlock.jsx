@@ -87,6 +87,7 @@ const PersonalizeRateBlock = (data) => {
       propertyType
     + '&isAutoClick=1&target=_blank'
     setUrlValue(url)
+    // console.log(url, 'main url')
   }
 
   function onlyNumberKey(evt) {

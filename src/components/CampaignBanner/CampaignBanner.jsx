@@ -211,17 +211,18 @@ const CampaignBanner = (data) => {
       }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
-      setCurrentLoanBal(value)
+      setCurrentLoanBal(numConv)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
+      setValuesStorage('downPayment', numConv)
     } else {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
-      setCurrentLoanBal(value)
+      setCurrentLoanBal(numConv || 0)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
+      setValuesStorage('downPayment', numConv)
     }
-    setValuesStorage('downPayment', value)
   }
 
   const sendUserData = () => {
@@ -266,14 +267,15 @@ const CampaignBanner = (data) => {
       setCashOut(value)
       setCashOutValue(test)
       setValuesStorage('cashoutValue', test)
+      setValuesStorage('cashOut', numConv)
     } else {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
       setCashOut(value)
       setCashOutValue(test)
       setValuesStorage('cashoutValue', test)
+      setValuesStorage('cashOut', numConv)
     }
-    setValuesStorage('cashOut', value)
   }
 
   function onlyNumberKey(evt) {
@@ -393,7 +395,8 @@ const CampaignBanner = (data) => {
 
   const setUrl = () => {
     url =
-      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +      '&zipcode=' +
+      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +
+      '&zipcode=' +
       zipCode +
       '&purchasePrice=' +
       propertyValue +
@@ -867,7 +870,7 @@ const CampaignBanner = (data) => {
                         ? ''
                         : 'dis-btn'
                     }
-                   
+
 
 
 
