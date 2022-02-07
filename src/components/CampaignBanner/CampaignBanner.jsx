@@ -566,7 +566,7 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
-                    {data?.body}
+                    {data?.mobBody}
                   </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h2 className="d-mob">
@@ -845,7 +845,7 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
-                    {data?.body}
+                    {data?.mobBody}
                   </h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
