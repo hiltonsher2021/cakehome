@@ -484,7 +484,7 @@ const CampaignBanner = (data) => {
                 <div className="banner__hero">
                   <h1>
                     {data?.title}
-                    {firstName}
+                    {firstName ? ` ${firstName} ` : ''}
                   </h1>
                   <h1 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -539,7 +539,7 @@ const CampaignBanner = (data) => {
                 <div className="banner__hero">
                   <h1 className="d-mob">
                     {data?.mobTitle}
-                    {firstName}
+                    {firstName ? ` ${firstName} ` : ''}
                     {data?.body}
                   </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
@@ -648,18 +648,21 @@ const CampaignBanner = (data) => {
                 <div className="banner__hero">
                   <h1 className="d-mob">
                     {data?.mobTitle}
-                    {firstName}
+                    {firstName ? ` ${firstName} ` : ''}
                     {data?.body}
                   </h1>
 
-                  <h1 className="d-desktop">{data?.title}</h1>
+                  <h1 className="d-desktop">
+                    {data?.title} {firstName ? ` ${firstName} ` : ''}
+                    {data?.body}
+                  </h1>
 
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h2>
                 </div>
-                <div className="banner__content">
-                  <h2>{data?.mobDescription?.mobDescription}</h2>
+                <div className="banner__content d-desktop">
+                  <h2>{data?.description?.description}</h2>
                 </div>
                 <div className="banner__form">
                   <div className="banner__form-fields">
@@ -726,8 +729,6 @@ const CampaignBanner = (data) => {
                       ) : (
                         ''
                       )}
-
-
                     </div>
 
                     {type !== 'purchase' && (
@@ -814,7 +815,7 @@ const CampaignBanner = (data) => {
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h1 className="d-mob">
                     {data?.mobTitle}
-                    {firstName}
+                    {firstName ? ` ${firstName} ` : ''}
                     {data?.body}
                   </h1>
                   <h2 className="d-mob">
