@@ -13,10 +13,10 @@ const CampaignBanner = (data) => {
     sessionStorage = window.sessionStorage
   }
   const { parentSlug } = data
-  // const { campaignType } = data
-  // const type = campaignType.toLowerCase() === 'refinance' ? 'refinance' : 'purchase' ;
-
+  const { campaignType } = data
+  const type = campaignType.includes('refinance') ? 'refinance' : 'purchase'
   let slugOrder = []
+  let pageOrder = []
   let currentPageData
   let nextPageData = []
   let filterData = []
@@ -80,7 +80,6 @@ const CampaignBanner = (data) => {
     filterData = data?.edges?.map((item) => {
       return { childSlug: item?.node?.childSlug, pageNo: item.node?.handle }
     })
-    // --------------
 
     const pageDetails = (filterData, pagesTotal) => {
       let res = []
@@ -91,35 +90,52 @@ const CampaignBanner = (data) => {
       })
       return res
     }
-    // data?.pagesTotal.map((slug) => {
-    //    if(slug.childSlug === item?.childSlug) {
-    //   return slug
-    // }
-    // })
-    // resultFilter = (firstArray, secondArray) => {
-    //   return firstArray.filter(firstArrayItem =>
-    //     !secondArray.some(
-    //       secondArrayItem => firstArrayItem._user === secondArrayItem._user
-    //     )
-    //   );
-    // };
-    // })
-    const pageOrderData = pageDetails(filterData, data?.pagesTotal)
 
-    // -------------
-    slugOrder = pageOrderData?.sort(function (a, b) {
+    const pageOrderData = pageDetails(filterData, data?.pagesTotal)
+    pageOrder = pageOrderData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
+    const reorderPageData = pageOrderData
+    pageOrderData.map((item) => {
+      if (
+        item.pageNo === 4 &&
+        type === 'refinance' &&
+        pageOrderData.length === 6
+      ) {
+        pageOrderData.splice(5, 1)
+        //pop()
+        return item
+      } else if (
+        item.pageNo === 6 &&
+        type === 'purchase' &&
+        pageOrderData.length === 6
+      ) {
+        pageOrderData.splice(3, 1)
+      } else {
+        return item
+      }
+    })
 
+    if (type === 'purchase') {
+      let testValue = pageOrderData.pop()
+      pageOrderData.splice(3, 0, testValue)
+    }
+
+    slugOrder = pageOrderData
     currentPageData = slugOrder?.filter((item) => {
       if (data?.childSlug === item?.childSlug) {
         return item
       }
     })
     currentPage = currentPageData?.shift()
-
     nextPageData = slugOrder?.filter((item, index) => {
       if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
+        return item
+      } else if (
+        currentPage?.pageNo !== 5 &&
+        currentPage?.pageNo === 6 &&
+        index + 1 === 5
+      ) {
         return item
       } else if (currentPage?.pageNo === 5 && index + 1 === 4) {
         return item
@@ -212,6 +228,7 @@ const CampaignBanner = (data) => {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
       setCurrentLoanBal(numConv)
+      setValuesStorage('downPayment', numConv)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
       setValuesStorage('downPayment', numConv)
@@ -219,6 +236,7 @@ const CampaignBanner = (data) => {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
       setCurrentLoanBal(numConv || 0)
+      setValuesStorage('downPayment', numConv || 0)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
       setValuesStorage('downPayment', numConv)
@@ -264,17 +282,17 @@ const CampaignBanner = (data) => {
       }
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(numConv)
-      setCashOut(value)
+      setCashOut(numConv)
       setCashOutValue(test)
       setValuesStorage('cashoutValue', test)
       setValuesStorage('cashOut', numConv)
     } else {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
-      setCashOut(value)
+      setCashOut(numConv || 0)
       setCashOutValue(test)
       setValuesStorage('cashoutValue', test)
-      setValuesStorage('cashOut', numConv)
+      setValuesStorage('cashOut', numConv || 0)
     }
   }
 
@@ -289,7 +307,7 @@ const CampaignBanner = (data) => {
   }
 
   const validateZipcode = (data) => {
-    if (data.length === 5) {
+    if (data?.length === 5) {
       fetchValidZipcode(data)
     } else {
       setShowValidationMessage(false)
@@ -298,8 +316,10 @@ const CampaignBanner = (data) => {
     setValuesStorage('zipCode', data)
   }
 
-  const setPhoneNumber = (data) => {
-    if (data.length < 10) {
+  const setPhoneNumber = (data, event) => {
+    onlyNumberKey(event)
+
+    if (data?.length < 10) {
       setPhoneShowValidationMessage(true)
     } else {
       setPhoneShowValidationMessage(false)
@@ -308,7 +328,7 @@ const CampaignBanner = (data) => {
     if (data) {
       valueFormat = data.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')
     }
-    setValuesStorage('phone', valueFormat)
+    setValuesStorage('phone', valueFormat || 0)
     setPhone(valueFormat)
   }
 
@@ -395,7 +415,8 @@ const CampaignBanner = (data) => {
 
   const setUrl = () => {
     url =
-      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=refinance' +
+      'https://apply.cakehome.com/partner/4NAXDC5C/search?type=' +
+      type +
       '&zipcode=' +
       zipCode +
       '&purchasePrice=' +
@@ -420,7 +441,8 @@ const CampaignBanner = (data) => {
         {currentPage?.pageNo !== 2 &&
           currentPage?.pageNo !== 3 &&
           currentPage?.pageNo !== 4 &&
-          currentPage?.pageNo !== 5 && (
+          currentPage?.pageNo !== 5 &&
+          currentPage?.pageNo !== 6 && (
             <>
               <div className="slide-1">
                 <div className="container">
@@ -491,7 +513,7 @@ const CampaignBanner = (data) => {
                 <div className="banner__hero">
                   <h1>
                     {data?.title}
-                    {firstName}
+                    {firstName ? ` ${firstName}` : ''}
                   </h1>
                   <h1 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -546,8 +568,8 @@ const CampaignBanner = (data) => {
                 <div className="banner__hero">
                   <h1 className="d-mob">
                     {data?.mobTitle}
-                    {firstName}
-                    {data?.body}
+                    {firstName ? ` ${firstName}` : ''}
+                    {data?.mobBody}
                   </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h2 className="d-mob">
@@ -646,26 +668,47 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-        {currentPage?.pageNo === 4 && (
+        {((currentPage?.pageNo === 4 && type === 'refinance') ||
+          (currentPage?.pageNo === 6 && type === 'purchase')) && (
           <>
-            <div className={`slide-4`}>
+            <div
+              className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`}
+            >
               <div className="container">
                 <div className="banner__hero">
                   <h1 className="d-mob">
                     {data?.mobTitle}
-                    {firstName}
-                    {data?.body}
+                    {firstName ? ` ${firstName}` : ''}
+                    {data?.mobBody}
                   </h1>
-                  <h1 className="d-desktop">{data?.title}</h1>
+                  {type === 'refinance' && (
+                    <h1 className="d-desktop">{data?.title}</h1>
+                  )}
+
+                  {type === 'purchase' && (
+                    <h1 className="d-desktop">
+                      {data?.title} {firstName ? ` ${firstName}` : ''}
+                      {data?.body}
+                    </h1>
+                  )}
+
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h2>
                 </div>
+                {type === 'purchase' && (
+                  <div className="banner__content d-desktop">
+                    <h2>{data?.description?.description}</h2>
+                  </div>
+                )}
+
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
                       <label htmlFor="banner">
-                        Property Value Estimate
+                        {type === 'refinance'
+                          ? 'Property Value Estimate'
+                          : 'Purchase Price'}
                         <sup>*</sup>
                       </label>
                       <span className="form__dollar-wrap">
@@ -685,7 +728,9 @@ const CampaignBanner = (data) => {
                     </div>
                     <div className="banner__select">
                       <label htmlFor="banner">
-                        Current Loan Balance
+                        {type === 'refinance'
+                          ? 'Current Loan Balance'
+                          : 'Down Payment'}
                         <sup>*</sup>
                       </label>
                       <span className="form__dollar-wrap">
@@ -698,93 +743,101 @@ const CampaignBanner = (data) => {
                           }
                         />
                       </span>
-                      {/* {propertyValue <= currentLoanBal &&
-                      currentLoanBal !== 0 &&
-                      propertyValue !== 0 ? (
-                        <label>
-                          *Current loan balance cannot be greater than estimated
-                          property value
-                        </label>
-                      ) : (
-                        ''
-                      )} */}
-
                       {propertyValue <= currentLoanBal &&
                       currentLoanBal !== 0 &&
                       propertyValue !== 0 ? (
                         <label>
-                          *Current loan balance cannot be greater than estimated
-                          property value
+                          {type === 'refinance'
+                            ? '*Current loan balance'
+                            : '*Down payment'}{' '}
+                          cannot be greater than{' '}
+                          {type === 'refinance'
+                            ? 'estimated property value'
+                            : 'purchase price'}
+                        </label>
+                      ) : propertyValue * (3 / 100) > currentLoanBal ? (
+                        <label>
+                          <>
+                            {type !== 'refinance'
+                              ? '*Down payment must be at least 3% of purchase price, i.e. minimum $' +
+                                propertyValue * (3 / 100)
+                              : ''}
+                          </>
                         </label>
                       ) : (
                         ''
                       )}
                     </div>
 
-                    <div className="banner__select">
-                      <label htmlFor="banner">
-                        Cash Out Amount
-                        <p className="rate-details tool-ask d-mob small">
-                          <span
-                            data-tip="If you have no current loan balance, you must have
+                    {type !== 'purchase' && (
+                      <>
+                        <div className="banner__select">
+                          <label htmlFor="banner">
+                            Cash Out Amount
+                            <p className="rate-details tool-ask d-mob small">
+                              <span
+                                data-tip="If you have no current loan balance, you must have
                             a cash out amount"
-                          >
-                            <img
-                              src="/images/campaign-question.png"
-                              alt="image"
+                              >
+                                <img
+                                  src="/images/campaign-question.png"
+                                  alt="image"
+                                />
+                              </span>
+                            </p>
+                            <ReactTooltip
+                              effect="solid"
+                              place="top"
+                              multiline={true}
+                              className="customTooltip"
+                            />
+                          </label>
+                          <span className="form__dollar-wrap">
+                            <input
+                              placeholder="$0"
+                              type="text"
+                              value={cashOutValue}
+                              onChange={(e) =>
+                                cashOutValueChange(e.target.value, true, e)
+                              }
+                            />
+                            <p className="rate-details tool-ask d-desktop small">
+                              <span
+                                data-tip="If you have no current loan balance, you must have
+                            a cash out amount"
+                              >
+                                <img
+                                  src="/images/campaign-question.png"
+                                  alt="image"
+                                />
+                              </span>
+                            </p>
+                            <ReactTooltip
+                              effect="solid"
+                              place="top"
+                              multiline={true}
+                              className="customTooltip"
                             />
                           </span>
-                        </p>
-                        <ReactTooltip
-                          effect="solid"
-                          place="top"
-                          multiline={true}
-                          className="customTooltip"
-                        />
-                      </label>
-                      <span className="form__dollar-wrap">
-                        <input
-                          placeholder="$0"
-                          type="text"
-                          value={cashOutValue}
-                          onChange={(e) =>
-                            cashOutValueChange(e.target.value, true, e)
-                          }
-                        />
-                        <p className="rate-details tool-ask d-desktop small">
-                          <span
-                            data-tip="If you have no current loan balance, you must have
-                            a cash out amount"
-                          >
-                            <img
-                              src="/images/campaign-question.png"
-                              alt="image"
-                            />
-                          </span>
-                        </p>
-                        <ReactTooltip
-                          effect="solid"
-                          place="top"
-                          multiline={true}
-                          className="customTooltip"
-                        />
-                      </span>
-                      {propertyValue < currentLoanBal + cashOut &&
-                        propertyValue !== 0 && (
-                          <label>
-                            *Combined current loan balance AND cash out amount
-                            cannot be greater than estimated property value.
-                          </label>
-                        )}
-                      {currentLoanBal === 0 &&
-                        cashOut === 0 &&
-                        propertyValue !== 0 && (
-                          <label>
-                            *If you have no current loan balance, you must have
-                            a cash out amount.
-                          </label>
-                        )}
-                    </div>
+                          {propertyValue < currentLoanBal + cashOut &&
+                            propertyValue !== 0 && (
+                              <label>
+                                *Combined current loan balance AND cash out
+                                amount cannot be greater than estimated property
+                                value.
+                              </label>
+                            )}
+                          {currentLoanBal === 0 &&
+                            cashOut === 0 &&
+                            propertyValue !== 0 && (
+                              <label>
+                                *If you have no current loan balance, you must
+                                have a cash out amount.
+                              </label>
+                            )}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -800,8 +853,8 @@ const CampaignBanner = (data) => {
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h1 className="d-mob">
                     {data?.mobTitle}
-                    {firstName}
-                    {data?.body}
+                    {firstName ? ` ${firstName}` : ''}
+                    {data?.mobBody}
                   </h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -816,7 +869,10 @@ const CampaignBanner = (data) => {
                         maxlength="12"
                         value={phone}
                         onChange={(e) =>
-                          setPhoneNumber(e.target.value.replace(/[^\d.]/gi, ''))
+                          setPhoneNumber(
+                            e.target.value.replace(/[^\d.]/gi, ''),
+                            e
+                          )
                         }
                       />
                       {showPhoneValidationMessage && (
@@ -846,7 +902,7 @@ const CampaignBanner = (data) => {
                     target="_blank"
                     className={`btn ${
                       zipCode !== '' &&
-                      zipCode.length === 5 &&
+                      zipCode?.length === 5 &&
                       propertyValue > 0 &&
                       currentLoanBal > 0 &&
                       currentLoanBal !== 0 &&
@@ -859,7 +915,7 @@ const CampaignBanner = (data) => {
                       firstName !== '' &&
                       lastName !== '' &&
                       phone !== null &&
-                      phone.length === 12 &&
+                      phone?.length === 12 &&
                       email !== null &&
                       isValidEmail === true &&
                       isFirstNameValid === true &&
@@ -870,10 +926,25 @@ const CampaignBanner = (data) => {
                         ? ''
                         : 'dis-btn'
                     }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0eaaceb (Added refinance/ home purchase changes)
 
 
-
-
+=======
+>>>>>>> 5b7ca1c (Minor issue fixes)
+                    ${
+                      type === 'refinance'
+                        ? propertyValue < currentLoanBal + cashOut ||
+                          (currentLoanBal === 0 && cashOut === 0)
+                          ? 'dis-btn'
+                          : ''
+                        : propertyValue * (3 / 100) > currentLoanBal
+                        ? 'dis-btn'
+                        : ''
+                    }
                     `}
                     onClick={sendUserData}
                   >
@@ -895,11 +966,10 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-
         <div
           className={`banner__slider-control ${
-            currentPage?.pageNo === 5 ? 'page-5' : ''
-          }`}
+            type === 'purchase' ? 'isPurchase' : ''
+          } ${currentPage?.pageNo === 5 ? 'page-5' : ''}`}
         >
           {nextPage !== undefined && (
             <div className="banner__next">
@@ -908,7 +978,6 @@ const CampaignBanner = (data) => {
               </Link>
             </div>
           )}
-
           <div className="banner__slider-dots">
             {slugOrder?.map((item, index) => {
               return (
@@ -931,13 +1000,3 @@ const CampaignBanner = (data) => {
 }
 
 export default CampaignBanner
-// ${
-//   campaignType.toLowerCase() === 'refinance'
-//     ? propertyValue < currentLoanBal + cashOut ||
-//       (currentLoanBal === 0 && cashOut === 0)
-//       ? 'dis-btn'
-//       : ''
-//     : propertyValue * (3 / 100) > currentLoanBal
-//     ? 'dis-btn'
-//     : ''
-// }
