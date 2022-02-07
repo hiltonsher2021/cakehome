@@ -6,6 +6,7 @@
   @media #{$md} {
     padding: rem(107) 0 rem(37);
   }
+
   :global {
     .TestimonialCard__footer .right-side a{
       right: -10px;
@@ -150,8 +151,6 @@
         }
         .TestimonialCard__top{
           h3{
-            // font-size: 6.45px;
-            // letter-spacing: 0;
             line-height: 16px;
             @media #{$smm} {
               font-size: 24px;
@@ -172,77 +171,8 @@
         top: 13px;
       }
     }
-
-
     }
-    // .TestimonialCard.main {
-    //   background: $theme-green;
-    //   padding: rem(65) rem(32) rem(50);
-    //   height: 100%;
-    //   flex-direction: column;
-    //   justify-content: space-between;
-    //   display: none !important;
-    //   @media #{$md} {
-    //     border-radius: rem(10);
-    //     padding: rem(65) rem(32) rem(50);
-    //     min-height: rem(480);
-    //     display: flex !important;
-    //   }
 
-    //     .TestimonialCard__top {
-    //       h2 {
-    //           font-family: $aeonik;
-    //           font-weight: bold;
-    //           color: $textdark;
-    //           font-size: rem(28);
-    //           line-height: rem(28);
-    //           letter-spacing: rem(-0.34);
-    //           margin: 0 0 rem(15);
-    //           text-align: center;
-    //           @media (min-width: 768px) {
-    //               font-size: rem(40);
-    //               line-height: rem(40);
-    //               margin: 0 0 rem(20);
-    //           }
-    //       }
-    //     }
-    //     .TestimonialCard__middle {
-    //       p {
-    //           font-family: $aeonik;
-    //           font-weight: 500;
-    //           color: $textdark;
-    //           text-align: center;
-    //           font-size: rem(10);
-    //           line-height: rem(15);
-    //           letter-spacing: 0;
-    //           margin: 0 0 rem(25);
-    //           padding-right: 0;
-    //           @media (min-width: 768px) {
-    //               font-size: rem(17);
-    //               line-height: rem(25);
-    //               margin: 0 0 rem(35);
-    //           }
-    //       }
-    //     }
-    //   .RefiTestimonialCard__bottom {
-    //     .RefiTestimonialCard__mn-social-wrap {
-    //         display: flex;
-    //         align-items: center;
-    //         justify-content: center;
-    //         a {
-    //             max-width: rem(13);
-    //             margin: 0 rem(13) 0 0;
-    //             @media (min-width: 768px) {
-    //                 max-width: rem(20);
-    //                 margin: 0 rem(20) 0 0;
-    //             }
-    //             &:last-child {
-    //                 margin: 0;
-    //             }
-    //         }
-    //     }
-    //   }
-    // }
 
     .CampaignCard-desktopCards {
       display: block;
@@ -265,6 +195,10 @@
     }
   }
   &:global(.purchase) {
+    padding: rem(50) 0 rem(37);
+    @media #{$md}{
+      padding: rem(107) 0 rem(37);
+    }
     :global {
       .CampaignCard__title-wrap {
         h2 {
