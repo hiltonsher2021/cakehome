@@ -95,34 +95,33 @@ const CampaignBanner = (data) => {
     pageOrder = pageOrderData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
-    const reorderPageData = pageOrderData;
+    const reorderPageData = pageOrderData
     pageOrderData.map((item) => {
-      if(item.pageNo === 4 && type === 'refinance' && pageOrderData.length === 6) {
+      if (
+        item.pageNo === 4 &&
+        type === 'refinance' &&
+        pageOrderData.length === 6
+      ) {
         pageOrderData.splice(5, 1)
         //pop()
         return item
-      } else if(item.pageNo === 6 && type === 'purchase' && pageOrderData.length === 6) {
+      } else if (
+        item.pageNo === 6 &&
+        type === 'purchase' &&
+        pageOrderData.length === 6
+      ) {
         pageOrderData.splice(3, 1)
-      }
-      else {
+      } else {
         return item
       }
     })
 
-  if(type === 'purchase') {
-    let testValue = pageOrderData.pop();
-    pageOrderData.splice(3, 0, testValue)
-  }
+    if (type === 'purchase') {
+      let testValue = pageOrderData.pop()
+      pageOrderData.splice(3, 0, testValue)
+    }
 
-
-
-    // const dummyData = pageDetails(filterData, data?.pagesTotal)
-    // slugOrder = reorderPageData?.sort(function (a, b) {
-    //   return a.pageNo - b.pageNo
-    // })
-
-
-    slugOrder = pageOrderData;
+    slugOrder = pageOrderData
     currentPageData = slugOrder?.filter((item) => {
       if (data?.childSlug === item?.childSlug) {
         return item
@@ -130,9 +129,13 @@ const CampaignBanner = (data) => {
     })
     currentPage = currentPageData?.shift()
     nextPageData = slugOrder?.filter((item, index) => {
-      if ((currentPage?.pageNo + 1 === index + 1) && currentPage?.pageNo !== 5) {
+      if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
         return item
-      } else if(currentPage?.pageNo !== 5 && currentPage?.pageNo === 6 && index + 1 === 5) {
+      } else if (
+        currentPage?.pageNo !== 5 &&
+        currentPage?.pageNo === 6 &&
+        index + 1 === 5
+      ) {
         return item
       } else if (currentPage?.pageNo === 5 && index + 1 === 4) {
         return item
@@ -439,7 +442,7 @@ const CampaignBanner = (data) => {
           currentPage?.pageNo !== 3 &&
           currentPage?.pageNo !== 4 &&
           currentPage?.pageNo !== 5 &&
-          currentPage?.pageNo !== 6 &&  (
+          currentPage?.pageNo !== 6 && (
             <>
               <div className="slide-1">
                 <div className="container">
@@ -665,7 +668,8 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-        {(currentPage?.pageNo === 4 && type === 'refinance' || currentPage?.pageNo === 6 && type === 'purchase' ) && (
+        {((currentPage?.pageNo === 4 && type === 'refinance') ||
+          (currentPage?.pageNo === 6 && type === 'purchase')) && (
           <>
             <div
               className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`}
@@ -677,11 +681,16 @@ const CampaignBanner = (data) => {
                     {firstName ? ` ${firstName}` : ''}
                     {data?.mobBody}
                   </h1>
+                  {type === 'refinance' && (
+                    <h1 className="d-desktop">{data?.title}</h1>
+                  )}
 
-                  <h1 className="d-desktop">
-                    {data?.title} {firstName ? ` ${firstName}` : ''}
-                    {data?.body}
-                  </h1>
+                  {type === 'purchase' && (
+                    <h1 className="d-desktop">
+                      {data?.title} {firstName ? ` ${firstName}` : ''}
+                      {data?.body}
+                    </h1>
+                  )}
 
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
