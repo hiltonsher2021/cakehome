@@ -642,7 +642,7 @@ const CampaignBanner = (data) => {
         {currentPage?.pageNo === 4 && (
           <>
             <div
-              className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`}
+              className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`} // hide second heading for reinfinance
             >
               <div className="container">
                 <div className="banner__hero">
