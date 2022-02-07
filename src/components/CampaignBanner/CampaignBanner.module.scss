@@ -51,7 +51,6 @@
                 background-color: #fff;
                 border: 0;
                 border-radius: 0.3125rem;
-                // color: rgba(0,0,0,0.45);
                 color: #121212;
                 font-family: Aeonik;
                 font-size: 15.36px;
@@ -360,34 +359,6 @@
                             width: auto;
                         }
                     }
-                    // input {
-                    //     color: rgba(0, 0, 0, 0.45);
-                    //     font-family: Aeonik;
-                    //     font-size: 15.36px;
-                    //     padding: rem(6.8) rem(8.3);
-                    //     font-weight: 300;
-                    //     letter-spacing: -0.14px;
-                    //     line-height: 18px;
-                    //     width: 100%;
-                    //     background-color: #FFFFFF;
-                    //     border-radius: 3.2px;
-                    //     outline: 0;
-                    //     border: 0;
-                    //     margin-bottom: rem(6.36);
-                    //     @media #{$smm}{
-                    //         font-size: 18px;
-                    //         line-height: 29px;
-                    //     }
-                    //     @media #{$xl} {
-                    //         padding: rem(13) rem(15);
-                    //         font-size: 24px;
-                    //         font-weight: 300;
-                    //         letter-spacing: -0.21px;
-                    //         line-height: 29px;
-                    //         border-radius: 5px;
-
-                    //     }
-                    // }
                 }
             }
             label{
@@ -418,13 +389,13 @@
                     line-height: 16.54px;
                     margin-bottom: rem(23.46);
                     @media #{$smm}{
-                        font-size: 60px;
-                        line-height: 80px;
+                        font-size: 25px;
+                        line-height: 45px;
                     }
                     @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
-                        line-height: 36px;
+                        line-height: 50px;
                         margin-bottom: rem(60);
                     }
                     &.d-mob{
@@ -444,7 +415,7 @@
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
-                        line-height: 36px;
+                        line-height: 50px;
                         margin-bottom: rem(60);
                     }
                 }
@@ -469,14 +440,6 @@
                     font-size: 13px;
                     line-height: 20px;
                     letter-spacing: 0;
-                }
-                @media #{$xl}{
-                    // color: rgba(0,0,0,0.45);
-                    // font-size: 24px;
-                    // font-weight: 300;
-                    // letter-spacing: -0.21px;
-                    // line-height: 29px;
-
                 }
             }
         }
@@ -522,7 +485,7 @@
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
-                        line-height: 36px;
+                        line-height: 50px;
                         margin-bottom: rem(40);
                     }
                 }
@@ -627,13 +590,13 @@
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
                     @media #{$smm}{
-                        font-size: 60px;
-                        line-height: 80px;
+                        font-size: 30px;
+                        line-height: 50px;
                     }
                     @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
-                        line-height: 36px;
+                        line-height: 50px;
                         margin-bottom: rem(30);
                     }
                 }
@@ -651,7 +614,7 @@
                         font-size: 50px;
                         font-weight: 700;
                         letter-spacing: -0.4px;
-                        line-height: 36px;
+                        line-height: 50px;
                         margin-bottom: rem(40);
                     }
                 }
@@ -751,13 +714,13 @@
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
                     @media #{$smm}{
-                        font-size: 60px;
-                        line-height: 80px;
+                        font-size: 25px;
+                        line-height: 35px;
                     }
                     @media #{$xl} {
                         font-size: 50px;
                         letter-spacing: -0.4px;
-                        line-height: 36px;
+                        line-height: 50px;
                         margin-bottom: rem(60);
                     }
                 }
@@ -797,40 +760,6 @@
                             display: flex;
                             flex-wrap: wrap;
                         }
-                        // .banner__inputs{
-                        //     input {
-                        //         color: rgba(0, 0, 0, 0.45);
-                        //         font-family: Aeonik;
-                        //         font-size: 15.36px;
-                        //         padding: rem(6.8) rem(8.3);
-                        //         font-weight: 300;
-                        //         letter-spacing: -0.14px;
-                        //         line-height: 18px;
-                        //         width: 100%;
-                        //         background-color: #FFFFFF;
-                        //         border-radius: 3.2px;
-                        //         outline: 0;
-                        //         border: 0;
-                        //         margin-bottom: rem(6.36);
-                        //         @media #{$smm}{
-                        //             font-size: 18px;
-                        //             line-height: 29px;
-                        //         }
-                        //         @media #{$xl} {
-                        //             min-width: 300px;
-                        //             max-width: 300px;
-                        //             padding: rem(13) rem(15);
-                        //             font-size: 24px;
-                        //             font-weight: 300;
-                        //             letter-spacing: -0.21px;
-                        //             line-height: 29px;
-                        //             margin-right: rem(30);
-                        //             border-radius: 5px;
-                        //             margin-bottom: rem(0);
-                        //         }
-                        //     }
-
-                        // }
                     }
                     .btn{
                         margin-bottom: rem(35.75);
