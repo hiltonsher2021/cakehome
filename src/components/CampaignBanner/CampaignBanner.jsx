@@ -274,10 +274,6 @@ const CampaignBanner = (data) => {
     }
   }
 
-  // const checkIfThreePercent = () =>{
-
-  // }
-
   const validateZipcode = (data) => {
     if (data?.length === 5) {
       fetchValidZipcode(data)
@@ -642,7 +638,7 @@ const CampaignBanner = (data) => {
         {currentPage?.pageNo === 4 && (
           <>
             <div
-              className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`} // hide second heading for reinfinance
+              className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`}
             >
               <div className="container">
                 <div className="banner__hero">
@@ -661,9 +657,12 @@ const CampaignBanner = (data) => {
                     {data?.mobDescription?.mobDescription}
                   </h2>
                 </div>
-                <div className="banner__content d-desktop">
-                  <h2>{data?.description?.description}</h2>
-                </div>
+                {type === 'purchase' && (
+                  <div className="banner__content d-desktop">
+                    <h2>{data?.description?.description}</h2>
+                  </div>
+                )}
+
                 <div className="banner__form">
                   <div className="banner__form-fields">
                     <div className="banner__select">
