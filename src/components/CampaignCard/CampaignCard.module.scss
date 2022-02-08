@@ -28,7 +28,7 @@
       }
       h2 {
           font-family: $aeonik;
-          color: #414042;
+          color: $textdark;
           font-size: 30px;
           font-weight: bold;
           letter-spacing: -0.26px;
@@ -37,10 +37,9 @@
           @media #{$smm}{
             font-size: 45px;
             line-height: rem(45);
+            text-align: center;
           }
-          text-align: center;
           @media #{$xl} {
-            color: #414042;
             font-size: 80px;
             letter-spacing: -0.91px;
             line-height: 80px;
@@ -80,7 +79,7 @@
         }
       }
       .slick-prev:before, .slick-next:before{
-        color: #000;
+        color: $textdark;
         background-image: url('/images/campaign-slider-prev.svg');
         width: rem(40);
         height: rem(40);
@@ -122,7 +121,7 @@
           &.slick-active {
             button {
               &::before {
-                color: #121212;
+                color: $textdark;
               }
             }
           }
@@ -191,7 +190,7 @@
       }
     }
     .TestimonialCard__footer .left-side p{
-      color: #121212!important;
+      color: $textdark!important;
     }
   }
   &:global(.purchase) {

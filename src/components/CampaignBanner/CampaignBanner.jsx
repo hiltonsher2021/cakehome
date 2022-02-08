@@ -95,36 +95,6 @@ const CampaignBanner = (data) => {
     pageOrder = pageOrderData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
-<<<<<<< HEAD
-    const reorderPageData = pageOrderData;
-    pageOrderData.map((item) => {
-      if(item.pageNo === 4 && type === 'refinance' && pageOrderData.length === 6) {
-        pageOrderData.splice(5, 1)
-        //pop()
-        return item
-      } else if(item.pageNo === 6 && type === 'purchase' && pageOrderData.length === 6) {
-        pageOrderData.splice(3, 1)
-      }
-      else {
-        return item
-      }
-    })
-
-  if(type === 'purchase') {
-    let testValue = pageOrderData.pop();
-    pageOrderData.splice(3, 0, testValue)
-  }
-
-
-
-    // const dummyData = pageDetails(filterData, data?.pagesTotal)
-    // slugOrder = reorderPageData?.sort(function (a, b) {
-    //   return a.pageNo - b.pageNo
-    // })
-
-
-    slugOrder = pageOrderData;
-=======
     const reorderPageData = pageOrderData
     pageOrderData.map((item) => {
       if (
@@ -152,7 +122,6 @@ const CampaignBanner = (data) => {
     }
 
     slugOrder = pageOrderData
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
     currentPageData = slugOrder?.filter((item) => {
       if (data?.childSlug === item?.childSlug) {
         return item
@@ -475,11 +444,7 @@ const CampaignBanner = (data) => {
           currentPage?.pageNo !== 3 &&
           currentPage?.pageNo !== 4 &&
           currentPage?.pageNo !== 5 &&
-<<<<<<< HEAD
-          currentPage?.pageNo !== 6 &&  (
-=======
           currentPage?.pageNo !== 6 && (
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
             <>
               <div className="slide-1">
                 <div className="container">
@@ -606,11 +571,7 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
-<<<<<<< HEAD
-                    {data?.body}
-=======
                     {data?.mobBody}
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                   </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h2 className="d-mob">
@@ -709,12 +670,8 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
-<<<<<<< HEAD
-        {(currentPage?.pageNo === 4 && type === 'refinance' || currentPage?.pageNo === 6 && type === 'purchase' ) && (
-=======
         {((currentPage?.pageNo === 4 && type === 'refinance') ||
           (currentPage?.pageNo === 6 && type === 'purchase')) && (
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
           <>
             <div
               className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`}
@@ -725,14 +682,6 @@ const CampaignBanner = (data) => {
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
                     {data?.mobBody}
-<<<<<<< HEAD
-                  </h1>
-
-                  <h1 className="d-desktop">
-                    {data?.title} {firstName ? ` ${firstName}` : ''}
-                    {data?.body}
-                  </h1>
-=======
                   </h1>
                   {type === 'refinance' && (
                     <h1 className="d-desktop">{data?.title}</h1>
@@ -744,7 +693,6 @@ const CampaignBanner = (data) => {
                       {data?.body}
                     </h1>
                   )}
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
 
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -908,11 +856,7 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
-<<<<<<< HEAD
-                    {data?.body}
-=======
                     {data?.mobBody}
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                   </h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
