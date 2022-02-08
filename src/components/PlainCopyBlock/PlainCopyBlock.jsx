@@ -5,9 +5,9 @@ import CtaBig from 'components/CtaBig/CtaBig'
 
 const PlainCopyBlock = (data) => {
   let modeledData
-  let filterData;
+  let filterData
   const showCalculator = (e) => {
-    data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase');
+    data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
   }
 
   if (data && data?.handle !== 'articleDetails') {
@@ -19,8 +19,9 @@ const PlainCopyBlock = (data) => {
         break
       case 'homepage':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle === '6' && data?.sectionValue === '6') {return item}
-          else if (item.handle === '10' && data?.sectionValue === '2'){
+          if (item.handle === '6' && data?.sectionValue === '6') {
+            return item
+          } else if (item.handle === '10' && data?.sectionValue === '2') {
             return item
           }
         })
@@ -37,8 +38,9 @@ const PlainCopyBlock = (data) => {
         break
       case 'toolsadvice':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('5') && data?.sectionValue === '6') {return item}
-          else if (item.handle.includes('9') && data?.sectionValue === '2'){
+          if (item.handle.includes('5') && data?.sectionValue === '6') {
+            return item
+          } else if (item.handle.includes('9') && data?.sectionValue === '2') {
             return item
           }
         })
@@ -46,6 +48,11 @@ const PlainCopyBlock = (data) => {
       case 'aboutcake':
         filterData = data.sectionData.filter((item) => {
           if (item.handle.includes('5')) return item
+        })
+        break
+      case 'getstarted':
+        filterData = data.sectionData.filter((item) => {
+          if (item.handle.includes('2-getstarted')) return item
         })
         break
     }
@@ -60,20 +67,32 @@ const PlainCopyBlock = (data) => {
     >
       <div className="container">
         <div className="PlainCopyBlock__wrap">
-          {(modeledData?.mainTitle && data?.handle !== 'toolsadvice') && <h2>{modeledData?.mainTitle}</h2>}
+          {modeledData?.mainTitle && data?.handle !== 'toolsadvice' && (
+            <h2>{modeledData?.mainTitle}</h2>
+          )}
           {data?.dataSection?.title && <h2>{data?.dataSection?.title}</h2>}
-          {(data?.handle === 'homepage' || data?.handle === 'aboutcake') &&
-          <p className="copy">{modeledData?.subTitle?.subTitle}</p>}
-          {data?.handle === 'toolsadvice' &&
-          <>
-          <h2>
-            <a className="dskt-res" href={modeledData?.ctaLink}>
-              {modeledData?.mainTitle}
-            </a>
-          </h2>
-          <h5 className="copy">{modeledData?.subTitle?.subTitle}</h5>
-          </>}
 
+{/* add style to h3 - section below */}
+          {data?.handle === 'getstarted' && (
+            <h3>{modeledData?.description?.description}</h3>
+          )}
+
+
+          {(data?.handle === 'homepage' ||
+            data?.handle === 'aboutcake' ||
+            data?.handle === 'getstarted') && (
+            <p className="copy">{modeledData?.subTitle?.subTitle}</p>
+          )}
+          {data?.handle === 'toolsadvice' && (
+            <>
+              <h2>
+                <a className="dskt-res" href={modeledData?.ctaLink}>
+                  {modeledData?.mainTitle}
+                </a>
+              </h2>
+              <h5 className="copy">{modeledData?.subTitle?.subTitle}</h5>
+            </>
+          )}
         </div>
         {modeledData?.ctaText && (
           <div className="PlainCopyBlock__cta-wrapper" onClick={showCalculator}>

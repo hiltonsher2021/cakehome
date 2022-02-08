@@ -7,7 +7,7 @@ import { Link } from 'gatsby'
 const isBrowser = typeof window !== 'undefined'
 
 const RateCard = (data) => {
-  let cardData = data.value;
+  let cardData = data.value
 
   // on viewport slotmachine animation
   let flg = true
@@ -29,39 +29,39 @@ const RateCard = (data) => {
       //   page: 1
       // },
     }).then((response) => {
-        response?.data?.data.filter((item) => {
-          if (item?.job === 1) {
-            responsePurchaseData = item
-          } else {
-            responseRefinanceData = item
-          }
-        })
-        parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
-        parseDataPurchase = JSON.parse(responsePurchaseData?.json_response)
-        setApiResponseForPurchase(parseDataPurchase)
-        setApiResponseForRefinance(parseDataRefinance)
-        if (cardData?.title === 'Purchase') {
-          parseDataPurchase?.products?.map((item) => {
-            if (item?.loanTerm === '30' && tabSectionValue === 'apr') {
-              let formatNumber = Number(item?.apr).toFixed(3)
-              setValue(formatNumber.toString())
-            } else if (item?.loanTerm === '30' && tabSectionValue === 'rate') {
-              let formatNumberRate = Number(item?.rate).toFixed(3)
-              setValue(formatNumberRate.toString())
-            }
-          })
+      response?.data?.data.filter((item) => {
+        if (item?.job === 1) {
+          responsePurchaseData = item
         } else {
-          parseDataRefinance?.products?.map((item) => {
-            if (item.loanTerm === '10' && tabSectionValue === 'apr') {
-              let formatNumber = Number(item?.apr).toFixed(3)
-              setValue(formatNumber.toString())
-            } else if (item.loanTerm === '10' && tabSectionValue === 'rate') {
-              let formatNumberRate = Number(item?.rate).toFixed(3)
-              setValue(formatNumberRate.toString())
-            }
-          })
+          responseRefinanceData = item
         }
       })
+      parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
+      parseDataPurchase = JSON.parse(responsePurchaseData?.json_response)
+      setApiResponseForPurchase(parseDataPurchase)
+      setApiResponseForRefinance(parseDataRefinance)
+      if (cardData?.title === 'Purchase') {
+        parseDataPurchase?.products?.map((item) => {
+          if (item?.loanTerm === '30' && tabSectionValue === 'apr') {
+            let formatNumber = Number(item?.apr).toFixed(3)
+            setValue(formatNumber.toString())
+          } else if (item?.loanTerm === '30' && tabSectionValue === 'rate') {
+            let formatNumberRate = Number(item?.rate).toFixed(3)
+            setValue(formatNumberRate.toString())
+          }
+        })
+      } else {
+        parseDataRefinance?.products?.map((item) => {
+          if (item.loanTerm === '10' && tabSectionValue === 'apr') {
+            let formatNumber = Number(item?.apr).toFixed(3)
+            setValue(formatNumber.toString())
+          } else if (item.loanTerm === '10' && tabSectionValue === 'rate') {
+            let formatNumberRate = Number(item?.rate).toFixed(3)
+            setValue(formatNumberRate.toString())
+          }
+        })
+      }
+    })
   }, [])
 
   useEffect(() => {
@@ -78,27 +78,27 @@ const RateCard = (data) => {
 
   const setValues = (year) => {
     setTab(year)
-        if (cardData?.title === 'Purchase') {
-          apiResponseForPurchase?.products?.map((item) => {
-            if (item?.loanTerm === year && tabSectionValue === 'apr') {
-              let formatNumber = Number(item?.apr).toFixed(3)
-              setValue(formatNumber.toString())
-            } else if (item?.loanTerm === year && tabSectionValue === 'rate') {
-              let formatNumberRate = Number(item?.rate).toFixed(3)
-              setValue(formatNumberRate.toString())
-            }
-          })
-        } else {
-          apiResponseForRefinance?.products?.map((item) => {
-            if (item.loanTerm === year && tabSectionValue === 'apr') {
-              let formatNumber = Number(item?.apr).toFixed(3)
-              setValue(formatNumber.toString())
-            } else if (item.loanTerm === year && tabSectionValue === 'rate') {
-              let formatNumberRate = Number(item?.rate).toFixed(3)
-              setValue(formatNumberRate.toString())
-            }
-          })
+    if (cardData?.title === 'Purchase') {
+      apiResponseForPurchase?.products?.map((item) => {
+        if (item?.loanTerm === year && tabSectionValue === 'apr') {
+          let formatNumber = Number(item?.apr).toFixed(3)
+          setValue(formatNumber.toString())
+        } else if (item?.loanTerm === year && tabSectionValue === 'rate') {
+          let formatNumberRate = Number(item?.rate).toFixed(3)
+          setValue(formatNumberRate.toString())
         }
+      })
+    } else {
+      apiResponseForRefinance?.products?.map((item) => {
+        if (item.loanTerm === year && tabSectionValue === 'apr') {
+          let formatNumber = Number(item?.apr).toFixed(3)
+          setValue(formatNumber.toString())
+        } else if (item.loanTerm === year && tabSectionValue === 'rate') {
+          let formatNumberRate = Number(item?.rate).toFixed(3)
+          setValue(formatNumberRate.toString())
+        }
+      })
+    }
   }
 
   const updateCounter = (value) => {
@@ -140,74 +140,73 @@ const RateCard = (data) => {
     <div>
       <div
         className={`${styles.RateCard} ${
-          cardData.title == 'Purchase' ? 'orange' : 'purple'
+          cardData?.title.includes('Purchase') ? 'orange' : 'purple'
         }`}
       >
         <h2 className="title">{cardData?.title}</h2>
-        <div className="tab-wrapper">
-          <button
-            className={`tab-btn ${tabSectionValue === 'rate' ? 'active' : ''}`}
-            onClick={() => setSection('rate')}
-          >
-            RATE
-          </button>
-          <button
-            className={`tab-btn ${tabSectionValue === 'apr' ? 'active' : ''}`}
-            onClick={() => setSection('apr')}
-          >
-            APR
-          </button>
-        </div>
-        <div className="rate-wrapper">
-          <span
-            className={`rate jsAnimRate`}
-            id={`jsAnimRate${
-              cardData.title == 'Purchase' ? 'orange' : 'purple'
-            }`}
-          >
-            <Reel text={rateValue} />
-          </span>
-          <span className="right-side">
-            <em>%</em>
-            <span>
-              {tabSectionValue}
-              {/* <sup>1</sup> */}
-            </span>
-          </span>
-        </div>
-        <div className="year-wrapper">
-          <button
-            className={`choose-year ${tabValue === '30' ? 'active' : ''}`}
-            onClick={() => setValues('30')}
-          >
-            30 yr Fixed
-          </button>
-          <button
-            className={`choose-year ${tabValue === '20' ? 'active' : ''}`}
-            onClick={() => setValues('20')}
-          >
-            20 yr Fixed
-          </button>
-          <button
-            className={`choose-year ${tabValue === '15' ? 'active' : ''}`}
-            onClick={() => setValues('15')}
-          >
-            15 yr Fixed
-          </button>
-          <button
-            className={`choose-year ${tabValue === '10' ? 'active' : ''}`}
-            onClick={() => setValues('10')}
-          >
-            10 yr Fixed
-          </button>
-        </div>
-        {/* <p className="rate-details">
-          Delectus officiis provident fuga debitis porro sint id unde in. Et
-          veritatis consequatur beatae eius ut temporibus. Nemo accusantium aut
-          iure ut aut aut aut.
-        </p> */}
-        {/* <a className="btn dark dark--lg" href="#"> */}
-        {/* </a> */}
+        {data?.handle !== 'getstarted' && (
+          <>
+            <div className="tab-wrapper">
+              <button
+                className={`tab-btn ${
+                  tabSectionValue === 'rate' ? 'active' : ''
+                }`}
+                onClick={() => setSection('rate')}
+              >
+                RATE
+              </button>
+              <button
+                className={`tab-btn ${
+                  tabSectionValue === 'apr' ? 'active' : ''
+                }`}
+                onClick={() => setSection('apr')}
+              >
+                APR
+              </button>
+            </div>
+            <div className="rate-wrapper">
+              <span
+                className={`rate jsAnimRate`}
+                id={`jsAnimRate${
+                  cardData.title == 'Purchase' ? 'orange' : 'purple'
+                }`}
+              >
+                <Reel text={rateValue} />
+              </span>
+              <span className="right-side">
+                <em>%</em>
+                <span>{tabSectionValue}</span>
+              </span>
+            </div>
+            <div className="year-wrapper">
+              <button
+                className={`choose-year ${tabValue === '30' ? 'active' : ''}`}
+                onClick={() => setValues('30')}
+              >
+                30 yr Fixed
+              </button>
+              <button
+                className={`choose-year ${tabValue === '20' ? 'active' : ''}`}
+                onClick={() => setValues('20')}
+              >
+                20 yr Fixed
+              </button>
+              <button
+                className={`choose-year ${tabValue === '15' ? 'active' : ''}`}
+                onClick={() => setValues('15')}
+              >
+                15 yr Fixed
+              </button>
+              <button
+                className={`choose-year ${tabValue === '10' ? 'active' : ''}`}
+                onClick={() => setValues('10')}
+              >
+                10 yr Fixed
+              </button>
+            </div>
+          </>
+        )}
+
         <button
           title={data?.value?.ctaText}
           className="menu-item btn dark"
@@ -215,13 +214,19 @@ const RateCard = (data) => {
         >
           {data?.value?.ctaText}
         </button>
-        <p className="rate-details small">
-          <a href="/terms-conditions">
-            <sup>*</sup> <Link to="/disclosure" title="Disclosure">
+
+        {data?.handle !== 'getstarted' && (
+          <>
+            <p className="rate-details small">
+              <a href="/terms-conditions">
+                <sup>*</sup>{' '}
+                <Link to="/disclosure" title="Disclosure">
                   Disclosure
                 </Link>
-          </a>
-        </p>
+              </a>
+            </p>
+          </>
+        )}
       </div>
     </div>
   )

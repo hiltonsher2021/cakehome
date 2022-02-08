@@ -7,6 +7,7 @@ import HowItWorks from 'components/HowItWorks/HowItWorks'
 import ContactUsGlobal from 'components/ContactUsGlobal/ContactUsGlobal'
 import SEO from 'components/seo';
 import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
+import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
 
 const propTypes = {
   data: PropTypes.object,
@@ -35,7 +36,11 @@ const GetStarted = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
-
+        />
+        <PlainCopyBlock
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          sectionValue="2"
         />
         <div
           className="PersonalizeModal"
