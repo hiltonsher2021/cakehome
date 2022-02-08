@@ -36,6 +36,7 @@ export const query = graphql`
         mobDescription {
           mobDescription
         }
+        mobBody
         body
         mobTitle
         description {

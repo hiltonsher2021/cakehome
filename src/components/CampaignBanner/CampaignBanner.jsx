@@ -95,6 +95,7 @@ const CampaignBanner = (data) => {
     pageOrder = pageOrderData?.sort(function (a, b) {
       return a.pageNo - b.pageNo
     })
+<<<<<<< HEAD
     const reorderPageData = pageOrderData;
     pageOrderData.map((item) => {
       if(item.pageNo === 4 && type === 'refinance' && pageOrderData.length === 6) {
@@ -123,6 +124,35 @@ const CampaignBanner = (data) => {
 
 
     slugOrder = pageOrderData;
+=======
+    const reorderPageData = pageOrderData
+    pageOrderData.map((item) => {
+      if (
+        item.pageNo === 4 &&
+        type === 'refinance' &&
+        pageOrderData.length === 6
+      ) {
+        pageOrderData.splice(5, 1)
+        //pop()
+        return item
+      } else if (
+        item.pageNo === 6 &&
+        type === 'purchase' &&
+        pageOrderData.length === 6
+      ) {
+        pageOrderData.splice(3, 1)
+      } else {
+        return item
+      }
+    })
+
+    if (type === 'purchase') {
+      let testValue = pageOrderData.pop()
+      pageOrderData.splice(3, 0, testValue)
+    }
+
+    slugOrder = pageOrderData
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
     currentPageData = slugOrder?.filter((item) => {
       if (data?.childSlug === item?.childSlug) {
         return item
@@ -133,6 +163,12 @@ const CampaignBanner = (data) => {
       if ((currentPage?.pageNo + 1 === index + 1) && currentPage?.pageNo !== 5) {
         return item
       } else if(currentPage?.pageNo !== 5 && currentPage?.pageNo === 6 && index + 1 === 5) {
+        return item
+      } else if (
+        currentPage?.pageNo !== 5 &&
+        currentPage?.pageNo === 6 &&
+        index + 1 === 5
+      ) {
         return item
       } else if (currentPage?.pageNo === 5 && index + 1 === 4) {
         return item
@@ -228,6 +264,7 @@ const CampaignBanner = (data) => {
       setValuesStorage('downPayment', numConv)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
+      setValuesStorage('downPayment', numConv)
     } else {
       let nf = new Intl.NumberFormat('en-US')
       let test = nf.format(value)
@@ -235,6 +272,7 @@ const CampaignBanner = (data) => {
       setValuesStorage('downPayment', numConv || 0)
       setValuesStorage('currentBalValue', test)
       setCurLoanBalValue(test)
+      setValuesStorage('downPayment', numConv)
     }
   }
 
@@ -437,7 +475,11 @@ const CampaignBanner = (data) => {
           currentPage?.pageNo !== 3 &&
           currentPage?.pageNo !== 4 &&
           currentPage?.pageNo !== 5 &&
+<<<<<<< HEAD
           currentPage?.pageNo !== 6 &&  (
+=======
+          currentPage?.pageNo !== 6 && (
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
             <>
               <div className="slide-1">
                 <div className="container">
@@ -564,7 +606,11 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
+<<<<<<< HEAD
                     {data?.body}
+=======
+                    {data?.mobBody}
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                   </h1>
                   <h1 className="d-desktop">{data?.title}</h1>
                   <h2 className="d-mob">
@@ -663,7 +709,12 @@ const CampaignBanner = (data) => {
             </div>
           </>
         )}
+<<<<<<< HEAD
         {(currentPage?.pageNo === 4 && type === 'refinance' || currentPage?.pageNo === 6 && type === 'purchase' ) && (
+=======
+        {((currentPage?.pageNo === 4 && type === 'refinance') ||
+          (currentPage?.pageNo === 6 && type === 'purchase')) && (
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
           <>
             <div
               className={`slide-4 ${type === 'purchase' ? 'isPurchase' : ''}`}
@@ -674,12 +725,26 @@ const CampaignBanner = (data) => {
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
                     {data?.mobBody}
+<<<<<<< HEAD
                   </h1>
 
                   <h1 className="d-desktop">
                     {data?.title} {firstName ? ` ${firstName}` : ''}
                     {data?.body}
                   </h1>
+=======
+                  </h1>
+                  {type === 'refinance' && (
+                    <h1 className="d-desktop">{data?.title}</h1>
+                  )}
+
+                  {type === 'purchase' && (
+                    <h1 className="d-desktop">
+                      {data?.title} {firstName ? ` ${firstName}` : ''}
+                      {data?.body}
+                    </h1>
+                  )}
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
 
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -843,7 +908,11 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobTitle}
                     {firstName ? ` ${firstName}` : ''}
+<<<<<<< HEAD
                     {data?.body}
+=======
+                    {data?.mobBody}
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                   </h1>
                   <h2 className="d-mob">
                     {data?.mobDescription?.mobDescription}
@@ -915,6 +984,18 @@ const CampaignBanner = (data) => {
                         ? ''
                         : 'dis-btn'
                     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0eaaceb (Added refinance/ home purchase changes)
+
+
+=======
+>>>>>>> 5b7ca1c (Minor issue fixes)
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                     ${
                       type === 'refinance'
                         ? propertyValue < currentLoanBal + cashOut ||

@@ -87,6 +87,7 @@ const PersonalizeRateBlock = (data) => {
       propertyType
     + '&isAutoClick=1&target=_blank'
     setUrlValue(url)
+    // console.log(url, 'main url')
   }
 
   function onlyNumberKey(evt) {
@@ -103,7 +104,6 @@ const PersonalizeRateBlock = (data) => {
     onlyNumberKey(event)
     let numConv
     var testVal = value[0] || value
-
     if (isInputValueChange && value !== 0 && value[0] !== '' && value !== []) {
       numConv = testVal.replace(/\,/g, '')
       numConv = parseInt(numConv, 10)
