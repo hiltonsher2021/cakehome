@@ -41,7 +41,7 @@
                      
                     }
                     .text-wrapper{
-                        color: #121212;
+                        color: $textdark;
                         font-size: 11.9px;
                         font-weight: 700;
                         letter-spacing: 0;
@@ -84,7 +84,7 @@
                             font-weight: 700;
                             letter-spacing: 0;
                             line-height: 17.5px;
-                              color: #414042;
+                            color: $textdark;
                             @media #{$md}{
                                 font-size: 30.6px;
                                 line-height: 45px;
@@ -128,7 +128,7 @@
                 max-width: rem(681);
                 margin: 0 auto;
                 h1{
-                    color: #414042;
+                    color: $textdark;
                     font-size: 31px;
                     font-weight: 700;
                     letter-spacing: -0.56px;
@@ -144,7 +144,6 @@
                         font-size: 80px;
                         letter-spacing: 3.33px;
                         line-height: 66px;
-                        color: #121212;
                         margin-bottom: rem(51);
                     }
                 }
@@ -158,7 +157,7 @@
                         margin-bottom: rem(24); 
                     }
                     h2{
-                        color: #414042;
+                        color: $textdark;
                         font-size: 16px;
                         font-weight: 700;
                         letter-spacing: 0;
@@ -168,7 +167,6 @@
                             font-size: 21px;
                         }
                         @media #{$md}{
-                            color: #121212;
                             font-size: 24px;
                             letter-spacing: 0;
                             line-height: 25px;
@@ -204,7 +202,7 @@
                 textarea{
                 border-radius: 5px;
                 background-color: rgba(18,18,18,0.05);
-                color: rgba(0,0,0,0.45);
+                color: $textdark;
                 font-family: Aeonik;
                 font-size: 17px;
                 letter-spacing: 0;
