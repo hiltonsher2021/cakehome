@@ -250,6 +250,7 @@
         padding: rem(90) rem(108) rem(125) rem(107);
     }
     h2{
+        line-height: rem(39);
         margin-bottom: rem(44);
         @media #{$md}{
         color:$textdark;
