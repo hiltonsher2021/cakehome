@@ -54,4 +54,17 @@
       }
     }
   }
+  &:global(.isGetstarted-item) {
+    @media #{$sm} {
+      ul {
+        max-width: none;
+      }
+    }
+    @media #{$md} {
+      ul {
+        max-width: rem(250);
+      }
+    }
+
+}
 }
