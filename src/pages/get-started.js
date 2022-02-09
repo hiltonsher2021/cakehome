@@ -19,7 +19,8 @@ const GetStarted = ({ data }) => {
   const [tabSelection, changeTabSelection] = useState('')
 
   const showModal = (value) => {
-    changeTabSelection(value)
+    let dataValue = value.includes('purchase') ? 'purchase' : 'refinance';
+    changeTabSelection(dataValue)
     changeModalValue(true)
   }
   const closeModal = (e) => {
