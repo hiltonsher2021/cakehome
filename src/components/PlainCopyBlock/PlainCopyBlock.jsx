@@ -64,8 +64,9 @@ const PlainCopyBlock = (data) => {
     <div
       className={`${styles.PlainCopyBlock} ${
         modeledData?.backgroundColour === 'green' ? 'green' : ''
-      } ${data?.className} isGetstarted-plain`}
-      // new class added
+      } ${data?.className} ${
+        data?.handle === 'getstarted' ? 'isGetstarted-plain' : ''
+      }`}
     >
       <div className="container">
         <div className="PlainCopyBlock__wrap">
@@ -74,11 +75,9 @@ const PlainCopyBlock = (data) => {
           )}
           {data?.dataSection?.title && <h2>{data?.dataSection?.title}</h2>}
 
-{/* add style to h3 - section below */}
           {data?.handle === 'getstarted' && (
             <h3>{modeledData?.description?.description}</h3>
           )}
-
 
           {(data?.handle === 'homepage' ||
             data?.handle === 'aboutcake' ||

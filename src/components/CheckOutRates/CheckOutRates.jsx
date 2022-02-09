@@ -37,8 +37,11 @@ const CheckOutRates = (data) => {
   }
 
   return (
-    <div className={`${styles.CheckOutRates} isGetstarted-rate `}>
-      {/* // new class name */}
+    <div
+      className={`${styles.CheckOutRates} ${
+        data?.handle === 'getstarted' ? 'isGetstarted-rate' : ''
+      }`}
+    >
       <div className="container">
         {data?.handle !== 'getstarted' && (
           <>
@@ -52,7 +55,11 @@ const CheckOutRates = (data) => {
             return (
               <div className="rate-card-hold" key={index}>
                 <ImageTransform options={ImageTransformoptions}>
-                  <RateCard value={item} setCounter={setCounter} handle={data?.handle} />
+                  <RateCard
+                    value={item}
+                    setCounter={setCounter}
+                    handle={data?.handle}
+                  />
                 </ImageTransform>
               </div>
             )
