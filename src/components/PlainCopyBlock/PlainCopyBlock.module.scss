@@ -166,7 +166,6 @@
     }
   }
   &:global(.isGetstarted-plain) {
- 
     @media #{$xl}{
       padding: rem(147) 0 0;
     }
@@ -182,13 +181,14 @@
           }
         }
         h3{
+          text-align: center;
+          color: $textdark;
           @media #{$xl}{
             font-size: 60px;
             font-weight: 700;
             letter-spacing: 2px;
             line-height: 53px;
             margin-bottom: rem(30);
-            color: $textdark;
           }
         }
         p{

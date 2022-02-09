@@ -246,10 +246,11 @@
     }
   }
   &:global(.isRate-card) {
-    @media #{$md}{
+    @media #{$xl}{
         padding: rem(90) rem(108) rem(125) rem(107);
     }
     h2{
+        margin-bottom: rem(44);
         @media #{$md}{
         color:$textdark;
         font-size: 70px;
@@ -260,14 +261,18 @@
         }
     }
     button{
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.45px;
+            line-height: 30px;
+            width: auto;
         @media #{$md}{
             color: #FFFFFF;
             font-size: 25.5px;
-            font-weight: bold;
             letter-spacing: 0.45px;
             line-height: 75px;
             min-width: rem(354.5);
-            margin: 0;
+            margin: 0 auto;
         }
        
     }
