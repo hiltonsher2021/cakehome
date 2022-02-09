@@ -52,6 +52,7 @@ const PlainCopyBlock = (data) => {
         break
       case 'getstarted':
         filterData = data.sectionData.filter((item) => {
+          // 2-getstarted
           if (item.handle.includes('2-getstarted')) return item
         })
         break
