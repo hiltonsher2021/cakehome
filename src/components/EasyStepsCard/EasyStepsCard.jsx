@@ -89,12 +89,14 @@ const EasyStepsCard = (data) => {
                 </div>
               </div>
             </div>
-            <p
-              className="copy mob"
-              style={{ display: index !== 0 ? 'none' : '' }}
-            >
-              {data?.description}
-            </p>
+            {data?.handle !== 'getstarted' && (
+              <p
+                className="copy mob"
+                style={{ display: index !== 0 ? 'none' : '' }}
+              >
+                {data?.description}
+              </p>
+            )}
           </div>
         )
       })}
