@@ -1,70 +1,60 @@
 @import 'styles/global.scss';
-
 .EasyStepsItem {
-  text-align: center;
-  :global {
-    .EasyStepsItem__figure {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: rem(105);
-        height: rem(105);
-        margin: 0 auto rem(8);
-        .gatsby-image-wrapper, img {
-            max-width: 100%;
-            max-height: 100%;
+    text-align: center;
+     :global {
+        .EasyStepsItem__figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: rem(105);
+            height: rem(105);
+            margin: 0 auto rem(8);
+            .gatsby-image-wrapper,
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        h2 {
+            font-family: $aeonik;
+            font-weight: bold;
+            font-size: rem(25);
+            line-height: rem(30);
+            letter-spacing: rem(-0.2);
+            text-align: center;
+            color: $textdark;
+            margin: 0 0 rem(15);
+        }
+        p,
+        li {
+            font-family: $aeonik;
+            font-size: rem(17);
+            font-weight: 400;
+            line-height: rem(25);
+            color: $textdark;
+            margin: 0 auto !important;
+            text-align: center;
+            max-width: rem(215);
+            @media #{$md} {
+                max-width: 100%;
+            }
+        }
+        ul {
+            max-width: rem(250);
+            margin: 0 auto;
+            li {
+                text-align: left;
+                list-style: disc;
+            }
         }
     }
-    h2 {
-        font-family: $aeonik;
-        font-weight: bold;
-        font-size: rem(25);
-        line-height: rem(30);
-        letter-spacing: rem(-0.2);
-        text-align: center;
-        color: $textdark;
-        margin: 0 0 rem(15);
-    }
-    p, li {
-        font-family: $aeonik;
-        font-size: rem(17);
-        font-weight: 400;
-        line-height: rem(25);
-        color: $textdark;
-        margin: 0 auto !important;
-        text-align: center;
-        max-width: rem(215);
-        @media #{$md} {
-            max-width: 100%;
+    &:global(.light) {
+         :global {
+            h2,
+            p,
+            li {
+                color: white;
+            }
         }
     }
-    ul {
-      max-width: rem(250);
-      margin: 0 auto;
-      li {
-        text-align: left;
-        list-style: disc;
-      }
-    }
-  }
-  &:global(.light) {
-    :global {
-      h2, p, li {
-          color: white;
-      }
-    }
-  }
-  &:global(.isGetstarted-item) {
-    @media #{$sm} {
-      ul {
-        max-width: none;
-      }
-    }
-    @media #{$md} {
-      ul {
-        max-width: rem(250);
-      }
-    }
-
-}
 }

@@ -12,7 +12,7 @@ const EasyStepsItem = (data) => {
     <div
       className={`${styles.EasyStepsItem} ${
         data?.indexValue === 0 ? 'dark' : 'light'
-      } isGetstarted-item`}
+      }`}
     >
       <figure className="EasyStepsItem__figure">
         <GatsbyImage
