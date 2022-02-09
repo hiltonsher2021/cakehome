@@ -29,7 +29,7 @@ const HowItWorks = (data) => {
   return (
     <div
       className={`${styles.HowItWorks} ${
-        data?.handle === 'getstarted' ? 'isgerstarted-works' : ''
+        data?.handle === 'getstarted' ? 'isGetstarted-works' : ''
       } `}
     >
       <div className="container container--sm">

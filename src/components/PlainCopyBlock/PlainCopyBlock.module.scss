@@ -171,6 +171,9 @@
     }
     :global {
       .PlainCopyBlock__wrap{
+        @media #{$xl}{
+          max-width: rem(1064);
+        }
         h2{
           @media #{$xl}{
             font-size: 60px;
