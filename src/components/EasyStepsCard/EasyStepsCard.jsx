@@ -64,7 +64,8 @@ const EasyStepsCard = (data) => {
               id="EasyStepsCard"
               className={`${styles.EasyStepsCard} ${
                 index === 0 ? 'purple' : 'orange'
-              }`}
+              } isGetstarted-easy`}
+              // new class here
             >
               <div className="EasyStepsCard__wrap">
                 <Plx

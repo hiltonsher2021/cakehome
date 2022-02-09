@@ -37,7 +37,8 @@ const CheckOutRates = (data) => {
   }
 
   return (
-    <div className={`${styles.CheckOutRates}`}>
+    <div className={`${styles.CheckOutRates} isGetstarted-rate `}>
+      {/* // new class name */}
       <div className="container">
         {data?.handle !== 'getstarted' && (
           <>

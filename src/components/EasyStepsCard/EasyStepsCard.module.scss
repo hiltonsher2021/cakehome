@@ -61,4 +61,9 @@
         }
       }
   }
+  &:global(.isGetstarted-easy) {
+    @media #{$md}{
+        margin-bottom: rem(100);
+    }
+}
 }

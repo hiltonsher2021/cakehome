@@ -165,4 +165,42 @@
       }
     }
   }
-}
+  &:global(.isGetstarted-plain) {
+ 
+    @media #{$xl}{
+      padding: rem(147) 0 0;
+    }
+    :global {
+      .PlainCopyBlock__wrap{
+        h2{
+          @media #{$xl}{
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 53px;
+            margin-bottom: rem(30);
+          }
+        }
+        h3{
+          @media #{$xl}{
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 53px;
+            margin-bottom: rem(30);
+            color: $textdark;
+          }
+        }
+        p{
+          @media #{$xl}{
+            color: #121212;
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+    }
+  }
+

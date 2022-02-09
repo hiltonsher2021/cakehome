@@ -64,7 +64,8 @@ const PlainCopyBlock = (data) => {
     <div
       className={`${styles.PlainCopyBlock} ${
         modeledData?.backgroundColour === 'green' ? 'green' : ''
-      } ${data?.className}`}
+      } ${data?.className} isGetstarted-plain`}
+      // new class added
     >
       <div className="container">
         <div className="PlainCopyBlock__wrap">

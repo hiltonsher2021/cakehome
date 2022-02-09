@@ -141,8 +141,9 @@ const RateCard = (data) => {
       <div
         className={`${styles.RateCard} ${
           cardData?.title.includes('Purchase') ? 'orange' : 'purple'
-        }`}
+        } isRate-card`}
       >
+        {/* rate card new class */}
         <h2 className="title">{cardData?.title}</h2>
         {data?.handle !== 'getstarted' && (
           <>

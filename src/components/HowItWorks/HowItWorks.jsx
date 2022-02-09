@@ -28,7 +28,8 @@ const HowItWorks = (data) => {
   }
 
   return (
-    <div className={`${styles.HowItWorks}`}>
+    <div className={`${styles.HowItWorks} isgerstarted-works`}>
+      {/* // new class added */}
       <div className="container container--sm">
         {/* <h2 className="title">{modeledData?.mainTitle}</h2>
         <h3 className="sub-title">{modeledData?.subTitle}</h3>

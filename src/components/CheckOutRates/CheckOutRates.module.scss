@@ -73,5 +73,11 @@
             }
         }
     }
+
+  }
+  &:global(.isGetstarted-rate) {
+    @media #{$xl}{
+        padding: rem(101) 0;
+    }
   }
 }
