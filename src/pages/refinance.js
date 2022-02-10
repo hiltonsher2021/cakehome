@@ -14,14 +14,14 @@ import CalculatorScript from 'components/CalculatorScript/CalculatorScript'
 import { initCalculators, unloadCalculators } from 'helpers/calculator'
 import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
 
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 const propTypes = {
   data: PropTypes.object,
 }
 
 const Refinance = ({ data }) => {
-  let dataSplit = data?.contentfulPage?.sections;
+  let dataSplit = data?.contentfulPage?.sections
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
 
@@ -34,11 +34,11 @@ const Refinance = ({ data }) => {
   }
 
   useEffect(() => {
-    if(isBrowser) {
+    if (isBrowser) {
       initCalculators()
     }
     return () => {
-      if(isBrowser) {
+      if (isBrowser) {
         unloadCalculators()
       }
     }
@@ -46,12 +46,27 @@ const Refinance = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={data?.contentfulPage?.name}
+      {/* <!-- Conversion Pixel for [lead]- DO NOT MODIFY --> */}
+      <img
+        src="https://data.adxcel-ec2.com/pixel/?ad_log=referer&action=lead&pixid=8c0b3505-a7ff-4f6a-b874-6a1e048ce68d"
+        width="1"
+        height="1"
+        border="0"
+      >
+        {/* <!-- End of Conversion Pixel --> */}
+      </img>
+      <SEO
+        title={data?.contentfulPage?.name}
         description={data?.contentfulPage?.description?.description}
-        image={'https:' + data?.contentfulPage?.metaImage?.file?.url} />
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}
+      />
       <section>
         {/* classNames - Refinance */}
-        <Banner bannerData={dataSplit} handle={data?.contentfulPage?.handle} showModal={showModal}/>
+        <Banner
+          bannerData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          showModal={showModal}
+        />
 
         <div
           className="PersonalizeModal"
@@ -65,7 +80,10 @@ const Refinance = ({ data }) => {
           />
         </div>
 
-        <RefiRateBlock sectionData={dataSplit} handle={data?.contentfulPage?.handle} />
+        <RefiRateBlock
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+        />
         <RefiBenefits
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
@@ -99,7 +117,7 @@ const Refinance = ({ data }) => {
           className="refi"
           showModal={showModal}
         />
-{/* Removed as per requirement */}
+        {/* Removed as per requirement */}
 
         {/* <InfoContentBlock
           sectionData={dataSplit}
