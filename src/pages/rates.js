@@ -30,6 +30,10 @@ const Rates = ({ data }) => {
 
   return (
     <Layout>
+      {/* <!-- Conversion Pixel for [misc]- DO NOT MODIFY --> */}
+      <img src="https://data.adxcel-ec2.com/pixel/?ad_log=referer&action=misc&pixid=8c0b3505-a7ff-4f6a-b874-6a1e048ce68d" width="1" height="1" border="0">
+        {/* <!-- End of Conversion Pixel --> */}
+        </img>
       <SEO title={data?.contentfulPage?.name}
         description={data?.contentfulPage?.description?.description}
         image={'https:' + data?.contentfulPage?.metaImage?.file?.url}  />
