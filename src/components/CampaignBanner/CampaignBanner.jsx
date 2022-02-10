@@ -129,7 +129,9 @@ const CampaignBanner = (data) => {
     })
     currentPage = currentPageData?.shift()
     nextPageData = slugOrder?.filter((item, index) => {
-      if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
+      if ((currentPage?.pageNo + 1 === index + 1) && currentPage?.pageNo !== 5) {
+        return item
+      } else if(currentPage?.pageNo !== 5 && currentPage?.pageNo === 6 && index + 1 === 5) {
         return item
       } else if (
         currentPage?.pageNo !== 5 &&
@@ -927,6 +929,8 @@ const CampaignBanner = (data) => {
                         : 'dis-btn'
                     }
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
@@ -935,6 +939,7 @@ const CampaignBanner = (data) => {
 
 =======
 >>>>>>> 5b7ca1c (Minor issue fixes)
+>>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                     ${
                       type === 'refinance'
                         ? propertyValue < currentLoanBal + cashOut ||

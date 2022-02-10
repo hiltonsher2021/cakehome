@@ -165,4 +165,65 @@
       }
     }
   }
-}
+  &:global(.isGetstarted-plain) {
+    padding: rem(20) 0 0;
+    @media #{$xl}{
+      padding: rem(147) 0 0;
+      margin-bottom: rem(80);
+    }
+    :global {
+      .PlainCopyBlock__wrap{
+        @media #{$xl}{
+          max-width: rem(1264);
+        }
+        h2{
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 36px;
+          max-width: 100%;
+          @media #{$md}{
+          font-size: 50px;
+          font-weight: 700;
+          line-height: 50px;
+          }
+          @media #{$xl}{
+            font-size: 80px;
+            letter-spacing: -0.8px;
+            line-height: 80px;
+            margin-bottom: rem(60);
+          }
+        }
+        h3{
+          font-size: 30px;
+          text-align: center;
+          font-weight: 700;
+          line-height: 30px;
+          color: $textdark;
+          @media #{$md}{
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+          }
+          @media #{$xl}{
+            font-size: 60px;
+            letter-spacing: 2px;
+            line-height: 53px;
+            margin-bottom: rem(40);
+          }
+        }
+        p{
+          display: block;
+          font-size: 20px;
+          line-height: 20px;
+          @media #{$xl}{
+            color: #121212;
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+    }
+  }
+
