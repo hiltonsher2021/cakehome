@@ -174,7 +174,7 @@ const CampaignBanner = (data) => {
   }
 
   const setFirstUsername = (data) => {
-    setFirstName(data)
+    setFirstName(data || '')
     setValuesStorage('firstName', data)
     setFirstNameValid(/^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data))
   }
@@ -910,7 +910,7 @@ const CampaignBanner = (data) => {
                       <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
-                  {firstName === '' && lastName === '' && (
+                  {(firstName === '' || lastName === '') && (
                     <label className="text-center">
                       *Please check the First name and Last name fields in page
                       1
