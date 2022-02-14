@@ -912,21 +912,20 @@ const CampaignBanner = (data) => {
                       <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
-                  {(zipCode === '' || zipCode?.length !== 5 || zipcodeValidationMessage === 'true') && (
-                    <label>*Please check the zipcode field in page 3</label>
-                  )}
                   {firstName === '' && lastName === '' && (
-                    <label>
+                    <label className="text-center">
                       *Please check the First name and Last name fields in page 1
                     </label>
                   )}
-
+                  {(zipCode === '' || zipCode?.length !== 5 || zipcodeValidationMessage === 'true') && (
+                    <label className="text-center">*Please check the zipcode field in page 3</label>
+                  )}
                   {propertyValue < currentLoanBal ||
                   currentLoanBal === 0 ||
                   propertyValue === 0 ? (
-                    <label>*Please check the fields in page 4</label>
+                    <label className="text-center">*Please check the fields in page 4</label>
                   ) : propertyValue * (3 / 100) > currentLoanBal ? (
-                    <label>
+                    <label className="text-center">
                       <>*Please check the fields in page 4</>
                     </label>
                   ) : (
