@@ -54,6 +54,7 @@ const CampaignBanner = (data) => {
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
   const [zipCode, setZipCode] = useState('')
+  const [zipcodeValidationMessage, setShowZipcodeValidationMessage] = useState('')
   const [showValidationMessage, setShowValidationMessage] = useState(false)
   const [showPhoneValidationMessage, setPhoneShowValidationMessage] =
     useState(false)
@@ -129,9 +130,13 @@ const CampaignBanner = (data) => {
     })
     currentPage = currentPageData?.shift()
     nextPageData = slugOrder?.filter((item, index) => {
-      if ((currentPage?.pageNo + 1 === index + 1) && currentPage?.pageNo !== 5) {
+      if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
         return item
-      } else if(currentPage?.pageNo !== 5 && currentPage?.pageNo === 6 && index + 1 === 5) {
+      } else if (
+        currentPage?.pageNo !== 5 &&
+        currentPage?.pageNo === 6 &&
+        index + 1 === 5
+      ) {
         return item
       } else if (
         currentPage?.pageNo !== 5 &&
@@ -313,6 +318,8 @@ const CampaignBanner = (data) => {
       fetchValidZipcode(data)
     } else {
       setShowValidationMessage(false)
+      setValuesStorage('zipcodeValidation', false)
+
     }
     setZipCode(data)
     setValuesStorage('zipCode', data)
@@ -350,9 +357,13 @@ const CampaignBanner = (data) => {
     })
       .then((response) => {
         setShowValidationMessage(false)
+        setValuesStorage('zipcodeValidation', false)
+
       })
       .catch(function (error) {
         setShowValidationMessage(true)
+        setValuesStorage('zipcodeValidation', true)
+
       })
   }
 
@@ -371,6 +382,8 @@ const CampaignBanner = (data) => {
     let propertyUseStorage = sessionStorage.getItem('propertyUse')
     let propertyTypeStorage = sessionStorage.getItem('propertyType')
     let creditRatingStorage = sessionStorage.getItem('creditRating')
+    let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
+    setShowZipcodeValidationMessage(zipcodeValidation || false)
     validateZipcode(zipCode || '')
     setPropertyValue(parseInt(purchasePrice) || 0)
     setFirstUsername(firstName || '')
@@ -899,6 +912,26 @@ const CampaignBanner = (data) => {
                       <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
+                  {(zipCode === '' || zipCode?.length !== 5 || zipcodeValidationMessage === 'true') && (
+                    <label>*Please check the zipcode field in page 3</label>
+                  )}
+                  {firstName === '' && lastName === '' && (
+                    <label>
+                      *Please check the First name and Last name fields in page 1
+                    </label>
+                  )}
+
+                  {propertyValue < currentLoanBal ||
+                  currentLoanBal === 0 ||
+                  propertyValue === 0 ? (
+                    <label>*Please check the fields in page 4</label>
+                  ) : propertyValue * (3 / 100) > currentLoanBal ? (
+                    <label>
+                      <>*Please check the fields in page 4</>
+                    </label>
+                  ) : (
+                    ''
+                  )}
                   <a
                     href={urlValue}
                     target="_blank"
@@ -928,18 +961,6 @@ const CampaignBanner = (data) => {
                         ? ''
                         : 'dis-btn'
                     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 0eaaceb (Added refinance/ home purchase changes)
-
-
-=======
->>>>>>> 5b7ca1c (Minor issue fixes)
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                     ${
                       type === 'refinance'
                         ? propertyValue < currentLoanBal + cashOut ||
