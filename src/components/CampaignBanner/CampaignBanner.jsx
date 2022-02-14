@@ -54,7 +54,8 @@ const CampaignBanner = (data) => {
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
   const [zipCode, setZipCode] = useState('')
-  const [zipcodeValidationMessage, setShowZipcodeValidationMessage] = useState('')
+  const [zipcodeValidationMessage, setShowZipcodeValidationMessage] =
+    useState('')
   const [showValidationMessage, setShowValidationMessage] = useState(false)
   const [showPhoneValidationMessage, setPhoneShowValidationMessage] =
     useState(false)
@@ -319,7 +320,6 @@ const CampaignBanner = (data) => {
     } else {
       setShowValidationMessage(false)
       setValuesStorage('zipcodeValidation', false)
-
     }
     setZipCode(data)
     setValuesStorage('zipCode', data)
@@ -358,12 +358,10 @@ const CampaignBanner = (data) => {
       .then((response) => {
         setShowValidationMessage(false)
         setValuesStorage('zipcodeValidation', false)
-
       })
       .catch(function (error) {
         setShowValidationMessage(true)
         setValuesStorage('zipcodeValidation', true)
-
       })
   }
 
@@ -914,17 +912,27 @@ const CampaignBanner = (data) => {
                   </div>
                   {firstName === '' && lastName === '' && (
                     <label className="text-center">
-                      *Please check the First name and Last name fields in page 1
+                      *Please check the First name and Last name fields in page
+                      1
                     </label>
                   )}
-                  {(zipCode === '' || zipCode?.length !== 5 || zipcodeValidationMessage === 'true') && (
-                    <label className="text-center">*Please check the zipcode field in page 3</label>
+                  {(zipCode === '' ||
+                    zipCode?.length !== 5 ||
+                    zipcodeValidationMessage === 'true') && (
+                    <label className="text-center">
+                      *Please check the zipcode field in page 3
+                    </label>
                   )}
-                  {propertyValue < currentLoanBal ||
+                  {propertyValue <= currentLoanBal ||
                   currentLoanBal === 0 ||
-                  propertyValue === 0 ? (
-                    <label className="text-center">*Please check the fields in page 4</label>
-                  ) : propertyValue * (3 / 100) > currentLoanBal ? (
+                  (propertyValue === 0 && type === 'refinance') ||
+                  propertyValue < currentLoanBal + cashOut ||
+                  (currentLoanBal === 0 && cashOut === 0) ? (
+                    <label className="text-center">
+                      *Please check the fields in page 4
+                    </label>
+                  ) : propertyValue * (3 / 100) > currentLoanBal &&
+                    type !== 'refinance' ? (
                     <label className="text-center">
                       <>*Please check the fields in page 4</>
                     </label>
