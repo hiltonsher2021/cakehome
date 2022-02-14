@@ -170,12 +170,12 @@ const CampaignBanner = (data) => {
   const setFirstUsername = (data) => {
     setFirstName(data)
     setValuesStorage('firstName', data)
-    setFirstNameValid(/^[A-Za-z]+$/.test(data))
+    setFirstNameValid(/^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data))
   }
   const setLastUsername = (data) => {
     setLastName(data)
     setValuesStorage('lastName', data)
-    setLastNameValid(/^[A-Za-z]+$/.test(data))
+    setLastNameValid(/^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data))
   }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
@@ -473,7 +473,7 @@ const CampaignBanner = (data) => {
                               {...register('firstName', {
                                 required: 'This is a required field',
                                 pattern: {
-                                  value: /^[A-Za-z]+$/,
+                                  value: /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/,
                                   message: 'Please enter a valid name',
                                 },
                               })}
@@ -491,7 +491,7 @@ const CampaignBanner = (data) => {
                               {...register('lastName', {
                                 required: 'This is a required field',
                                 pattern: {
-                                  value: /^[A-Za-z]+$/,
+                                  value: /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/,
                                   message: 'Please enter a valid name',
                                 },
                               })}
@@ -585,7 +585,7 @@ const CampaignBanner = (data) => {
                         Property ZIP code<sup>*</sup>
                       </label>
                       <input
-                        placeholder="90035"
+                        placeholder=""
                         type="text"
                         maxlength="5"
                         value={zipCode}
@@ -887,7 +887,7 @@ const CampaignBanner = (data) => {
                         {...register('email', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /\S+@\S+\.\S+/,
+                            value: /^\b\S+@\S+\.\S+\b/,
                             message:
                               'Entered value does not match email format',
                           },
