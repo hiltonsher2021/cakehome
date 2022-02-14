@@ -135,7 +135,7 @@ const CampaignForm = (data) => {
                         {...register('query', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /^\b[ A-Za-z0-9_@.!#&+,'-]{1,2000}[\s]{0,1}$/,
+                            value: /^\b[ A-Za-z0-9_@.!#?;&+,'-]{1,2000}[\s]{0,1}$/,
                             message:
                               'Please enter a valid question',
                           },
