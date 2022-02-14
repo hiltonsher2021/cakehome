@@ -54,6 +54,8 @@ const CampaignBanner = (data) => {
   const [propertyType, setPropertyType] = useState('SingleFamilyHome')
   const [propertyUse, setPropertyUse] = useState('PrimaryResidence')
   const [zipCode, setZipCode] = useState('')
+  const [zipcodeValidationMessage, setShowZipcodeValidationMessage] =
+    useState('')
   const [showValidationMessage, setShowValidationMessage] = useState(false)
   const [showPhoneValidationMessage, setPhoneShowValidationMessage] =
     useState(false)
@@ -129,9 +131,13 @@ const CampaignBanner = (data) => {
     })
     currentPage = currentPageData?.shift()
     nextPageData = slugOrder?.filter((item, index) => {
-      if ((currentPage?.pageNo + 1 === index + 1) && currentPage?.pageNo !== 5) {
+      if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
         return item
-      } else if(currentPage?.pageNo !== 5 && currentPage?.pageNo === 6 && index + 1 === 5) {
+      } else if (
+        currentPage?.pageNo !== 5 &&
+        currentPage?.pageNo === 6 &&
+        index + 1 === 5
+      ) {
         return item
       } else if (
         currentPage?.pageNo !== 5 &&
@@ -168,14 +174,18 @@ const CampaignBanner = (data) => {
   }
 
   const setFirstUsername = (data) => {
-    setFirstName(data)
+    setFirstName(data || '')
     setValuesStorage('firstName', data)
-    setFirstNameValid(/^[A-Za-z]+$/.test(data))
+    let setValue = /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data)
+    setFirstNameValid(setValue)
+    setValuesStorage('firstNameValidation', setValue)
   }
   const setLastUsername = (data) => {
     setLastName(data)
     setValuesStorage('lastName', data)
-    setLastNameValid(/^[A-Za-z]+$/.test(data))
+    let setValue = /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data)
+    setLastNameValid(setValue)
+    setValuesStorage('lastNameValidation', setValue)
   }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
@@ -313,6 +323,7 @@ const CampaignBanner = (data) => {
       fetchValidZipcode(data)
     } else {
       setShowValidationMessage(false)
+      setValuesStorage('zipcodeValidation', false)
     }
     setZipCode(data)
     setValuesStorage('zipCode', data)
@@ -337,7 +348,7 @@ const CampaignBanner = (data) => {
   const setUserEmail = (data) => {
     setValuesStorage('email', data)
     setEmail(data)
-    setValidEmail(/\S+@\S+\.\S+/.test(data))
+    setValidEmail(/^\b\S+@\S+\.\S+[\s]{0,1}$/.test(data))
   }
 
   const fetchValidZipcode = (data) => {
@@ -350,9 +361,11 @@ const CampaignBanner = (data) => {
     })
       .then((response) => {
         setShowValidationMessage(false)
+        setValuesStorage('zipcodeValidation', false)
       })
       .catch(function (error) {
         setShowValidationMessage(true)
+        setValuesStorage('zipcodeValidation', true)
       })
   }
 
@@ -371,6 +384,12 @@ const CampaignBanner = (data) => {
     let propertyUseStorage = sessionStorage.getItem('propertyUse')
     let propertyTypeStorage = sessionStorage.getItem('propertyType')
     let creditRatingStorage = sessionStorage.getItem('creditRating')
+    let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
+    let lastNameValidation = sessionStorage.getItem('lastNameValidation')
+    let firstNameValidation = sessionStorage.getItem('firstNameValidation')
+    setFirstNameValid(firstNameValidation);
+    setLastNameValid(lastNameValidation);
+    setShowZipcodeValidationMessage(zipcodeValidation || false)
     validateZipcode(zipCode || '')
     setPropertyValue(parseInt(purchasePrice) || 0)
     setFirstUsername(firstName || '')
@@ -473,7 +492,7 @@ const CampaignBanner = (data) => {
                               {...register('firstName', {
                                 required: 'This is a required field',
                                 pattern: {
-                                  value: /^[A-Za-z]+$/,
+                                  value: /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/,
                                   message: 'Please enter a valid name',
                                 },
                               })}
@@ -491,7 +510,7 @@ const CampaignBanner = (data) => {
                               {...register('lastName', {
                                 required: 'This is a required field',
                                 pattern: {
-                                  value: /^[A-Za-z]+$/,
+                                  value: /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/,
                                   message: 'Please enter a valid name',
                                 },
                               })}
@@ -585,7 +604,7 @@ const CampaignBanner = (data) => {
                         Property ZIP code<sup>*</sup>
                       </label>
                       <input
-                        placeholder="90035"
+                        placeholder=""
                         type="text"
                         maxlength="5"
                         value={zipCode}
@@ -887,7 +906,7 @@ const CampaignBanner = (data) => {
                         {...register('email', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /\S+@\S+\.\S+/,
+                            value: /^\b\S+@\S+\.\S+[\s]{0,1}$/,
                             message:
                               'Entered value does not match email format',
                           },
@@ -899,6 +918,36 @@ const CampaignBanner = (data) => {
                       <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
+                  {(firstName === '' || lastName === '' || isFirstNameValid !== true ||
+                      isLastNameValid !== true ) && (
+                    <label className="text-center">
+                      *Please check the First name and Last name fields in page
+                      1
+                    </label>
+                  )}
+                  {(zipCode === '' ||
+                    zipCode?.length !== 5 ||
+                    zipcodeValidationMessage === 'true') && (
+                    <label className="text-center">
+                      *Please check the zipcode field in page 3
+                    </label>
+                  )}
+                  {propertyValue <= currentLoanBal ||
+                  currentLoanBal === 0 ||
+                  (propertyValue === 0 && type === 'refinance') ||
+                  propertyValue < currentLoanBal + cashOut ||
+                  (currentLoanBal === 0 && cashOut === 0) ? (
+                    <label className="text-center">
+                      *Please check the fields in page 4
+                    </label>
+                  ) : propertyValue * (3 / 100) > currentLoanBal &&
+                    type !== 'refinance' ? (
+                    <label className="text-center">
+                      <>*Please check the fields in page 4</>
+                    </label>
+                  ) : (
+                    ''
+                  )}
                   <a
                     href={urlValue}
                     target="_blank"
@@ -928,18 +977,6 @@ const CampaignBanner = (data) => {
                         ? ''
                         : 'dis-btn'
                     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 0eaaceb (Added refinance/ home purchase changes)
-
-
-=======
->>>>>>> 5b7ca1c (Minor issue fixes)
->>>>>>> c5d126a432857f01fe2e26577a8c2e49af5089fd
                     ${
                       type === 'refinance'
                         ? propertyValue < currentLoanBal + cashOut ||

@@ -104,7 +104,7 @@ const CampaignForm = (data) => {
                         {...register('name', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /^[^\s]+(?:$|.*[^\s]+$)/,
+                            value: /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/,
                             message:
                               'Please enter a valid name',
                           },
@@ -119,7 +119,7 @@ const CampaignForm = (data) => {
                         {...register('email', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /\S+@\S+\.\S+/,
+                            value: /^\b\S+@\S+\.\S+[\s]{0,1}$/,
                             message:
                               'Entered value does not match email format',
                           },
@@ -135,7 +135,7 @@ const CampaignForm = (data) => {
                         {...register('query', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /^[^\s]+(?:$|.*[^\s]+$)/,
+                            value: /^\b[ A-Za-z0-9_@.!?#&+;$%^*(){}:<>=|\,'-]{1,2000}[\s]{0,1}$/,
                             message:
                               'Please enter a valid question',
                           },
