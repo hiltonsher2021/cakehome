@@ -176,12 +176,16 @@ const CampaignBanner = (data) => {
   const setFirstUsername = (data) => {
     setFirstName(data || '')
     setValuesStorage('firstName', data)
-    setFirstNameValid(/^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data))
+    let setValue = /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data)
+    setFirstNameValid(setValue)
+    setValuesStorage('firstNameValidation', setValue)
   }
   const setLastUsername = (data) => {
     setLastName(data)
     setValuesStorage('lastName', data)
-    setLastNameValid(/^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data))
+    let setValue = /^\b(?!.*?\s{2})[A-Za-z ]{1,50}$/.test(data)
+    setLastNameValid(setValue)
+    setValuesStorage('lastNameValidation', setValue)
   }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
@@ -381,6 +385,10 @@ const CampaignBanner = (data) => {
     let propertyTypeStorage = sessionStorage.getItem('propertyType')
     let creditRatingStorage = sessionStorage.getItem('creditRating')
     let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
+    let lastNameValidation = sessionStorage.getItem('lastNameValidation')
+    let firstNameValidation = sessionStorage.getItem('firstNameValidation')
+    setFirstNameValid(firstNameValidation);
+    setLastNameValid(lastNameValidation);
     setShowZipcodeValidationMessage(zipcodeValidation || false)
     validateZipcode(zipCode || '')
     setPropertyValue(parseInt(purchasePrice) || 0)
@@ -910,7 +918,8 @@ const CampaignBanner = (data) => {
                       <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
-                  {(firstName === '' || lastName === '') && (
+                  {(firstName === '' || lastName === '' || isFirstNameValid !== true ||
+                      isLastNameValid !== true ) && (
                     <label className="text-center">
                       *Please check the First name and Last name fields in page
                       1
