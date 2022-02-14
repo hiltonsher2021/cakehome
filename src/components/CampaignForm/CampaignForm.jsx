@@ -119,7 +119,7 @@ const CampaignForm = (data) => {
                         {...register('email', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /\S+@\S+\.\S+/,
+                            value: /^\b\S+@\S+\.\S+[\s]{0,1}$/,
                             message:
                               'Entered value does not match email format',
                           },
@@ -135,7 +135,7 @@ const CampaignForm = (data) => {
                         {...register('query', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /^\b[A-Za-z ]{1,50}(?:$|.)[\s]{0,1}$/,
+                            value: /^\b[A-Za-z ]{1,250}(?:$|.)[\s]{0,1}$/,
                             message:
                               'Please enter a valid question',
                           },

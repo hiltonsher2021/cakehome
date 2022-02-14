@@ -337,7 +337,7 @@ const CampaignBanner = (data) => {
   const setUserEmail = (data) => {
     setValuesStorage('email', data)
     setEmail(data)
-    setValidEmail(/\S+@\S+\.\S+/.test(data))
+    setValidEmail(/^\b\S+@\S+\.\S+[\s]{0,1}$/.test(data))
   }
 
   const fetchValidZipcode = (data) => {
@@ -887,7 +887,7 @@ const CampaignBanner = (data) => {
                         {...register('email', {
                           required: 'This is a required field',
                           pattern: {
-                            value: /^\b\S+@\S+\.\S+\b/,
+                            value: /^\b\S+@\S+\.\S+[\s]{0,1}$/,
                             message:
                               'Entered value does not match email format',
                           },
