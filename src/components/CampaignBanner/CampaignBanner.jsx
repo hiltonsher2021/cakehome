@@ -265,6 +265,12 @@ const CampaignBanner = (data) => {
         last_name: lastName,
         phone: phone,
         get_my_personalized_rate: 'From Get My Personalized Rate',
+        zip_code: zipCode,
+        property_value: type !== 'purchase' ? propertyValue : 0,
+        current_loan_balance: type !== 'purchase' ? currentLoanBal : 0,
+        cash_out_amount: type !== 'purchase' ? cashOut : 0,
+        purchase_price: type === 'purchase' ? propertyValue : 0,
+        down_payment: type === 'purchase' ? currentLoanBal : 0
       },
     })
       .then((response) => {
