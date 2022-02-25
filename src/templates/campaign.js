@@ -26,6 +26,8 @@ export const query = graphql`
       id
       parentSlug
       type
+      statusId
+      campaignId
       reference {
         id
         title
@@ -103,6 +105,8 @@ const Campaign = (props) => {
     (ref) => ref.childSlug === childSlug
   )
   const campaignType = props?.data?.contentfulCampaignMainPage?.type || 'refinance';
+  const campaignId = props?.data?.contentfulCampaignMainPage?.campaignId || 1;
+  const statusId = props?.data?.contentfulCampaignMainPage?.statusId || 1;
   const pagesTotal = props?.data?.contentfulCampaignMainPage?.reference;
 const typeValue = campaignType?.toLowerCase()
 
@@ -127,6 +131,8 @@ const typeValue = campaignType?.toLowerCase()
           pagesTotal={pagesTotal}
           parentSlug={slug}
           campaignType={typeValue}
+          statusId={statusId}
+          campaignId={campaignId}
         />
         {typeValue.includes('refinance') &&  <CheckYourSavingsCampaign
           {...pageData}
