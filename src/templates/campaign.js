@@ -26,6 +26,8 @@ export const query = graphql`
       id
       parentSlug
       type
+      statusId
+      campaignId
       reference {
         id
         title
@@ -95,16 +97,18 @@ export const query = graphql`
 `
 
 const Campaign = (props) => {
-
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
   const { childSlug, slug } = props?.pageContext
   const pageData = props?.data?.contentfulCampaignMainPage.reference.find(
     (ref) => ref.childSlug === childSlug
   )
-  const campaignType = props?.data?.contentfulCampaignMainPage?.type || 'refinance';
-  const pagesTotal = props?.data?.contentfulCampaignMainPage?.reference;
-const typeValue = campaignType?.toLowerCase()
+  const campaignType =
+    props?.data?.contentfulCampaignMainPage?.type || 'refinance'
+  const campaignId = props?.data?.contentfulCampaignMainPage?.campaignId || 1
+  const statusId = props?.data?.contentfulCampaignMainPage?.statusId || 1
+  const pagesTotal = props?.data?.contentfulCampaignMainPage?.reference
+  const typeValue = campaignType?.toLowerCase()
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -127,14 +131,16 @@ const typeValue = campaignType?.toLowerCase()
           pagesTotal={pagesTotal}
           parentSlug={slug}
           campaignType={typeValue}
+          statusId={statusId}
+          campaignId={campaignId}
         />
-        {typeValue.includes('refinance') &&  <CheckYourSavingsCampaign
-          {...pageData}
-          showModal={showModal}
-          campaignType={typeValue}
-        />}
-
-
+        {typeValue.includes('refinance') && (
+          <CheckYourSavingsCampaign
+            {...pageData}
+            showModal={showModal}
+            campaignType={typeValue}
+          />
+        )}
 
         <div
           className="PersonalizeModal"
@@ -147,7 +153,11 @@ const typeValue = campaignType?.toLowerCase()
           />
         </div>
         <CampaignCard {...pageData} />
-        <CampaignForm {...pageData} />
+        <CampaignForm
+          {...pageData}
+          statusId={statusId}
+          campaignId={campaignId}
+        />
       </section>
     </Layout>
   )

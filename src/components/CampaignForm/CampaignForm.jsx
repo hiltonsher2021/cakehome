@@ -13,6 +13,8 @@ const CampaignForm = (data) => {
   if (isBrowser) {
     sessionStorage = window.sessionStorage
   }
+  const { campaignId } = data
+  const { statusId } = data
   let isQuestionSent
   const [successMessage, setSuccessMessage] = useState('')
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
@@ -57,6 +59,8 @@ const CampaignForm = (data) => {
         name: data?.name,
         email: data?.email,
         message: data?.query,
+        campaign_id: campaignId,
+        status_id: statusId
       },
     })
       .then((response) => {

@@ -14,6 +14,8 @@ const CampaignBanner = (data) => {
   }
   const { parentSlug } = data
   const { campaignType } = data
+  const { campaignId } = data
+  const { statusId } = data
   const type = campaignType.includes('refinance') ? 'refinance' : 'purchase'
   let slugOrder = []
   let pageOrder = []
@@ -265,6 +267,14 @@ const CampaignBanner = (data) => {
         last_name: lastName,
         phone: phone,
         get_my_personalized_rate: 'From Get My Personalized Rate',
+        zip_code: zipCode,
+        property_value: type !== 'purchase' ? propertyValue : 0,
+        current_loan_balance: type !== 'purchase' ? currentLoanBal : 0,
+        cash_out_amount: type !== 'purchase' ? cashOut : 0,
+        purchase_price: type === 'purchase' ? propertyValue : 0,
+        down_payment: type === 'purchase' ? currentLoanBal : 0,
+        campaign_id: campaignId,
+        status_id: statusId
       },
     })
       .then((response) => {
