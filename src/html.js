@@ -126,7 +126,7 @@ src="https://www.facebook.com/tr?id=1033947377369230&ev=PageView&noscript=1"`,
         {/* <!-- End Facebook Pixel Code → */}
 
         {/* <!-- Global site tag (gtag.js) - Google Ads: 793052739 --> */}
-        <script
+        {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-793052739"
         ></script>
@@ -138,7 +138,7 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-793052739');`,
           }}
-        />
+        /> */}
         {/* end if global site tag */}
 
         {/* Website Phone call conversion */}
