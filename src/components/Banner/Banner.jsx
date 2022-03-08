@@ -41,7 +41,9 @@ const Banner = (data) => {
                   alt="Door02_OrgangeColor"
                 />
               )}
-              <div className="banner__copy-cta-wrap">
+           
+            </div>
+            <div className="banner__copy-cta-wrap">
                 <Link
                   title={`${modeledData?.ctaText}`}
                   to={`${modeledData?.ctaUrl}`}
@@ -50,7 +52,6 @@ const Banner = (data) => {
                   {modeledData?.ctaText}
                 </Link>
               </div>
-            </div>
             <p>{modeledData?.subTitle?.subTitle}</p>
 
             {data?.handle === 'homepurchase' && (
@@ -71,7 +72,7 @@ const Banner = (data) => {
                 <Link
                   title={`${modeledData?.ctaText}`}
                   to={`${modeledData?.ctaUrl}`}
-                  className="btn dark"
+                  className="btn dark hid-mob-cta"
                 >
                   {modeledData?.ctaText}
                 </Link>

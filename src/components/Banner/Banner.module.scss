@@ -189,12 +189,15 @@
                     //     align-items: flex-end !important;
                     // }
                     &--mobile {
+                      max-width: 350px;
+                      margin: 0 auto;
+                      @media #{$xl} {
+                        max-width: auto;
+                        margin: 0;
+
+                    }
                         img {
                             margin-bottom: 20px;
-                            max-width: 350px;
-                            @media #{$xl} {
-                              max-width: auto;
-                          }
                         }
                         .hid-desktop-cta {
                             display: inline-flex !important;
@@ -202,8 +205,15 @@
                                 display: none !important;
                             }
                         }
+                      
                     }
                 }
+                .hid-mob-cta {
+                  display: none !important;
+                  @media #{$xl} {
+                      display: inline-flex !important;
+                  }
+              }
             }
         }
     }
