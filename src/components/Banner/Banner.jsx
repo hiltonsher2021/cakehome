@@ -19,7 +19,6 @@ const Banner = (data) => {
   const showCalculator = (e) => {
     data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
   }
-  
 
   return (
     <div className={`${styles.cakebanner} ${data?.handle} ${data?.className}`}>
@@ -41,17 +40,18 @@ const Banner = (data) => {
                   alt="Door02_OrgangeColor"
                 />
               )}
-           
             </div>
+            {data?.handle === 'homepage' && (
             <div className="banner__copy-cta-wrap">
-                <Link
-                  title={`${modeledData?.ctaText}`}
-                  to={`${modeledData?.ctaUrl}`}
-                  className="btn dark hid-desktop-cta"
-                >
-                  {modeledData?.ctaText}
-                </Link>
-              </div>
+              <Link
+                title={`${modeledData?.ctaText}`}
+                to={`${modeledData?.ctaUrl}`}
+                className="btn dark hid-desktop-cta"
+              >
+                {modeledData?.ctaText}
+              </Link>
+            </div>
+            )}
             <p>{modeledData?.subTitle?.subTitle}</p>
 
             {data?.handle === 'homepurchase' && (
