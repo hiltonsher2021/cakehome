@@ -19,6 +19,7 @@ const Banner = (data) => {
   const showCalculator = (e) => {
     data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
   }
+  
 
   return (
     <div className={`${styles.cakebanner} ${data?.handle} ${data?.className}`}>
