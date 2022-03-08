@@ -23,6 +23,7 @@ const CheckYourSavingsCampaign = (data) => {
   const [yearCounter, setYearCounter] = useState(0)
   const [differenceNum, setDifferenceNum] = useState(0)
   const [showCustomCalculator, setShowCustomCalculator] = useState(false)
+  const [showPersonalizeButton, setPersonalizeButton] = useState(false)
   const [newRangeValue, setNewRangeValue] = useState(0)
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
@@ -96,6 +97,7 @@ const CheckYourSavingsCampaign = (data) => {
     setGifSrc('')
     event.preventDefault()
     calculateLoanFromUser(loanMonths, values, paymentsMade, interestRate)
+    setPersonalizeButton(true)
     // Google tag tracking
     var callback = function () {
       if (typeof url != 'undefined') {
@@ -275,7 +277,7 @@ const CheckYourSavingsCampaign = (data) => {
           </div>
           <div className="CheckYourSavings__holder">
             <div className="left-side">
-              <h5 className='d-desktop'>{modeledData?.subTitle?.subTitle}</h5>
+              <h5 className="d-desktop">{modeledData?.subTitle?.subTitle}</h5>
               <div className={`CheckYourSavings__form `}>
                 <form onSubmit={handleSubmit}>
                   <div className="CakeFormWrap">
@@ -431,13 +433,20 @@ const CheckYourSavingsCampaign = (data) => {
                     )}
                   </>
                 )}
-                <button className="btn dark d-desktop" onClick={showCalculator}>
+                {showPersonalizeButton && (
+                  <button
+                    className="btn dark d-desktop"
+                    onClick={showCalculator}
+                  >
+                    GET MY PERSONALIZED RATE
+                  </button>
+                )}
+              </div>
+              {showPersonalizeButton && (
+                <button className="btn dark d-mob" onClick={showCalculator}>
                   GET MY PERSONALIZED RATE
                 </button>
-              </div>
-              <button className="btn dark d-mob" onClick={showCalculator}>
-                GET MY PERSONALIZED RATE
-              </button>
+              )}
             </div>
           </div>
         </div>
