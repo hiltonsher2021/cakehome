@@ -40,6 +40,15 @@ const Banner = (data) => {
                   alt="Door02_OrgangeColor"
                 />
               )}
+              <div className="banner__copy-cta-wrap">
+                <Link
+                  title={`${modeledData?.ctaText}`}
+                  to={`${modeledData?.ctaUrl}`}
+                  className="btn dark hid-desktop-cta"
+                >
+                  {modeledData?.ctaText}
+                </Link>
+              </div>
             </div>
             <p>{modeledData?.subTitle?.subTitle}</p>
 
@@ -61,17 +70,10 @@ const Banner = (data) => {
                 <Link
                   title={`${modeledData?.ctaText}`}
                   to={`${modeledData?.ctaUrl}`}
-                  className="btn dark "
+                  className="btn dark"
                 >
                   {modeledData?.ctaText}
                 </Link>
-                {/* <Link
-                  title={`${modeledData?.ctaText}`}
-                  to={`${modeledData?.ctaUrl}`}
-                  className="btn dark hid-mob"
-                >
-                  {modeledData?.ctaText}
-                </Link> */}
               </div>
             )}
             {/* End of Home page CTA section */}
