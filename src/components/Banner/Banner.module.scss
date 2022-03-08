@@ -137,6 +137,7 @@
             }
             .banner__wrapper {
                 .banner__contents {
+                  padding-top: 20px;
                     @media #{$lg} {
                         padding-top: 30px;
                     }
@@ -199,15 +200,14 @@
                         img {
                             margin-bottom: 20px;
                         }
-                        .hid-desktop-cta {
-                            display: inline-flex !important;
-                            @media #{$xl} {
-                                display: none !important;
-                            }
-                        }
-                      
                     }
                 }
+                .hid-desktop-cta {
+                  display: inline-flex !important;
+                  @media #{$xl} {
+                      display: none !important;
+                  }
+              }
                 .hid-mob-cta {
                   display: none !important;
                   @media #{$xl} {
