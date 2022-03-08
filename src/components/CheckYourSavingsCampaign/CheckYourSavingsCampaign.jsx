@@ -386,7 +386,7 @@ const CheckYourSavingsCampaign = (data) => {
             </div>
 
             <div className={`right-side`}>
-              <div className="refinance__wrap">
+              <div className={`refinance__wrap ${showPersonalizeButton ? '' : 'personalize_no_button'}`}>
                 {calculatorMessage === '' && (
                   <h3 className="top">
                     Making the same payment with a{' '}
