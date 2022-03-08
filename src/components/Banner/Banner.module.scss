@@ -144,6 +144,9 @@
                         padding-top: 50px;
                     }
                     h1 {
+                        font-size: 50px;
+                        line-height: 1;
+                        margin-bottom: 15px;
                         @media #{$lg} {
                             font-size: 74px;
                             line-height: 1;
@@ -154,6 +157,10 @@
                             font-size: 100px;
                             line-height: 1;
                             margin-bottom: 50px;
+                        }
+                        @media (min-height: 768px) and (max-height: 860px) {
+                            font-size: 83px;
+                            margin-bottom: 15px;
                         }
                     }
                     p {
@@ -167,15 +174,18 @@
                             line-height: 1.5;
                             margin-bottom: 40px;
                         }
+                        @media (min-height: 768px) and (max-height: 860px) {
+                            font-size: 23px;
+                        }
                     }
                 }
                 .banner__image {
                     @media #{$lg} {
                         align-items: center !important;
                     }
-                    @media #{$xl} {
-                        align-items: flex-end !important;
-                    }
+                    // @media #{$xl} {
+                    //     align-items: flex-end !important;
+                    // }
                     &--mobile {
                         img {
                             margin-bottom: 20px;
