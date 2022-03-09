@@ -33,7 +33,6 @@ const Banner = (data) => {
                   className="banner__image-img"
                   image={image}
                   alt={modeledData?.image?.title || ''}
-                  backgroundColor="transparent"
                 />
               ) : (
                 <img
@@ -87,7 +86,6 @@ const Banner = (data) => {
                 className="banner__image-img"
                 image={image}
                 alt={modeledData?.image?.title || ''}
-                backgroundColor="transparent"
               />
             ) : (
               <img

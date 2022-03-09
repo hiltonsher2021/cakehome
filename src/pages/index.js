@@ -155,10 +155,7 @@ export const pageQuery = graphql`
             id
           }
           image {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP]
-            )
+            gatsbyImageData
             title
           }
           handle
