@@ -128,6 +128,7 @@ const Header = ({ data }) => {
                 image={image}
                 alt={modeledData?.image?.title}
                 objectFit="contain"
+                backgroundColor="transparent"
               />
             </figure>
           </AnchorLink>
