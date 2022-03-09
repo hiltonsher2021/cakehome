@@ -57,4 +57,11 @@
         margin: rem(65) 0 0;
     }
   }
+  &:global(.isGetstarted-works) {
+      padding: 0;
+      @media #{$xl} {
+        margin-bottom: rem(194);
+      }
+    
+  }
 }

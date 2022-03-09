@@ -1,5 +1,5 @@
 import React from 'react'
-import Plx from 'react-plx';
+import Plx from 'react-plx'
 import * as styles from './EasyStepsCard.module.scss'
 import EasyStepsItem from 'components/EasyStepsItem/EasyStepsItem'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
@@ -19,7 +19,7 @@ const EasyStepsCard = (data) => {
         },
       ],
     },
-  ];
+  ]
 
   const parallaxData2 = [
     {
@@ -33,7 +33,7 @@ const EasyStepsCard = (data) => {
         },
       ],
     },
-  ];
+  ]
 
   const parallaxData3 = [
     {
@@ -47,7 +47,7 @@ const EasyStepsCard = (data) => {
         },
       ],
     },
-  ];
+  ]
 
   if (data?.tabData) {
     filterData = data.tabData.map((item) => {
@@ -64,36 +64,39 @@ const EasyStepsCard = (data) => {
               id="EasyStepsCard"
               className={`${styles.EasyStepsCard} ${
                 index === 0 ? 'purple' : 'orange'
-              }`}
+              } ${data?.handle === 'getstarted' ? 'isGetstarted-easy' : ''} `}
             >
               <div className="EasyStepsCard__wrap">
-                <Plx
-                  parallaxData={ parallaxData1 }
-                >
+                <Plx parallaxData={parallaxData1}>
                   <h2 className="EasyStepsCard__title">{item.title}</h2>
                 </Plx>
                 <div className="EasyStepsCard__holder">
                   {item.items.map((tabItem, tabIndex) => {
                     var selector = ''
-                    tabIndex == 0 ? selector = parallaxData1
-                    : tabIndex == 1 ? selector = parallaxData2
-                    : selector = parallaxData3
+                    tabIndex == 0
+                      ? (selector = parallaxData1)
+                      : tabIndex == 1
+                      ? (selector = parallaxData2)
+                      : (selector = parallaxData3)
                     return (
-                        <div className="EasyStepsCard__item" key={tabIndex}>
-                          <Plx
-                            parallaxData={ selector }
-                          >
-                            <EasyStepsItem tabItem={tabItem} indexValue={index}/>
-                          </Plx>
-                        </div>
+                      <div className="EasyStepsCard__item" key={tabIndex}>
+                        <Plx parallaxData={selector}>
+                          <EasyStepsItem tabItem={tabItem} indexValue={index} />
+                        </Plx>
+                      </div>
                     )
                   })}
                 </div>
               </div>
             </div>
-            <p className="copy mob"   style={{display: index!== 0 ? 'none' : ''}}>
-              {data?.description}
-            </p>
+            {data?.handle !== 'getstarted' && (
+              <p
+                className="copy mob"
+                style={{ display: index !== 0 ? 'none' : '' }}
+              >
+                {data?.description}
+              </p>
+            )}
           </div>
         )
       })}

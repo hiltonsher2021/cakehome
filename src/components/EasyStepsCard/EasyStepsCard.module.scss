@@ -61,4 +61,10 @@
         }
       }
   }
+  &:global(.isGetstarted-easy) {
+    margin-bottom: rem(32);
+    @media #{$md}{
+        margin-bottom: rem(64);
+    }
+}
 }

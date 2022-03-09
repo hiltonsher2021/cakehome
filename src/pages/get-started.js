@@ -7,6 +7,7 @@ import HowItWorks from 'components/HowItWorks/HowItWorks'
 import ContactUsGlobal from 'components/ContactUsGlobal/ContactUsGlobal'
 import SEO from 'components/seo';
 import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
+import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
 
 const propTypes = {
   data: PropTypes.object,
@@ -18,7 +19,8 @@ const GetStarted = ({ data }) => {
   const [tabSelection, changeTabSelection] = useState('')
 
   const showModal = (value) => {
-    changeTabSelection(value)
+    let dataValue = value.includes('purchase') ? 'purchase' : 'refinance';
+    changeTabSelection(dataValue)
     changeModalValue(true)
   }
   const closeModal = (e) => {
@@ -35,7 +37,11 @@ const GetStarted = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
-
+        />
+        <PlainCopyBlock
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          sectionValue="2"
         />
         <div
           className="PersonalizeModal"

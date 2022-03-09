@@ -10,34 +10,6 @@ const ImageAnimation = (data) => {
   let modeledData = []
   let image
 
-  // const parallaxData1 = [
-  //   {
-  //     start: 'self',
-  //     duration: 700,
-  //     properties: [
-  //       {
-  //         startValue: 150,
-  //         endValue: 0,
-  //         property: 'translateY',
-  //       },
-  //     ],
-  //   },
-  // ];
-
-  // const parallaxData2 = [
-  //   {
-  //     start: 'self',
-  //     duration: 700,
-  //     properties: [
-  //       {
-  //         startValue: 220,
-  //         endValue: 0,
-  //         property: 'translateY',
-  //       },
-  //     ],
-  //   },
-  // ];
-
   var settingsDsktop = {
     dots: false,
     arrows: false,

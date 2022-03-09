@@ -6,6 +6,7 @@
   @media #{$md} {
     padding: rem(107) 0 rem(37);
   }
+
   :global {
     .TestimonialCard__footer .right-side a{
       right: -10px;
@@ -27,7 +28,7 @@
       }
       h2 {
           font-family: $aeonik;
-          color: #414042;
+          color: $textdark;
           font-size: 30px;
           font-weight: bold;
           letter-spacing: -0.26px;
@@ -36,10 +37,9 @@
           @media #{$smm}{
             font-size: 45px;
             line-height: rem(45);
+            text-align: center;
           }
-          text-align: center;
           @media #{$xl} {
-            color: #414042;
             font-size: 80px;
             letter-spacing: -0.91px;
             line-height: 80px;
@@ -79,7 +79,7 @@
         }
       }
       .slick-prev:before, .slick-next:before{
-        color: #000;
+        color: $textdark;
         background-image: url('/images/campaign-slider-prev.svg');
         width: rem(40);
         height: rem(40);
@@ -121,7 +121,7 @@
           &.slick-active {
             button {
               &::before {
-                color: #121212;
+                color: $textdark;
               }
             }
           }
@@ -150,8 +150,6 @@
         }
         .TestimonialCard__top{
           h3{
-            // font-size: 6.45px;
-            // letter-spacing: 0;
             line-height: 16px;
             @media #{$smm} {
               font-size: 24px;
@@ -172,77 +170,8 @@
         top: 13px;
       }
     }
-
-
     }
-    // .TestimonialCard.main {
-    //   background: $theme-green;
-    //   padding: rem(65) rem(32) rem(50);
-    //   height: 100%;
-    //   flex-direction: column;
-    //   justify-content: space-between;
-    //   display: none !important;
-    //   @media #{$md} {
-    //     border-radius: rem(10);
-    //     padding: rem(65) rem(32) rem(50);
-    //     min-height: rem(480);
-    //     display: flex !important;
-    //   }
 
-    //     .TestimonialCard__top {
-    //       h2 {
-    //           font-family: $aeonik;
-    //           font-weight: bold;
-    //           color: $textdark;
-    //           font-size: rem(28);
-    //           line-height: rem(28);
-    //           letter-spacing: rem(-0.34);
-    //           margin: 0 0 rem(15);
-    //           text-align: center;
-    //           @media (min-width: 768px) {
-    //               font-size: rem(40);
-    //               line-height: rem(40);
-    //               margin: 0 0 rem(20);
-    //           }
-    //       }
-    //     }
-    //     .TestimonialCard__middle {
-    //       p {
-    //           font-family: $aeonik;
-    //           font-weight: 500;
-    //           color: $textdark;
-    //           text-align: center;
-    //           font-size: rem(10);
-    //           line-height: rem(15);
-    //           letter-spacing: 0;
-    //           margin: 0 0 rem(25);
-    //           padding-right: 0;
-    //           @media (min-width: 768px) {
-    //               font-size: rem(17);
-    //               line-height: rem(25);
-    //               margin: 0 0 rem(35);
-    //           }
-    //       }
-    //     }
-    //   .RefiTestimonialCard__bottom {
-    //     .RefiTestimonialCard__mn-social-wrap {
-    //         display: flex;
-    //         align-items: center;
-    //         justify-content: center;
-    //         a {
-    //             max-width: rem(13);
-    //             margin: 0 rem(13) 0 0;
-    //             @media (min-width: 768px) {
-    //                 max-width: rem(20);
-    //                 margin: 0 rem(20) 0 0;
-    //             }
-    //             &:last-child {
-    //                 margin: 0;
-    //             }
-    //         }
-    //     }
-    //   }
-    // }
 
     .CampaignCard-desktopCards {
       display: block;
@@ -260,11 +189,15 @@
         max-width: rem(1016);
       }
     }
-    .TestimonialCard__footer .left-side p{
-      color: #121212!important;
+    .TestimonialCard__footer .left-side p,.TestimonialCard__footer .left-side h4{
+      color: $textdark!important;
     }
   }
   &:global(.purchase) {
+    padding: rem(70) 0 rem(0);
+    @media #{$md}{
+      padding: rem(107) 0 rem(37);
+    }
     :global {
       .CampaignCard__title-wrap {
         h2 {

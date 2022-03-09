@@ -26,6 +26,8 @@ export const query = graphql`
       id
       parentSlug
       type
+      statusId
+      campaignId
       reference {
         id
         title
@@ -36,6 +38,7 @@ export const query = graphql`
         mobDescription {
           mobDescription
         }
+        mobBody
         body
         mobTitle
         description {
@@ -100,8 +103,12 @@ const Campaign = (props) => {
   const pageData = props?.data?.contentfulCampaignMainPage.reference.find(
     (ref) => ref.childSlug === childSlug
   )
-  // const campaignType = props?.data?.contentfulCampaignMainPage?.type;
-  const pagesTotal = props?.data?.contentfulCampaignMainPage.reference;
+  const campaignType =
+    props?.data?.contentfulCampaignMainPage?.type || 'refinance'
+  const campaignId = props?.data?.contentfulCampaignMainPage?.campaignId || 1
+  const statusId = props?.data?.contentfulCampaignMainPage?.statusId || 1
+  const pagesTotal = props?.data?.contentfulCampaignMainPage?.reference
+  const typeValue = campaignType?.toLowerCase()
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -123,14 +130,17 @@ const Campaign = (props) => {
           {...props?.location}
           pagesTotal={pagesTotal}
           parentSlug={slug}
-          // campaignType={campaignType}
+          campaignType={typeValue}
+          statusId={statusId}
+          campaignId={campaignId}
         />
+        {typeValue.includes('refinance') && (
           <CheckYourSavingsCampaign
-          {...pageData}
-          showModal={showModal}
-          // campaignType={campaignType}
-        />
-        
+            {...pageData}
+            showModal={showModal}
+            campaignType={typeValue}
+          />
+        )}
 
         <div
           className="PersonalizeModal"
@@ -143,7 +153,11 @@ const Campaign = (props) => {
           />
         </div>
         <CampaignCard {...pageData} />
-        <CampaignForm {...pageData} />
+        <CampaignForm
+          {...pageData}
+          statusId={statusId}
+          campaignId={campaignId}
+        />
       </section>
     </Layout>
   )
