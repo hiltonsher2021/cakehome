@@ -37,7 +37,10 @@ const Layout = (props) => {
                         description
                       }
                       image {
-                        gatsbyImageData
+                        gatsbyImageData(
+                          placeholder: NONE
+                          formats: [AUTO, WEBP]
+                        )
                         title
                       }
                     }
@@ -63,14 +66,20 @@ const Layout = (props) => {
                     }
                   }
                   image {
-                    gatsbyImageData
+                    gatsbyImageData(
+                      placeholder: NONE
+                      formats: [AUTO, WEBP]
+                    )
                     title
                   }
                 }
               }
               image {
                 title
-                gatsbyImageData
+                gatsbyImageData(
+                  placeholder: NONE
+                  formats: [AUTO, WEBP]
+                )
               }
             }
           }

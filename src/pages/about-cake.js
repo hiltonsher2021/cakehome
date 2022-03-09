@@ -118,7 +118,10 @@ export const query = graphql`
           mainTitle
 
           image {
-            gatsbyImageData
+            gatsbyImageData(
+              placeholder: NONE
+              formats: [AUTO, WEBP]
+            )
           }
         }
         ... on ContentfulSection {

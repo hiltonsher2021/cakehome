@@ -228,7 +228,10 @@ export const pageQuery = graphql`
           ctaMobText
           backgroundColour
           image {
-            gatsbyImageData
+            gatsbyImageData(
+              placeholder: NONE
+              formats: [AUTO, WEBP]
+            )
             title
           }
           subTitle {
@@ -247,7 +250,10 @@ export const pageQuery = graphql`
               titleLongDescription
             }
             image {
-              gatsbyImageData
+              gatsbyImageData(
+                placeholder: NONE
+                formats: [AUTO, WEBP]
+              )
             }
             ctaText
           }
