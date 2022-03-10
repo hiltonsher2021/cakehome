@@ -1011,8 +1011,8 @@ const CampaignBanner = (data) => {
                         alt="slider"
                       />
                     </Link>
-                    {/* Disclaimer style to be added */}
-                    <p>By entering your phone number you’re authorizing Cake Mortgage Corp to use this number to call, text, and send you messages by any method. We won’t charge you for any contact but your service provider data rates could apply.</p>
+                    {/* Disclaimer text */}
+                    {/* <p className='disclaimer_text'>By entering your phone number you’re authorizing Cake Mortgage Corp to use this number to call, text, and send you messages by any method. We won’t charge you for any contact but your service provider data rates could apply.</p> */}
                   </div>
                 </div>
               </div>

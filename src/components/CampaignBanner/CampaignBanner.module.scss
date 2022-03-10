@@ -1,6 +1,6 @@
 @import 'styles/global.scss';
 .CampaginBanner {
-    background-color: #6CEBCE;
+    background-color: #6cebce;
      :global {
         .banner__slider-control {
             padding-bottom: rem(5);
@@ -23,9 +23,9 @@
                 }
             }
             .banner__prev {
-               padding-bottom:rem(17.3);
+                padding-bottom: rem(17.3);
                 @media #{$xl} {
-                    padding-bottom:rem(15);
+                    padding-bottom: rem(15);
                 }
                 img {
                     width: rem(57);
@@ -36,18 +36,18 @@
                     }
                 }
             }
-            &.page-5{
+            &.page-5 {
                 display: none;
             }
             &.isPurchase {
-              padding-bottom: rem(50);
-              @media #{$xl} {
-                padding-bottom: rem(100);
-            }
+                padding-bottom: rem(50);
+                @media #{$xl} {
+                    padding-bottom: rem(100);
+                }
             }
         }
-        .banner__form-fields{
-            select{
+        .banner__form-fields {
+            select {
                 background-color: #fff;
                 border: 0;
                 border-radius: 0.3125rem;
@@ -69,20 +69,20 @@
                 background-size: 1.0625rem 0.5rem;
                 padding: rem(6.8) rem(8.3);
                 padding-right: rem(54.03);
-                @media #{$smm}{
+                @media #{$smm} {
                     font-size: rem(18);
                     line-height: 25px;
                     padding: rem(8) rem(12);
                 }
-                @media #{$xl}{
-                font-size: 17px;
-                font-weight: 300;
-                letter-spacing: -0.21px;
-                line-height: 25px;
-                padding: rem(13) rem(15);
-                padding-right: rem(32);
-                max-width: 300px;
-                min-width: 300px;
+                @media #{$xl} {
+                    font-size: 17px;
+                    font-weight: 300;
+                    letter-spacing: -0.21px;
+                    line-height: 25px;
+                    padding: rem(13) rem(15);
+                    padding-right: rem(32);
+                    max-width: 300px;
+                    min-width: 300px;
                 }
             }
         }
@@ -112,16 +112,16 @@
                 display: none;
             }
         }
-        .d-desktop{
+        .d-desktop {
             display: none;
             @media #{$smm} {
                 display: block;
             }
         }
-        sup{
+        sup {
             font-size: 9.2px;
             top: -1px;
-            @media #{$smm}{
+            @media #{$smm} {
                 font-size: 13px;
             }
         }
@@ -134,13 +134,13 @@
             letter-spacing: -0.14px;
             line-height: 18px;
             width: 100%;
-            background-color: #FFFFFF;
+            background-color: #ffffff;
             border-radius: 3.2px;
             outline: 0;
             border: 0;
             margin-bottom: rem(6.36);
             padding-right: 50px;
-            @media #{$smm}{
+            @media #{$smm} {
                 font-size: rem(18);
                 line-height: 25px;
                 padding: rem(8) rem(12);
@@ -158,7 +158,7 @@
                 margin-bottom: rem(0);
             }
         }
-        label{
+        label {
             color: $textdark;
             font-family: Aeonik;
             font-size: 9.2px;
@@ -168,14 +168,14 @@
             margin-bottom: rem(6.85);
             display: block;
             text-align: left;
-            @media #{$smm}{
+            @media #{$smm} {
                 font-size: 13px;
                 line-height: 20px;
                 margin-bottom: rem(10);
             }
         }
-        .btn{
-            color: #FFFFFF;
+        .btn {
+            color: #ffffff;
             font-size: 15.3px;
             font-weight: 700;
             letter-spacing: 0.27px;
@@ -185,10 +185,10 @@
             border-radius: 3.6px;
             background-color: #414042;
             min-height: 0;
-            @media #{$xl}{
+            @media #{$xl} {
                 font-size: 18.5px;
             }
-            @media #{$xl}{
+            @media #{$xl} {
                 font-size: 25.5px;
                 letter-spacing: 0.45px;
                 line-height: 75px;
@@ -196,62 +196,61 @@
                 border-radius: 6px;
             }
         }
-                    .form__dollar-wrap{
-                position: relative;
-                display:block;
-                input{
-                    padding-left: rem(20)!important;
-                    @media #{$smm}{
-                        padding-left: rem(23)!important;
-                    }
-                    @media #{$xl}{
-                        padding-left: rem(25)!important;
-                    }
+        .form__dollar-wrap {
+            position: relative;
+            display: block;
+            input {
+                padding-left: rem(20) !important;
+                @media #{$smm} {
+                    padding-left: rem(23) !important;
                 }
-                &:after{
-                    content: "$";
-                    position: absolute;
-                    left: rem(10);
-                    font-family: Aeonik;
-                    font-size: 15.36px;
-                    font-weight: 300;
-                    letter-spacing: -0.14px;
-                    line-height: 18px;
-                    color: $textdark;
-                    top: 50%;
-                    transform: translateY(calc(-50% - 3px));
-                    @media #{$xl} {
-                        font-size: 17px;
-                        font-weight: 300;
-                        letter-spacing: -0.21px;
-                        transform: translateY(-50%) ;
-                    }
+                @media #{$xl} {
+                    padding-left: rem(25) !important;
                 }
             }
+            &:after {
+                content: '$';
+                position: absolute;
+                left: rem(10);
+                font-family: Aeonik;
+                font-size: 15.36px;
+                font-weight: 300;
+                letter-spacing: -0.14px;
+                line-height: 18px;
+                color: $textdark;
+                top: 50%;
+                transform: translateY(calc(-50% - 3px));
+                @media #{$xl} {
+                    font-size: 17px;
+                    font-weight: 300;
+                    letter-spacing: -0.21px;
+                    transform: translateY(-50%);
+                }
+            }
+        }
         .slide-1 {
             padding: rem(39) 0 rem(7);
             @media #{$xl} {
                 padding: rem(13) 0 rem(60);
             }
-            .container{
+            .container {
                 max-width: rem(1060);
             }
             .banner__hero {
                 margin-bottom: rem(10);
-                @media #{$xl}{
+                @media #{$xl} {
                     margin-bottom: rem(36);
                 }
-
                 h1 {
-                    color: #FFFFFF;
-                    font-family: "Degular";
+                    color: #ffffff;
+                    font-family: 'Degular';
                     font-size: 36px;
                     font-weight: 900;
                     letter-spacing: -0.41px;
                     line-height: 32.16px;
                     text-align: center;
                     margin-bottom: 0;
-                    @media #{$smm}{
+                    @media #{$smm} {
                         font-size: 60px;
                         line-height: 80px;
                     }
@@ -292,16 +291,16 @@
             .banner__form {
                 max-width: rem(230);
                 margin: 0 auto;
-                @media #{$smm}{
+                @media #{$smm} {
                     max-width: 70%;
                 }
-                @media #{$xl}{
+                @media #{$xl} {
                     margin-left: rem(129);
                     max-width: 100%;
                 }
                 .banner__form-head {
                     margin-bottom: rem(13.46);
-                    @media #{$smm}{
+                    @media #{$smm} {
                         margin-bottom: rem(25);
                     }
                     @media #{$xl} {
@@ -314,7 +313,7 @@
                         letter-spacing: -0.13px;
                         line-height: 26.54px;
                         margin-bottom: 0;
-                        @media #{$smm}{
+                        @media #{$smm} {
                             font-size: 30px;
                             line-height: 45px;
                         }
@@ -328,10 +327,10 @@
                 .banner__form-fields {
                     display: flex;
                     flex-wrap: wrap;
-                    .banner__inputs{
+                    .banner__inputs {
                         margin-bottom: rem(6.36);
                         width: 100%;
-                        @media #{$xl}{
+                        @media #{$xl} {
                             min-width: 300px;
                             margin-right: rem(30);
                             margin-bottom: rem(0);
@@ -340,25 +339,24 @@
                     }
                 }
             }
-            label{
-            font-size: 14px;
-            letter-spacing: -0.11px;
-            line-height: 26.54px;
-            font-weight: 400;
+            label {
+                font-size: 14px;
+                letter-spacing: -0.11px;
+                line-height: 26.54px;
+                font-weight: 400;
             }
         }
         .slide-2 {
             padding: rem(39) rem(30) rem(24);
-            @media #{$smm}{
+            @media #{$smm} {
                 padding: rem(50) 0 rem(59.5);
             }
             @media #{$xl} {
                 padding: rem(125) 0 rem(118);
             }
-            .container{
+            .container {
                 max-width: rem(1060);
             }
-
             .banner__hero {
                 h1 {
                     color: $textdark;
@@ -367,7 +365,7 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(23.46);
-                    @media #{$smm}{
+                    @media #{$smm} {
                         font-size: 25px;
                         line-height: 45px;
                     }
@@ -377,7 +375,7 @@
                         line-height: 50px;
                         margin-bottom: rem(60);
                     }
-                    &.d-mob{
+                    &.d-mob {
                         margin-bottom: rem(6.92);
                     }
                 }
@@ -398,41 +396,39 @@
                         margin-bottom: rem(60);
                     }
                 }
-
             }
-            .banner__form{
-                @media #{$smm}{
+            .banner__form {
+                @media #{$smm} {
                     max-width: 70%;
                     margin: 0 auto;
                 }
-                @media #{$xl}{
+                @media #{$xl} {
                     max-width: 100%;
                     margin: 0;
                 }
             }
-            label{
+            label {
                 font-size: 14px;
                 letter-spacing: -0.11px;
                 line-height: 26.54px;
                 font-weight: 400;
-                @media #{$smm}{
+                @media #{$smm} {
                     font-size: 13px;
                     line-height: 20px;
                     letter-spacing: 0;
                 }
             }
         }
-        .slide-3{
+        .slide-3 {
             margin: 0 auto;
             padding: rem(39) rem(30) rem(29);
-            @media #{$xl}{
+            @media #{$xl} {
                 padding: rem(156) 0 rem(168);
             }
-            .container{
+            .container {
                 max-width: rem(1060);
             }
             .banner__hero {
-
                 h1 {
                     color: $textdark;
                     font-size: 16px;
@@ -440,7 +436,7 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
-                    @media #{$smm}{
+                    @media #{$smm} {
                         font-size: 30px;
                         line-height: 35px;
                     }
@@ -468,49 +464,48 @@
                         margin-bottom: rem(40);
                     }
                 }
-
             }
-            .banner__form{
-                @media #{$smm}{
+            .banner__form {
+                @media #{$smm} {
                     max-width: 70%;
                     margin: 0 auto;
                 }
-                @media #{$xl}{
+                @media #{$xl} {
                     max-width: 100%;
                     margin: 0;
                 }
-                .banner__form-fields{
-                    @media #{$xl}{
+                .banner__form-fields {
+                    @media #{$xl} {
                         display: flex;
                         justify-content: space-between;
                     }
                 }
             }
-    }
-        .slide-4{
+        }
+        .slide-4 {
             padding: rem(32) rem(30) rem(27);
-            @media #{$xl}{
+            @media #{$xl} {
                 padding: rem(181) 0 rem(158);
             }
-            .container{
+            .container {
                 max-width: rem(1060);
             }
-            label{
-                div{
-                    color: #fff!important;
-                    background: #222!important;
-                    border: 1px solid transparent!important;
+            label {
+                div {
+                    color: #fff !important;
+                    background: #222 !important;
+                    border: 1px solid transparent !important;
                 }
-                @media #{$xl}{
-                    div{
-                        display: none!important;
+                @media #{$xl} {
+                    div {
+                        display: none !important;
                         color: #fff;
                         background: #222;
                         border: 1px solid transparent;
                     }
                 }
                 display: inline-block;
-                .tool-ask{
+                .tool-ask {
                     width: 10px;
                     height: 10px;
                     margin-left: rem(25);
@@ -518,34 +513,32 @@
                     position: relative;
                     display: inline-block;
                     margin: 3px 9px 2px;
-
-                    @media #{$smm}{
-                    width: 15px;
-                    height: 15px;
-                    top: 3px;
-                    div{
-                        display: none;
+                    @media #{$smm} {
+                        width: 15px;
+                        height: 15px;
+                        top: 3px;
+                        div {
+                            display: none;
+                        }
                     }
-                    }
-                    img{
+                    img {
                         object-fit: contain;
                     }
-                    @media #{$xl}{
-                      display: none;
+                    @media #{$xl} {
+                        display: none;
                     }
-
                 }
             }
-            .form__dollar-wrap{
-                div{
+            .form__dollar-wrap {
+                div {
                     display: none;
-                    @media #{$xl}{
+                    @media #{$xl} {
                         display: inline-block;
                     }
                 }
-                .tool-ask{
+                .tool-ask {
                     display: none;
-                    @media #{$xl}{
+                    @media #{$xl} {
                         position: absolute;
                         right: -36px;
                         top: 50%;
@@ -553,13 +546,12 @@
                         width: 20px;
                         height: 20px;
                         display: block;
-                    img{
-                        object-fit: contain;
+                        img {
+                            object-fit: contain;
+                        }
                     }
-                      }
                 }
             }
-
             .banner__hero {
                 h1 {
                     color: $textdark;
@@ -568,7 +560,7 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
-                    @media #{$smm}{
+                    @media #{$smm} {
                         font-size: 30px;
                         line-height: 50px;
                     }
@@ -597,16 +589,15 @@
                         margin-bottom: rem(40);
                     }
                 }
-
             }
-            .banner__form{
-                .banner__form-fields{
-                    @media #{$smm}{
+            .banner__form {
+                .banner__form-fields {
+                    @media #{$smm} {
                         max-width: 70%;
                         margin: 0 auto;
                         max-width: 100%;
                     }
-                    @media #{$xl}{
+                    @media #{$xl} {
                         max-width: 100%;
                         display: flex;
                         justify-content: space-between;
@@ -614,8 +605,8 @@
                         margin: 0;
                     }
                 }
-                .banner__select{
-                    @media #{$xl}{
+                .banner__select {
+                    @media #{$xl} {
                         min-width: rem(300);
                         max-width: rem(300);
                     }
@@ -623,64 +614,63 @@
             }
             &.isPurchase {
                 padding: rem(32) rem(30) rem(27);
-                @media #{$xl}{
+                @media #{$xl} {
                     padding: 120px 0 114px;
                 }
-              .banner__form{
-                .banner__form-fields{
-
-                    @media #{$xl}{
-                        justify-content: flex-start;
+                .banner__form {
+                    .banner__form-fields {
+                        @media #{$xl} {
+                            justify-content: flex-start;
+                        }
+                    }
+                    .banner__select {
+                        @media #{$xl} {
+                            margin-right: rem(91);
+                        }
                     }
                 }
-                .banner__select{
-                    @media #{$xl}{
-                        margin-right: rem(91)
+                .banner__content {
+                    max-width: none;
+                    h2 {
+                        font-size: 36px;
                     }
                 }
-              }
-              .banner__content{
-                  max-width: none;
-                  h2{
-                      font-size: 36px;
-                  }
-              }
             }
             .banner__content {
-              margin-bottom: rem(24);
-              max-width: rem(780);
-              // margin: 0 auto;
-              @media #{$xl} {
-                  // margin: 0 auto;
-                  margin-bottom: rem(60);
-              }
-              h2 {
-                  color: $textdark;
-                  font-size: 14px;
-                  font-weight: 500;
-                  letter-spacing: -0.12px;
-                  line-height: 16px;
-                  text-align: left;
-                  @media #{$smm} {
-                      font-size: 25px;
-                      line-height: 30px;
-                  }
-                  @media #{$xl} {
-                      font-size: 40px;
-                      letter-spacing: -0.32px;
-                      line-height: 45px;
-                      text-align: left;
-                  }
-              }
-          }
-        }
-        .slide-5{
-            padding: rem(39) rem(30) rem(10) ;
-            margin: 0 auto;
-            @media #{$xl}{
-                padding: rem(157) rem(0) rem(50)
+                margin-bottom: rem(24);
+                max-width: rem(780);
+                // margin: 0 auto;
+                @media #{$xl} {
+                    // margin: 0 auto;
+                    margin-bottom: rem(60);
+                }
+                h2 {
+                    color: $textdark;
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: -0.12px;
+                    line-height: 16px;
+                    text-align: left;
+                    @media #{$smm} {
+                        font-size: 25px;
+                        line-height: 30px;
+                    }
+                    @media #{$xl} {
+                        font-size: 40px;
+                        letter-spacing: -0.32px;
+                        line-height: 45px;
+                        text-align: left;
+                    }
+                }
             }
-            .container{
+        }
+        .slide-5 {
+            padding: rem(39) rem(30) rem(10);
+            margin: 0 auto;
+            @media #{$xl} {
+                padding: rem(157) rem(0) rem(50);
+            }
+            .container {
                 max-width: rem(1060);
             }
             .banner__hero {
@@ -691,7 +681,7 @@
                     letter-spacing: -0.13px;
                     line-height: 16.54px;
                     margin-bottom: rem(6.92);
-                    @media #{$smm}{
+                    @media #{$smm} {
                         font-size: 25px;
                         line-height: 35px;
                     }
@@ -721,43 +711,56 @@
                         margin-bottom: rem(40);
                     }
                 }
-                margin-bottom:0;
-                @media (min-width:767px){
+                margin-bottom: 0;
+                @media (min-width: 767px) {
                     margin-bottom: rem(30);
                 }
-                @media #{$xl}{
+                @media #{$xl} {
                     margin-bottom: 0;
                 }
             }
-            .banner__form{
+            .banner__form {
                 text-align: center;
-                    .banner__form-fields{
-                        margin-bottom: rem(35);
-                        @media #{$xl}{
-                            margin-bottom: rem(118);
-                            display: flex;
-                            flex-wrap: wrap;
+                .banner__form-fields {
+                    margin-bottom: rem(35);
+                    @media #{$xl} {
+                        margin-bottom: rem(118);
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
+                    .banner__inputs {
+                        &:last-child {
+                            input {
+                                margin-right: 0;
+                            }
                         }
                     }
-                    .btn{
-                        margin-bottom: rem(35.75);
-                        font-size: 22.95px;
-                        font-weight: bold;
-                        letter-spacing: 0.41px;
-                        line-height: 67.5px;
-                        padding:rem(0) rem(39)rem(0) rem(40);
-                        @media #{$xl}{
-                            font-size: 25.5px;
-                            letter-spacing: 0.45px;
-                            line-height: 75px;
-                            margin-bottom: rem(22);
-                            padding: rem(0)rem(44)rem(0) rem(43.5);
-                        }
+                }
+                .btn {
+                    margin-bottom: rem(35.75);
+                    font-size: 22.95px;
+                    font-weight: bold;
+                    letter-spacing: 0.41px;
+                    line-height: 67.5px;
+                    padding: rem(0) rem(39) rem(0) rem(40);
+                    @media #{$xl} {
+                        font-size: 25.5px;
+                        letter-spacing: 0.45px;
+                        line-height: 75px;
+                        margin-bottom: rem(22);
+                        padding: rem(0) rem(44) rem(0) rem(43.5);
                     }
+                }
+            }
+            .disclaimer_text {
+              padding: 22px 0;
+              font-size: 16px;
+              font-weight: 700;
             }
         }
         .text-center {
-          text-align: center;
+            text-align: center;
         }
 
     }
