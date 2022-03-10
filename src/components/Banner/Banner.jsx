@@ -34,7 +34,6 @@ const Banner = (data) => {
                   image={image}
                   alt={modeledData?.image?.title || ''}
                   backgroundColor="transparent"
-                  loading="eager"
                 />
               ) : (
                 <img
@@ -89,7 +88,6 @@ const Banner = (data) => {
                 image={image}
                 alt={modeledData?.image?.title || ''}
                 backgroundColor="transparent"
-                loading="eager"
               />
             ) : (
               <img
