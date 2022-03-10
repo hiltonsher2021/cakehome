@@ -38,7 +38,7 @@ const Layout = (props) => {
                       }
                       image {
                         gatsbyImageData(
-                          placeholder: BLURRED
+                          placeholder: NONE
                           formats: [AUTO, WEBP]
                         )
                         title
@@ -67,7 +67,7 @@ const Layout = (props) => {
                   }
                   image {
                     gatsbyImageData(
-                      placeholder: BLURRED
+                      placeholder: NONE
                       formats: [AUTO, WEBP]
                     )
                     title
@@ -77,7 +77,7 @@ const Layout = (props) => {
               image {
                 title
                 gatsbyImageData(
-                  placeholder: BLURRED
+                  placeholder: NONE
                   formats: [AUTO, WEBP]
                 )
               }

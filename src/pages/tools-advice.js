@@ -120,7 +120,7 @@ export const query = graphql`
           headerText
           image {
             gatsbyImageData(
-              placeholder: BLURRED
+              placeholder: NONE
               formats: [AUTO, WEBP]
             )
             title

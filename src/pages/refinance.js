@@ -229,7 +229,7 @@ export const pageQuery = graphql`
           backgroundColour
           image {
             gatsbyImageData(
-              placeholder: BLURRED
+              placeholder: NONE
               formats: [AUTO, WEBP]
             )
             title
@@ -251,7 +251,7 @@ export const pageQuery = graphql`
             }
             image {
               gatsbyImageData(
-                placeholder: BLURRED
+                placeholder: NONE
                 formats: [AUTO, WEBP]
               )
             }
