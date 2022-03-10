@@ -250,7 +250,10 @@ export const pageQuery = graphql`
               titleLongDescription
             }
             image {
-              gatsbyImageData
+              gatsbyImageData(
+                placeholder: NONE
+                formats: [AUTO, WEBP]
+              )
             }
             ctaText
           }
