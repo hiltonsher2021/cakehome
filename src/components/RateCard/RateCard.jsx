@@ -8,7 +8,6 @@ const isBrowser = typeof window !== 'undefined'
 
 const RateCard = (data) => {
   let cardData = data.value
-
   // on viewport slotmachine animation
   let flg = true
   let [rateValue, setValue] = useState('0.000')
@@ -20,6 +19,17 @@ const RateCard = (data) => {
   let responseRefinanceData = []
   let parseDataRefinance = []
   let parseDataPurchase = []
+  let campaignUrl = ''
+  const campaignPageUrl = () => {
+    let parentSlug = data?.value?.campaignPage[0].parentSlug
+    let childSlug = data?.value?.campaignPage[0].reference.filter((item) => {
+      if (item?.handle === 1) {
+        return item.childSlug
+      }
+    })
+    campaignUrl = '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+  }
+  campaignPageUrl()
 
   useEffect(() => {
     api({
@@ -101,9 +111,9 @@ const RateCard = (data) => {
     }
   }
 
-  const updateCounter = (value) => {
-    data.setCounter(value)
-  }
+  // const updateCounter = (value) => {
+  //   data.setCounter(value)
+  // }
 
   let eventNames = 'scroll load'
   let events = eventNames.split(' ')
@@ -207,13 +217,13 @@ const RateCard = (data) => {
           </>
         )}
 
-        <button
-          title={data?.value?.ctaText}
+        <Link
+          title={`${data?.value?.ctaText}`}
           className="menu-item btn dark"
-          onClick={() => updateCounter(cardData?.title)}
+          to={`${campaignUrl}`}
         >
           {data?.value?.ctaText}
-        </button>
+        </Link>
 
         {data?.handle !== 'getstarted' && (
           <>

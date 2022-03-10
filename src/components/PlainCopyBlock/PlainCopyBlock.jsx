@@ -19,41 +19,41 @@ const PlainCopyBlock = (data) => {
         break
       case 'homepage':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle === '6' && data?.sectionValue === '6') {
+          if (item?.handle === '6' && data?.sectionValue === '6') {
             return item
-          } else if (item.handle === '10' && data?.sectionValue === '2') {
+          } else if (item?.handle === '10' && data?.sectionValue === '2') {
             return item
           }
         })
         break
       case 'homepurchase':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('5')) return item
+          if (item?.handle?.includes('5')) return item
         })
         break
       case 'rates':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('3')) return item
+          if (item?.handle?.includes('3')) return item
         })
         break
       case 'toolsadvice':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('5') && data?.sectionValue === '6') {
+          if (item?.handle?.includes('5') && data?.sectionValue === '6') {
             return item
-          } else if (item.handle.includes('9') && data?.sectionValue === '2') {
+          } else if (item?.handle?.includes('9') && data?.sectionValue === '2') {
             return item
           }
         })
         break
       case 'aboutcake':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('5')) return item
+          if (item?.handle?.includes('5')) return item
         })
         break
       case 'getstarted':
         filterData = data.sectionData.filter((item) => {
           // 2-getstarted
-          if (item.handle.includes('2-getstarted')) return item
+          if (item?.handle?.includes('2-getstarted')) return item
         })
         break
     }

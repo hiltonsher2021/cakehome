@@ -18,6 +18,7 @@ const schema = {
   headerText: (headerText) => headerText,
   ctaMobText: (ctaMobText) => ctaMobText,
   id: (id) => id,
+  campaignPage: (campaignPage) => campaignPage,
 }
 const parse = (section) => {
   let _section = {}

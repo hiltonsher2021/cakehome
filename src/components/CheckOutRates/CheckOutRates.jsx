@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import * as styles from './CheckOutRates.module.scss'
 import RateCard from 'components/RateCard/RateCard'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import sectionModel from 'models/Section'
 import ImageTransform from 'components/ImageTransform/ImageTransform'
 
 const CheckOutRates = (data) => {
   let modeledData = []
   let filterData = []
-
-  const setCounter = (value) => {
-    data.showModal(value.toLowerCase())
-  }
-
+  // const setCounter = (value) => {
+  //   data.showModal(value.toLowerCase())
+  // }
   if (data) {
     switch (data?.handle) {
       case 'homepage':
-        filterData = data.sectionData.filter((item) => {
+        filterData = data?.sectionData?.filter((item) => {
           if (item.handle === '1') return item
         })
         break
       case 'getstarted':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('1')) return item
+          if (item?.handle?.includes('1')) return item
         })
         break
     }
@@ -57,7 +54,7 @@ const CheckOutRates = (data) => {
                 <ImageTransform options={ImageTransformoptions}>
                   <RateCard
                     value={item}
-                    setCounter={setCounter}
+                    // setCounter={setCounter}
                     handle={data?.handle}
                   />
                 </ImageTransform>
