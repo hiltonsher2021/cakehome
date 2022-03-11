@@ -280,7 +280,7 @@ const CampaignBanner = (data) => {
       },
     })
       .then((response) => {
-        setShowMessage('Thanks, your rates are on your way!')
+        setShowMessage('Thank you! We will be in contact soon with your personalized rates!')
       })
       .catch(function (error) {
         setShowMessage('Oops, something went wrong!')
@@ -550,7 +550,7 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h1>
-                  <h2 className="d-desktop"> Your credit rating...</h2>
+                  <h2 className="d-desktop"> {data?.description?.description || 'Your credit rating...'} </h2>
                 </div>
                 <div className="banner__form">
                   <div className="banner__form-fields">
