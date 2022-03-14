@@ -963,7 +963,7 @@ const CampaignBanner = (data) => {
                   )}
                   {/*  href={urlValue}                     target="_blank"
                    */}
-                  {showMessage === '' ? (
+                  {/* {showMessage === '' ? ( */}
                     <a
                       className={`btn ${
                         zipCode !== '' &&
@@ -1002,6 +1002,8 @@ const CampaignBanner = (data) => {
                          : ''
                      }
                      `}
+                      target="_blank"
+                      href={urlValue}
                       onClick={sendUserData}
                     >
                       <span className="d-mob">GET MY RATE</span>
@@ -1009,9 +1011,9 @@ const CampaignBanner = (data) => {
                         GET MY PERSONALIZED RATE
                       </span>
                     </a>
-                  ) : (
-                    <p>{showMessage}</p>
-                  )}
+                  {/* ) : (
+                   <p>{showMessage}</p>
+                   )} */}
                 </div>
                 <div className={`banner__slider-control`}>
                   <div className="banner__prev">
