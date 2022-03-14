@@ -29,7 +29,7 @@
             font-size: 13px;
             line-height: 20px;
             margin-bottom: rem(7.2);
-        } 
+        }
     }
     .d-mob {
         display: block;
@@ -222,7 +222,7 @@
             @media #{$md} {
                max-width: 50%;
                margin: 0 auto;
-                
+
             }
             @media #{$xl} {
                 margin: rem(30) 0 0;
@@ -359,6 +359,18 @@
                     }
                 }
             }
+            .personalize_no_button {
+              padding: rem(20) rem(6) rem(20);
+              @media #{$xl} {
+                border-radius: rem(10);
+                margin: 0 auto;
+                max-width: rem(645);
+                padding: rem(40) rem(15) rem(40);
+              }
+              h3 {
+                margin: 0 auto 0;
+                }
+            }
             .refinance__image {
                 display: none;
                 max-width: rem(500);
@@ -425,7 +437,7 @@
                 }
               }
 
-            
+
             }
         }
         .custom-range{

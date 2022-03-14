@@ -65,12 +65,17 @@ const IndexPage = ({ data }) => {
         image={'https:' + data?.contentfulPage?.metaImage?.file?.url}
       />
       <div className="home-page">
-        <CheckOutRates
+        <Banner
+          bannerData={dataSplit}
+          className="home"
+          handle={data?.contentfulPage?.handle}
+        />
+        {/* Removed as requested by client, might have to be shown in future */}
+        {/* <CheckOutRates
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
-        />
-
+        /> */}
         <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
@@ -82,7 +87,6 @@ const IndexPage = ({ data }) => {
             handle={data?.contentfulPage?.handle}
           />
         </div>
-        <Banner bannerData={dataSplit} className="home" />
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
@@ -140,6 +144,9 @@ export const pageQuery = graphql`
       sections {
         ... on ContentfulBanner {
           id
+          ctaText
+          ctaUrl
+          ctaMobText
           subTitle {
             subTitle
           }
@@ -148,7 +155,10 @@ export const pageQuery = graphql`
             id
           }
           image {
-            gatsbyImageData
+            gatsbyImageData(
+              placeholder: NONE
+              formats: [AUTO, WEBP]
+            )
             title
           }
           handle

@@ -524,7 +524,6 @@ const CampaignBanner = (data) => {
                                   message: 'Please enter a valid name',
                                 },
                               })}
-                              type="text"
                               onChange={(e) => setLastUsername(e.target.value)}
                             />
                             <label htmlFor="">{errors.lastName?.message}</label>
