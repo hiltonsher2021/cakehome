@@ -21,10 +21,12 @@ const CampaignCard = (data) => {
   let testimonialList = []
 
   if (data) {
+    debugger;
     let filterData = data.references.filter((item) => {
       if (item?.handle?.includes('testimonial-campaign')) return item
     })
     modeledData = sectionModel(filterData[0])
+    console.log(modeledData, 'modeledData');
   }
 
   var settings = {
