@@ -263,7 +263,7 @@ const CampaignBanner = (data) => {
       url: 'contacts',
       method: 'POST',
       data: {
-        // pricing_link: urlValue,
+        pricing_link: urlValue,
         first_name: firstName,
         email: email,
         last_name: lastName,
