@@ -283,9 +283,13 @@ const CampaignBanner = (data) => {
         setShowMessage(
           'Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
         )
+        setValuesStorage('allDetailsSent', true)
+
       })
       .catch(function (error) {
         setShowMessage('Oops, something went wrong!')
+        setValuesStorage('allDetailsSent', false)
+
       })
   }
 
@@ -401,6 +405,10 @@ const CampaignBanner = (data) => {
     let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
     let lastNameValidation = sessionStorage.getItem('lastNameValidation')
     let firstNameValidation = sessionStorage.getItem('firstNameValidation')
+    let allDetailsSent = sessionStorage.getItem('allDetailsSent')
+    if(allDetailsSent === "true") {
+      setShowMessage('Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.')
+    }
     setFirstNameValid(firstNameValidation)
     setLastNameValid(lastNameValidation)
     setShowZipcodeValidationMessage(zipcodeValidation || false)
