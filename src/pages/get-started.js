@@ -6,7 +6,7 @@ import CheckOutRates from 'components/CheckOutRates/CheckOutRates'
 import HowItWorks from 'components/HowItWorks/HowItWorks'
 import ContactUsGlobal from 'components/ContactUsGlobal/ContactUsGlobal'
 import SEO from 'components/seo';
-import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
+// import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
 import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
 
 const propTypes = {
@@ -15,19 +15,19 @@ const propTypes = {
 
 const GetStarted = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections
-  const [showModalSection, changeModalValue] = useState(false)
-  const [tabSelection, changeTabSelection] = useState('')
+  // const [showModalSection, changeModalValue] = useState(false)
+  // const [tabSelection, changeTabSelection] = useState('')
 
-  const showModal = (value) => {
-    let dataValue = value.includes('purchase') ? 'purchase' : 'refinance';
-    changeTabSelection(dataValue)
-    changeModalValue(true)
-  }
-  const closeModal = (e) => {
-    changeModalValue(false)
-  }
+  // const showModal = (value) => {
+  //   let dataValue = value.includes('purchase') ? 'purchase' : 'refinance';
+  //   changeTabSelection(dataValue)
+  //   changeModalValue(true)
+  // }
+  // const closeModal = (e) => {
+  //   changeModalValue(false)
+  // }
 
-  useEffect(() => {}, [showModalSection])
+  // useEffect(() => {}, [showModalSection])
 
   return (
     <Layout>
@@ -36,14 +36,14 @@ const GetStarted = ({ data }) => {
         <CheckOutRates
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
-          showModal={showModal}
+          // showModal={showModal}
         />
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           sectionValue="2"
         />
-        <div
+        {/* <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
         >
@@ -53,7 +53,7 @@ const GetStarted = ({ data }) => {
             classname={tabSelection}
             handle={data?.contentfulPage?.handle}
           />
-        </div>
+        </div> */}
         <HowItWorks sectionData={dataSplit} handle={data?.contentfulPage?.handle} />
         <ContactUsGlobal sectionData={dataSplit} />
       </section>
@@ -95,6 +95,16 @@ export const query = graphql`
               backgroundColour
               tabTitle
               title
+              campaignPage {
+                parentSlug
+                type
+                id
+                reference {
+                  childSlug
+                  handle
+                }
+
+              }
               tabReference {
                 ... on ContentfulTab {
                   id
@@ -166,5 +176,6 @@ export const query = graphql`
         }
       }
     }
+
   }
 `
