@@ -280,7 +280,9 @@ const CampaignBanner = (data) => {
       },
     })
       .then((response) => {
-        setShowMessage('Thank you! We will be in contact soon with your personalized rates!')
+        setShowMessage(
+          'Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
+        )
       })
       .catch(function (error) {
         setShowMessage('Oops, something went wrong!')
@@ -550,7 +552,11 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h1>
-                  <h2 className="d-desktop"> {data?.description?.description || 'Your credit rating...'} </h2>
+                  <h2 className="d-desktop">
+                    {' '}
+                    {data?.description?.description ||
+                      'Your credit rating...'}{' '}
+                  </h2>
                 </div>
                 <div className="banner__form">
                   <div className="banner__form-fields">
@@ -1002,7 +1008,6 @@ const CampaignBanner = (data) => {
                          : ''
                      }
                      `}
-
                       onClick={sendUserData}
                     >
                       <span className="d-mob">GET MY RATE</span>
@@ -1011,8 +1016,17 @@ const CampaignBanner = (data) => {
                       </span>
                     </a>
                   ) : (
-                   <p>{showMessage}</p>
-                   )}
+                    <>
+                      <p>{showMessage}</p>
+                      <p>
+                        {' '}
+                        <span className='condition_message'>
+                          *If you don’t see it in the next 30 seconds please
+                          check your spam folder.
+                        </span>
+                      </p>
+                    </>
+                  )}
                 </div>
                 <div className={`banner__slider-control`}>
                   <div className="banner__prev">
@@ -1023,7 +1037,12 @@ const CampaignBanner = (data) => {
                       />
                     </Link>
                     {/* Disclaimer text */}
-                    <p className='disclaimer_text'>By entering your phone number you’re authorizing Cake Mortgage Corp to use this number to call, text, and send you messages by any method. We won’t charge you for any contact but your service provider data rates could apply.</p>
+                    <p className="disclaimer_text">
+                      By entering your phone number you’re authorizing Cake
+                      Mortgage Corp to use this number to call, text, and send
+                      you messages by any method. We won’t charge you for any
+                      contact but your service provider data rates could apply.
+                    </p>
                   </div>
                 </div>
               </div>
