@@ -615,7 +615,7 @@
             &.isPurchase {
                 padding: rem(32) rem(30) rem(27);
                 @media #{$xl} {
-                    padding: 120px 0 114px;
+                    padding: 188px 0 165px;
                 }
                 .banner__form {
                     .banner__form-fields {
@@ -757,6 +757,10 @@
                 }
                 .condition_message {
                   font-size: 14px;
+                }
+                .message_test{
+                  color: #414042;
+
                 }
             }
             .disclaimer_text {
