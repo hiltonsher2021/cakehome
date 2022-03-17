@@ -75,6 +75,7 @@ const CampaignBanner = (data) => {
   const [propValue, setPropValue] = useState(0)
   const [curLoanBalValue, setCurLoanBalValue] = useState(0)
   const [cashOutValue, setCashOutValue] = useState(0)
+  const [showMessage, setShowMessage] = useState('')
   const {
     register,
     formState: { errors },
@@ -262,6 +263,7 @@ const CampaignBanner = (data) => {
       url: 'contacts',
       method: 'POST',
       data: {
+        pricing_link: urlValue,
         first_name: firstName,
         email: email,
         last_name: lastName,
@@ -274,14 +276,20 @@ const CampaignBanner = (data) => {
         purchase_price: type === 'purchase' ? propertyValue : 0,
         down_payment: type === 'purchase' ? currentLoanBal : 0,
         campaign_id: campaignId,
-        status_id: statusId
+        status_id: statusId,
       },
     })
       .then((response) => {
-        // console.log(response, 'success')
+        setShowMessage(
+          'Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
+        )
+        setValuesStorage('allDetailsSent', true)
+
       })
       .catch(function (error) {
-        // console.log(error, 'error')
+        setShowMessage('Oops, something went wrong!')
+        setValuesStorage('allDetailsSent', false)
+
       })
   }
 
@@ -397,8 +405,12 @@ const CampaignBanner = (data) => {
     let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
     let lastNameValidation = sessionStorage.getItem('lastNameValidation')
     let firstNameValidation = sessionStorage.getItem('firstNameValidation')
-    setFirstNameValid(firstNameValidation);
-    setLastNameValid(lastNameValidation);
+    let allDetailsSent = sessionStorage.getItem('allDetailsSent')
+    if(allDetailsSent === "true") {
+      setShowMessage('Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.')
+    }
+    setFirstNameValid(firstNameValidation)
+    setLastNameValid(lastNameValidation)
     setShowZipcodeValidationMessage(zipcodeValidation || false)
     validateZipcode(zipCode || '')
     setPropertyValue(parseInt(purchasePrice) || 0)
@@ -548,7 +560,11 @@ const CampaignBanner = (data) => {
                   <h1 className="d-mob">
                     {data?.mobDescription?.mobDescription}
                   </h1>
-                  <h2 className="d-desktop"> Your credit rating...</h2>
+                  <h2 className="d-desktop">
+                    {' '}
+                    {data?.description?.description ||
+                      'Your credit rating...'}{' '}
+                  </h2>
                 </div>
                 <div className="banner__form">
                   <div className="banner__form-fields">
@@ -927,8 +943,10 @@ const CampaignBanner = (data) => {
                       <label htmlFor="">{errors.email?.message}</label>
                     </div>
                   </div>
-                  {(firstName === '' || lastName === '' || isFirstNameValid !== true ||
-                      isLastNameValid !== true ) && (
+                  {(firstName === '' ||
+                    lastName === '' ||
+                    isFirstNameValid !== true ||
+                    isLastNameValid !== true) && (
                     <label className="text-center">
                       *Please check the First name and Last name fields in page
                       1
@@ -957,51 +975,66 @@ const CampaignBanner = (data) => {
                   ) : (
                     ''
                   )}
-                  <a
-                    href={urlValue}
-                    target="_blank"
-                    className={`btn ${
-                      zipCode !== '' &&
-                      zipCode?.length === 5 &&
-                      propertyValue > 0 &&
-                      currentLoanBal > 0 &&
-                      currentLoanBal !== 0 &&
-                      propertyValue > currentLoanBal &&
-                      creditRating !== '' &&
-                      propertyType !== '' &&
-                      propertyUse !== '' &&
-                      phone !== '' &&
-                      email !== '' &&
-                      firstName !== '' &&
-                      lastName !== '' &&
-                      phone !== null &&
-                      phone?.length === 12 &&
-                      email !== null &&
-                      isValidEmail === true &&
-                      isFirstNameValid === true &&
-                      isLastNameValid === true &&
-                      firstName !== null &&
-                      lastName !== null &&
-                      showValidationMessage === false
-                        ? ''
-                        : 'dis-btn'
-                    }
-                    ${
-                      type === 'refinance'
-                        ? propertyValue < currentLoanBal + cashOut ||
-                          (currentLoanBal === 0 && cashOut === 0)
-                          ? 'dis-btn'
-                          : ''
-                        : propertyValue * (3 / 100) > currentLoanBal
-                        ? 'dis-btn'
-                        : ''
-                    }
-                    `}
-                    onClick={sendUserData}
-                  >
-                    <span className="d-mob">GET MY RATE</span>
-                    <span className="d-desktop">GET MY PERSONALIZED RATE</span>
-                  </a>
+                  {/*  href={urlValue} target="_blank"
+                   */}
+                  {showMessage === '' ? (
+                    <a
+                      className={`btn ${
+                        zipCode !== '' &&
+                        zipCode?.length === 5 &&
+                        propertyValue > 0 &&
+                        currentLoanBal > 0 &&
+                        currentLoanBal !== 0 &&
+                        propertyValue > currentLoanBal &&
+                        creditRating !== '' &&
+                        propertyType !== '' &&
+                        propertyUse !== '' &&
+                        phone !== '' &&
+                        email !== '' &&
+                        firstName !== '' &&
+                        lastName !== '' &&
+                        phone !== null &&
+                        phone?.length === 12 &&
+                        email !== null &&
+                        isValidEmail === true &&
+                        isFirstNameValid === true &&
+                        isLastNameValid === true &&
+                        firstName !== null &&
+                        lastName !== null &&
+                        showValidationMessage === false
+                          ? ''
+                          : 'dis-btn'
+                      }
+                     ${
+                       type === 'refinance'
+                         ? propertyValue < currentLoanBal + cashOut ||
+                           (currentLoanBal === 0 && cashOut === 0)
+                           ? 'dis-btn'
+                           : ''
+                         : propertyValue * (3 / 100) > currentLoanBal
+                         ? 'dis-btn'
+                         : ''
+                     }
+                     `}
+                      onClick={sendUserData}
+                    >
+                      <span className="d-mob">GET MY RATE</span>
+                      <span className="d-desktop">
+                        GET MY PERSONALIZED RATE
+                      </span>
+                    </a>
+                  ) : (
+                    <>
+                      <p>{showMessage}</p>
+                      <p>
+                        {' '}
+                        <span className='condition_message'>
+                          *If you don’t see it in the next 30 seconds please
+                          check your spam folder.
+                        </span>
+                      </p>
+                    </>
+                  )}
                 </div>
                 <div className={`banner__slider-control`}>
                   <div className="banner__prev">
@@ -1011,6 +1044,13 @@ const CampaignBanner = (data) => {
                         alt="slider"
                       />
                     </Link>
+                    {/* Disclaimer text */}
+                    <p className="disclaimer_text">
+                      By entering your phone number you’re authorizing Cake
+                      Mortgage Corp to use this number to call, text, and send
+                      you messages by any method. We won’t charge you for any
+                      contact but your service provider data rates could apply.
+                    </p>
                   </div>
                 </div>
               </div>

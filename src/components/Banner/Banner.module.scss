@@ -149,11 +149,12 @@
                         line-height: 1;
                         margin-bottom: 15px;
 
-                        @media #{$md} {
-                            width: 100% !important;
-                            max-width: rem(550) !important;
+                          @media #{$md} {
+                              width: 100% !important;
+                              max-width: rem(550) !important;
 
-                        }
+                          }
+
                         @media #{$lg} {
                             font-size: 74px;
                             line-height: 1;
