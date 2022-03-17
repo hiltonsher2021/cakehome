@@ -742,7 +742,7 @@ const CampaignBanner = (data) => {
                     {data?.mobDescription?.mobDescription}
                   </h2>
                 </div>
-                {type === 'purchase' && (
+                {(type === 'purchase' && data?.description?.description) && (
                   <div className="banner__content d-desktop">
                     <h2>{data?.description?.description}</h2>
                   </div>
@@ -1025,8 +1025,8 @@ const CampaignBanner = (data) => {
                     </a>
                   ) : (
                     <>
-                      <p>{showMessage}</p>
-                      <p>
+                      <p className="message_test">{showMessage}</p>
+                      <p className="message_test">
                         {' '}
                         <span className='condition_message'>
                           *If you don’t see it in the next 30 seconds please
