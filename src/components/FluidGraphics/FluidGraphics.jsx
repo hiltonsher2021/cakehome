@@ -10,7 +10,7 @@ const FluidGraphics = (data) => {
   let modeledData = []
   if (data) {
     let filterData = data?.sectionData.filter((item) => {
-      if (item?.handle.includes('7')) return item
+      if (item?.handle?.includes('7')) return item
     })
     modeledData = sectionModel(filterData[0])
     image = getImage(modeledData?.sectionReference[0]?.image?.gatsbyImageData)

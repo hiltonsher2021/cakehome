@@ -20,13 +20,13 @@ const RefiTestimonials = (data) => {
   if (data) {
     switch(data?.handle) {
       case 'refinance':
-        filterData = data.sectionData.filter((item) => {
-          if (item?.handle.includes('5')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('5')) return item
         })
         break;
       case 'homepurchase':
-        filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('4')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('4')) return item
         })
         break;
     }

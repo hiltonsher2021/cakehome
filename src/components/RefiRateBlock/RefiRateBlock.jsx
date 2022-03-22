@@ -70,7 +70,7 @@ const RefiRateBlock = (data) => {
   let modeledData = []
   if (data) {
     let filterData = data?.sectionData.filter((item) => {
-      if (item?.handle.includes('1')) return item
+      if (item?.handle?.includes('1')) return item
     })
     modeledData = sectionModel(filterData[0])
   }
