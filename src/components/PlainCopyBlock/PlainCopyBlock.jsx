@@ -105,7 +105,7 @@ const PlainCopyBlock = (data) => {
             <CtaBig
               ctaText={modeledData?.ctaText}
               ctaMobText={modeledData?.ctaMobText}
-              ctaUrl={campaignUrl}
+              ctaUrl={campaignUrl || modeledData?.ctaLink}
             />
           </div>
         )}

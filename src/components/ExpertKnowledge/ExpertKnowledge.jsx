@@ -13,7 +13,7 @@ const ExpertKnowledge = (data) => {
   }
   if (data) {
     let filterData = data?.sectionData.filter((item) => {
-      if (item?.handle.includes('2')) return item
+      if (item?.handle?.includes('2')) return item
     })
     modeledData = sectionModel(filterData[0])
     itemsList = modeledData?.sectionReference[0]
