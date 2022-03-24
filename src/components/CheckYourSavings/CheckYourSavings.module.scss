@@ -14,6 +14,18 @@
         max-width: rem(1145);
         margin: 0 auto;
     }
+    .d-mob {
+      display: block;
+      @media #{$xl} {
+          display: none;
+      }
+  }
+  .d-desktop{
+      display: none;
+      @media #{$xl} {
+          display: block;
+      }
+  }
     .CheckYourSavings__top {
         display: flex;
         flex-wrap: wrap;
@@ -284,6 +296,18 @@
                     }
                 }
             }
+            .personalize_no_button {
+              padding: rem(20) rem(6) rem(20);
+              @media #{$xl} {
+                border-radius: rem(10);
+                margin: 0 auto;
+                max-width: rem(645);
+                padding: rem(40) rem(15) rem(40);
+              }
+              h3 {
+                margin: 0 auto 0;
+                }
+            }
             .refinance__image {
                 display: none;
                 max-width: rem(500);
@@ -324,6 +348,18 @@
                 display: flex;
                 @media #{$lg} {
                   display: none;
+                }
+              }
+              &.d-mob{
+                display: inline-flex;
+                @media #{$xl}{
+                    display: none;
+                }
+              }
+              &.d-desktop{
+                display: none;
+                @media #{$xl}{
+                    display: inline-flex;
                 }
               }
             }
