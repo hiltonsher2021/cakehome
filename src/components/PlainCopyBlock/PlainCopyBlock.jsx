@@ -4,21 +4,23 @@ import sectionModel from 'models/Section'
 import CtaBig from 'components/CtaBig/CtaBig'
 
 const PlainCopyBlock = (data) => {
+  let { campaignUrl } = data
+  let { type } = data
   let modeledData
   let filterData
-  const showCalculator = (e) => {
-    data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
-  }
+  // const showCalculator = (e) => {
+  //   data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
+  // }
 
   if (data && data?.handle !== 'articleDetails') {
     switch (data?.handle) {
       case 'refinance':
         filterData = data.sectionData.filter((item) => {
-          if (item?.handle.includes('6')) return item
+          if (item?.handle?.includes('6')) return item
         })
         break
       case 'homepage':
-        filterData = data.sectionData.filter((item) => {
+        filterData = data?.sectionData.filter((item) => {
           if (item?.handle === '6' && data?.sectionValue === '6') {
             return item
           } else if (item?.handle === '10' && data?.sectionValue === '2') {
@@ -27,12 +29,12 @@ const PlainCopyBlock = (data) => {
         })
         break
       case 'homepurchase':
-        filterData = data.sectionData.filter((item) => {
+        filterData = data?.sectionData.filter((item) => {
           if (item?.handle?.includes('5')) return item
         })
         break
       case 'rates':
-        filterData = data.sectionData.filter((item) => {
+        filterData = data?.sectionData.filter((item) => {
           if (item?.handle?.includes('3')) return item
         })
         break
@@ -40,18 +42,21 @@ const PlainCopyBlock = (data) => {
         filterData = data.sectionData.filter((item) => {
           if (item?.handle?.includes('5') && data?.sectionValue === '6') {
             return item
-          } else if (item?.handle?.includes('9') && data?.sectionValue === '2') {
+          } else if (
+            item?.handle?.includes('9') &&
+            data?.sectionValue === '2'
+          ) {
             return item
           }
         })
         break
       case 'aboutcake':
-        filterData = data.sectionData.filter((item) => {
+        filterData = data?.sectionData.filter((item) => {
           if (item?.handle?.includes('5')) return item
         })
         break
       case 'getstarted':
-        filterData = data.sectionData.filter((item) => {
+        filterData = data?.sectionData.filter((item) => {
           // 2-getstarted
           if (item?.handle?.includes('2-getstarted')) return item
         })
@@ -96,10 +101,11 @@ const PlainCopyBlock = (data) => {
           )}
         </div>
         {modeledData?.ctaText && (
-          <div className="PlainCopyBlock__cta-wrapper" onClick={showCalculator}>
+          <div className="PlainCopyBlock__cta-wrapper">
             <CtaBig
               ctaText={modeledData?.ctaText}
               ctaMobText={modeledData?.ctaMobText}
+              ctaUrl={campaignUrl || modeledData?.ctaLink}
             />
           </div>
         )}

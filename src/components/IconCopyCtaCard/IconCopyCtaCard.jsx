@@ -5,6 +5,8 @@ import CtaBig from 'components/CtaBig/CtaBig'
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 
 const IconCopyCtaCard = (data) => {
+  let { campaignUrl } = data
+
   let image;
   image = getImage(data?.cardData?.image?.gatsbyImageData);
 
@@ -27,9 +29,9 @@ const IconCopyCtaCard = (data) => {
         <p className="IconCopyCtaCardCopy">
         {data?.cardData?.subTitle}
         </p>
-        <div className="IconCopyCtaCard__bottom" onClick={showCalculator} >
+        <div className="IconCopyCtaCard__bottom">
           {/* ClassName - IconCopyCtaCard */}
-          <CtaBig className="IconCopyCtaCard" ctaText={data?.cardData?.ctaText} ctaUrl={data?.cardData?.ctaUrl} indexValue={data?.indexValue} />
+          <CtaBig className="IconCopyCtaCard" ctaText={data?.cardData?.ctaText} ctaUrl={campaignUrl}  />
         </div>
       </div>
     )

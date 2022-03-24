@@ -17,6 +17,9 @@ const Rates = ({ data }) => {
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
   const dataSplit = data?.contentfulPage?.sections
+  let campaignPurchaseUrl = ''
+  let campaignRefinanceUrl = ''
+  let type = ''
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -25,20 +28,56 @@ const Rates = ({ data }) => {
   const closeModal = (e) => {
     changeModalValue(false)
   }
+  const campaignPageUrl = () => {
+    let urlData = dataSplit.filter((item) => {
+      if (item?.parentSlug) {
+        return item
+      }
+    })
+    urlData.map((item) => {
+      let parentSlug = item?.parentSlug
+      // type = urlData[0].type;
+      let childSlug = item?.reference.filter((item) => {
+        if (item?.handle === 1) {
+          return item.childSlug
+        }
+      })
 
+      if (item?.type === 'Refinance') {
+        campaignRefinanceUrl =
+          '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+      } else {
+        campaignPurchaseUrl =
+          '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+      }
+    })
+  }
+
+  campaignPageUrl()
   useEffect(() => {}, [showModalSection])
 
   return (
     <Layout>
       {/* <!-- Conversion Pixel for [misc]- DO NOT MODIFY --> */}
-      <img src="https://data.adxcel-ec2.com/pixel/?ad_log=referer&action=misc&pixid=8c0b3505-a7ff-4f6a-b874-6a1e048ce68d" width="1" height="1" border="0">
+      <img
+        src="https://data.adxcel-ec2.com/pixel/?ad_log=referer&action=misc&pixid=8c0b3505-a7ff-4f6a-b874-6a1e048ce68d"
+        width="1"
+        height="1"
+        border="0"
+      >
         {/* <!-- End of Conversion Pixel --> */}
-        </img>
-      <SEO title={data?.contentfulPage?.name}
+      </img>
+      <SEO
+        title={data?.contentfulPage?.name}
         description={data?.contentfulPage?.description?.description}
-        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}  />
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}
+      />
       <section>
-        <RateBanner bannerData={dataSplit} showModal={showModal} />
+        <RateBanner
+          bannerData={dataSplit}
+          campaignRefinanceUrl={campaignRefinanceUrl}
+          campaignPurchaseUrl={campaignPurchaseUrl}
+        />
         <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
@@ -49,7 +88,11 @@ const Rates = ({ data }) => {
             classname={tabSelection}
           />
         </div>
-        <ExpertKnowledge sectionData={dataSplit} handle={data?.contentfulPage?.handle} showModal={showModal}/>
+        <ExpertKnowledge
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          showModal={showModal}
+        />
 
         {/* className -  green refi rates*/}
         <PlainCopyBlock
@@ -57,7 +100,6 @@ const Rates = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="refi rates"
           showModal={showModal}
-
         />
 
         <ContactUsGlobal sectionData={dataSplit} />
@@ -136,6 +178,19 @@ export const query = graphql`
                 title
               }
             }
+          }
+        }
+        ... on ContentfulCampaignMainPage {
+          id
+          campaignId
+          parentSlug
+          title
+          type
+          statusId
+          spaceId
+          reference {
+            childSlug
+            handle
           }
         }
       }

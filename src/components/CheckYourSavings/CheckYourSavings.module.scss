@@ -4,16 +4,30 @@
   background-color: $theme-green;
   padding: rem(40) 0 rem(80);
   margin: 0 0 rem(24);
+  margin-bottom: -95px;
   overflow: hidden;
   @media #{$lg} {
       padding: rem(83) 0 rem(95);
       margin: 0 0 rem(40);
+      margin-bottom: 0px;
   }
   :global {
     .CheckYourSavings__wrap {
         max-width: rem(1145);
         margin: 0 auto;
     }
+    .d-mob {
+      display: block;
+      @media #{$xl} {
+          display: none;
+      }
+  }
+  .d-desktop{
+      display: none;
+      @media #{$xl} {
+          display: block;
+      }
+  }
     .CheckYourSavings__top {
         display: flex;
         flex-wrap: wrap;
@@ -164,6 +178,7 @@
         .right-side {
             flex: 0 0 100%;
             max-width: 100%;
+            text-align: center;
             @media #{$lg} {
                 margin: rem(30) 0 0;
                 flex: 0 0 65%;
@@ -273,6 +288,7 @@
                     }
                 }
                 .small-text {
+                    display: block;
                     font-family: $aeonik;
                     font-size: rem(5);
                     font-weight: 400;
@@ -284,12 +300,26 @@
                     }
                 }
             }
+            .personalize_no_button {
+              padding: rem(20) rem(6) rem(20);
+              @media #{$xl} {
+                border-radius: rem(10);
+                margin: 0 auto;
+                max-width: rem(645);
+                padding: rem(40) rem(15) rem(40);
+                padding-bottom: 100px;
+              }
+              h3 {
+                margin: 0 auto 0;
+                }
+            }
             .refinance__image {
                 display: none;
                 max-width: rem(500);
                 width: 100%;
                 margin: rem(-250) rem(-40) 0 auto;
                 position: relative;
+                pointer-events: none;
                 &.active{
                   img {
                     &.imgAnimated {
@@ -316,14 +346,31 @@
             }
             .btn {
               border: 0;
-              width: 100%;
-              max-width: rem(258);
+              width: auto;
               font-size: rem(26);
               margin: rem(95) auto rem(18);
               &.hid-dsktp {
                 display: flex;
                 @media #{$lg} {
                   display: none;
+                }
+              }
+              &.d-mob{
+                display: inline-flex;
+                line-height: 45px;
+                font-size: 15.5px;
+                @media #{$xl}{
+                    display: none;
+                }
+              }
+              &.d-desktop{
+                display: none;
+                @media #{$xl}{
+                    display: inline-flex;
+                    font-size: 25.5px;
+                    letter-spacing: .45px;
+                    line-height: 75px;
+                    margin-top: 2.5625rem;
                 }
               }
             }

@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 import * as styles from './CalculatorScript.module.scss'
 import sectionModel from 'models/Section'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
 
 const CalculatorScript = (data) => {
-
+  let { campaignUrl } = data
   let filterData = []
   let modeledData = []
   let image
@@ -13,13 +14,13 @@ const CalculatorScript = (data) => {
   if (data) {
     switch (data?.handle) {
       case 'refinance':
-        filterData = data.sectionData.filter((item) => {
-          if (item?.handle.includes('4')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('4')) return item
         })
         break
       case 'homepage':
-        filterData = data.sectionData.filter((item) => {
-          if (item.handle === '5') return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle === '5') return item
         })
         break
     }
@@ -95,11 +96,11 @@ const CalculatorScript = (data) => {
               <p>{modeledData?.description?.description}</p>
               {modeledData?.sectionReference.map((item, index) => {
                 return (
-                  <button
+                  <Link
                     className={`btn ${index % 2 ? 'light' : 'dark'}`}
                     key={index}
                     data-element={item?.title}
-                    onClick={showCalculator}
+                    to={campaignUrl}
                     /* Commented as Signal intent is not working */
                     // onClick={() =>
                     //   handleCalculatorOpen(
@@ -110,7 +111,7 @@ const CalculatorScript = (data) => {
                     // }
                   >
                     {item?.title}
-                  </button>
+                  </Link>
                 )
               })}
             </div>

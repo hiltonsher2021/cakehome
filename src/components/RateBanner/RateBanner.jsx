@@ -11,6 +11,8 @@ import { Link } from 'gatsby'
 const isBrowser = typeof window !== 'undefined'
 
 const RateBanner = (data) => {
+  let { campaignPurchaseUrl } = data
+  let { campaignRefinanceUrl } = data
   const [currentTab, setCurrentTab] = useState('refinance')
   let [tabSectionValue, setSection] = useState('rate')
   let parseDataRefinance = []
@@ -22,9 +24,6 @@ const RateBanner = (data) => {
     api({
       url: 'rates/latest',
       method: 'GET',
-      // params: {
-      //   page: 1
-      // },
     }).then((response) => {
       response?.data?.data?.filter((item) => {
         if (item?.job === 1) {
@@ -211,8 +210,16 @@ const RateBanner = (data) => {
             <div className="RateBanner__cta-wrap cta-wrap--inside">
               {/* className -  RateBanner*/}
 
-              <div onClick={showCalculator}>
-                <CtaBig ctaText={modeledData?.ctaText} className="RateBanner" />
+              <div>
+                <CtaBig
+                  ctaText={modeledData?.ctaText}
+                  campaignUrl={
+                    currentTab === 'refinance'
+                      ? campaignRefinanceUrl
+                      : campaignPurchaseUrl
+                  }
+                  className="RateBanner"
+                />
               </div>
               <Link
                 to="/disclosure"

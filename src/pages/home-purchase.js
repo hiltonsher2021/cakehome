@@ -23,8 +23,30 @@ const propTypes = {
 
 const HomeFinance = ({ data }) => {
   let dataSplit = data?.contentfulPage?.sections
+  let campaignUrl = ''
+  let type = ''
+
+
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
+  const campaignPageUrl = () => {
+    let urlData = dataSplit.filter((item) => {
+      if(item?.parentSlug) {
+        return item
+
+      }
+    })
+    let parentSlug = urlData[0]?.parentSlug;
+    type = urlData[0].type;
+    let childSlug = urlData[0]?.reference.filter((item) => {
+      if (item?.handle === 1) {
+        return item.childSlug
+      }
+    })
+    campaignUrl = '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+  }
+
+  campaignPageUrl()
 
   const showModal = (value) => {
     changeTabSelection(value)
@@ -34,7 +56,9 @@ const HomeFinance = ({ data }) => {
     changeModalValue(false)
   }
 
+
   useEffect(() => {
+    campaignPageUrl()
     if (isBrowser) {
       initCalculators()
     }
@@ -68,6 +92,7 @@ const HomeFinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="home"
           showModal={showModal}
+          campaignUrl={campaignUrl}
         />
 
         <div
@@ -87,13 +112,16 @@ const HomeFinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
         />
 
-        <PurchaseProcessBlock sectionData={dataSplit} showModal={showModal} />
+        <PurchaseProcessBlock sectionData={dataSplit} showModal={showModal}           campaignUrl={campaignUrl}
+/>
 
         {/* className - orange */}
         <RefiBenefits
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
+          campaignUrl={campaignUrl}
+          type={type}
         />
 
         {/* className - green small-copy-sec refi purchase */}
@@ -116,6 +144,8 @@ const HomeFinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="refi"
           showModal={showModal}
+          campaignUrl={campaignUrl}
+          type={type}
         />
         {/* Removed as per requirement */}
         {/* <InfoContentBlock
@@ -267,6 +297,19 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+        ... on ContentfulCampaignMainPage {
+          id
+          campaignId
+          parentSlug
+          title
+          type
+          statusId
+          spaceId
+          reference {
+            childSlug
+            handle
           }
         }
       }

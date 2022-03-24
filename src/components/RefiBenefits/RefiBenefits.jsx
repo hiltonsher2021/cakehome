@@ -7,23 +7,25 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import api from 'utils/api'
 
 const RefiBenefits = (data) => {
+  let { campaignUrl } = data
+  let { type } = data
   let modeledData = []
   let image
   let filterData = []
-  const showCalculator = (e) => {
-    data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
-  }
+  // const showCalculator = (e) => {
+  //   data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
+  // }
 
   if (data) {
     switch (data?.handle) {
       case 'refinance':
-        filterData = data.sectionData.filter((item) => {
-          if (item?.handle.includes('2')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('2')) return item
         })
         break
       case 'homepurchase':
-        filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('3')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('3')) return item
         })
         break
     }
@@ -39,12 +41,17 @@ const RefiBenefits = (data) => {
         </div>
         <div className="RefiBenefits__main-wrap">
           <div className="left-side">
-
             <div className="cake-video">
               {data?.handle === 'refinance' ? (
-                <img src="/images/Cake_Refi_iphonex-clay-nocursor.gif" alt="Refinance gif" />
+                <img
+                  src="/images/Cake_Refi_iphonex-clay-nocursor.gif"
+                  alt="Refinance gif"
+                />
               ) : (
-                <img src="/images/Cake_Purchase_iphonex-clay-nocursor.gif" alt="Homepurchase gif" />
+                <img
+                  src="/images/Cake_Purchase_iphonex-clay-nocursor.gif"
+                  alt="Homepurchase gif"
+                />
               )}
             </div>
           </div>
@@ -65,10 +72,11 @@ const RefiBenefits = (data) => {
             })}
           </div>
         </div>
-        <div className="RefiBenefits__cta-wrapper" onClick={showCalculator}>
+        <div className="RefiBenefits__cta-wrapper">
           <CtaBig
             ctaText={modeledData?.ctaText}
             ctaMobText={modeledData?.ctaMobText}
+            ctaUrl={campaignUrl}
           />
           {/* ctaLink={modeledData?.ctaLink} */}
         </div>
