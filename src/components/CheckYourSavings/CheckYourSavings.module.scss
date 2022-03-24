@@ -361,6 +361,8 @@
               }
               &.d-desktop{
                 display: none;
+                z-index: 2;
+                position: relative;
                 @media #{$xl}{
                     display: inline-flex;
                     font-size: 25.5px;
