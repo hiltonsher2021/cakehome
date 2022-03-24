@@ -3,13 +3,16 @@ import * as styles from './CheckYourSavings.module.scss'
 import sectionModel from 'models/Section'
 import { Range, getTrackBackground } from 'react-range'
 import api from 'utils/api'
+import { Link } from 'gatsby'
+
 
 const CheckYourSavings = (data) => {
+  let { campaignUrl } = data;
   let modeledData = []
   let referencedData = []
   let customCalcData = []
   let responseRefinanceData
-  let responsePurchaseData
+  let responsePurchaseData;
   let parseDataRefinance = []
 
   const [values, setRangeValue] = useState([''])
@@ -25,7 +28,7 @@ const CheckYourSavings = (data) => {
   const [differenceNum, setDifferenceNum] = useState(0)
   const [showCustomCalculator, setShowCustomCalculator] = useState(false)
   const [newRangeValue, setNewRangeValue] = useState(0)
-
+  const [showPersonalizeButton, setPersonalizeButton] = useState(false)
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
 
@@ -88,6 +91,10 @@ const CheckYourSavings = (data) => {
   const showCustomCalc = () => {
     setShowCustomCalculator(true)
   }
+  const showCalculator = (e) => {
+    data.showModal('refinance')
+  }
+
   if (data) {
     let filterData = data.sectionData.filter((item) => {
       if (item.handle === '3') return item
@@ -105,6 +112,8 @@ const CheckYourSavings = (data) => {
     setGifSrc('')
     event.preventDefault()
     calculateLoanFromUser(loanMonths, values, paymentsMade, interestRate)
+    setPersonalizeButton(true)
+
     // Google tag tracking
 
     var callback = function () {
@@ -424,7 +433,7 @@ const CheckYourSavings = (data) => {
             <div
               className={`right-side ${showCustomCalculator ? '' : 'hid-mob'}`}
             >
-              <div className="refinance__wrap">
+              <div className={`refinance__wrap ${showPersonalizeButton ? '' : 'personalize_no_button'}`}>
                 {calculatorMessage === '' && (
                   <h3 className="top">
                     Making the same payment with a{' '}
@@ -471,7 +480,20 @@ const CheckYourSavings = (data) => {
                     )}
                   </>
                 )}
+                 {showPersonalizeButton && (
+                  <Link
+                    className="btn dark d-desktop"
+                    to={`${campaignUrl}`}
+                  >
+                    GET MY PERSONALIZED RATE
+                  </Link>
+                )}
               </div>
+              {/* {showPersonalizeButton && (
+                <Link className="btn dark d-mob" to={`${campaignUrl}`}>
+                  GET MY PERSONALIZED RATE
+                </Link>
+              )} */}
               <div
                 className={`refinance__image ${
                   differenceNum <= 0 ? '' : 'active'
@@ -484,13 +506,18 @@ const CheckYourSavings = (data) => {
                 />
                 <img src={gif_src} alt="door" class="imgAnimated" />
               </div>
-              <a
+              {showPersonalizeButton && (
+                <Link className="btn dark d-mob" to={`${campaignUrl}`}>
+                  GET MY PERSONALIZED RATE
+                </Link>
+              )}
+              {/* <a
                 href="http://apply.cakehome.com/"
                 target="_blank"
                 className="btn dark hid-dsktp"
               >
                 APPLY TODAY
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

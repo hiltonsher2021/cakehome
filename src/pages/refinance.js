@@ -21,7 +21,9 @@ const propTypes = {
 }
 
 const Refinance = ({ data }) => {
-  let dataSplit = data?.contentfulPage?.sections
+  let dataSplit = data?.contentfulPage?.sections;
+  let campaignUrl = ''
+  let type = ''
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
 
@@ -32,6 +34,24 @@ const Refinance = ({ data }) => {
   const closeModal = (e) => {
     changeModalValue(false)
   }
+  const campaignPageUrl = () => {
+    let urlData = dataSplit.filter((item) => {
+      if(item?.parentSlug) {
+        return item
+
+      }
+    })
+    let parentSlug = urlData[0]?.parentSlug;
+    type = urlData[0].type;
+    let childSlug = urlData[0]?.reference.filter((item) => {
+      if (item?.handle === 1) {
+        return item.childSlug
+      }
+    })
+    campaignUrl = '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+  }
+
+  campaignPageUrl()
 
   useEffect(() => {
     if (isBrowser) {
@@ -66,6 +86,7 @@ const Refinance = ({ data }) => {
           bannerData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
+          campaignUrl={campaignUrl}
         />
 
         <div
@@ -88,6 +109,9 @@ const Refinance = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
+          campaignUrl={campaignUrl}
+          type={type}
+
         />
 
         {/* classNames - green refi */}
@@ -103,6 +127,8 @@ const Refinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="refi light small-copy-sec"
           showModal={showModal}
+          campaignUrl={campaignUrl}
+          type={type}
         />
 
         <RefiTestimonials
@@ -116,6 +142,8 @@ const Refinance = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="refi"
           showModal={showModal}
+          campaignUrl={campaignUrl}
+          type={type}
         />
         {/* Removed as per requirement */}
 
@@ -256,6 +284,19 @@ export const pageQuery = graphql`
               )
             }
             ctaText
+          }
+        }
+        ... on ContentfulCampaignMainPage {
+          id
+          campaignId
+          parentSlug
+          title
+          type
+          statusId
+          spaceId
+          reference {
+            childSlug
+            handle
           }
         }
       }

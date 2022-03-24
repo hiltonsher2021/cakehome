@@ -23,10 +23,42 @@ const propTypes = {
   data: PropTypes.object,
 }
 const IndexPage = ({ data }) => {
+  let campaignPurchaseUrl = ''
+  let campaignRefinanceUrl = ''
+  let type = ''
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
-  const dataSplit = data?.contentfulPage?.sections
+  const dataSplit = data?.contentfulPage?.sections;
 
+  // const getCampaignType = () => {
+
+  // }
+  const campaignPageUrl = () => {
+    let urlData = dataSplit?.filter((item) => {
+      if (item?.parentSlug) {
+        return item
+      }
+    })
+    urlData.map((item) => {
+      let parentSlug = item?.parentSlug
+      // type = urlData[0].type;
+      let childSlug = item?.reference.filter((item) => {
+        if (item?.handle === 1) {
+          return item.childSlug
+        }
+      })
+
+      if (item?.type === 'Refinance') {
+        campaignRefinanceUrl =
+          '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+      } else {
+        campaignPurchaseUrl =
+          '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+      }
+    })
+  }
+
+  campaignPageUrl()
   const showModal = (value) => {
     changeTabSelection(value)
     changeModalValue(true)
@@ -93,7 +125,10 @@ const IndexPage = ({ data }) => {
           sectionValue="2"
         />
 
-        <CheckYourSavings sectionData={dataSplit} />
+        <CheckYourSavings
+          sectionData={dataSplit}
+          campaignUrl={campaignRefinanceUrl}
+        />
 
         <HowItWorks
           sectionData={dataSplit}
@@ -103,11 +138,13 @@ const IndexPage = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
+          campaignUrl={campaignRefinanceUrl}
         />
         <CalculatorScript
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
+          campaignUrl={campaignPurchaseUrl}
         />
         <PlainCopyBlock
           sectionData={dataSplit}
@@ -115,7 +152,7 @@ const IndexPage = ({ data }) => {
           sectionValue="6"
         />
 
-        <Testimonials sectionData={dataSplit} showModal={showModal} />
+        <Testimonials sectionData={dataSplit} />
         <QABlock sectionData={dataSplit} />
         <ContactUsGlobal sectionData={dataSplit} />
       </div>
@@ -155,10 +192,7 @@ export const pageQuery = graphql`
             id
           }
           image {
-            gatsbyImageData(
-              placeholder: NONE
-              formats: [AUTO, WEBP]
-            )
+            gatsbyImageData(placeholder: NONE, formats: [AUTO, WEBP])
             title
           }
           handle
@@ -320,6 +354,19 @@ export const pageQuery = graphql`
               id
               title
             }
+          }
+        }
+        ... on ContentfulCampaignMainPage {
+          id
+          campaignId
+          parentSlug
+          title
+          type
+          statusId
+          spaceId
+          reference {
+            childSlug
+            handle
           }
         }
       }

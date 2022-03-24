@@ -7,6 +7,7 @@ import { Link } from 'gatsby'
 
 const Banner = (data) => {
   let modeledData
+  let { campaignUrl } = data
   let image
   if (data) {
     let filterData = data.bannerData.filter((item) => {
@@ -56,11 +57,12 @@ const Banner = (data) => {
             <p>{modeledData?.subTitle?.subTitle}</p>
 
             {data?.handle === 'homepurchase' && (
-              <div className="banner__copy-cta-wrap" onClick={showCalculator}>
+              <div className="banner__copy-cta-wrap">
                 {/* home purchase page only*/}
                 <CtaBig
                   ctaText={modeledData?.ctaText}
                   ctaMobText={modeledData?.ctaMobText}
+                  campaignUrl={campaignUrl}
                 />
               </div>
             )}
@@ -99,11 +101,22 @@ const Banner = (data) => {
         </div>
         {modeledData?.ctaText &&
           data?.handle !== 'homepurchase' &&
-          data?.handle !== 'homepage' && (
+          data?.handle !== 'homepage' && data?.handle !== 'refinance' && (
             <div className="banner__cta-wrapper" onClick={showCalculator}>
               <CtaBig
                 ctaText={modeledData?.ctaText}
                 ctaMobText={modeledData?.ctaMobText}
+                campaignUrl={campaignUrl}
+              />
+            </div>
+          )}
+        {modeledData?.ctaText &&
+          data?.handle === 'refinance' && data?.handle !== 'homepurchase' && (
+            <div className="banner__cta-wrapper">
+              <CtaBig
+                ctaText={modeledData?.ctaText}
+                ctaMobText={modeledData?.ctaMobText}
+                campaignUrl={campaignUrl}
               />
             </div>
           )}

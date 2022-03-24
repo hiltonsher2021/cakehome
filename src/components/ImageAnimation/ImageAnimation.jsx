@@ -4,11 +4,14 @@ import Slider from 'react-slick'
 import { useEffect, useState } from 'react'
 import * as styles from './ImageAnimation.module.scss'
 import sectionModel from 'models/Section'
+import { Link } from 'gatsby'
 
 const ImageAnimation = (data) => {
+  let { campaignUrl } = data
+
   let filterData = []
   let modeledData = []
-  let image
+  let image;
 
   var settingsDsktop = {
     dots: false,
@@ -239,11 +242,11 @@ const ImageAnimation = (data) => {
               {modeledData?.sectionReference?.map((item, index) => {
                 if (data?.handle !== 'aboutcake') {
                   return (
-                    <button
+                    <Link
                       className={`btn ${index % 2 ? 'light' : 'dark'}`}
                       key={index}
                       data-element={item?.title}
-                      onClick={showCalculator}
+                      to={campaignUrl}
 
               /* Commented as Signal intent is not working */
                       // onClick={() =>
@@ -255,7 +258,7 @@ const ImageAnimation = (data) => {
                       // }
                     >
                       {item?.title}
-                    </button>
+                    </Link>
                   )
                 } else if (data?.handle === 'aboutcake') {
                   return (

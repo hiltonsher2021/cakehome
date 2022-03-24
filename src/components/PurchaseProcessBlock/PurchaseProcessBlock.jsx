@@ -5,6 +5,8 @@ import IconCopyCtaCard from 'components/IconCopyCtaCard/IconCopyCtaCard'
 import sectionModel from 'models/Section'
 
 const PurchaseProcessBlock = (data) => {
+  let { campaignUrl } = data
+
   let modeledData = []
 
   const [calculatorValue, setCalculatorDiv] = useState('')
@@ -43,7 +45,7 @@ const PurchaseProcessBlock = (data) => {
 
   if (data) {
     let filterData = data?.sectionData.filter((item) => {
-      if (item?.handle.includes('2')) return item
+      if (item?.handle?.includes('2')) return item
     })
     modeledData = sectionModel(filterData[0])
   }
@@ -71,6 +73,7 @@ const PurchaseProcessBlock = (data) => {
                     cardData={item}
                     indexValue={index}
                     showModalText={showModalText}
+                    campaignUrl={campaignUrl}
                   />
                 </div>
               )

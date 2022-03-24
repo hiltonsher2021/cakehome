@@ -10,8 +10,8 @@ const MonthlyPaymentCalculator = (data) => {
   let image
 
   if (data) {
-    filterData = data.sectionData.filter((item) => {
-      if (item?.handle.includes('7')) return item
+    filterData = data?.sectionData.filter((item) => {
+      if (item?.handle?.includes('7')) return item
     })
     modeledData = sectionModel(filterData[0])
     image = getImage(modeledData?.image?.gatsbyImageData)

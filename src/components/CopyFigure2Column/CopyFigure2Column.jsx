@@ -14,18 +14,18 @@ const CopyFigure2Column = (data) => {
   if (data) {
     switch (data?.handle) {
       case 'refinance':
-        filterData = data.sectionData.filter((item) => {
-          if (item?.handle.includes('3')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('3')) return item
         })
         break
       case 'homepage':
-        filterData = data.sectionData.filter((item) => {
-          if (item.handle === '4') return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle === '4') return item
         })
         break
       case 'aboutcake':
-        filterData = data.sectionData.filter((item) => {
-          if (item.handle.includes('6')) return item
+        filterData = data?.sectionData.filter((item) => {
+          if (item?.handle?.includes('6')) return item
         })
         break
     }

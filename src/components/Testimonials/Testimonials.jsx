@@ -1,18 +1,15 @@
 import React from 'react'
-import Plx from 'react-plx';
+import Plx from 'react-plx'
 import * as styles from './Testimonials.module.scss'
 import Carousel from 'components/Carousel'
 import sectionModel from 'models/Section'
-import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
+import { Link } from 'gatsby'
 
 const Testimonials = (data) => {
   let modeledData
   let referencedData
   let carouselData
-
-  const showCalculator = (e) => {
-    data.showModal('refinance' );
-  }
 
   if (data) {
     let filterData = data.sectionData.filter((item) => {
@@ -35,7 +32,7 @@ const Testimonials = (data) => {
         },
       ],
     },
-  ];
+  ]
 
   return (
     <div className={`${styles.Testimonials}`}>
@@ -58,14 +55,14 @@ const Testimonials = (data) => {
             {/* <Plx
               parallaxData={ parallaxData }
             > */}
-              <Carousel carouselData={carouselData} />
+            <Carousel carouselData={carouselData} />
             {/* </Plx> */}
           </div>
         </div>
         <div className="Testimonials__btn-wrap">
-          <button className="btn dark" onClick={showCalculator} >
+          <Link className="btn dark" to={referencedData?.ctaUrl}>
             {referencedData?.ctaText}
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -73,4 +70,3 @@ const Testimonials = (data) => {
 }
 
 export default Testimonials
-
