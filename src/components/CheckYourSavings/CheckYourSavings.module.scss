@@ -4,10 +4,12 @@
   background-color: $theme-green;
   padding: rem(40) 0 rem(80);
   margin: 0 0 rem(24);
+  margin-bottom: -95px;
   overflow: hidden;
   @media #{$lg} {
       padding: rem(83) 0 rem(95);
       margin: 0 0 rem(40);
+      margin-bottom: 0px;
   }
   :global {
     .CheckYourSavings__wrap {

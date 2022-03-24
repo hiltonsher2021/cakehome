@@ -489,11 +489,11 @@ const CheckYourSavings = (data) => {
                   </Link>
                 )}
               </div>
-              {showPersonalizeButton && (
+              {/* {showPersonalizeButton && (
                 <Link className="btn dark d-mob" to={`${campaignUrl}`}>
                   GET MY PERSONALIZED RATE
                 </Link>
-              )}
+              )} */}
               <div
                 className={`refinance__image ${
                   differenceNum <= 0 ? '' : 'active'
@@ -506,6 +506,11 @@ const CheckYourSavings = (data) => {
                 />
                 <img src={gif_src} alt="door" class="imgAnimated" />
               </div>
+              {showPersonalizeButton && (
+                <Link className="btn dark d-mob" to={`${campaignUrl}`}>
+                  GET MY PERSONALIZED RATE
+                </Link>
+              )}
               {/* <a
                 href="http://apply.cakehome.com/"
                 target="_blank"
