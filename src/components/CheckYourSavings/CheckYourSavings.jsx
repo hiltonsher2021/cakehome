@@ -3,13 +3,16 @@ import * as styles from './CheckYourSavings.module.scss'
 import sectionModel from 'models/Section'
 import { Range, getTrackBackground } from 'react-range'
 import api from 'utils/api'
+import { Link } from 'gatsby'
+
 
 const CheckYourSavings = (data) => {
+  let { campaignUrl } = data;
   let modeledData = []
   let referencedData = []
   let customCalcData = []
   let responseRefinanceData
-  let responsePurchaseData
+  let responsePurchaseData;
   let parseDataRefinance = []
 
   const [values, setRangeValue] = useState([''])
@@ -26,8 +29,6 @@ const CheckYourSavings = (data) => {
   const [showCustomCalculator, setShowCustomCalculator] = useState(false)
   const [newRangeValue, setNewRangeValue] = useState(0)
   const [showPersonalizeButton, setPersonalizeButton] = useState(false)
-
-
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
 
@@ -480,18 +481,18 @@ const CheckYourSavings = (data) => {
                   </>
                 )}
                  {showPersonalizeButton && (
-                  <button
+                  <Link
                     className="btn dark d-desktop"
-                    onClick={showCalculator}
+                    to={`${campaignUrl}`}
                   >
                     GET MY PERSONALIZED RATE
-                  </button>
+                  </Link>
                 )}
               </div>
               {showPersonalizeButton && (
-                <button className="btn dark d-mob" onClick={showCalculator}>
+                <Link className="btn dark d-mob" to={`${campaignUrl}`}>
                   GET MY PERSONALIZED RATE
-                </button>
+                </Link>
               )}
               <div
                 className={`refinance__image ${

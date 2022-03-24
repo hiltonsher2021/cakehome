@@ -34,30 +34,28 @@ const IndexPage = ({ data }) => {
 
   // }
   const campaignPageUrl = () => {
-    let urlData = dataSplit.filter((item) => {
-      if(item?.parentSlug) {
+    let urlData = dataSplit?.filter((item) => {
+      if (item?.parentSlug) {
         return item
-
       }
     })
     urlData.map((item) => {
-      let parentSlug = item?.parentSlug;
-    // type = urlData[0].type;
-    let childSlug = item?.reference.filter((item) => {
-      if (item?.handle === 1) {
-        return item.childSlug
-      }
-    })
+      let parentSlug = item?.parentSlug
+      // type = urlData[0].type;
+      let childSlug = item?.reference.filter((item) => {
+        if (item?.handle === 1) {
+          return item.childSlug
+        }
+      })
 
-      if(item?.type === 'Refinance') {
-            campaignRefinanceUrl = '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
-
+      if (item?.type === 'Refinance') {
+        campaignRefinanceUrl =
+          '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
       } else {
-            campaignPurchaseUrl = '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
-
+        campaignPurchaseUrl =
+          '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
       }
     })
-
   }
 
   campaignPageUrl()
@@ -127,7 +125,10 @@ const IndexPage = ({ data }) => {
           sectionValue="2"
         />
 
-        <CheckYourSavings sectionData={dataSplit} />
+        <CheckYourSavings
+          sectionData={dataSplit}
+          campaignUrl={campaignRefinanceUrl}
+        />
 
         <HowItWorks
           sectionData={dataSplit}
@@ -151,7 +152,7 @@ const IndexPage = ({ data }) => {
           sectionValue="6"
         />
 
-        <Testimonials sectionData={dataSplit}  />
+        <Testimonials sectionData={dataSplit} />
         <QABlock sectionData={dataSplit} />
         <ContactUsGlobal sectionData={dataSplit} />
       </div>
@@ -191,10 +192,7 @@ export const pageQuery = graphql`
             id
           }
           image {
-            gatsbyImageData(
-              placeholder: NONE
-              formats: [AUTO, WEBP]
-            )
+            gatsbyImageData(placeholder: NONE, formats: [AUTO, WEBP])
             title
           }
           handle
