@@ -20,7 +20,7 @@ const FaqBlock = (data) => {
 
   if (data) {
     filterData = data?.sectionData.filter((item) => {
-      if (item.handle.includes('6')) return item
+      if (item?.handle?.includes('6')) return item
     })
     modeledData = sectionModel(filterData[0])
     tabItems = modeledData?.section[0]?.items;

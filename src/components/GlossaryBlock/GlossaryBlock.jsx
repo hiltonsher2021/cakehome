@@ -73,8 +73,8 @@ const GlossaryBlock = (data) => {
   }, [searchedAlphabet, carouselData, carouselDataFiltered])
 
   if (data) {
-    let filterData = data?.sectionData.filter((item) => {
-      if (item.handle.includes('7')) return item
+    let filterData = data?.sectionData?.filter((item) => {
+      if (item?.handle?.includes('7')) return item
     })
     modeledData = sectionModel(filterData[0])
     sectionData = modeledData?.section[0]
