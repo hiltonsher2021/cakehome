@@ -305,6 +305,7 @@
                 margin: 0 auto;
                 max-width: rem(645);
                 padding: rem(40) rem(15) rem(40);
+                padding-bottom: 100px;
               }
               h3 {
                 margin: 0 auto 0;
@@ -316,6 +317,7 @@
                 width: 100%;
                 margin: rem(-250) rem(-40) 0 auto;
                 position: relative;
+                pointer-events: none;
                 &.active{
                   img {
                     &.imgAnimated {
@@ -361,8 +363,6 @@
               }
               &.d-desktop{
                 display: none;
-                z-index: 2;
-                position: relative;
                 @media #{$xl}{
                     display: inline-flex;
                     font-size: 25.5px;
