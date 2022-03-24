@@ -5,14 +5,13 @@ import { Range, getTrackBackground } from 'react-range'
 import api from 'utils/api'
 import { Link } from 'gatsby'
 
-
 const CheckYourSavings = (data) => {
-  let { campaignUrl } = data;
+  let { campaignUrl } = data
   let modeledData = []
   let referencedData = []
   let customCalcData = []
   let responseRefinanceData
-  let responsePurchaseData;
+  let responsePurchaseData
   let parseDataRefinance = []
 
   const [values, setRangeValue] = useState([''])
@@ -32,15 +31,15 @@ const CheckYourSavings = (data) => {
   const [differenceInterestRatesMonthly, setDifferenceInterestRatesMonthly] =
     useState(0)
 
-    function onlyNumberKey(evt) {
-      // Only ASCII character in that range allowed
-      var ASCIICode = evt.which ? evt.which : evt.keyCode
-      if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-        return false
-      } else {
-        return true
-      }
+  function onlyNumberKey(evt) {
+    // Only ASCII character in that range allowed
+    var ASCIICode = evt.which ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+      return false
+    } else {
+      return true
     }
+  }
 
   const rangeValueChange = (value, isInputValueChange, event) => {
     onlyNumberKey(event)
@@ -62,7 +61,6 @@ const CheckYourSavings = (data) => {
       let test = nf.format(value)
       setNewRangeValue(test)
       setRangeValue(value)
-
     }
   }
 
@@ -76,16 +74,16 @@ const CheckYourSavings = (data) => {
       //   page: 1
       // },
     }).then((response) => {
-        response?.data?.data.filter((item) => {
-          if (item?.job === 1) {
-            responsePurchaseData = item
-          } else {
-            responseRefinanceData = item
-          }
-        })
-        parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
-        setParseDataRefinanceValue(parseDataRefinance)
+      response?.data?.data.filter((item) => {
+        if (item?.job === 1) {
+          responsePurchaseData = item
+        } else {
+          responseRefinanceData = item
+        }
       })
+      parseDataRefinance = JSON.parse(responseRefinanceData?.json_response)
+      setParseDataRefinanceValue(parseDataRefinance)
+    })
   }, [])
 
   const showCustomCalc = () => {
@@ -117,18 +115,17 @@ const CheckYourSavings = (data) => {
     // Google tag tracking
 
     var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
+      if (typeof url != 'undefined') {
+        window.location = url
       }
-      };
-      gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
+    }
+    gtag('event', 'conversion', {
+      send_to: 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
+      event_callback: callback,
+    })
+    return false
 
-      // end of Google tag tracking
-
+    // end of Google tag tracking
   }
 
   function calculateLoanFromUser(
@@ -332,7 +329,9 @@ const CheckYourSavings = (data) => {
                           value={newRangeValue}
                           max="2000000"
                           placeholder="0"
-                          onChange={(e) => rangeValueChange([e.target.value], true, e)}
+                          onChange={(e) =>
+                            rangeValueChange([e.target.value], true, e)
+                          }
                         />
                       </span>
 
@@ -433,7 +432,11 @@ const CheckYourSavings = (data) => {
             <div
               className={`right-side ${showCustomCalculator ? '' : 'hid-mob'}`}
             >
-              <div className={`refinance__wrap ${showPersonalizeButton ? '' : 'personalize_no_button'}`}>
+              <div
+                className={`refinance__wrap ${
+                  showPersonalizeButton ? '' : 'personalize_no_button'
+                }`}
+              >
                 {calculatorMessage === '' && (
                   <h3 className="top">
                     Making the same payment with a{' '}
@@ -480,11 +483,8 @@ const CheckYourSavings = (data) => {
                     )}
                   </>
                 )}
-                 {showPersonalizeButton && (
-                  <Link
-                    className="btn dark d-desktop"
-                    to={`${campaignUrl}`}
-                  >
+                {showPersonalizeButton && (
+                  <Link className="btn dark d-desktop" to={`${campaignUrl}`}>
                     GET MY PERSONALIZED RATE
                   </Link>
                 )}

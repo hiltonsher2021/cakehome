@@ -21,6 +21,8 @@ const propTypes = {
 
 const ToolsAdvice = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections
+  let campaignUrl = ''
+  let type = ''
 
   useEffect(() => {
     if (isBrowser) {
@@ -33,11 +35,31 @@ const ToolsAdvice = ({ data }) => {
     }
   }, [])
 
+  const campaignPageUrl = () => {
+    let urlData = dataSplit.filter((item) => {
+      if (item?.parentSlug) {
+        return item
+      }
+    })
+    let parentSlug = urlData[0]?.parentSlug
+    type = urlData[0].type
+    let childSlug = urlData[0]?.reference.filter((item) => {
+      if (item?.handle === 1) {
+        return item.childSlug
+      }
+    })
+    campaignUrl = '/campaign/' + parentSlug + '/' + childSlug[0]?.childSlug
+  }
+
+  campaignPageUrl()
+
   return (
     <Layout>
-      <SEO title={data?.contentfulPage?.name}
+      <SEO
+        title={data?.contentfulPage?.name}
         description={data?.contentfulPage?.description?.description}
-        image={'https:' + data?.contentfulPage?.metaImage?.file?.url} />
+        image={'https:' + data?.contentfulPage?.metaImage?.file?.url}
+      />
       <section>
         {/* ClassName - Tools */}
         <Banner bannerData={dataSplit} className="toolsadvice" />
@@ -53,7 +75,7 @@ const ToolsAdvice = ({ data }) => {
         />
       </section>
       <section>
-        <CheckYourSavings sectionData={dataSplit} />
+        <CheckYourSavings sectionData={dataSplit} campaignUrl={campaignUrl} />
       </section>
 
       <section className="posRelative">
@@ -119,10 +141,7 @@ export const query = graphql`
           }
           headerText
           image {
-            gatsbyImageData(
-              placeholder: NONE
-              formats: [AUTO, WEBP]
-            )
+            gatsbyImageData(placeholder: NONE, formats: [AUTO, WEBP])
             title
           }
         }
@@ -217,6 +236,19 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+        ... on ContentfulCampaignMainPage {
+          id
+          campaignId
+          parentSlug
+          title
+          type
+          statusId
+          spaceId
+          reference {
+            childSlug
+            handle
           }
         }
       }
