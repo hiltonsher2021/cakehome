@@ -269,6 +269,12 @@ const CampaignBanner = (data) => {
   }
 
   const sendUserData = () => {
+    const {
+      utm_campaign_source,
+      utm_campaign_medium,
+      utm_campaign_name,
+      utm_campaign_content,
+    } = sessionStorage
     api({
       url: 'contacts',
       method: 'POST',
@@ -287,6 +293,10 @@ const CampaignBanner = (data) => {
         down_payment: type === 'purchase' ? currentLoanBal : 0,
         campaign_id: campaignId,
         status_id: statusId,
+        utm_campaign_source: utm_campaign_source ?? '',
+        utm_campaign_medium: utm_campaign_medium ?? '',
+        utm_campaign_name: utm_campaign_name ?? '',
+        utm_campaign_content: utm_campaign_content ?? '',
       },
     })
       .then((response) => {
@@ -471,7 +481,7 @@ const CampaignBanner = (data) => {
       'utm_campaign_source',
       'utm_campaign_medium',
       'utm_campaign_name',
-      'utm_content',
+      'utm_campaign_content',
     ])
     const params = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop),
