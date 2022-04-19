@@ -274,7 +274,7 @@ const CampaignBanner = (data) => {
       utm_campaign_medium,
       utm_campaign_name,
       utm_campaign_content,
-    } = sessionStorage
+    } = window.sessionStorage
     api({
       url: 'contacts',
       method: 'POST',
