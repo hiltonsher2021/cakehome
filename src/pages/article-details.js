@@ -19,7 +19,7 @@ const ArticleDetailsPage = (props) => {
     }
   })
 
-  image = getImage(dataSplit[0]?.image);
+  image = getImage(dataSplit[0]?.image)
 
   let mainSection = []
   let secondSection = []
@@ -87,21 +87,25 @@ const ArticleDetailsPage = (props) => {
                 <>
                   <h2>{item?.subTitle}</h2>
 
-                {item?.cardItems?.map((itemData, indexData) => {
-                  return (
-                    <>
-                    <p dangerouslySetInnerHTML={{
-                      __html: itemData?.title?.title,
-                    }} key={indexData}></p>
-                  <ul>
-                    {itemData?.list?.map((listItem, listIndex) => {
-                      return <li key={listIndex}>{listItem?.title?.title}</li>
-                    })}
-                  </ul>
-                    </>
-
-                  )
-                })}
+                  {item?.cardItems?.map((itemData, indexData) => {
+                    return (
+                      <>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: itemData?.title?.title,
+                          }}
+                          key={indexData}
+                        ></p>
+                        <ul>
+                          {itemData?.list?.map((listItem, listIndex) => {
+                            return (
+                              <li key={listIndex}>{listItem?.title?.title}</li>
+                            )
+                          })}
+                        </ul>
+                      </>
+                    )
+                  })}
                 </>
               )
             })}
@@ -117,21 +121,19 @@ const ArticleDetailsPage = (props) => {
 
         <div className="container">
           <div className="Article-contents">
-
             {fourthSection?.cardItems?.map((item, index) => {
               return (
                 <>
-                 <h2>{item?.subTitle}</h2>
-                 {item?.cardItems?.map((itemData, indexItem) => {
-                   return (
-                    <p
-                    dangerouslySetInnerHTML={{
-                      __html: itemData?.title?.title,
-                    }}
-                  ></p>
-                   )
-                 })}
-
+                  <h2>{item?.subTitle}</h2>
+                  {item?.cardItems?.map((itemData, indexItem) => {
+                    return (
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: itemData?.title?.title,
+                        }}
+                      ></p>
+                    )
+                  })}
                 </>
               )
             })}
@@ -141,7 +143,8 @@ const ArticleDetailsPage = (props) => {
             <h2>{fifthSection?.title}</h2>
             {fifthSection?.cardItems?.map((item, index) => {
               return (
-                <p key={index}
+                <p
+                  key={index}
                   dangerouslySetInnerHTML={{
                     __html: item?.title?.title,
                   }}
@@ -197,8 +200,9 @@ export const query = graphql`
                         title
                       }
                       list {
-                        title {
-                          title
+                        ... on ContentfulList {
+                          id
+                          name
                         }
                       }
                     }
@@ -210,8 +214,9 @@ export const query = graphql`
                             title
                           }
                           list {
-                            title {
-                              title
+                            ... on ContentfulList {
+                              id
+                              name
                             }
                           }
                         }
@@ -233,8 +238,9 @@ export const query = graphql`
                     title
                   }
                   list {
-                    title {
-                      title
+                    ... on ContentfulList {
+                      id
+                      name
                     }
                   }
                 }
