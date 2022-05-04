@@ -197,8 +197,9 @@ export const query = graphql`
                         title
                       }
                       list {
-                        title {
-                          title
+                        ... on ContentfulList {
+                          id
+                          name
                         }
                       }
                     }
@@ -210,8 +211,9 @@ export const query = graphql`
                             title
                           }
                           list {
-                            title {
-                              title
+                            ... on ContentfulList {
+                              id
+                              name
                             }
                           }
                         }
@@ -233,8 +235,9 @@ export const query = graphql`
                     title
                   }
                   list {
-                    title {
-                      title
+                    ... on ContentfulList {
+                      id
+                      name
                     }
                   }
                 }
