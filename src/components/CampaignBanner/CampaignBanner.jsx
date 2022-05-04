@@ -165,6 +165,16 @@ const CampaignBanner = (data) => {
     sessionStorage.setItem(name, value)
   }
 
+  const removeValuesStorage = (name) => {
+    if (Array.isArray(name)) {
+      name.forEach((sessionName) => {
+        sessionStorage.removeItem(sessionName)
+      })
+    } else {
+      sessionStorage.removeItem(name)
+    }
+  }
+
   const handleChange = (data) => {
     let propertyType = data.replaceAll(' ', '')
     setPropertyType(propertyType)
@@ -259,6 +269,12 @@ const CampaignBanner = (data) => {
   }
 
   const sendUserData = () => {
+    const {
+      utm_campaign_source,
+      utm_campaign_medium,
+      utm_campaign_name,
+      utm_campaign_content,
+    } = window.sessionStorage
     api({
       url: 'contacts',
       method: 'POST',
@@ -277,6 +293,10 @@ const CampaignBanner = (data) => {
         down_payment: type === 'purchase' ? currentLoanBal : 0,
         campaign_id: campaignId,
         status_id: statusId,
+        utm_campaign_source: utm_campaign_source ?? '',
+        utm_campaign_medium: utm_campaign_medium ?? '',
+        utm_campaign_name: utm_campaign_name ?? '',
+        utm_campaign_content: utm_campaign_content ?? '',
       },
     })
       .then((response) => {
@@ -455,6 +475,25 @@ const CampaignBanner = (data) => {
     lastName,
     email,
   ])
+
+  useEffect(() => {
+    removeValuesStorage([
+      'utm_campaign_source',
+      'utm_campaign_medium',
+      'utm_campaign_name',
+      'utm_campaign_content',
+    ])
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    })
+    const { utm_source, utm_medium, utm_campaign, utm_content } = params
+    if (utm_source && utm_medium) {
+      setValuesStorage('utm_campaign_source', utm_source)
+      setValuesStorage('utm_campaign_medium', utm_medium)
+      setValuesStorage('utm_campaign_name', utm_campaign)
+      setValuesStorage('utm_campaign_content', utm_content)
+    }
+  }, [])
 
   const setUrl = () => {
     url =
