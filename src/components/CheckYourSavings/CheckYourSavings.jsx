@@ -7,7 +7,6 @@ import { Link } from 'gatsby'
 
 const CheckYourSavings = (data) => {
   let { campaignUrl } = data
-  var { url, gtag } = window
   let modeledData = []
   let referencedData = []
   let customCalcData = []
@@ -106,7 +105,7 @@ const CheckYourSavings = (data) => {
       ? modeledData?.sectionReference[1]
       : modeledData?.section[1]
   }
-
+  const isBrowser = typeof window !== 'undefined'
   const handleSubmit = async (event) => {
     setGifSrc('')
     event.preventDefault()
@@ -114,17 +113,19 @@ const CheckYourSavings = (data) => {
     setPersonalizeButton(true)
 
     // Google tag tracking
-
-    var callback = function () {
-      if (typeof url != 'undefined') {
-        window.location = url
+    if (isBrowser) {
+      var { url, gtag } = window
+      var callback = function () {
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       }
+      gtag('event', 'conversion', {
+        send_to: 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
+        event_callback: callback,
+      })
+      return false
     }
-    gtag('event', 'conversion', {
-      send_to: 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
-      event_callback: callback,
-    })
-    return false
 
     // end of Google tag tracking
   }

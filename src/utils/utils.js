@@ -1,4 +1,4 @@
-var { LiveChatWidget } = window
+var { LiveChatWidget } = typeof window !== 'undefined' && window
 
 function minimizeChatWidget() {
   LiveChatWidget.call('minimize')

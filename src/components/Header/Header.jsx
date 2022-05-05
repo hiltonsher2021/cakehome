@@ -18,11 +18,11 @@ const propTypes = {
 const Header = ({ data }) => {
   let pathnameUrl = ''
   let pathValue = ''
-  var { url, gtag, location } = window
   const closeWidget = () => {
     closeChatWidget()
   }
   if (isBrowser) {
+    var { url, gtag, location } = window
     pathnameUrl = location?.pathname
     var element = document.getElementById('campaign-header')
 

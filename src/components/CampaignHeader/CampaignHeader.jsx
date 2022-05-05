@@ -4,21 +4,24 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { closeChatWidget, maximizeChatWidget } from '../../utils/utils'
 import sectionModel from 'models/Section'
 
+const isBrowser = typeof window !== 'undefined'
 const CampaignHeader = (data) => {
   let modeledData
-  var { url, gtag } = window
   const openChatWidget = (e) => {
     maximizeChatWidget()
-    var callback = function () {
-      if (typeof url != 'undefined') {
-        window.location = url
+    if (isBrowser) {
+      var { url, gtag } = window
+      var callback = function () {
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       }
+      gtag('event', 'conversion', {
+        send_to: 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+        event_callback: callback,
+      })
+      return false
     }
-    gtag('event', 'conversion', {
-      send_to: 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
-      event_callback: callback,
-    })
-    return false
   }
 
   if (data) {

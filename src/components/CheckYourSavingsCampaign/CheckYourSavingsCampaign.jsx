@@ -11,7 +11,6 @@ const CheckYourSavingsCampaign = (data) => {
   let parseDataRefinance = []
   let filterData
   let modeledData
-  var { url, gtag } = window
   const [values, setRangeValue] = useState([''])
   const [parseDataRefinanceValue, setParseDataRefinanceValue] = useState([''])
   const [loanMonths, setLoanMonths] = useState('')
@@ -93,24 +92,27 @@ const CheckYourSavingsCampaign = (data) => {
   const showCalculator = (e) => {
     data.showModal('refinance')
   }
-
+  const isBrowser = typeof window !== 'undefined'
   const handleSubmit = async (event) => {
     setGifSrc('')
     event.preventDefault()
     calculateLoanFromUser(loanMonths, values, paymentsMade, interestRate)
     setPersonalizeButton(true)
-    // Google tag tracking
-    var callback = function () {
-      if (typeof url != 'undefined') {
-        window.location = url
+    if (isBrowser) {
+      var { url, gtag } = window
+      // Google tag tracking
+      var callback = function () {
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       }
+      gtag('event', 'conversion', {
+        send_to: 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
+        event_callback: callback,
+      })
+      return false
+      // end of Google tag tracking
     }
-    gtag('event', 'conversion', {
-      send_to: 'AW-793052739/x_nbCPDS_YYDEMOMlPoC',
-      event_callback: callback,
-    })
-    return false
-    // end of Google tag tracking
   }
 
   function calculateLoanFromUser(

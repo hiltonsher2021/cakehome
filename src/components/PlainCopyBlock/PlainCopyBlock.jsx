@@ -79,7 +79,7 @@ const PlainCopyBlock = (data) => {
             <h2>{modeledData?.mainTitle}</h2>
           )}
           {!data?.dataSection?.title &&
-          data?.dataSection?.cardItems.length === 1 ? (
+          data?.dataSection?.cardItems?.length === 1 ? (
             <h3
               style={{
                 fontSize: '1.8em',
