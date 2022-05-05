@@ -12,7 +12,7 @@ const Footer = ({ data }) => {
   let image
   let socialImage
   let filterData
-
+  const isBrowser = typeof window !== 'undefined'
   if (layoutData) {
     filterData = layoutData.contentfulLayout.layout.filter((item) => {
       if (item.mainTitle === 'Footer')  return item
@@ -23,18 +23,19 @@ const Footer = ({ data }) => {
   }
 
   const googleTagEmail = () => {
-    // function gtag_report_conversion(url) {
+    if (isBrowser) {
+      var { url, gtag } = window
       var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       }
-      };
       gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
-      // }
+        send_to: 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
+        event_callback: callback,
+      })
+      return false
+    }
   }
 
   const openChatWidget = (e) => {
