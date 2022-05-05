@@ -78,8 +78,22 @@ const PlainCopyBlock = (data) => {
           {modeledData?.mainTitle && data?.handle !== 'toolsadvice' && (
             <h2>{modeledData?.mainTitle}</h2>
           )}
-          {data?.dataSection?.title && <h2>{data?.dataSection?.title}</h2>}
-
+          {!data?.dataSection?.title &&
+          data?.dataSection?.cardItems.length === 1 ? (
+            <h3
+              style={{
+                fontSize: '1.8em',
+                lineHeight: '1.3',
+                color: '#414042',
+                textAlign: 'center',
+              }}
+              dangerouslySetInnerHTML={{
+                __html: data?.dataSection?.cardItems[0]?.title?.title
+              }}
+            ></h3>
+          ) : (
+            data?.dataSection?.title && <h2>{data?.dataSection?.title}</h2>
+          )}
           {data?.handle === 'getstarted' && (
             <h3>{modeledData?.description?.description}</h3>
           )}

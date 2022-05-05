@@ -23,13 +23,14 @@ const AdviceBlock = (data) => {
 
   if (data?.sectionData) {
     filterRefiAdviceData = data?.sectionData.filter((item) => {
-      if (item.handle.includes('3')) {
+      console.log(item)
+      if (item?.handle?.includes('3')) {
         return item
       }
     })
 
     filterAdviceData = data?.sectionData.filter((item) => {
-      if (item.handle.includes('8')) {
+      if (item?.handle?.includes('8')) {
         return item
       }
     })
@@ -76,6 +77,18 @@ const AdviceBlock = (data) => {
         splitFirstTwoDataRefi(refiAdviceArticleList?.items)
       })
     }
+    console.log("modeledData", modeledData)
+    console.log("modeledRefiAdviceData", modeledRefiAdviceData)
+    console.log("mainCard", mainCard)
+    console.log("mainRefiAdviceCardData", mainRefiAdviceCardData)
+    console.log("refiAdviceArticleList", refiAdviceArticleList)
+    console.log("carouselData", carouselData)
+    console.log("articleList", articleList)
+    console.log("carouselFirstTwoData", carouselFirstTwoData)
+    console.log("carouselRefiAdviceData", carouselRefiAdviceData)
+    console.log("carouselRefiAdviceFirstTwoData", carouselRefiAdviceFirstTwoData)
+    console.log("filterAdviceData", filterAdviceData)
+    console.log("filterRefiAdviceData", filterRefiAdviceData)
   }
   var settings = {
     dots: true,
@@ -99,18 +112,18 @@ const AdviceBlock = (data) => {
     <div>
       {modeledData.length !== 0 && (
         <>
-          <div className={`${styles.AdviceBlock}`}>
+          {/* <div className={`${styles.AdviceBlock}`}>
             <div className="container">
               <div className="AdviceBlock__title-wrap">
                 <h2>{modeledData?.mainTitle}</h2>
-                <p>{modeledData?.subTitle}</p>
+                <p>{modeledData?.subTitle?.subTitle}</p>
               </div>
               <div className="AdviceBlock__article-wrap">
                 <div className="AdviceBlock_card-main">
                   <div className="AdviceCardMain">
                     <span className="eyebrow">{mainCard?.footerText}</span>
                     <h4>{mainCard?.title}</h4>
-                    <p>{mainCard?.subTitle} </p>
+                    <p>{mainCard?.subTitle?.subTitle} </p>
                     <a className="btn dark" href="#">
                       {mainCard?.ctaText}
                     </a>
@@ -138,14 +151,14 @@ const AdviceBlock = (data) => {
                 })}
               </Slider>
             </div>
-          </div>
+          </div> */}
 
           <div className={`${styles.AdviceBlock} posRelative`}>
             <span id="home-buy-advice"></span>
             <div className="container">
               <div className="AdviceBlock__title-wrap">
                 <h2>{modeledRefiAdviceData?.mainTitle}</h2>
-                <p>{modeledRefiAdviceData?.subTitle}</p>
+                <p>{modeledRefiAdviceData?.subTitle?.subTitle}</p>
               </div>
               <div className="AdviceBlock__article-wrap">
                 <div className="AdviceBlock_card-main">

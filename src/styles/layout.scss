@@ -512,6 +512,19 @@
     }
   }
 }
+
+.Article__wrapper.no-image-title-overlap{
+  .Article-banner {
+    .Article-banner__top {
+      .Article-banner__image {
+        @media #{$md} {
+          margin: rem(0) auto rem(30);
+        }
+      }
+    }
+  }
+}
+
 .perspectiveWrap {
   @media (max-width: 1024px) {
     transform: none !important;
