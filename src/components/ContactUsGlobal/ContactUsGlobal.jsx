@@ -8,13 +8,14 @@ const ContactUsGlobal = (data) => {
   let image
   let modeledData
   let referencedData
+  var { url, gtag } = window
   const openChatWidget = (e) => {
     maximizeChatWidget();
     // function gtag_report_conversion(url) {
       var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
-      }
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
       };
       gtag('event', 'conversion', {
       'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',

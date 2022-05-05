@@ -1,3 +1,5 @@
+var { LiveChatWidget } = window
+
 function minimizeChatWidget() {
   LiveChatWidget.call('minimize')
 }

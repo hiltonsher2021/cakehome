@@ -7,6 +7,7 @@ import { Link } from 'gatsby'
 
 const CheckYourSavings = (data) => {
   let { campaignUrl } = data
+  var { url, gtag } = window
   let modeledData = []
   let referencedData = []
   let customCalcData = []

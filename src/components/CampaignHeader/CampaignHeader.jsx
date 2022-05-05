@@ -6,6 +6,7 @@ import sectionModel from 'models/Section'
 
 const CampaignHeader = (data) => {
   let modeledData
+  var { url, gtag } = window
   const openChatWidget = (e) => {
     maximizeChatWidget()
     var callback = function () {

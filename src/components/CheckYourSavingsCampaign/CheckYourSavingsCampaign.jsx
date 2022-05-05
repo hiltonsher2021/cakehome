@@ -11,6 +11,7 @@ const CheckYourSavingsCampaign = (data) => {
   let parseDataRefinance = []
   let filterData
   let modeledData
+  var { url, gtag } = window
   const [values, setRangeValue] = useState([''])
   const [parseDataRefinanceValue, setParseDataRefinanceValue] = useState([''])
   const [loanMonths, setLoanMonths] = useState('')

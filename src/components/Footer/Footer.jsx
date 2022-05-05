@@ -12,6 +12,7 @@ const Footer = ({ data }) => {
   let image
   let socialImage
   let filterData
+  var { url, gtag } = window
 
   if (layoutData) {
     filterData = layoutData.contentfulLayout.layout.filter((item) => {

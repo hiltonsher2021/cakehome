@@ -8,6 +8,7 @@ import { maximizeChatWidget } from '../../utils/utils'
 
 const ChatCallBlock = (data) => {
   let modeledData = []
+  var { url, gtag } = window
   const openChatWidget = (e) => {
     maximizeChatWidget()
     var callback = function () {
