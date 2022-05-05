@@ -12,7 +12,7 @@ const propTypes = {
 const ArticleDetailsPage = (props) => {
   let image
   let modeledData = props?.data?.contentfulPage?.sections
-  console.log(modeledData)
+  //console.log(modeledData)
   const dataSplit = modeledData.filter((item) => {
     if (item?.handle.includes(props?.location?.state?.articleNo)) {
       return item
