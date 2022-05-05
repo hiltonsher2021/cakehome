@@ -18,7 +18,7 @@ const propTypes = {
 const Header = ({ data }) => {
   let pathnameUrl = ''
   let pathValue = ''
-  var { url, gtag } = window
+  var { url, gtag, location } = window
   const closeWidget = () => {
     closeChatWidget()
   }
