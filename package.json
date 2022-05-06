@@ -19,6 +19,7 @@
     "esm": "^3.2.25",
     "gatsby": "^3.11.1",
     "gatsby-image": "^3.11.0",
+    "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-image": "^1.14.2",
     "gatsby-plugin-react-helmet": "^4.13.0",
