@@ -26,18 +26,19 @@ const ContactUsGlobal = (data) => {
     }
   }
   const googleTagEmail = () => {
-    // function gtag_report_conversion(url) {
+    if (isBrowser) {
+      var { url, gtag } = window
       var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
-      }
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       };
       gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
-      // }
+        send_to: 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
+        event_callback: callback
+      })
+      return false
+    }
   }
 
   if (data) {
