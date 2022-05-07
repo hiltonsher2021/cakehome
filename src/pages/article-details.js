@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from 'components/layout/Main/MainLayout'
 import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import SEO from 'components/seo'
 
 const propTypes = {
   data: PropTypes.object,
@@ -12,9 +13,11 @@ const propTypes = {
 const ArticleDetailsPage = (props) => {
   let image
   let modeledData = props?.data?.contentfulPage?.sections
+  var articleHandle = null
   //console.log(modeledData)
   const dataSplit = modeledData.filter((item) => {
     if (item?.handle.includes(props?.location?.state?.articleNo)) {
+      articleHandle = item?.handle
       return item
     }
   })
@@ -26,7 +29,13 @@ const ArticleDetailsPage = (props) => {
   let thirdSection = []
   let fourthSection = []
   let fifthSection = []
+  let sixthSection = []
   let extraClass = dataSplit[0]?.class ? dataSplit[0]?.class : "";
+
+  let allAltText = {
+    article4: 'Small blue house with covered porch and brick entryway on front lawn.',
+    article5: 'A gallery space with floor-to-ceiling windows in a beach house.',
+  }
 
 
 
@@ -42,8 +51,10 @@ const ArticleDetailsPage = (props) => {
         thirdSection = item
       } else if (index === 3) {
         fourthSection = item
-      } else {
+      } else if (index === 4) {
         fifthSection = item
+      } else {
+        sixthSection = item
       }
     })
   }
@@ -53,9 +64,11 @@ const ArticleDetailsPage = (props) => {
   // console.log("thirdSection", thirdSection)
   // console.log("fourthSection", fourthSection)
   // console.log("fifthSection", fifthSection)
-
+  const titleTag = sixthSection?.titleTag
+  const metaDescription = sixthSection?.metaDescription
   return (
     <Layout>
+      <SEO title={titleTag} description={metaDescription} />
       <section className={`Article__wrapper ${extraClass}`}>
         <div className="container">
           <div className="Article-banner">
@@ -70,7 +83,14 @@ const ArticleDetailsPage = (props) => {
 
               <figure className="Article-banner__image">
                 {/* <img src="/images/article-banner-1.png" alt="Article Banner" /> */}
-                <GatsbyImage image={image} alt="Article Banner" />
+                <GatsbyImage
+                  image={image}
+                  alt={
+                    typeof allAltText[articleHandle] !== 'undefined'
+                      ? allAltText[articleHandle]
+                      : 'Article Banner'
+                  }
+                />
               </figure>
             </div>
             <div className="Article-banner__bottom">
