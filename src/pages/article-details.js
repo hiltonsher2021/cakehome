@@ -275,6 +275,10 @@ export const query = graphql`
           }
           backgroundColour
           sectionReference {
+            ... on ContentfulSeo {
+              titleTag
+              metaDescription
+            }
             ... on ContentfulCard {
               id
               subTitle
