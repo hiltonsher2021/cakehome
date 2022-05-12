@@ -76,6 +76,8 @@ const CampaignBanner = (data) => {
   const [curLoanBalValue, setCurLoanBalValue] = useState(0)
   const [cashOutValue, setCashOutValue] = useState(0)
   const [showMessage, setShowMessage] = useState('')
+  const [campaingQueryStrings, setcampaingQueryStrings] = useState('')
+
   const {
     register,
     formState: { errors },
@@ -275,36 +277,42 @@ const CampaignBanner = (data) => {
       utm_campaign_name,
       utm_campaign_content,
     } = window.sessionStorage
+    const data = {
+      pricing_link: urlValue,
+      first_name: firstName,
+      email: email,
+      last_name: lastName,
+      phone: phone,
+      get_my_personalized_rate: 'From Get My Personalized Rate',
+      zip_code: zipCode,
+      property_value: type !== 'purchase' ? propertyValue : 0,
+      current_loan_balance: type !== 'purchase' ? currentLoanBal : 0,
+      cash_out_amount: type !== 'purchase' ? cashOut : 0,
+      purchase_price: type === 'purchase' ? propertyValue : 0,
+      down_payment: type === 'purchase' ? currentLoanBal : 0,
+      campaign_id: campaignId,
+      status_id: statusId,
+      utm_campaign_source: utm_campaign_source ?? '',
+      utm_campaign_medium: utm_campaign_medium ?? '',
+      utm_campaign_name: utm_campaign_name ?? '',
+      utm_campaign_content: utm_campaign_content ?? '',
+    }
     api({
       url: 'contacts',
       method: 'POST',
-      data: {
-        pricing_link: urlValue,
-        first_name: firstName,
-        email: email,
-        last_name: lastName,
-        phone: phone,
-        get_my_personalized_rate: 'From Get My Personalized Rate',
-        zip_code: zipCode,
-        property_value: type !== 'purchase' ? propertyValue : 0,
-        current_loan_balance: type !== 'purchase' ? currentLoanBal : 0,
-        cash_out_amount: type !== 'purchase' ? cashOut : 0,
-        purchase_price: type === 'purchase' ? propertyValue : 0,
-        down_payment: type === 'purchase' ? currentLoanBal : 0,
-        campaign_id: campaignId,
-        status_id: statusId,
-        utm_campaign_source: utm_campaign_source ?? '',
-        utm_campaign_medium: utm_campaign_medium ?? '',
-        utm_campaign_name: utm_campaign_name ?? '',
-        utm_campaign_content: utm_campaign_content ?? '',
-      },
+      data,
     })
       .then((response) => {
         setShowMessage(
           'Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
         )
         setValuesStorage('allDetailsSent', true)
-
+        removeValuesStorage([
+          'utm_campaign_source',
+          'utm_campaign_medium',
+          'utm_campaign_name',
+          'utm_campaign_content',
+        ])
       })
       .catch(function (error) {
         setShowMessage('Oops, something went wrong!')
@@ -486,12 +494,14 @@ const CampaignBanner = (data) => {
     const params = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop),
     })
-    const { utm_source, utm_medium, utm_campaign, utm_content } = params
+    let { utm_source, utm_medium, utm_campaign, utm_content } = params
     if (utm_source && utm_medium) {
       setValuesStorage('utm_campaign_source', utm_source)
       setValuesStorage('utm_campaign_medium', utm_medium)
       setValuesStorage('utm_campaign_name', utm_campaign)
       setValuesStorage('utm_campaign_content', utm_content)
+      const campaingQueryStrings = `utm_source=${utm_source}&utm_medium=${utm_medium}&utm_campaign=${utm_campaign}&utm_content=${utm_content}`
+      setcampaingQueryStrings(campaingQueryStrings)
     }
   }, [])
 
@@ -1077,7 +1087,9 @@ const CampaignBanner = (data) => {
                 </div>
                 <div className={`banner__slider-control`}>
                   <div className="banner__prev">
-                    <Link to={`/campaign/${parentSlug}/${nextPage?.childSlug}`}>
+                    <Link
+                      to={`/campaign/${parentSlug}/${nextPage?.childSlug}?${campaingQueryStrings}`}
+                    >
                       <img
                         src="/images/campaign-slide-white.svg"
                         alt="slider"
@@ -1103,7 +1115,9 @@ const CampaignBanner = (data) => {
         >
           {nextPage !== undefined && (
             <div className="banner__next">
-              <Link to={`/campaign/${parentSlug}/${nextPage?.childSlug}`}>
+              <Link
+                to={`/campaign/${parentSlug}/${nextPage?.childSlug}?${campaingQueryStrings}`}
+              >
                 <img src="/images/campaign-slider-grey.svg" alt="slider" />
               </Link>
             </div>
@@ -1116,7 +1130,7 @@ const CampaignBanner = (data) => {
                     className={`slider-dots ${
                       data?.childSlug === item?.childSlug ? 'active' : ''
                     } `}
-                    to={`/campaign/${parentSlug}/${item?.childSlug}`}
+                    to={`/campaign/${parentSlug}/${item?.childSlug}?${campaingQueryStrings}`}
                     key={index}
                   ></Link>
                 </>
