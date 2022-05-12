@@ -8,34 +8,37 @@ const ContactUsGlobal = (data) => {
   let image
   let modeledData
   let referencedData
+  const isBrowser = typeof window !== 'undefined'
   const openChatWidget = (e) => {
     maximizeChatWidget();
-    // function gtag_report_conversion(url) {
+    if (isBrowser) {
+      var { url, gtag } = window
       var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       }
-      };
       gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
-      // }
+        send_to: 'AW-793052739/5hALCJTuqYcDEMOMlPoC',
+        event_callback: callback,
+      })
+      return false
+    }
   }
   const googleTagEmail = () => {
-    // function gtag_report_conversion(url) {
+    if (isBrowser) {
+      var { url, gtag } = window
       var callback = function () {
-      if (typeof(url) != 'undefined') {
-      window.location = url;
-      }
+        if (typeof url != 'undefined') {
+          window.location = url
+        }
       };
       gtag('event', 'conversion', {
-      'send_to': 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
-      'event_callback': callback
-      });
-      return false;
-      // }
+        send_to: 'AW-793052739/rlWPCKOxrfkCEMOMlPoC',
+        event_callback: callback
+      })
+      return false
+    }
   }
 
   if (data) {

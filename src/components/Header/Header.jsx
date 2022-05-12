@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import * as PropTypes from 'prop-types'
 import * as styles from './Header.module.scss'
 import CtaCallUs from '../CtaCallUs/CtaCallUs'
@@ -22,6 +22,7 @@ const Header = ({ data }) => {
     closeChatWidget()
   }
   if (isBrowser) {
+    var { url, gtag, location } = window
     pathnameUrl = location?.pathname
     var element = document.getElementById('campaign-header')
 
@@ -94,16 +95,12 @@ const Header = ({ data }) => {
           {modeledData?.section?.map((menu, index) => {
             if (menu?.label === 'Call Us') {
               return (
-                <>
-                  <a
-                    href={'tel:+' + menu?.url}
-                    className="icon-btn"
-                    key={index}
-                  >
+                <Fragment key={index}>
+                  <a href={'tel:+' + menu?.url} className="icon-btn">
                     <img src="/images/support-icon.svg" alt="support-icon" />
                     Call Us
                   </a>
-                </>
+                </Fragment>
               )
             }
           })}
@@ -158,7 +155,6 @@ const Header = ({ data }) => {
                           key={index}
                         >
                           <Link
-                            key={index}
                             title={`${menu?.label}`}
                             to={`${menu?.url}`}
                             className="menu-item"
@@ -169,9 +165,8 @@ const Header = ({ data }) => {
                             {menu?.menuReference[0]?.items.map(
                               (item, itemIndex) => {
                                 return (
-                                  <li>
+                                  <li key={itemIndex}>
                                     <Link
-                                      key={itemIndex}
                                       title={`${item.label}`}
                                       to={`${item.url}`}
                                       className="menu-item"
@@ -188,13 +183,13 @@ const Header = ({ data }) => {
                     } else {
                       return (
                         <li
+                          key={index}
                           className={`${
                             pathnameUrl?.includes(menu?.url) ? 'active' : ''
                           }`}
                         >
                           <AnchorLink
                             className={`menu-item`}
-                            key={index}
                             title={`${menu?.label}`}
                             to={`${menu?.url}`}
                           >
@@ -221,7 +216,6 @@ const Header = ({ data }) => {
                     <div
                       className="icon-wrapper"
                       onClick={(e) => openChatWidget(e)}
-                      key={index}
                     >
                       <figure>
                         <img src="/images/chat-icon-big.svg" alt="icon" />

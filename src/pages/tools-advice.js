@@ -85,10 +85,10 @@ const ToolsAdvice = ({ data }) => {
       </section>
 
       {/* Removed advice section from contentful */}
-      {/* <section className="posRelative">
+      <section className="posRelative">
         <span id="refi-advice-section"></span>
         <AdviceBlock sectionData={dataSplit} />
-      </section> */}
+      </section>
       <section>
         <PlainCopyBlock
           sectionData={dataSplit}
