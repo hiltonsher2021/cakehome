@@ -117,7 +117,7 @@ const RateBanner = (data) => {
         <div className="RateBanner__wrapper">
           <div className="left-side">
             <h1>{modeledData?.mainTitle}</h1>
-            <p>{modeledData?.subTitle?.subTitle}</p>
+            <p  dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }} ></p>
           </div>
 
           <div className="right-side">

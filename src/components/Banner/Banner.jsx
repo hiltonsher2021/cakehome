@@ -54,8 +54,7 @@ const Banner = (data) => {
               </Link>
             </div>
             )}
-            <p>{modeledData?.subTitle?.subTitle}</p>
-
+            <p  dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }} ></p>
             {data?.handle === 'homepurchase' && (
               <div className="banner__copy-cta-wrap">
                 {/* home purchase page only*/}

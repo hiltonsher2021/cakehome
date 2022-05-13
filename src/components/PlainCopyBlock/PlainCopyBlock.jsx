@@ -76,7 +76,7 @@ const PlainCopyBlock = (data) => {
       <div className="container">
         <div className="PlainCopyBlock__wrap">
           {modeledData?.mainTitle && data?.handle !== 'toolsadvice' && (
-            <h2>{modeledData?.mainTitle}</h2>
+            <h2 dangerouslySetInnerHTML={{ __html: modeledData?.mainTitle }}></h2>
           )}
           {!data?.dataSection?.title &&
           data?.dataSection?.cardItems?.length === 1 ? (
