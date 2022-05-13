@@ -105,12 +105,8 @@ const PlainCopyBlock = (data) => {
           )}
           {data?.handle === 'toolsadvice' && (
             <>
-              <h2>
-                <a className="dskt-res" href={modeledData?.ctaLink}>
-                  {modeledData?.mainTitle}
-                </a>
-              </h2>
-              <h5 className="copy">{modeledData?.subTitle?.subTitle}</h5>
+              <h2 dangerouslySetInnerHTML={{ __html: modeledData?.mainTitle }}></h2>
+              <h5 className="copy" dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }}></h5>
             </>
           )}
         </div>
