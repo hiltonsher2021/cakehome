@@ -181,6 +181,7 @@ const RefiRateBlock = (data) => {
             })}
           </div>
         </div>
+        <div class="copy"  dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }}></div>
       </div>
     </div>
   )
