@@ -16,7 +16,7 @@ import Layout from 'components/layout/Main/MainLayout'
 import SEO from 'components/seo'
 import { initCalculators, unloadCalculators } from 'helpers/calculator'
 import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
-
+import { Helmet } from 'react-helmet'
 const isBrowser = typeof window !== 'undefined'
 
 const propTypes = {
@@ -82,6 +82,44 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+      <script type="application/ld+json">
+        {`{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Cake Mortgage Company Inc",
+          "category": "Mortgage lender",
+          "description": "Mortgages made easy. At Cake, we offer a simple, transparent approval process for home loans and refinances, specializing in low FICO, non-QM, veterans, and manufactured homes. Our flexible loans and fast closing times keep your purchase on track. Our mission is to be a partner for life. Instead of a one-and-done transaction, we strive for lasting relationships with our customers to help them realize the maximum value from their investment at every stage of homeownership. Led by excellent customer service, we approve many borrowers that other lenders will not. Life’s better with Cake.",
+          "url": "https://cakehome.com/",
+          "logo": "https://images.ctfassets.net/ptoa5hrem9k5/40ZaQVgPwuxGryQ9OYmhzI/60cf2a359c8f43e748d257c8010dd6c3/cake-logo.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "833-818-2253",
+            "contactType": "customer service",
+            "areaServed": "US"
+          },
+          "sameAs": [
+            "https://business.facebook.com/Cake-Mortgage-107587851690285/",
+            "https://www.linkedin.com/company/cake-mortgage/"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "9200 Oakdale Ave STE 501",
+            "addressLocality": "Chatsworth",
+            "addressRegion": "CA",
+            "postalCode": "91311",
+            "addressCountry": "United States"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.23923950953099,
+            "longitude": -118.5659251539757
+          },
+          "hasMap": "https://www.google.com/maps/place/Cake+Mortgage/@34.2386896,-118.5660539,15z/data=!4m5!3m4!1s0x0:0x6fbc86eb37600b1b!8m2!3d34.2385006!4d-118.5660221"
+        }`}
+      </script>
+
+      </Helmet>
       {/* <!-- Conversion Pixel for [content]- DO NOT MODIFY --> */}
       <img
         src="https://data.adxcel-ec2.com/pixel/?ad_log=referer&action=content&pixid=8c0b3505-a7ff-4f6a-b874-6a1e048ce68d"
