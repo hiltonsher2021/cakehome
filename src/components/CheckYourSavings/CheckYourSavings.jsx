@@ -442,8 +442,7 @@ const CheckYourSavings = (data) => {
                 {calculatorMessage === '' && (
                   <h3 className="top">
                     Making the same payment with a{' '}
-                    <span>Cake Express Refinance</span> could save you{' '}
-                    <sup>*</sup>
+                    <span>Cake Express Refinance</span> could save you more than you realize. The best way to decide if a new mortgage loan is right for you is to calculate your potential savings.
                   </h3>
                 )}
 

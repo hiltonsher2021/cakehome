@@ -23,6 +23,7 @@ const ExpertKnowledge = (data) => {
       <div className="container">
         <div className="ExpertKnowledge__title-wrapper">
           <h2>{modeledData?.mainTitle}</h2>
+          <p  dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }} ></p>
           {/* <p>{modeledData?.subTitle}</p> */}
         </div>
         {/* Commented as videos are not available */}

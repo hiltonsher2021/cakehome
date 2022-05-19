@@ -35,7 +35,10 @@ const ChatCallBlock = (data) => {
   return (
     <div className={`${styles.ChatCallBlock} ${data?.className}`}>
       <div className="ChatCallBlock">
+        
         <div className="container">
+          <h2 class="title">{ modeledData?.mainTitle }</h2>
+          <p class="copy"  dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }}></p>
           <div className="ChatCallBlock__wrapper">
             <div className="ChatCallBlock_col">
               {/* className - ChatCall */}
