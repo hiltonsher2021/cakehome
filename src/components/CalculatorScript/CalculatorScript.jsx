@@ -93,7 +93,7 @@ const CalculatorScript = (data) => {
                   alt={modeledData?.image?.title}
                 />
               </div>
-              <p>{modeledData?.description?.description}</p>
+              <p  dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }} ></p>
               {modeledData?.sectionReference.map((item, index) => {
                 return (
                   <Link

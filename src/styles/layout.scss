@@ -551,3 +551,21 @@ display: none;
       overflow-y: auto;
     }
   }
+
+  /* Sitemap */
+  .sitemap_h1{
+    font-size: 40px;
+    padding-top: 20px;
+  }
+  .sitemap_list_{
+    display: none;
+  }
+
+  .sitemap_container{
+    padding: 0 15%;
+  }
+  @media (max-width: 786px) {
+    .sitemap_container{
+      padding: 0 5% !important;
+    }
+  }

@@ -16,7 +16,7 @@ const IconCopyCard = (data) => {
         className="IconCopyCard__icon"
       />
       <h4>{cardData?.title}</h4>
-      {cardData?.subTitle && <p>{cardData?.subTitle}</p>}
+      {cardData?.subTitle && <p dangerouslySetInnerHTML={{ __html: cardData?.subTitle }}></p>}
       {cardData?.titleLongDescription && (
         <p>{cardData?.titleLongDescription.titleLongDescription}</p>
       )}

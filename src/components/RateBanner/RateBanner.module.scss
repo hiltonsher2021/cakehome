@@ -47,10 +47,12 @@
                 font-size: rem(30);
                 line-height: rem(35);
                 margin: 0;
-                display: none;
+                margin-bottom: 50px;
                 max-width: rem(433);
+                text-align: center;
                 @media #{$md} {
                     display: block;
+                    text-align: left;
                 }
             }
         }

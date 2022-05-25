@@ -65,7 +65,7 @@ const ContactUsGlobal = (data) => {
             <div className="ContactUsGlobal__info">
               {/* Removed as per requirement */}
               {/* <p>{modeledData?.subTitle?.subTitle}</p> */}
-              <p>{modeledData?.description?.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }}></p>
             </div>
             <p className="contact">
             <a href={'tel:+' + (referencedData?.number)}>{referencedData?.title}</a>

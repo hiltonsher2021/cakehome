@@ -9,6 +9,40 @@
     @media #{$xl} {
         padding: rem(86) rem(150);
     }
+    .copy h2 {
+        font-family: $aeonik;
+        font-weight: bold;
+        font-size: rem(40);
+        line-height: rem(38);
+        letter-spacing: 0;
+        margin: 0 auto rem(34);
+        text-align: center;
+        color: $textdark;
+        max-width: rem(400);
+        @media #{$md} {
+            max-width: 100%;
+            font-size: rem(80);
+            line-height: rem(80);
+            letter-spacing: rem(-0.91);
+            margin: 0 0 rem(54);
+        }
+    }
+    .copy p{
+        font-family: "Aeonik";
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.875rem;
+        color: rgb(65, 64, 66) !important;
+        margin: 0 auto 1.25rem;
+        text-align: center;
+        max-width: 61.0625rem;
+        padding: 30px 0;
+    }
+    .copy{
+        max-width: rem(1016);
+        margin: 0 auto;
+        margin-top: 10%;
+    }
     .RefiRateBlock__Wrapper {
         max-width: rem(1016);
         margin: 0 auto;
