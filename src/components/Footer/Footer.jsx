@@ -64,6 +64,11 @@ const Footer = ({ data }) => {
               <GatsbyImage image={image} alt={modeledData?.image?.title} />
             </figure>
           </AnchorLink>
+          <p>
+          9200 Oakdale Ave, Unit 501
+          Chatsworth, CA 91311
+          United States
+          </p>
         </div>
         <div className="right-menu-columns">
           {modeledData?.section.map((menu, menuIndex) => {

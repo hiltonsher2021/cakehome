@@ -31,7 +31,7 @@
               flex: 0 0 100%;
               margin: 0 0 rem(30);
               @media #{$lg} {
-                margin: 0 11% rem(30) 0;
+                margin: 0 5% rem(30) 0;
               }
               @media #{$xl} {
                 flex: initial;
@@ -46,6 +46,17 @@
                     height: rem(41);
                     width:rem(125) ;
                   }
+              }
+              p{
+                font-size: 1.0625rem;
+                letter-spacing: 0;
+                line-height: 1.5625rem;
+                font-family: "Aeonik";
+                font-weight: 400;
+                color: #414042;
+                margin-bottom: 0.9375rem;
+                display: block;
+                margin-top: 20px;
               }
             }
             .right-menu-columns{
