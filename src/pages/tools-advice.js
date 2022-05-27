@@ -15,9 +15,7 @@ import { initCalculators, unloadCalculators } from 'helpers/calculator'
 import { Helmet } from 'react-helmet'
 const isBrowser = typeof window !== 'undefined'
 
-const propTypes = {
-  data: PropTypes.object,
-}
+const propTypes = { data: PropTypes.object }
 
 const ToolsAdvice = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections
