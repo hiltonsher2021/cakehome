@@ -42,7 +42,51 @@ exports.createPages = ({ graphql, actions }) => {
               },
             })
           })
+        })
+      })
+    )
 
+    const blogPostTemplate = path.resolve('./src/templates/article.js')
+    resolve(
+      graphql(
+        `
+          {
+            contentfulPage(handle: { eq: "articleDetails" }) {
+              handle
+              title
+              sections {
+                ... on ContentfulSection {
+                  id
+                  mainTitle
+                  sectionReference {
+                    ... on ContentfulSeo {
+                      titleTag
+                      metaDescription
+                      urlSlug
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `
+      ).then((result) => {
+        if (result.errors) {
+          reject(result.errors)
+        }
+        const articles = result?.data?.contentfulPage?.sections
+        articles.forEach((article) => {
+          const articleSectionReference = article.sectionReference
+          const articleSEODetails =
+            articleSectionReference[articleSectionReference.length - 1]
+          createPage({
+            path: `/blog/${articleSEODetails.urlSlug}/`,
+            component: blogPostTemplate,
+            context: {
+              slug: articleSEODetails.urlSlug,
+              id: article?.id,
+            },
+          })
         })
       })
     )
