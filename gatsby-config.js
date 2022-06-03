@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.cakehome.com/`,
+        siteUrl: `https://cakehome.com/`,
         stripQueryString: true,
       },
     },
