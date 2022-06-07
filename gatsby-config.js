@@ -45,5 +45,12 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        sitemap: 'https://cakehome.com/sitemap.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
+    },
   ],
 };
