@@ -64,7 +64,7 @@ const MonthlyPaymentCalculator = (data) => {
                   alt={modeledData?.title}
                 />
               </div>
-              <p>{modeledData?.description?.description}</p>
+              <p dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }}></p>
               {/* /* Commented as Signal intent is not working */}
               {/* <button
                 className={`btn dark`}
