@@ -16,7 +16,7 @@ const ArticleDetailsPage = (props) => {
   var articleHandle = null
   //console.log(modeledData)
   const dataSplit = modeledData.filter((item) => {
-    if (item?.handle.includes(props?.location?.state?.articleNo)) {
+    if (item?.handle?.includes(props?.location?.state?.articleNo)) {
       articleHandle = item?.handle
       return item
     }
