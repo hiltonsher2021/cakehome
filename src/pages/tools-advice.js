@@ -335,6 +335,12 @@ export const query = graphql`
                   id
                   ctaText
                   backgroundColour
+                  image {
+                    gatsbyImageData
+                  }
+                  backgroundImage {
+                    gatsbyImageData
+                  }
                   footerText
                   iconType
                   subTitle
