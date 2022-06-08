@@ -14,7 +14,6 @@ const ArticleDetailsPage = (props) => {
   let image
   let modeledData = props?.data?.contentfulPage?.sections
   var articleHandle = null
-  //console.log(modeledData)
   const dataSplit = modeledData.filter((item) => {
     if (item?.handle?.includes(props?.location?.state?.articleNo)) {
       articleHandle = item?.handle

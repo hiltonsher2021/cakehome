@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from 'components/layout/Main/MainLayout'
 import Banner from 'components/Banner/Banner'
 import ChatCallBlock from 'components/ChatCallBlock/ChatCallBlock'
-import SmartToolsBlock from 'components/SmartToolsBlock/SmartToolsBlock'
+// import SmartToolsBlock from 'components/SmartToolsBlock/SmartToolsBlock'
 import AdviceBlock from 'components/AdviceBlock/AdviceBlock'
 import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
 import FaqBlock from 'components/FaqBlock/FaqBlock'
@@ -20,7 +20,7 @@ const propTypes = { data: PropTypes.object }
 const ToolsAdvice = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections
   let campaignUrl = ''
-  let type = ''
+  // let type = ''
 
   useEffect(() => {
     if (isBrowser) {
@@ -40,7 +40,7 @@ const ToolsAdvice = ({ data }) => {
       }
     })
     let parentSlug = urlData[0]?.parentSlug
-    type = urlData[0].type
+    // type = urlData[0].type
     let childSlug = urlData[0]?.reference.filter((item) => {
       if (item?.handle === 1) {
         return item.childSlug
