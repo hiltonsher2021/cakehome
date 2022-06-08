@@ -27,7 +27,8 @@ const ArticleDetailsPage = (props) => {
   let articleHandle = dataSplit[0]?.handle
 
   let allAltText = {
-    article4: 'Small blue house with covered porch and brick entryway on front lawn.',
+    article4:
+      'Small blue house with covered porch and brick entryway on front lawn.',
     article5: 'A gallery space with floor-to-ceiling windows in a beach house.',
   }
 
