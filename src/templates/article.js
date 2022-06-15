@@ -30,6 +30,8 @@ const ArticleDetailsPage = (props) => {
     article4:
       'Small blue house with covered porch and brick entryway on front lawn.',
     article5: 'A gallery space with floor-to-ceiling windows in a beach house.',
+    article6: 'Savings tracker with boxes of numbers written on graph paper',
+    article7: 'Woman smiling and standing outside by red sold sign and post'
   }
 
   {
