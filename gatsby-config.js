@@ -44,6 +44,9 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      exclude: [/^\/campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/]
+    },
   ],
 };
