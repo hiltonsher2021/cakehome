@@ -46,7 +46,11 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
-      exclude: [/^\/campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/]
+      options: {
+        exclude: [
+          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/
+        ]
+      }
     },
   ],
 };
