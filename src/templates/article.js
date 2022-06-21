@@ -34,6 +34,8 @@ const ArticleDetailsPage = (props) => {
     article7: 'Woman smiling and standing outside by red sold sign and post',
     article9: 'A entrepreneur works from home on a laptop',
     article10: 'A soldier in uniform sits near a window',
+    article13: 'A home improvement paint tray with white paint and roller sitting on a table',
+    article14: 'A man, woman, and dog sit in an empty room in a new house'
   }
 
   {
