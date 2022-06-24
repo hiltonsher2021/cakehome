@@ -46,7 +46,8 @@ module.exports = {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
         exclude: [
-          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/
+          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/, 
+          /^(\/)?404(.html|\/)?$/
         ]
       }
     },
