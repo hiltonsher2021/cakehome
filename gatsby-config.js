@@ -35,15 +35,21 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -100
-      }
+      options: { offset: -100 }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-root-import`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        exclude: [
+          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/, 
+          /^(\/)?404(.html|\/)?$/
+        ]
+      }
+    },
   ],
 };
