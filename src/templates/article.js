@@ -27,8 +27,19 @@ const ArticleDetailsPage = (props) => {
   let articleHandle = dataSplit[0]?.handle
 
   let allAltText = {
-    article4: 'Small blue house with covered porch and brick entryway on front lawn.',
+    article4:
+      'Small blue house with covered porch and brick entryway on front lawn.',
     article5: 'A gallery space with floor-to-ceiling windows in a beach house.',
+    article6: 'Savings tracker with boxes of numbers written on graph paper',
+    article7: 'Woman smiling and standing outside by red sold sign and post',
+    article9: 'A entrepreneur works from home on a laptop',
+    article10: 'A soldier in uniform sits near a window',
+    article13: 'A home improvement paint tray with white paint and roller sitting on a table',
+    article14: 'A man, woman, and dog sit in an empty room in a new house',
+    article15: 'A man, woman, and girl sitting on the floor of a new home with moving boxes',
+    article16: 'A tiny home model on a table with a house key',
+    article17: 'A man and woman sitting at a table with home loan papers and a phone',
+    article18: 'A gray house with a white porch fence, vaulted roof, and yard',
   }
 
   {
@@ -196,7 +207,10 @@ const ArticleDetailsPage = (props) => {
             {fourthSection?.cardItems?.map((item) => {
               return (
                 <>
-                  <h2>{item?.subTitle}</h2>
+                  <h2 dangerouslySetInnerHTML={{
+                        __html: item?.subTitle,
+                      }}
+                    ></h2>
                   {item?.cardItems?.map((itemData, indexItem) => {
                     return (
                       <p

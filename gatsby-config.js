@@ -29,15 +29,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://www.cakehome.com/`,
+        siteUrl: `https://cakehome.com/`,
         stripQueryString: true,
       },
     },
     {
       resolve: "gatsby-plugin-anchor-links",
-      options: {
-        offset: -100
-      }
+      options: { offset: -100 }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-root-import`,
@@ -50,6 +48,14 @@ module.exports = {
       options: {
         sitemap: 'https://cakehome.com/sitemap.xml',
         policy: [{userAgent: '*', allow: '/'}]
+    },
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        exclude: [
+          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/, 
+          /^(\/)?404(.html|\/)?$/
+        ]
       }
     },
   ],
