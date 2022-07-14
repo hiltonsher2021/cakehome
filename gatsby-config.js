@@ -4,9 +4,9 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.cakehome.com/",
-    title: "Cake",
-    description: "Cake"
+    siteUrl: 'https://www.cakehome.com/',
+    title: 'Cake',
+    description: 'Cake',
   },
   plugins: [
     {
@@ -14,13 +14,13 @@ module.exports = {
       options: {
         spaceId: `ptoa5hrem9k5`,
         accessToken: process.env.CONTENTFUL_API_KEY,
-        environment: 'develop'
+        environment: 'develop',
       },
     },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("node-sass"),
+        implementation: require('node-sass'),
         sassOptions: {
           precision: 6,
         },
@@ -34,8 +34,8 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-anchor-links",
-      options: { offset: -100 }
+      resolve: 'gatsby-plugin-anchor-links',
+      options: { offset: -100 },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-root-import`,
@@ -46,10 +46,17 @@ module.exports = {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
         exclude: [
-          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/, 
-          /^(\/)?404(.html|\/)?$/
-        ]
-      }
+          /^(\/)?campaign(?!\/refinance\/apply_today11|\/home_purchase\/apply_today1)(\/.*)?$/,
+          /^(\/)?404(.html|\/)?$/,
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        sitemap: 'https://cakehome.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
     },
   ],
-};
+}
