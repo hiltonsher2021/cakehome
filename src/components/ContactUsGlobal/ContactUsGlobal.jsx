@@ -108,7 +108,7 @@ const ContactUsGlobal = (data) => {
               {/* <img src="/images/cake-map.png" alt="Cake Map" /> */}
             </figure>
             <figure className="door-map">
-              <img src="/images/Door01_Color.gif" alt="Cake Door" />
+              <img src="https://images.ctfassets.net/ptoa5hrem9k5/2W8x7yTzGfgmTJBapF0Slu/4e562cb0301f7ef6b32c552a6d6cf13c/door-opened-coloured-balloons-fly.gif" alt="Door Opened Coloured Balloons Fly" />
             </figure>
           </div>
         </div>

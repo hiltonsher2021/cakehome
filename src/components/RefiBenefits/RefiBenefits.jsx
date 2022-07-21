@@ -44,13 +44,13 @@ const RefiBenefits = (data) => {
             <div className="cake-video">
               {data?.handle === 'refinance' ? (
                 <img
-                  src="/images/Cake_Refi_iphonex-clay-nocursor.gif"
-                  alt="Refinance gif"
+                  src="https://images.ctfassets.net/ptoa5hrem9k5/1e1VNqvBXFCF1XDx5RD1Dg/612f7b885fc516333889c6e15230d0ce/the-cake-express-refi-is-simply-better.gif"
+                  alt="The Cake Express Refi Is Simply Better"
                 />
               ) : (
                 <img
-                  src="/images/Cake_Purchase_iphonex-clay-nocursor.gif"
-                  alt="Homepurchase gif"
+                  src="https://images.ctfassets.net/ptoa5hrem9k5/1S7jFOP4BGaxNeyg8EaBdn/9cdddf4fc19bf282ef077854bf969456/the-cake-signature-purchase-benefits.gif"
+                  alt="The Cake Signature Purchase Benefits"
                 />
               )}
             </div>

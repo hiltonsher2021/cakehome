@@ -38,8 +38,8 @@ const Banner = (data) => {
                 />
               ) : (
                 <img
-                  src="/images/Door02_OrgangeColor.gif"
-                  alt="Door02_OrgangeColor"
+                  src="https://images.ctfassets.net/ptoa5hrem9k5/4sYBLhWRQzcQb4cgbW970K/8a396bfcf3999e1a0f5885a7ba637740/door-opened-orange-colours-smily.gif"
+                  alt="Door Opened Orange Colours smily"
                 />
               )}
             </div>
@@ -92,8 +92,8 @@ const Banner = (data) => {
               />
             ) : (
               <img
-                src="/images/Door02_OrgangeColor.gif"
-                alt="Door02_OrgangeColor"
+                src="https://images.ctfassets.net/ptoa5hrem9k5/4sYBLhWRQzcQb4cgbW970K/8a396bfcf3999e1a0f5885a7ba637740/door-opened-orange-colours-smily.gif"
+                alt="Door Opened Orange Colours smily"
               />
             )}
           </div>

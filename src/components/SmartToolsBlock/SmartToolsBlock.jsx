@@ -136,7 +136,7 @@ const SmartToolsBlock = (data) => {
             ) : indexValue === 1 ? (
               <img src="/images/home-refinance.gif" alt="Home refinance" />
             ) : indexValue === 2 ? (
-              <img src="/images/cashOut.gif" alt="Cash out" />
+              <img src="https://images.ctfassets.net/ptoa5hrem9k5/CoWV8aFDjqUl0WxpxBP19/606b474236e275ff37a3312a9f4030c6/your-equity-your-cash-your-dream.gif" alt="Your Equity Your Cash Your Dream" />
             ) : (
               <img src="/images/cake-ad.jpg" alt="Cake" />
             )}
