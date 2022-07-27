@@ -436,14 +436,14 @@ const ImageAnimation = (data) => {
               {indexValue === 0 ? (
                 <>
                   <img
-                    src="/images/Mortgage-Payoff-Calculator.gif"
-                    alt="Mortgage-Payoff-Calculator"
+                    src="https://images.ctfassets.net/ptoa5hrem9k5/67kAUdaRuzdyRlYUhxmaau/f6254c678e46d9795a3bb58943739754/mortgage-payoff-calculator.gif"
+                    alt="Mortgage Payoff Calculator"
                   />
                 </>
               ) : indexValue === 1 ? (
                 <img src="/images/home-refinance.gif" alt="Home refinance" />
               ) : (
-                <img src="/images/cashOut.gif" alt="Cash out" />
+                <img src="https://images.ctfassets.net/ptoa5hrem9k5/CoWV8aFDjqUl0WxpxBP19/606b474236e275ff37a3312a9f4030c6/your-equity-your-cash-your-dream.gif" alt="Your Equity Your Cash Your Dream" />
               )}
             </div>
           </div>

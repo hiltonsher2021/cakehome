@@ -132,7 +132,7 @@ const CopyFigure2Column = (data) => {
             <div className="CopyFigure2Column__figure">
               <div className="figure-holder">
                 {data?.handle === 'refinance' ? (
-                  <img src="/images/Pig2Bull.gif" alt="Pig2bull" />
+                  <img src="https://images.ctfassets.net/ptoa5hrem9k5/6JzC8UoJsWaxZHzz2zNYJ9/f72cc386e5ba27181184d7b8e11445d6/pig-to-bull.gif" alt="Pig To Bull" />
                 ) : (
                   <GatsbyImage
                     className="banner__image-img"
@@ -186,8 +186,8 @@ const CopyFigure2Column = (data) => {
                 </>
               ) : (
                 <img
-                  src="/images/Mortgage-Payoff-Calculator.gif"
-                  alt="Mortgage-Payoff-Calculator"
+                  src="https://images.ctfassets.net/ptoa5hrem9k5/67kAUdaRuzdyRlYUhxmaau/f6254c678e46d9795a3bb58943739754/mortgage-payoff-calculator.gif"
+                  alt="Mortgage Payoff Calculator"
                 />
               )}
               {/* </figure> */}

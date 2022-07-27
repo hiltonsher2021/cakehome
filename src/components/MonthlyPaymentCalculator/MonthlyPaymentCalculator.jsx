@@ -76,7 +76,7 @@ const MonthlyPaymentCalculator = (data) => {
             </div>
             <div className="MonthlyPaymentCalculator__figure">
               <div className="figure-holder">
-              <img src="/images/HouseUpgrade.gif" alt="HouseUpgrade" />
+              <img src="https://images.ctfassets.net/ptoa5hrem9k5/7cS8luUzZ88g78ARmVTspz/94d9bfba121f775b03631cc467adacda/house-upgrade.gif" alt="House Upgrade" />
               </div>
             </div>
           </div>
