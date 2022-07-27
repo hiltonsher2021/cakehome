@@ -27,8 +27,7 @@ const ArticleDetailsPage = (props) => {
   let articleHandle = dataSplit[0]?.handle
 
   let allAltText = {
-    article4:
-      'Small blue house with covered porch and brick entryway on front lawn.',
+    article4: 'Small blue house with covered porch and brick entryway on front lawn.',
     article5: 'A gallery space with floor-to-ceiling windows in a beach house.',
     article6: 'Savings tracker with boxes of numbers written on graph paper',
     article7: 'Woman smiling and standing outside by red sold sign and post',
@@ -40,6 +39,9 @@ const ArticleDetailsPage = (props) => {
     article16: 'A tiny home model on a table with a house key',
     article17: 'A man and woman sitting at a table with home loan papers and a phone',
     article18: 'A gray house with a white porch fence, vaulted roof, and yard',
+    article19: 'A man counts cash in different denominations',
+    article20: 'A row of two-story single-family houses with trees in front',
+    article21: 'Keys hanging in the door of a starter home',
   }
 
   {
