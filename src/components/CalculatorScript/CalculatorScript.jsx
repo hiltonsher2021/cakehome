@@ -174,7 +174,7 @@ const CalculatorScript = (data) => {
                 <img src="/images/New-home-all.gif" alt="Home refinance" />
                 </>
               ) : (
-                <img src="/images/cashOut.gif" alt="Cash out" />
+                <img src="https://images.ctfassets.net/ptoa5hrem9k5/CoWV8aFDjqUl0WxpxBP19/606b474236e275ff37a3312a9f4030c6/your-equity-your-cash-your-dream.gif" alt="Your Equity Your Cash Your Dream" />
               )}
               {/* </figure> */}
             </div>
