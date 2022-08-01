@@ -42,6 +42,12 @@ const ArticleDetailsPage = (props) => {
     article19: 'A man counts cash in different denominations',
     article20: 'A row of two-story single-family houses with trees in front',
     article21: 'Keys hanging in the door of a starter home',
+    article22: 'A white fence around a starter home',
+    article23: 'An open-concept modern living room and kitchen',
+    article24: 'Rows of colorful houses on a hillside',
+    article25: 'A home with lights on and hills behind',
+    article26: 'A smiling couple in a field',
+    article27: 'Tax deduction books and papers with calculator and home renovation purchase receipts',
   }
 
   {
