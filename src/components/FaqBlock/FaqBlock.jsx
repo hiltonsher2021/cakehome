@@ -100,11 +100,10 @@ const FaqBlock = (data) => {
       <div className="container">
         <div className="FaqBlock__title-wrap">
           <h2>
-            <span className="copy-desktop">{modeledData?.mainTitle}</span>
+            <span className="copy-desktop" dangerouslySetInnerHTML={{ __html: modeledData?.mainTitle }}></span>
             <span className="copy-mobile">FAQ</span>
           </h2>
-          <p className="FaqBlock__copy">
-            {modeledData?.subTitle?.subTitle}
+          <p className="FaqBlock__copy" dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }}>
           </p>
           <div className="FaqBlock__search-block">
             <input
@@ -142,15 +141,15 @@ const FaqBlock = (data) => {
                 if (index % 2 === 0) {
                   return (
                     <div className="FaqBlock__tab-item" key={index}>
-                      <h6>{item?.title}</h6>
-                      <p>{item?.subTitle}</p>
+                      <h6 dangerouslySetInnerHTML={{ __html: item?.title }}></h6>
+                      <p dangerouslySetInnerHTML={{ __html: item?.subTitle }}></p>
                     </div>
                   )
                 } else {
                   return (
                     <div className="FaqBlock__tab-item" key={index}>
-                      <h6>{item?.title}</h6>
-                      <p>{item?.subTitle}</p>
+                      <h6 dangerouslySetInnerHTML={{ __html: item?.title }}></h6>
+                      <p dangerouslySetInnerHTML={{ __html: item?.subTitle }}></p>
                     </div>
                   )
                 }
