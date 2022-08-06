@@ -1094,7 +1094,7 @@ const CampaignBanner = (data) => {
                       onClick={() => {
                         history.back()
                       }}
-                      styles={{ cursor: 'pointer' }}
+                      style={{ cursor: 'pointer' }}
                     />
                     <p className="disclaimer_text">
                       By entering your phone number you’re authorizing Cake
@@ -1130,7 +1130,7 @@ const CampaignBanner = (data) => {
                 onClick={() => {
                   history.back()
                 }}
-                styles={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer' }}
               />
             </div>
           )}
