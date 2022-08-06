@@ -8,9 +8,10 @@ import ReactTooltip from 'react-tooltip'
 const isBrowser = typeof window !== 'undefined'
 
 const CampaignBanner = (data) => {
-  let sessionStorage
+  let sessionStorage, history
   if (isBrowser) {
     sessionStorage = window.sessionStorage
+    history = window.history
   }
   const { parentSlug } = data
   const { campaignType } = data
@@ -1087,15 +1088,14 @@ const CampaignBanner = (data) => {
                 </div>
                 <div className={`banner__slider-control`}>
                   <div className="banner__prev">
-                    <Link
-                      to={`/campaign/${parentSlug}/${nextPage?.childSlug}?${campaingQueryStrings}`}
-                    >
-                      <img
-                        src="/images/campaign-slide-white.svg"
-                        alt="slider"
-                      />
-                    </Link>
-                    {/* Disclaimer text */}
+                    <img
+                      src="/images/campaign-slide-white.svg"
+                      alt="slider"
+                      onClick={() => {
+                        history.back()
+                      }}
+                      styles={{ cursor: 'pointer' }}
+                    />
                     <p className="disclaimer_text">
                       By entering your phone number you’re authorizing Cake
                       Mortgage Corp to use this number to call, text, and send
@@ -1120,6 +1120,18 @@ const CampaignBanner = (data) => {
               >
                 <img src="/images/campaign-slider-grey.svg" alt="slider" />
               </Link>
+            </div>
+          )}
+          {currentPage?.pageNo > 1 && (
+            <div className="banner__prev">
+              <img
+                src="/images/campaign-slide-white.svg"
+                alt="slider"
+                onClick={() => {
+                  history.back()
+                }}
+                styles={{ cursor: 'pointer' }}
+              />
             </div>
           )}
           <div className="banner__slider-dots">
