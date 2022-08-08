@@ -48,7 +48,6 @@
             font-size: rem(30);
             line-height: rem(35);
             letter-spacing: 0;
-            display: none;
             max-width: rem(707);
             margin: 0 0 rem(39);
             @media #{$md} {
@@ -107,10 +106,9 @@
         margin: 0 auto;
         max-width: rem(980);
         .FaqBlock__tab-wrapper {
-            display: none;
+            display: flex;
+            justify-content: center;
             @media (min-width: 767px) {
-                display: flex;
-                justify-content: center;
                 margin: 0 0 rem(50);
             }
             .FaqBlock__tab-btn{

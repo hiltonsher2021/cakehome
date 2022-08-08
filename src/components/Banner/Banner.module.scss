@@ -20,9 +20,8 @@
             .banner__contents {
                 max-width: 100%;
                 flex: 0 0 100%;
-                padding: rem(33) 0 rem(90);
                 @media #{$sm} {
-                    padding: rem(60) 0 rem(100);
+                    padding: 1rem !important;
                 }
                 @media #{$lg} {
                     max-width: 65%;
