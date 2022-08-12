@@ -289,11 +289,19 @@ const CheckYourSavings = (data) => {
   }
 
   return (
-    <div className={`${styles.CheckYourSavings}`} id="chi-mez-calculator">
+    <div
+      className={`${styles.CheckYourSavings}`}
+      id="chi-mez-calculator"
+      style={{ backgroundColor: data.isPurpleBg ? '#C6C6FA' : '#6CEBCE' }}
+    >
       <div className="container">
         <div className="CheckYourSavings__wrap">
           <div className="CheckYourSavings__top">
-            <div className="left-side">
+            <div
+              className={`left-side ${
+                data.fullWidthHeading ? 'full-width-heading' : ''
+              }`}
+            >
               {' '}
               <span className="eyebrow">{modeledData?.subTitle?.subtitle}</span>
               <h2>{modeledData?.mainTitle}</h2>
