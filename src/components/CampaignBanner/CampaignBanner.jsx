@@ -305,7 +305,7 @@ const CampaignBanner = (data) => {
     })
       .then((response) => {
         setShowMessage(
-          'Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
+          'Thank you! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
         )
         setValuesStorage('allDetailsSent', true)
         removeValuesStorage([
