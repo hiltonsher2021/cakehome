@@ -48,6 +48,7 @@ const ArticleDetailsPage = (props) => {
     article25: 'A home with lights on and hills behind',
     article26: 'A smiling couple in a field',
     article27: 'Tax deduction books and papers with calculator and home renovation purchase receipts',
+    article28: 'A vacation home in the woods with a second home mortgage',
   }
 
   {
