@@ -101,7 +101,7 @@ const PlainCopyBlock = (data) => {
           {(data?.handle === 'homepage' ||
             data?.handle === 'aboutcake' ||
             data?.handle === 'getstarted') && (
-            <p className="copy">{modeledData?.subTitle?.subTitle}</p>
+            <p className="copy" dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }}></p>
           )}
           {data?.handle === 'toolsadvice' && (
             <>
