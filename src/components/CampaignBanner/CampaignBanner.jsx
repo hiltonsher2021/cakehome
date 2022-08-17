@@ -84,6 +84,98 @@ const CampaignBanner = (data) => {
     formState: { errors },
   } = useForm({ mode: 'onBlur' })
 
+  useEffect(() => {
+    let cashOut = sessionStorage.getItem('cashOut')
+    let cashOutValue = sessionStorage.getItem('cashoutValue')
+    let downPayment = sessionStorage.getItem('downPayment')
+    let currentBalValue = sessionStorage.getItem('currentBalValue')
+    let lastName = sessionStorage.getItem('lastName')
+    let firstName = sessionStorage.getItem('firstName')
+    let purchasePrice = sessionStorage.getItem('purchasePrice')
+    let purchasePriceValue = sessionStorage.getItem('purchasePriceValue')
+    let zipCode = sessionStorage.getItem('zipCode')
+    let phone = sessionStorage.getItem('phone')
+    let email = sessionStorage.getItem('email')
+    let propertyUseStorage = sessionStorage.getItem('propertyUse')
+    let propertyTypeStorage = sessionStorage.getItem('propertyType')
+    let creditRatingStorage = sessionStorage.getItem('creditRating')
+    let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
+    let lastNameValidation = sessionStorage.getItem('lastNameValidation')
+    let firstNameValidation = sessionStorage.getItem('firstNameValidation')
+    let allDetailsSent = sessionStorage.getItem('allDetailsSent')
+    if (allDetailsSent === 'true') {
+      setShowMessage(
+        'Thank you! Your personalized rates are being baked and we’ll deliver them to you via email and text.'
+      )
+    }
+    setFirstNameValid(firstNameValidation)
+    setLastNameValid(lastNameValidation)
+    setShowZipcodeValidationMessage(zipcodeValidation || false)
+    validateZipcode(zipCode || '')
+    setPropertyValue(parseInt(purchasePrice) || 0)
+    setFirstUsername(firstName || '')
+    setLastUsername(lastName || '')
+    setCashOut(parseInt(cashOut) || 0)
+    setCurrentLoanBal(parseInt(downPayment) || 0)
+    setUserEmail(email || '')
+    setPhone(phone || '')
+    setPropertyType(propertyTypeStorage || propertyType)
+    setPropertyUse(propertyUseStorage || propertyUse)
+    setCreditRating(creditRatingStorage || creditRating)
+    setPropValue(purchasePriceValue || 0)
+    setCurLoanBalValue(currentBalValue || 0)
+    setCashOutValue(cashOutValue || 0)
+    if (currentPage?.pageNo === 5) {
+      setUrl()
+    }
+    defaultValuePropertyUse = propertyUseValues.filter((item) => {
+      if (item.value === propertyUse) {
+        return item
+      }
+    })
+    defaultValuePropertyType = propertyTypeValues.filter((item) => {
+      if (item.value === propertyType) {
+        return item
+      }
+    })
+    defaultValueCreditRange = creditRangeValues.filter((item) => {
+      if (item.value === creditRating) {
+        return item
+      }
+    })
+  }, [
+    creditRating,
+    propertyType,
+    propertyUse,
+    cashOut,
+    currentLoanBal,
+    propertyValue,
+    firstName,
+    lastName,
+    email,
+  ])
+
+  useEffect(() => {
+    removeValuesStorage([
+      'utm_campaign_source',
+      'utm_campaign_medium',
+      'utm_campaign_name',
+      'utm_campaign_content',
+    ])
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    })
+    let { utm_source, utm_medium, utm_campaign, utm_content } = params
+    if (utm_source && utm_medium) {
+      setValuesStorage('utm_campaign_source', utm_source)
+      setValuesStorage('utm_campaign_medium', utm_medium)
+      setValuesStorage('utm_campaign_name', utm_campaign)
+      setValuesStorage('utm_campaign_content', utm_content)
+      const campaingQueryStrings = `utm_source=${utm_source}&utm_medium=${utm_medium}&utm_campaign=${utm_campaign}&utm_content=${utm_content}`
+      setcampaingQueryStrings(campaingQueryStrings)
+    }
+  }, [])
+
   if (data) {
     filterData = data?.edges?.map((item) => {
       return { childSlug: item?.node?.childSlug, pageNo: item.node?.handle }
@@ -138,12 +230,6 @@ const CampaignBanner = (data) => {
     currentPage = currentPageData?.shift()
     nextPageData = slugOrder?.filter((item, index) => {
       if (currentPage?.pageNo + 1 === index + 1 && currentPage?.pageNo !== 5) {
-        return item
-      } else if (
-        currentPage?.pageNo !== 5 &&
-        currentPage?.pageNo === 6 &&
-        index + 1 === 5
-      ) {
         return item
       } else if (
         currentPage?.pageNo !== 5 &&
@@ -415,96 +501,6 @@ const CampaignBanner = (data) => {
         setValuesStorage('zipcodeValidation', true)
       })
   }
-
-  useEffect(() => {
-    let cashOut = sessionStorage.getItem('cashOut')
-    let cashOutValue = sessionStorage.getItem('cashoutValue')
-    let downPayment = sessionStorage.getItem('downPayment')
-    let currentBalValue = sessionStorage.getItem('currentBalValue')
-    let lastName = sessionStorage.getItem('lastName')
-    let firstName = sessionStorage.getItem('firstName')
-    let purchasePrice = sessionStorage.getItem('purchasePrice')
-    let purchasePriceValue = sessionStorage.getItem('purchasePriceValue')
-    let zipCode = sessionStorage.getItem('zipCode')
-    let phone = sessionStorage.getItem('phone')
-    let email = sessionStorage.getItem('email')
-    let propertyUseStorage = sessionStorage.getItem('propertyUse')
-    let propertyTypeStorage = sessionStorage.getItem('propertyType')
-    let creditRatingStorage = sessionStorage.getItem('creditRating')
-    let zipcodeValidation = sessionStorage.getItem('zipcodeValidation')
-    let lastNameValidation = sessionStorage.getItem('lastNameValidation')
-    let firstNameValidation = sessionStorage.getItem('firstNameValidation')
-    let allDetailsSent = sessionStorage.getItem('allDetailsSent')
-    if(allDetailsSent === "true") {
-      setShowMessage('Thank You! Your personalized rates are being baked and we’ll deliver them to you via email and text.')
-    }
-    setFirstNameValid(firstNameValidation)
-    setLastNameValid(lastNameValidation)
-    setShowZipcodeValidationMessage(zipcodeValidation || false)
-    validateZipcode(zipCode || '')
-    setPropertyValue(parseInt(purchasePrice) || 0)
-    setFirstUsername(firstName || '')
-    setLastUsername(lastName || '')
-    setCashOut(parseInt(cashOut) || 0)
-    setCurrentLoanBal(parseInt(downPayment) || 0)
-    setUserEmail(email || '')
-    setPhone(phone || '')
-    setPropertyType(propertyTypeStorage || propertyType)
-    setPropertyUse(propertyUseStorage || propertyUse)
-    setCreditRating(creditRatingStorage || creditRating)
-    setPropValue(purchasePriceValue || 0)
-    setCurLoanBalValue(currentBalValue || 0)
-    setCashOutValue(cashOutValue || 0)
-    if (currentPage?.pageNo === 5) {
-      setUrl()
-    }
-    defaultValuePropertyUse = propertyUseValues.filter((item) => {
-      if (item.value === propertyUse) {
-        return item
-      }
-    })
-    defaultValuePropertyType = propertyTypeValues.filter((item) => {
-      if (item.value === propertyType) {
-        return item
-      }
-    })
-    defaultValueCreditRange = creditRangeValues.filter((item) => {
-      if (item.value === creditRating) {
-        return item
-      }
-    })
-  }, [
-    creditRating,
-    propertyType,
-    propertyUse,
-    cashOut,
-    currentLoanBal,
-    propertyValue,
-    firstName,
-    lastName,
-    email,
-  ])
-
-  useEffect(() => {
-    removeValuesStorage([
-      'utm_campaign_source',
-      'utm_campaign_medium',
-      'utm_campaign_name',
-      'utm_campaign_content',
-    ])
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop),
-    })
-    let { utm_source, utm_medium, utm_campaign, utm_content } = params
-    if (utm_source && utm_medium) {
-      setValuesStorage('utm_campaign_source', utm_source)
-      setValuesStorage('utm_campaign_medium', utm_medium)
-      setValuesStorage('utm_campaign_name', utm_campaign)
-      setValuesStorage('utm_campaign_content', utm_content)
-      const campaingQueryStrings = `utm_source=${utm_source}&utm_medium=${utm_medium}&utm_campaign=${utm_campaign}&utm_content=${utm_content}`
-      setcampaingQueryStrings(campaingQueryStrings)
-    }
-  }, [])
 
   const setUrl = () => {
     url =
