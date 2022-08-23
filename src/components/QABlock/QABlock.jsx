@@ -32,7 +32,7 @@ const QABlock = (data) => {
                     objectFit="contain"
                   />
                 </div>
-                <p>{modeledData?.description?.description}</p>
+                <p dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }}></p>
               </div>
               <div className="top-banner__figure">
                 <div className="figure-holder">
