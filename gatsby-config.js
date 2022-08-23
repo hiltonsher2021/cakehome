@@ -14,7 +14,7 @@ module.exports = {
       options: {
         spaceId: `ptoa5hrem9k5`,
         accessToken: process.env.CONTENTFUL_API_KEY,
-        environment: 'develop',
+        environment: 'develop'
       },
     },
     {

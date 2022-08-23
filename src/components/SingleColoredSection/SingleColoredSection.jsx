@@ -6,12 +6,12 @@ import sectionModel from 'models/Section'
 const SingleColoredSection = (data) => {
   let modeledData = []
   let filterData = []
-console.log("here", data)
+
   if (data) {
     switch (data?.handle) {
-      case 'homepage':
+      case 'frontpage':
         filterData = data.sectionData.filter((item) => {
-          if (item.handle === '2') return item
+          if (item.handle === '32') return item
         })
         break
       case 'getstarted':
@@ -24,16 +24,20 @@ console.log("here", data)
     modeledData = sectionModel(filterData[0])
   }
 
-  console.log("here2", modeledData)
-
   return (
     <div
       className={`${styles.HowItWorks} ${
         data?.handle === 'getstarted' ? 'isGetstarted-works' : ''
-      } `}
+      } ${data?.noTopPadding ? 'no-top-padding' : ''} ${
+        data?.noCssPos ? 'no-pos' : ''
+      }`}
     >
       <div className="container container--sm">
-        <div className="easy-step-wrapper">
+        <div
+          className={`easy-step-wrapper ${
+            data?.noInnerTopMargin ? 'no-top-margin' : ''
+          }`}
+        >
           <EasyStepsCardSingle
             tabData={modeledData?.sectionReference}
             description={modeledData?.description?.description}

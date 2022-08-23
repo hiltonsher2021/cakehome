@@ -60,6 +60,7 @@ const ImageAnimation = (data) => {
         })
         break
       case 'homepage':
+      case 'frontpage':
         filterData = data.sectionData.filter((item) => {
           if (item.handle === '4') return item
         })
@@ -116,9 +117,14 @@ const ImageAnimation = (data) => {
         <div id="ImageAnimation__wrap">
           <div className="ImageAnimation__wrap">
             <div className="ImageAnimation__copy">
-              <span className="eyebrow">{modeledData?.footerText}</span>
+              {!data?.textNotFooter && (
+                <span className="eyebrow">{modeledData?.footerText}</span>
+              )}
               <h2>{modeledData?.mainTitle}</h2>
               {modeledData?.subTitle && <h2>{modeledData?.subTitle}</h2>}
+              {data?.textNotFooter && (
+                <p className="tagline">{modeledData?.footerText}</p>
+              )}
               <div className="figure-holder">
                 <Slider
                   {...settingsMob}

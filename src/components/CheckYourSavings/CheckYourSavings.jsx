@@ -13,8 +13,11 @@ const CheckYourSavings = (data) => {
   let responseRefinanceData
   let responsePurchaseData
   let parseDataRefinance = []
+  let filterData = ''
 
   const [values, setRangeValue] = useState([''])
+  const [rightContentBottom, setTheContentOnRightBottom] = useState('')
+  const [rightContentTop, setTheContentOnRightTop] = useState('')
   const [parseDataRefinanceValue, setParseDataRefinanceValue] = useState([''])
   const [loanMonths, setLoanMonths] = useState('')
   const [paymentsMade, setPaymentsMade] = useState('')
@@ -67,6 +70,9 @@ const CheckYourSavings = (data) => {
   useEffect(() => {}, [showCustomCalculator, gif_src, values])
 
   useEffect(() => {
+    console.log('dededede', filterData[0]?.sectionReference[0])
+    setTheContentOnRightTop(filterData[0]?.sectionReference[0])
+    setTheContentOnRightBottom(filterData[0]?.sectionReference[0]?.cardItems[0])
     api({
       url: 'rates/latest',
       method: 'GET',
@@ -94,9 +100,14 @@ const CheckYourSavings = (data) => {
   }
 
   if (data) {
-    let filterData = data.sectionData.filter((item) => {
-      if (item.handle === '3') return item
+    filterData = data.sectionData.filter((item) => {
+      if (item.handle === '43') return item
     })
+    // ContentfulObject = {
+    //   mainTitle: filterData?.title,
+    //   subTitle: filterData?.subTitle,
+    //   cardItems
+    // }
     modeledData = sectionModel(filterData[0])
     referencedData = modeledData?.sectionReference
       ? modeledData?.sectionReference[0]
@@ -288,6 +299,8 @@ const CheckYourSavings = (data) => {
     }
   }
 
+  const getExtraClass = () => data.noPadding && data.noBg && 'no-padding no-bg'
+
   return (
     <div
       className={`${styles.CheckYourSavings}`}
@@ -297,23 +310,23 @@ const CheckYourSavings = (data) => {
       <div className="container">
         <div className="CheckYourSavings__wrap">
           <div className="CheckYourSavings__top">
-            <div
+            <h2>{modeledData?.mainTitle}</h2>
+            {/* <div
               className={`left-side ${
                 data.fullWidthHeading ? 'full-width-heading' : ''
               }`}
             >
               {' '}
               <span className="eyebrow">{modeledData?.subTitle?.subtitle}</span>
-              <h2>{modeledData?.mainTitle}</h2>
-            </div>
-            <div className="right-side">
+            </div> */}
+            {/* <div className="right-side">
               <p>{modeledData?.description?.description} </p>
-            </div>
+            </div> */}
           </div>
           <div className="CheckYourSavings__holder">
             <div className="left-side">
               <h5>{customCalcData?.subTitle}</h5>
-              {!showCustomCalculator && (
+              {/* {!showCustomCalculator && (
                 <button
                   className={`btn dark hid-dsktp mobile-form-toggle`}
                   onClick={showCustomCalc}
@@ -328,7 +341,8 @@ const CheckYourSavings = (data) => {
                 className={`CheckYourSavings__form ${
                   showCustomCalculator ? '' : 'hid-mob'
                 }`}
-              >
+              > */}
+              <div className="CheckYourSavings__form">
                 <form onSubmit={handleSubmit}>
                   <div className="CakeFormWrap">
                     <div className="CakeFieldWrap">
@@ -439,21 +453,36 @@ const CheckYourSavings = (data) => {
               </div>
             </div>
 
-            <div
-              className={`right-side ${showCustomCalculator ? '' : 'hid-mob'}`}
-            >
+            {/* <div className={`right-side ${showCustomCalculator ? '' : 'hid-mob'}`}> */}
+            <div className="right-side">
               <div
                 className={`refinance__wrap ${
                   showPersonalizeButton ? '' : 'personalize_no_button'
-                }`}
+                } ${getExtraClass()}`}
               >
                 {calculatorMessage === '' && (
-                  <h3 className="top">
-                    Making the same payment with a{' '}
-                    <span>Cake Express Refinance</span> could save you more than you realize. The best way to decide if a new mortgage loan is right for you is to calculate your potential savings.
-                  </h3>
+                  <div className="right-side-content-wrapper">
+                    <div className="top-content">
+                      <h3 className="right-side-heading">
+                        {rightContentTop?.title}
+                      </h3>
+                      <p className="right-side-desc">{rightContentTop?.subTitle}</p>
+                    </div>
+                    <div className="bottom-content">
+                      <h3 className="right-side-heading">
+                        {rightContentBottom?.title}
+                      </h3>
+                      <p
+                        className="right-side-desc"
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            rightContentBottom?.titleLongDescription
+                              ?.titleLongDescription,
+                        }}
+                      ></p>
+                    </div>
+                  </div>
                 )}
-
                 {differenceNum > 0 ? (
                   <>
                     <h2>
@@ -503,18 +532,20 @@ const CheckYourSavings = (data) => {
                   GET MY PERSONALIZED RATE
                 </Link>
               )} */}
-              <div
-                className={`refinance__image ${
-                  differenceNum <= 0 ? '' : 'active'
-                }`}
-              >
-                <img
-                  src="/images/Chi-MezCalculatorDoor.png"
-                  alt="door"
-                  class="imgNormal"
-                />
-                <img src={gif_src} alt="door" class="imgAnimated" />
-              </div>
+              {modeledData.handle!=='43' && (
+                <div
+                  className={`refinance__image ${
+                    differenceNum <= 0 ? '' : 'active'
+                  }`}
+                >
+                  <img
+                    src="/images/Chi-MezCalculatorDoor.png"
+                    alt="door"
+                    className="imgNormal"
+                  />
+                  <img src={gif_src} alt="door" className="imgAnimated" />
+                </div>
+              )}
               {showPersonalizeButton && (
                 <Link className="btn dark d-mob" to={`${campaignUrl}`}>
                   GET MY PERSONALIZED RATE

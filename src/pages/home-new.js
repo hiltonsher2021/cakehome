@@ -30,8 +30,9 @@ const IndexPage = ({ data }) => {
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
   const dataSplit = data?.contentfulPage?.sections;
-  const purchaseAdviceSection = data?.allContentfulTabItems?.nodes[1]
-  const refinanceAdviceSection = data?.allContentfulTabItems?.nodes[0]
+  const purchaseAdviceSection = data?.contentfulPage?.sections[3]?.sectionReference[0]?.items[1] //data?.allContentfulTabItems?.nodes[1]
+  const refinanceAdviceSection = data?.contentfulPage?.sections[3]?.sectionReference[0]?.items[0]
+  console.log("dataSplit", dataSplit);
   const campaignPageUrl = () => {
     let urlData = dataSplit?.filter((item) => {
       if (item?.parentSlug) {
@@ -139,29 +140,26 @@ const IndexPage = ({ data }) => {
           className="home"
           handle={data?.contentfulPage?.handle}
         />
-        <div className="PersonalizeModal" style={{ display: showModalSection ? 'block' : 'none' }}>
-          <PersonalizeRateBlock
-            closeModal={closeModal}
-            sectionData={dataSplit}
-            classname={tabSelection}
-            handle={data?.contentfulPage?.handle}
-          />
-        </div>
 
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           sectionValue="2"
+          className="medium-padding"
         />
-
         <SingleColoredSection
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           bgColor="orange"
           tabIndex={1}
+          noTopPadding={true}
+          noInnerTopMargin={true}
         />
 
-        <TabContentAsPlainBlock sectionData={purchaseAdviceSection} />
+        <TabContentAsPlainBlock
+          sectionData={purchaseAdviceSection}
+          medPadding={true}
+        />
 
         <CalculatorScript
           sectionData={dataSplit}
@@ -177,6 +175,8 @@ const IndexPage = ({ data }) => {
           campaignUrl={campaignRefinanceUrl}
           fullWidthHeading={true}
           isPurpleBg={true}
+          noPadding={true}
+          noBg={true}
         />
 
         <SingleColoredSection
@@ -184,6 +184,8 @@ const IndexPage = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           bgColor="orange"
           tabIndex={2}
+          noTopPadding={true}
+          noCssPos={true}
         />
 
         <ImageAnimation
@@ -191,9 +193,13 @@ const IndexPage = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
           campaignUrl={campaignRefinanceUrl}
+          textNotFooter={true}
         />
 
-        <TabContentAsPlainBlock sectionData={refinanceAdviceSection} />
+        <TabContentAsPlainBlock
+          sectionData={refinanceAdviceSection}
+          medPadding={true}
+        />
 
         <ContactUsGlobal sectionData={dataSplit} />
       </div>
@@ -207,7 +213,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   {
-    contentfulPage(handle: { eq: "homepage" }) {
+    contentfulPage(handle: { eq: "frontpage" }) {
       handle
       title
       name
@@ -360,6 +366,9 @@ export const pageQuery = graphql`
                   iconType
                   ctaText
                   footerText
+                  titleLongDescription {
+                    titleLongDescription
+                  }
                 }
               }
             }

@@ -18,15 +18,15 @@
         font-weight: $degular;
         font-size: rem(48);
         font-weight: 700;
-        line-height: rem(40);
-        letter-spacing: rem(-0.41);
+        line-height: rem(48);
+        letter-spacing: rem(1);
         color: $textdark;
         margin: 0 0 rem(53);
         text-align: center;
         @media #{$md} {
             font-size: rem(60);
-            letter-spacing: rem(-0.51);
             margin: 0 0 rem(40);
+            letter-spacing: rem(1.2);
         }
     }
     .EasyStepsCard__holder {
@@ -54,7 +54,10 @@
       margin-bottom: 0;
   }
   &:global(.orange) {
-      background-color: $theme-orange;
+        background-color: $theme-orange;
+        margin: 0 5px;
+        border-radius: 15px;
+        padding-top: 40px !important;
       :global {
         .EasyStepsCard__title {
             color: white;

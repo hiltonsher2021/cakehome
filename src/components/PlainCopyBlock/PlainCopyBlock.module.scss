@@ -3,13 +3,14 @@
 .PlainCopyBlock {
   padding: rem(60) 0;
   margin: 0 0 rem(24);
+  margin-bottom: 0 !important;
   @media #{$lg} {
       margin: 0 0 rem(40);
       padding: rem(199) 0;
   }
   :global {
     .PlainCopyBlock__wrap {
-        max-width: rem(1000);
+        max-width: rem(1100);
         margin: 0 auto;
         h2 {
             font-family: $degular;
@@ -29,19 +30,16 @@
             }
         }
         h2 {
-          font-family: $aeonik;
-          font-weight: bold;
+          font-family: $degular;
+          font-weight: 700;
           color: $textdark;
-          font-size: rem(40);
+          font-size: rem(32);
           line-height: rem(40);
           letter-spacing: rem(-0.4);
           margin: 0 auto rem(24);
-          max-width: rem(245);
-          @media #{$sm} {
-              max-width: 100%;
-          }
+          max-width: 100%;
           @media #{$md} {
-              font-size: rem(60);
+              font-size: rem(64);
               line-height: rem(65);
               letter-spacing: rem(-0.6);
               margin: 0 0 rem(15);
@@ -72,7 +70,26 @@
       margin: 0 auto rem(20);
       text-align: center;
       max-width: rem(977);
-      display: none;
+      &.frontpage-copy {
+        margin-top: 3rem;
+        p {
+          font-family: $aeonik;
+          font-weight: 500;
+          font-size: 1.2rem;
+          line-height: 2.2rem;
+          max-width: 95%;
+          margin: 2rem auto;
+          @media #{$md} {
+            display: 1.9rem;
+            max-width: rem(700);
+          }
+          @media #{$lg} {
+            font-size: 1.5rem;
+            line-height: 1.875rem;
+            max-width: 98%;
+          }
+        }
+      }
       @media #{$md} {
           display: block;
       }
@@ -90,6 +107,11 @@
   }
   &:global(.green) {
     background-color: $theme-green;
+  }
+  &:global(.medium-padding) {
+    @media #{$lg} {
+      padding: rem(90) 0;
+    }
   }
   &:global(.refi) {
     padding: rem(28) 0 rem(74);

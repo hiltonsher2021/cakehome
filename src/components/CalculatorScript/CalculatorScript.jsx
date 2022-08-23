@@ -19,8 +19,9 @@ const CalculatorScript = (data) => {
         })
         break
       case 'homepage':
+      case 'frontpage':
         filterData = data?.sectionData.filter((item) => {
-          if (item?.handle === '5') return item
+          if (item?.handle === '5' || item?.handle === '35') return item
         })
         break
     }
@@ -85,7 +86,13 @@ const CalculatorScript = (data) => {
             <div className="CalculatorScript__copy">
               <span className="eyebrow">{modeledData?.footerText}</span>
               <h2>{modeledData?.mainTitle}</h2>
-              {modeledData?.subTitle && <h2>{modeledData?.subTitle}</h2>}
+              {modeledData?.subTitle?.subTitle && (
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: modeledData?.subTitle?.subTitle,
+                  }}
+                ></p>
+              )}
               <div className="figure-holder">
                 <GatsbyImage
                   className="banner__image-img"
