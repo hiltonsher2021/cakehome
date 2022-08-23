@@ -21,8 +21,16 @@ const Banner = (data) => {
     data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
   }
 
+  const getHomePageData = (handle) => {
+    if (handle === 'homepage' || handle === 'frontpage') {
+      return 'homepage'
+    } else {
+      return handle
+    }
+  }
+
   return (
-    <div className={`${styles.cakebanner} ${data?.handle} ${data?.className}`}>
+    <div className={`${styles.cakebanner} ${getHomePageData(data?.handle)} ${data?.className}`}>
       <div className="container">
         <div className="banner__wrapper">
           <div className="banner__contents">
@@ -43,7 +51,7 @@ const Banner = (data) => {
                 />
               )}
             </div>
-            {data?.handle === 'homepage' && (
+            {(data?.handle === 'homepage' || data?.handle === 'frontpage') && (
             <div className="banner__copy-cta-wrap">
               <Link
                 title={`${modeledData?.ctaText}`}
@@ -67,7 +75,7 @@ const Banner = (data) => {
             )}
 
             {/* Home page CTA section */}
-            {data?.handle === 'homepage' && (
+            {(data?.handle === 'homepage' || data?.handle === 'frontpage') && (
               <div className="banner__copy-cta-wrap">
                 {/* home page only*/}
                 {/* add class hid-dsktp */}
@@ -99,7 +107,7 @@ const Banner = (data) => {
           </div>
         </div>
         {modeledData?.ctaText &&
-          data?.handle !== 'homepurchase' &&
+          data?.handle !== 'homepurchase' && data?.handle !== 'frontpage' &&
           data?.handle !== 'homepage' && data?.handle !== 'refinance' && (
             <div className="banner__cta-wrapper" onClick={showCalculator}>
               <CtaBig

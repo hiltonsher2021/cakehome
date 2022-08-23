@@ -1,57 +1,84 @@
 @import 'styles/global.scss';
 
-.PlainCopyBlock {
+.TabContentAsPlainBlock {
   padding: rem(60) 0;
   margin: 0 0 rem(24);
-  margin-bottom: 0 !important;
   @media #{$lg} {
       margin: 0 0 rem(40);
       padding: rem(199) 0;
   }
+  h2 {
+    font-family: $aeonik;
+  }
   :global {
-    .PlainCopyBlock__wrap {
-        max-width: rem(1100);
-        margin: 0 auto;
-        h2 {
-            font-family: $degular;
-            font-weight: 900;
-            color: $textdark;
-            font-size: rem(32);
-            line-height: rem(30);
-            letter-spacing: rem(3);
-            text-align: center;
-            @media #{$lg} {
-                font-size: rem(44);
-                line-height: rem(42);
-            }
-            @media #{$lg} {
-                font-size: rem(80);
-                line-height: rem(66);
-            }
+    .TabContentAsPlainBlock__wrap {
+      max-width: rem(1100);
+      margin: 0 auto;
+      h2 {
+        font-family: $degular;
+        font-weight: 900;
+        color: $textdark;
+        font-size: rem(80);
+        line-height: rem(30);
+        letter-spacing: rem(3);
+        text-align: center;
+        @media #{$lg} {
+            font-size: rem(80);
+            line-height: rem(42);
         }
-        h2 {
-          font-family: $degular;
-          font-weight: 700;
-          color: $textdark;
-          font-size: rem(32);
-          line-height: rem(40);
-          letter-spacing: rem(-0.4);
-          margin: 0 auto rem(24);
-          max-width: 100%;
-          @media #{$md} {
-              font-size: rem(64);
-              line-height: rem(65);
-              letter-spacing: rem(-0.6);
-              margin: 0 0 rem(15);
-          }
       }
-      a {
-        font-family: $aeonik;
+      h2 {
+        font-family: $degular;
         font-weight: bold;
         color: $textdark;
+        font-size: rem(60);
+        line-height: rem(60);
+        letter-spacing: rem(-0.4);
+        margin: 0 auto rem(24);
+        max-width: rem(245);
+        @media #{$sm} {
+            max-width: 100%;
+        }
+        @media #{$md} {
+            font-size: rem(75);
+            line-height: rem(100);
+            letter-spacing: rem(-0.6);
+            margin: 0 0 rem(15);
+        }
+      }
+      h3 {
+        font-family: $aeonik;
+        font-weight: 700;
+        color: $textdark;
+        font-size: rem(26);
+        line-height: rem(30);
+        text-align: left;
+        margin-bottom: 0;
+        @media #{$lg} {
+            font-size: rem(28);
+            line-height: rem(42);
+        }
+        @media #{$lg} {
+            font-size: rem(32);
+            line-height: rem(66);
+        }
+      }
+      a, p {
+        font-family: $aeonik;
+        font-weight: 500;
+        color: $textdark;
+      }
+      .content-wrapper {
+        p {
+          font-size: rem(20);
+          margin-top: 15px;
+          @media #{$md} {
+            margin-top: 0;
+          }
+        }
       }
     }
-    .PlainCopyBlock__cta-wrapper {
+    .TabContentAsPlainBlock__cta-wrapper {
       text-align: center;
       padding: 0 rem(15);
       margin: rem(70) 0 0;
@@ -70,26 +97,7 @@
       margin: 0 auto rem(20);
       text-align: center;
       max-width: rem(977);
-      &.frontpage-copy {
-        margin-top: 3rem;
-        p {
-          font-family: $aeonik;
-          font-weight: 500;
-          font-size: 1.2rem;
-          line-height: 2.2rem;
-          max-width: 95%;
-          margin: 2rem auto;
-          @media #{$md} {
-            display: 1.9rem;
-            max-width: rem(700);
-          }
-          @media #{$lg} {
-            font-size: 1.5rem;
-            line-height: 1.875rem;
-            max-width: 98%;
-          }
-        }
-      }
+      display: none;
       @media #{$md} {
           display: block;
       }
@@ -108,9 +116,10 @@
   &:global(.green) {
     background-color: $theme-green;
   }
-  &:global(.medium-padding) {
-    @media #{$lg} {
-      padding: rem(90) 0;
+  &:global(.padding--med) {
+    padding: rem(40) rem(15);
+    @media #{$md} {
+      padding: rem(40);
     }
   }
   &:global(.refi) {
@@ -119,7 +128,7 @@
         padding: rem(84) 0 rem(74);
     }
     :global {
-      .PlainCopyBlock__wrap {
+      .TabContentAsPlainBlock__wrap {
           max-width: rem(600);
           @media #{$md} {
               max-width: rem(750);
@@ -127,7 +136,7 @@
           h2 {
               font-family: $aeonik;
               font-weight: bold;
-              font-size: rem(25);
+              font-size: rem(40);
               color: $textdark;
               line-height: rem(30);
               letter-spacing: rem(-0.2);
@@ -152,7 +161,7 @@
         padding: rem(158) 0;
     }
     :global {
-      .PlainCopyBlock__wrap {
+      .TabContentAsPlainBlock__wrap {
         max-width: rem(870);
         h2 {
             @media (max-width: 991px) {
@@ -174,7 +183,7 @@
       margin: rem(80) 0;
     }
     :global {
-      .PlainCopyBlock__wrap {
+      .TabContentAsPlainBlock__wrap {
         h2 {
           font-family: $aeonik;
           font-weight: bold;
@@ -194,7 +203,7 @@
       margin-bottom: rem(80);
     }
     :global {
-      .PlainCopyBlock__wrap{
+      .TabContentAsPlainBlock__wrap{
         @media #{$xl}{
           max-width: rem(1264);
         }
