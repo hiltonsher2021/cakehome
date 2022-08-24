@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import * as PropTypes from 'prop-types'
 import Banner from 'components/Banner/Banner'
-import HowItWorks from 'components/HowItWorks/HowItWorks'
 import SingleColoredSection from 'components/SingleColoredSection/SingleColoredSection';
-import CheckYourSavings from 'components/CheckYourSavings/CheckYourSavings'
+import CheckYourSavingsFrontPage from 'components/CheckYourSavingsFrontPage/CheckYourSavingsFrontPage'
 import ImageAnimation from 'components/ImageAnimation/ImageAnimation'
 import CalculatorScript from 'components/CalculatorScript/CalculatorScript'
 import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
 import TabContentAsPlainBlock from 'components/TabContentAsPlainBlock'
 import Testimonials from 'components/Testimonials/Testimonials'
-import QABlock from 'components/QABlock/QABlock'
 import ContactUsGlobal from 'components/ContactUsGlobal/ContactUsGlobal'
 import { graphql } from 'gatsby'
 import Layout from 'components/layout/Main/MainLayout'
 import SEO from 'components/seo'
 import { initCalculators, unloadCalculators } from 'helpers/calculator'
-import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
 import { Helmet } from 'react-helmet'
 const isBrowser = typeof window !== 'undefined'
 
@@ -170,7 +167,7 @@ const IndexPage = ({ data }) => {
 
         <Testimonials sectionData={dataSplit} />
 
-        <CheckYourSavings
+        <CheckYourSavingsFrontPage
           sectionData={dataSplit}
           campaignUrl={campaignRefinanceUrl}
           fullWidthHeading={true}
