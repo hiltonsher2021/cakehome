@@ -11,14 +11,11 @@ const Testimonials = (data) => {
   let referencedData
   let carouselData
 
-  //console.log("datadtadtadata", data)
   if (data) {
     let filterData = data.sectionData.filter((item) => {
       if (item.handle === '7' || item.handle === '37') return item
     })
-    //console.log("filterData", filterData)
     modeledData = sectionModel(filterData[0])
-    console.log("modeledDataDataDatra", modeledData)
     referencedData = modeledData?.sectionReference[0]
     carouselData = modeledData?.sectionReference[1]
   }

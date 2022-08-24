@@ -70,7 +70,6 @@ const CheckYourSavings = (data) => {
   useEffect(() => {}, [showCustomCalculator, gif_src, values])
 
   useEffect(() => {
-    console.log('dededede', filterData[0]?.sectionReference[0])
     setTheContentOnRightTop(filterData[0]?.sectionReference[0])
     setTheContentOnRightBottom(filterData[0]?.sectionReference[0]?.cardItems[0])
     api({

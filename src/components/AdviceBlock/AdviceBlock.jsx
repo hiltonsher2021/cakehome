@@ -23,7 +23,6 @@ const AdviceBlock = (data) => {
 
   if (data?.sectionData) {
     filterRefiAdviceData = data?.sectionData.filter((item) => {
-      //console.log(item)
       if (item?.handle?.includes('3')) {
         return item
       }
@@ -77,18 +76,6 @@ const AdviceBlock = (data) => {
         splitFirstTwoDataRefi(refiAdviceArticleList?.items)
       })
     }
-    // console.log("modeledData", modeledData)
-    // console.log("modeledRefiAdviceData", modeledRefiAdviceData)
-    // console.log("mainCard", mainCard)
-    // console.log("mainRefiAdviceCardData", mainRefiAdviceCardData)
-    // console.log("refiAdviceArticleList", refiAdviceArticleList)
-    // console.log("carouselData", carouselData)
-    // console.log("articleList", articleList)
-    // console.log("carouselFirstTwoData", carouselFirstTwoData)
-    // console.log("carouselRefiAdviceData", carouselRefiAdviceData)
-    // console.log("carouselRefiAdviceFirstTwoData", carouselRefiAdviceFirstTwoData)
-    // console.log("filterAdviceData", filterAdviceData)
-    // console.log("filterRefiAdviceData", filterRefiAdviceData)
   }
   var settings = {
     dots: true,
