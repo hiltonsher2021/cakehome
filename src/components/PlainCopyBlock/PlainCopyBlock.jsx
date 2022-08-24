@@ -25,7 +25,10 @@ const PlainCopyBlock = (data) => {
         filterData = data?.sectionData.filter((item) => {
           if (item?.handle === '6' && data?.sectionValue === '6') {
             return item
-          } else if (item?.handle === '30' && data?.sectionValue === '2') {
+          } else if (
+            (item?.handle === '30' || item?.handle === '10') &&
+            data?.sectionValue === '2'
+          ) {
             return item
           }
         })
