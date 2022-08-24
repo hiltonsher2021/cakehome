@@ -20,7 +20,6 @@ const propTypes = {
   data: PropTypes.object,
 }
 const IndexPage = ({ data }) => {
-  console.log("index", data);
   let campaignPurchaseUrl = ''
   let campaignRefinanceUrl = ''
   let type = ''
@@ -29,7 +28,6 @@ const IndexPage = ({ data }) => {
   const dataSplit = data?.contentfulPage?.sections;
   const purchaseAdviceSection = data?.contentfulPage?.sections[3]?.sectionReference[0]?.items[1] //data?.allContentfulTabItems?.nodes[1]
   const refinanceAdviceSection = data?.contentfulPage?.sections[3]?.sectionReference[0]?.items[0]
-  console.log("dataSplit", dataSplit);
   const campaignPageUrl = () => {
     let urlData = dataSplit?.filter((item) => {
       if (item?.parentSlug) {

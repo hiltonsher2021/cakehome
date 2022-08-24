@@ -36,10 +36,6 @@ const ArticleDetailsPage = (props) => {
     article5: 'A gallery space with floor-to-ceiling windows in a beach house.',
   }
 
-
-
-  // console.log(dataSplit)
-
   {
     dataSplit[0]?.sectionReference.map((item, index) => {
       if (index === 0) {
@@ -58,11 +54,6 @@ const ArticleDetailsPage = (props) => {
     })
   }
 
-  // console.log("mainSection", mainSection)
-  // console.log("secondSection", secondSection)
-  // console.log("thirdSection", thirdSection)
-  // console.log("fourthSection", fourthSection)
-  // console.log("fifthSection", fifthSection)
   const titleTag = sixthSection?.titleTag
   const metaDescription = sixthSection?.metaDescription
   return (

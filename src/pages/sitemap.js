@@ -10,7 +10,7 @@ const propTypes = {
 }
 
 const Sitemap = ({ data }) => {
-   
+
   return (
     <Layout>
       <SEO title="Sitemap" />
@@ -19,14 +19,14 @@ const Sitemap = ({ data }) => {
       <ul class="sitemap_list_">
       {
           data.pages.nodes.map(node => {
-            
+
             if(node.path.split('/')[1] != 'campaign'){
               console.log(node.path.split('/')[1])
               if((!node.path.includes('404') )){
                 return <li><a href={'https://cakehome.com'+node.path}>{node.path.replace(/\//g, "")}</a></li>;
               }
             }
-            
+
           })
       }
       </ul>
