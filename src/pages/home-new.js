@@ -146,7 +146,7 @@ const IndexPage = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           bgColor="orange"
-          tabIndex={1}
+          tabIndex={0}
           noTopPadding={true}
           noInnerTopMargin={true}
         />
@@ -178,7 +178,7 @@ const IndexPage = ({ data }) => {
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           bgColor="orange"
-          tabIndex={2}
+          tabIndex={1}
           noTopPadding={true}
           noCssPos={true}
         />

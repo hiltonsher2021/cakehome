@@ -8,9 +8,6 @@ const PlainCopyBlock = (data) => {
   let { type } = data
   let modeledData
   let filterData
-  // const showCalculator = (e) => {
-  //   data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
-  // }
 
   if (data && data?.handle !== 'articleDetails') {
     switch (data?.handle) {

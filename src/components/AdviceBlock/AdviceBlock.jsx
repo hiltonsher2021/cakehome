@@ -23,7 +23,6 @@ const AdviceBlock = (data) => {
 
   if (data?.sectionData) {
     filterRefiAdviceData = data?.sectionData.filter((item) => {
-
       if (item?.handle?.includes('3')) {
         return item
       }
@@ -77,7 +76,6 @@ const AdviceBlock = (data) => {
         splitFirstTwoDataRefi(refiAdviceArticleList?.items)
       })
     }
-
   }
   var settings = {
     dots: true,
