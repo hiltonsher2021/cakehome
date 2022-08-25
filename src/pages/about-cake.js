@@ -91,7 +91,7 @@ const AboutCake = ({ data }) => {
               ],
               "opens": "08:00",
               "closes": "17:00"
-            }] 
+            }]
           }`}
           </script>
 
@@ -195,6 +195,7 @@ export const query = graphql`
           mainTitle
 
           image {
+            title
             gatsbyImageData(
               placeholder: NONE
               formats: [AUTO, WEBP]
