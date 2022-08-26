@@ -8,9 +8,6 @@ const PlainCopyBlock = (data) => {
   let { type } = data
   let modeledData
   let filterData
-  // const showCalculator = (e) => {
-  //   data.showModal(data?.handle === 'refinance' ? 'refinance' : 'purchase')
-  // }
 
   if (data && data?.handle !== 'articleDetails') {
     switch (data?.handle) {
@@ -20,10 +17,14 @@ const PlainCopyBlock = (data) => {
         })
         break
       case 'homepage':
+      case 'frontpage':
         filterData = data?.sectionData.filter((item) => {
           if (item?.handle === '6' && data?.sectionValue === '6') {
             return item
-          } else if (item?.handle === '10' && data?.sectionValue === '2') {
+          } else if (
+            (item?.handle === '30' || item?.handle === '10') &&
+            data?.sectionValue === '2'
+          ) {
             return item
           }
         })
@@ -69,7 +70,7 @@ const PlainCopyBlock = (data) => {
     <div
       className={`${styles.PlainCopyBlock} ${
         modeledData?.backgroundColour === 'green' ? 'green' : ''
-      } ${data?.className} ${
+      } ${data?.className ? data?.className : ''} ${
         data?.handle === 'getstarted' ? 'isGetstarted-plain' : ''
       }`}
     >
@@ -101,7 +102,22 @@ const PlainCopyBlock = (data) => {
           {(data?.handle === 'homepage' ||
             data?.handle === 'aboutcake' ||
             data?.handle === 'getstarted') && (
-            <p className="copy" dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }}></p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: modeledData?.subTitle?.subTitle,
+              }}
+              className={`${
+                data?.handle === 'frontpage' ? 'copy frontpage-copy' : 'copy'
+              } `}
+            ></p>
+          )}
+          {data?.handle === 'frontpage' && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: modeledData?.subTitle?.subTitle,
+              }}
+              className={'copy frontpage-copy'}
+            ></div>
           )}
           {data?.handle === 'toolsadvice' && (
             <>

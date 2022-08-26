@@ -42,12 +42,12 @@
           }
           h2 {
               font-family: $degular;
-              font-weight: 900;
-              font-size: rem(44);
+              font-weight: 700;
+              font-size: rem(48);
               line-height: rem(36);
               margin: 0 0 rem(21);
               color: $textdark;
-              letter-spacing: rem(0);
+              letter-spacing: rem(2);
               @media #{$lg} {
                   font-size: rem(80);
                   font-weight: 700;
@@ -59,6 +59,11 @@
           .figure-holder {
               display: block;
               margin: 0 0 rem(35);
+              position: absolute;
+              bottom: -24px;
+              @media #{$md} {
+                position: unset;
+              }
               @media #{$lg} {
                   display: none;
               }
@@ -66,12 +71,15 @@
           p {
               font-family: $aeonik;
               font-weight: bold;
-              font-size: rem(17);
+              font-size: rem(18);
               line-height: rem(25);
-              margin: 0 0 rem(21);
+              margin: rem(32) 0 rem(36) 0;
               color: $textdark;
               max-width: rem(400);
               text-align: center;
+              a {
+                color: $textdark;
+              }
               @media #{$lg} {
                   font-weight: 400;
                   text-align: left;
@@ -81,17 +89,18 @@
                   line-height: rem(24);
                   letter-spacing: 0;
                   @media #{$lg} {
-                      font-size: rem(24);
-                      line-height: rem(25);
+                      font-size: rem(18);
+                      line-height: rem(30);
                       font-weight: 500;
                   }
               // }
           }
+
           .btn {
               border: 0;
               font-size: rem(15);
               line-height: rem(22);
-              padding: rem(9) rem(15);
+              padding: rem(15);
               min-height: auto;
               cursor: pointer;
               margin: 0 0 rem(20);
@@ -100,7 +109,7 @@
                   width: auto;
                   font-size: rem(17);
                   line-height: rem(25);
-                  padding: rem(10) rem(15);
+                  padding: rem(20) rem(15);
                   min-width: rem(322);
               }
               &.light {
@@ -215,6 +224,11 @@
       :global {
         .CalculatorScript__wrap {
             .CalculatorScript__copy {
+                position: relative;
+                padding-bottom: 240px;
+                @media #{$md} {
+                  padding-bottom: 0;
+                }
                 .eyebrow, h2, p {
                     color: white;
                 }

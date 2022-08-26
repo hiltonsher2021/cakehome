@@ -13,7 +13,7 @@ const Testimonials = (data) => {
 
   if (data) {
     let filterData = data.sectionData.filter((item) => {
-      if (item.handle === '7') return item
+      if (item.handle === '7' || item.handle === '37') return item
     })
     modeledData = sectionModel(filterData[0])
     referencedData = modeledData?.sectionReference[0]
@@ -39,12 +39,12 @@ const Testimonials = (data) => {
       <div className="container">
         <div className="Testimonials__wrap">
           <div className="Testimonials__left-side">
-            <span className="eyebrow">{modeledData?.mainTitle}</span>
+            {/* <span className="eyebrow">{modeledData?.mainTitle}</span> */}
             <h2>{referencedData.title}</h2>
-            <p className="hid-mob">
+            <p className="">
               <strong>{referencedData.subTitle}</strong>
             </p>
-            <p className="hid-mob">
+            <p className="">
               {referencedData?.titleLongDescription?.titleLongDescription}
             </p>
             {/* <figure className="hid-mob">
