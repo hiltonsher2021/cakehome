@@ -251,7 +251,7 @@ const PersonalizeRateBlock = (data) => {
                 <GatsbyImage
                   className="PersonalizeRateBlock__foot-image"
                   image={image}
-                  alt={modeledData?.image?.title}
+                  alt={dataContent?.image?.title}
                 />
               ) : (
                 <img
