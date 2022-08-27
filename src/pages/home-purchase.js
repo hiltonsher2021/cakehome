@@ -280,6 +280,7 @@ export const query = graphql`
                   tabTitle
                   image {
                     gatsbyImageData
+                    title
                   }
                 }
                 ... on ContentfulCard {
