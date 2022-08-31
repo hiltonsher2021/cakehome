@@ -35,7 +35,11 @@ const Banner = (data) => {
         <div className="banner__wrapper">
           <div className="banner__contents">
             <span className="eyebrow">{modeledData?.headerText}</span>
-            <h1>{modeledData?.mainTitle} </h1>
+            {data?.handle === 'frontpage' ? (
+              <span className="span_like_header">{modeledData?.mainTitle}</span>
+            ) : (
+              <h1>{modeledData?.mainTitle}</h1>
+            )}
             <div className="banner__image--mobile">
               {data?.handle !== 'homepurchase' ? (
                 <GatsbyImage

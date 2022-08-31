@@ -135,12 +135,12 @@ const IndexPage = ({ data }) => {
           className="home"
           handle={data?.contentfulPage?.handle}
         />
-
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           sectionValue="2"
           className="medium-padding"
+          bodyHeading={true}
         />
         <SingleColoredSection
           sectionData={dataSplit}
