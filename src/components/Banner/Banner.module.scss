@@ -41,7 +41,8 @@
                         margin: 0 0 rem(11);
                     }
                 }
-                h1 {
+                h1,
+                .span_like_header {
                     font-size: rem(62);
                     line-height: rem(46);
                     margin: 0 0 rem(47);
@@ -143,7 +144,8 @@
                     @media #{$xxl} {
                         padding-top: 50px;
                     }
-                    h1 {
+                    h1,
+                    .span_like_header {
                         font-size: 50px;
                         line-height: 1;
                         margin-bottom: 15px;
@@ -232,7 +234,8 @@
          :global {
             .banner__wrapper {
                 .banner__contents {
-                    h1 {
+                    h1,
+                    .span_like_header {
                         max-width: rem(300);
                         @media #{$md} {
                             max-width: rem(820);
@@ -271,7 +274,8 @@
                     @media #{$lg} {
                         padding: 0;
                     }
-                    h1 {
+                    h1,
+                    .span_like_header {
                         font-size: rem(62);
                         line-height: rem(46);
                         margin: 0;
@@ -318,7 +322,8 @@
                         max-width: 55%;
                         flex: 0 0 55%;
                     }
-                    h1 {
+                    h1,
+                    .span_like_header {
                         font-size: rem(62);
                         line-height: rem(46);
                         letter-spacing: rem(0.5);
@@ -392,7 +397,8 @@
                         max-width: 60%;
                         flex: 0 0 60%;
                     }
-                    h1 {
+                    h1,
+                    .span_like_header {
                         font-size: rem(62);
                         line-height: rem(46);
                         max-width: rem(305);

@@ -63,9 +63,12 @@
             line-height: rem(66);
         }
       }
-      a, p {
+      a,
+      p {
         font-family: $aeonik;
         font-weight: 500;
+      }
+      p {
         color: $textdark;
       }
       .content-wrapper {

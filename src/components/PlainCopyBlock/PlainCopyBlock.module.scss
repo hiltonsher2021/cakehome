@@ -12,7 +12,8 @@
     .PlainCopyBlock__wrap {
         max-width: rem(1100);
         margin: 0 auto;
-        h2 {
+        h2,
+        .custom_heading {
             font-family: $degular;
             font-weight: 900;
             color: $textdark;
@@ -29,7 +30,8 @@
                 line-height: rem(66);
             }
         }
-        h2 {
+        h2,
+        .custom_heading {
           font-family: $degular;
           font-weight: 700;
           color: $textdark;
@@ -124,7 +126,8 @@
           @media #{$md} {
               max-width: rem(750);
           }
-          h2 {
+          h2,
+          .custom_heading {
               font-family: $aeonik;
               font-weight: bold;
               font-size: rem(25);
@@ -154,7 +157,8 @@
     :global {
       .PlainCopyBlock__wrap {
         max-width: rem(870);
-        h2 {
+        h2,
+        .custom_heading {
             @media (max-width: 991px) {
                 font-size: rem(40);
                 line-height: rem(34);
@@ -175,7 +179,8 @@
     }
     :global {
       .PlainCopyBlock__wrap {
-        h2 {
+        h2,
+        .custom_heading {
           font-family: $aeonik;
           font-weight: bold;
           letter-spacing: rem(-0.4);
@@ -198,7 +203,8 @@
         @media #{$xl}{
           max-width: rem(1264);
         }
-        h2{
+        h2,
+        .custom_heading {
           font-size: 36px;
           font-weight: 700;
           line-height: 36px;

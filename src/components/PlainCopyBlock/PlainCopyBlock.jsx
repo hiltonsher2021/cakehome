@@ -76,7 +76,15 @@ const PlainCopyBlock = (data) => {
     >
       <div className="container">
         <div className="PlainCopyBlock__wrap">
-          {modeledData?.mainTitle && data?.handle !== 'toolsadvice' && (
+          {modeledData?.mainTitle &&
+            data?.handle === 'frontpage' &&
+            data?.bodyHeading && (
+              <h1
+                className="custom_heading"
+                dangerouslySetInnerHTML={{ __html: modeledData?.mainTitle }}
+              ></h1>
+          )}
+          {data?.handle !== 'frontpage' && modeledData?.mainTitle && data?.handle !== 'toolsadvice' && (
             <h2 dangerouslySetInnerHTML={{ __html: modeledData?.mainTitle }}></h2>
           )}
           {!data?.dataSection?.title &&
