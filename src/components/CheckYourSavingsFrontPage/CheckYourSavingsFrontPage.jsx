@@ -465,7 +465,15 @@ const CheckYourSavingsFrontPage = (data) => {
                       <h3 className="right-side-heading">
                         {rightContentTop?.title}
                       </h3>
-                      <p className="right-side-desc">{rightContentTop?.subTitle}</p>
+                      <p
+                        className="right-side-desc"
+                        titleLongDescription
+                        dangerouslySetInnerHTML={{
+                          __html:
+                            rightContentTop?.titleLongDescription
+                              ?.titleLongDescription,
+                        }}
+                      ></p>
                     </div>
                     <div className="bottom-content">
                       <h3 className="right-side-heading">
