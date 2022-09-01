@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import * as PropTypes from 'prop-types'
 import Banner from 'components/Banner/Banner'
-import CheckOutRates from 'components/CheckOutRates/CheckOutRates'
-import HowItWorks from 'components/HowItWorks/HowItWorks'
-import CheckYourSavings from 'components/CheckYourSavings/CheckYourSavings'
-// import CopyFigure2Column from 'components/CopyFigure2Column/CopyFigure2Column'
+import SingleColoredSection from 'components/SingleColoredSection/SingleColoredSection';
+import CheckYourSavingsFrontPage from 'components/CheckYourSavingsFrontPage/CheckYourSavingsFrontPage'
 import ImageAnimation from 'components/ImageAnimation/ImageAnimation'
 import CalculatorScript from 'components/CalculatorScript/CalculatorScript'
 import PlainCopyBlock from 'components/PlainCopyBlock/PlainCopyBlock'
+import TabContentAsPlainBlock from 'components/TabContentAsPlainBlock'
 import Testimonials from 'components/Testimonials/Testimonials'
-import QABlock from 'components/QABlock/QABlock'
 import ContactUsGlobal from 'components/ContactUsGlobal/ContactUsGlobal'
 import { graphql } from 'gatsby'
 import Layout from 'components/layout/Main/MainLayout'
 import SEO from 'components/seo'
 import { initCalculators, unloadCalculators } from 'helpers/calculator'
-import PersonalizeRateBlock from 'components/PersonalizeRateBlock/PersonalizeRateBlock'
 import { Helmet } from 'react-helmet'
 const isBrowser = typeof window !== 'undefined'
 
@@ -29,10 +26,8 @@ const IndexPage = ({ data }) => {
   const [showModalSection, changeModalValue] = useState(false)
   const [tabSelection, changeTabSelection] = useState('')
   const dataSplit = data?.contentfulPage?.sections;
-
-  // const getCampaignType = () => {
-
-  // }
+  const purchaseAdviceSection = data?.contentfulPage?.sections[3]?.sectionReference[0]?.items[1] //data?.allContentfulTabItems?.nodes[1]
+  const refinanceAdviceSection = data?.contentfulPage?.sections[3]?.sectionReference[0]?.items[0]
   const campaignPageUrl = () => {
     let urlData = dataSplit?.filter((item) => {
       if (item?.parentSlug) {
@@ -140,58 +135,67 @@ const IndexPage = ({ data }) => {
           className="home"
           handle={data?.contentfulPage?.handle}
         />
-        {/* Removed as requested by client, might have to be shown in future */}
-        {/* <CheckOutRates
-          sectionData={dataSplit}
-          handle={data?.contentfulPage?.handle}
-          showModal={showModal}
-        /> */}
-        <div
-          className="PersonalizeModal"
-          style={{ display: showModalSection ? 'block' : 'none' }}
-        >
-          <PersonalizeRateBlock
-            closeModal={closeModal}
-            sectionData={dataSplit}
-            classname={tabSelection}
-            handle={data?.contentfulPage?.handle}
-          />
-        </div>
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           sectionValue="2"
+          className="medium-padding"
+          bodyHeading={true}
         />
-
-        <CheckYourSavings
-          sectionData={dataSplit}
-          campaignUrl={campaignRefinanceUrl}
-        />
-
-        <HowItWorks
+        <SingleColoredSection
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
+          bgColor="orange"
+          tabIndex={0}
+          noTopPadding={true}
+          noInnerTopMargin={true}
         />
-        <ImageAnimation
-          sectionData={dataSplit}
-          handle={data?.contentfulPage?.handle}
-          showModal={showModal}
-          campaignUrl={campaignRefinanceUrl}
+
+        <TabContentAsPlainBlock
+          sectionData={purchaseAdviceSection}
+          medPadding={true}
         />
+
         <CalculatorScript
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
           campaignUrl={campaignPurchaseUrl}
         />
-        <PlainCopyBlock
-          sectionData={dataSplit}
-          handle={data?.contentfulPage?.handle}
-          sectionValue="6"
-        />
 
         <Testimonials sectionData={dataSplit} />
-        <QABlock sectionData={dataSplit} />
+
+        <CheckYourSavingsFrontPage
+          sectionData={dataSplit}
+          campaignUrl={campaignRefinanceUrl}
+          fullWidthHeading={true}
+          isPurpleBg={true}
+          noPadding={true}
+          noBg={true}
+        />
+
+        <SingleColoredSection
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          bgColor="orange"
+          tabIndex={1}
+          noTopPadding={true}
+          noCssPos={true}
+        />
+
+        <ImageAnimation
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          showModal={showModal}
+          campaignUrl={campaignRefinanceUrl}
+          textNotFooter={true}
+        />
+
+        <TabContentAsPlainBlock
+          sectionData={refinanceAdviceSection}
+          medPadding={true}
+        />
+
         <ContactUsGlobal sectionData={dataSplit} />
       </div>
     </Layout>
@@ -204,7 +208,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   {
-    contentfulPage(handle: { eq: "homepage" }) {
+    contentfulPage(handle: { eq: "frontpage" }) {
       handle
       title
       name
@@ -357,6 +361,9 @@ export const pageQuery = graphql`
                   iconType
                   ctaText
                   footerText
+                  titleLongDescription {
+                    titleLongDescription
+                  }
                 }
               }
             }
@@ -367,24 +374,14 @@ export const pageQuery = graphql`
               ctaText
               ctaUrl
               tabReference {
-                ... on ContentfulTab {
+                ... on ContentfulCard {
                   id
                   title
-                  items {
-                    ... on ContentfulCard {
-                      id
-                      title
-                      subTitle
-                      description {
-                        raw
-                      }
-                      footerText
-                    }
-                    ... on ContentfulCta {
-                      id
-                      title
-                    }
+                  subTitle
+                  description {
+                    raw
                   }
+                  footerText
                 }
               }
             }
@@ -405,6 +402,19 @@ export const pageQuery = graphql`
           reference {
             childSlug
             handle
+          }
+        }
+      }
+    }
+    allContentfulTabItems(filter: {title: {regex: "/Home New/"}}) {
+      nodes {
+        title
+        tabTitle
+        tabReference {
+          ... on ContentfulCard {
+            id
+            title
+            subTitle
           }
         }
       }
