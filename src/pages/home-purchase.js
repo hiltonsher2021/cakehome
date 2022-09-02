@@ -95,7 +95,7 @@ const HomeFinance = ({ data }) => {
           campaignUrl={campaignUrl}
         />
 
-        <div
+        {/* <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
         >
@@ -105,7 +105,7 @@ const HomeFinance = ({ data }) => {
             classname={tabSelection}
             handle={data?.contentfulPage?.handle}
           />
-        </div>
+        </div> */}
 
         <RefiRateBlock
           sectionData={dataSplit}

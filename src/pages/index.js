@@ -146,7 +146,7 @@ const IndexPage = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           showModal={showModal}
         /> */}
-        <div
+        {/* <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
         >
@@ -156,7 +156,7 @@ const IndexPage = ({ data }) => {
             classname={tabSelection}
             handle={data?.contentfulPage?.handle}
           />
-        </div>
+        </div> */}
         <PlainCopyBlock
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}

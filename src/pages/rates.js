@@ -78,7 +78,7 @@ const Rates = ({ data }) => {
           campaignRefinanceUrl={campaignRefinanceUrl}
           campaignPurchaseUrl={campaignPurchaseUrl}
         />
-        <div
+        {/* <div
           className="PersonalizeModal"
           style={{ display: showModalSection ? 'block' : 'none' }}
         >
@@ -87,7 +87,7 @@ const Rates = ({ data }) => {
             sectionData={dataSplit}
             classname={tabSelection}
           />
-        </div>
+        </div> */}
         <ExpertKnowledge
           sectionData={dataSplit}
           handle={data?.contentfulPage?.handle}
