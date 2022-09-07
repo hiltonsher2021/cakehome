@@ -100,6 +100,14 @@ const Rates = ({ data }) => {
           handle={data?.contentfulPage?.handle}
           className="refi rates"
           showModal={showModal}
+          sectionValue = "1"
+        />
+
+        <PlainCopyBlock
+          sectionData={dataSplit}
+          handle={data?.contentfulPage?.handle}
+          showModal={showModal}
+          sectionValue = "2"
         />
 
         <ContactUsGlobal sectionData={dataSplit} />
