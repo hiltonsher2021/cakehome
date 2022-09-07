@@ -36,7 +36,8 @@ const PlainCopyBlock = (data) => {
         break
       case 'rates':
         filterData = data?.sectionData.filter((item) => {
-          if (item?.handle?.includes('3')) return item
+          if (item?.handle?.includes('3') && data?.sectionValue === '1') return item
+          else if (item?.handle?.includes('7') && data?.sectionValue === '2') return item
         })
         break
       case 'toolsadvice':
@@ -131,6 +132,13 @@ const PlainCopyBlock = (data) => {
             <>
               <h2 dangerouslySetInnerHTML={{ __html: modeledData?.mainTitle }}></h2>
               <h5 className="copy" dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }}></h5>
+            </>
+          )}
+
+          {data?.handle === 'rates' && data?.sectionValue === '2' && (
+            <>
+              <p className="copy" dangerouslySetInnerHTML={{ __html: modeledData?.subTitle?.subTitle }}></p>
+              <p className="copy text-align-left" dangerouslySetInnerHTML={{ __html: modeledData?.description?.description }}></p>
             </>
           )}
         </div>

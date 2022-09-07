@@ -50,7 +50,7 @@
       a {
         font-family: $aeonik;
         font-weight: bold;
-        color: $textdark;
+        color: #FF8C00;
       }
     }
     .PlainCopyBlock__cta-wrapper {
@@ -62,6 +62,9 @@
               width: 100%;
           }
       }
+    }
+    .text-align-left{
+      text-align: left !important;
     }
     .copy {
       font-family: $aeonik;
@@ -144,7 +147,6 @@
     }
   }
   &:global(.rates) {
-    display: none;
     margin: 0 0 rem(-1);
     @media #{$md} {
         display: block;
@@ -254,4 +256,3 @@
     }
     }
   }
-
