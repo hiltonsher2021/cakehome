@@ -59,7 +59,7 @@ const Footer = ({ data }) => {
     <footer className={styles.footer}>
       <div className="footer-wrapper">
         <div className="brand-logo">
-          <AnchorLink to="/">
+          <AnchorLink to={window.location.origin+"/"}>
             <figure>
               <GatsbyImage image={image} alt={modeledData?.image?.title} />
             </figure>
@@ -102,7 +102,7 @@ const Footer = ({ data }) => {
                         return (
                           <li key={index}>
                             <Link
-                              to={menuItem?.url}
+                              to={window.location.origin+menuItem?.url}
                               title={menuItem?.label}
                             >{menuItem?.label}</Link>
                           </li>

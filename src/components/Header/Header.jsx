@@ -119,7 +119,7 @@ const Header = ({ data }) => {
           </a>
         </div>
         <div className="brand-logo">
-          <AnchorLink to="/">
+          <AnchorLink to={window.location.origin+"/"}>
             <figure>
               <GatsbyImage
                 image={image}
@@ -168,7 +168,7 @@ const Header = ({ data }) => {
                                   <li key={itemIndex}>
                                     <Link
                                       title={`${item.label}`}
-                                      to={`${item.url}`}
+                                      to={`${window.location.origin}${item.url}`}
                                       className="menu-item"
                                     >
                                       {item.label}
@@ -191,7 +191,7 @@ const Header = ({ data }) => {
                           <AnchorLink
                             className={`menu-item`}
                             title={`${menu?.label}`}
-                            to={`${menu?.url}`}
+                            to={`${window.location.origin}${menu?.url}`}
                           >
                             {menu?.label}
                           </AnchorLink>
