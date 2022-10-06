@@ -88,6 +88,15 @@ const Header = ({ data }) => {
     return false
   }
 
+  const getSiteUrl = () => {
+    if (isBrowser) {
+      var { location } = window
+      return location.origin
+    } else {
+      return ''
+    }
+  }
+
   return (
     <header className={`${styles.header} ${pathValue} header-main`}>
       <div className="header-wrapper">
@@ -119,7 +128,7 @@ const Header = ({ data }) => {
           </a>
         </div>
         <div className="brand-logo">
-          <AnchorLink to="/">
+          <AnchorLink to={getSiteUrl()+"/"}>
             <figure>
               <GatsbyImage
                 image={image}
@@ -168,7 +177,7 @@ const Header = ({ data }) => {
                                   <li key={itemIndex}>
                                     <Link
                                       title={`${item.label}`}
-                                      to={`${item.url}`}
+                                      to={`${getSiteUrl()}${item.url}`}
                                       className="menu-item"
                                     >
                                       {item.label}
@@ -191,7 +200,7 @@ const Header = ({ data }) => {
                           <AnchorLink
                             className={`menu-item`}
                             title={`${menu?.label}`}
-                            to={`${menu?.url}`}
+                            to={`${getSiteUrl()}${menu?.url}`}
                           >
                             {menu?.label}
                           </AnchorLink>
