@@ -54,12 +54,20 @@ const Footer = ({ data }) => {
       return false
     }
   }
+  const getSiteUrl = () => {
+    if (isBrowser) {
+      var { location } = window
+      return location.origin
+    } else {
+      return ''
+    }
+  }
 
   return (
     <footer className={styles.footer}>
       <div className="footer-wrapper">
         <div className="brand-logo">
-          <AnchorLink to={window.location.origin+"/"}>
+          <AnchorLink to={getSiteUrl()+"/"}>
             <figure>
               <GatsbyImage image={image} alt={modeledData?.image?.title} />
             </figure>
@@ -102,7 +110,7 @@ const Footer = ({ data }) => {
                         return (
                           <li key={index}>
                             <Link
-                              to={window.location.origin+menuItem?.url}
+                              to={getSiteUrl()+menuItem?.url}
                               title={menuItem?.label}
                             >{menuItem?.label}</Link>
                           </li>
