@@ -190,6 +190,25 @@ const Header = ({ data }) => {
                         </li>
                       )
                     } else {
+                      if(menu?.label == "Sign In"){
+                        return (
+                          <li
+                            key={index}
+                            className={`${
+                              pathnameUrl?.includes(menu?.url) ? 'active' : ''
+                            }`}
+                          >
+                            <AnchorLink
+                              className={`menu-item`}
+                              title={`${menu?.label}`}
+                              to={`${menu?.url}`}
+                            >
+                              {menu?.label}
+                            </AnchorLink>
+                          </li>
+                        )
+                        
+                      }else{
                       return (
                         <li
                           key={index}
@@ -206,6 +225,7 @@ const Header = ({ data }) => {
                           </AnchorLink>
                         </li>
                       )
+                        }
                     }
                   }
                 })}
