@@ -88,8 +88,8 @@ const Header = ({ data }) => {
     return false
   }
 
-  const getSiteUrl = () => {
-    if (isBrowser) {
+  const getSiteUrl = (label) => {
+    if (isBrowser && label !== 'Sign In') {
       var { location } = window
       return location.origin
     } else {
@@ -200,7 +200,7 @@ const Header = ({ data }) => {
                           <AnchorLink
                             className={`menu-item`}
                             title={`${menu?.label}`}
-                            to={`${getSiteUrl()}${menu?.url}`}
+                            to={`${getSiteUrl(menu?.label)}${menu?.url}`}
                           >
                             {menu?.label}
                           </AnchorLink>
