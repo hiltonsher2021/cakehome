@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "14.18.0"
+  NPM_VERSION = "6.14.15"
+  NODE_OPTIONS = "--max_old_space_size=4096"
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby" 

@@ -79,7 +79,7 @@ const CheckYourSavingsFrontPage = (data) => {
       //   page: 1
       // },
     }).then((response) => {
-      response?.data?.data.filter((item) => {
+      response?.data?.data?.filter((item) => {
         if (item?.job === 1) {
           responsePurchaseData = item
         } else {
@@ -539,7 +539,7 @@ const CheckYourSavingsFrontPage = (data) => {
                   GET MY PERSONALIZED RATE
                 </Link>
               )} */}
-              {modeledData.handle!=='43' && (
+              {modeledData.handle !== '43' && (
                 <div
                   className={`refinance__image ${
                     differenceNum <= 0 ? '' : 'active'

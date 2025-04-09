@@ -34,7 +34,6 @@
     "gatsby-source-graphql": "^3.13.0",
     "gatsby-transformer-sharp": "^3.14.0",
     "isomorphic-fetch": "^3.0.0",
-    "node-sass": "^6.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
@@ -46,6 +45,7 @@
     "react-slick": "^0.28.1",
     "react-tooltip": "^4.2.21",
     "sass": "^1.39.0",
+    "sharp": "^0.34.1",
     "slick-carousel": "^1.8.1",
     "smooth-scroll": "^16.1.3"
   },
