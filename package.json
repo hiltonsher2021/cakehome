@@ -45,7 +45,7 @@
     "react-slick": "^0.28.1",
     "react-tooltip": "^4.2.21",
     "sass": "^1.39.0",
-    "sharp": "^0.34.1",
+    "sharp": "0.28.3",
     "slick-carousel": "^1.8.1",
     "smooth-scroll": "^16.1.3"
   },
