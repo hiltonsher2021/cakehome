@@ -1,10 +1,14 @@
 [build]
-  command = "chmod +x ./netlify-build.sh && ./netlify-build.sh"
+  command = "yarn install && yarn build"
   publish = "public"
 
 [build.environment]
   NODE_VERSION = "14.18.0"
+  YARN_VERSION = "1.22.19"
   NODE_OPTIONS = "--max_old_space_size=4096"
+  NPM_FLAGS = "--no-package-lock"
+  NPM_CONFIG_USE_YARN = "true"
+  NPM_CONFIG_SCRIPT_SHELL = "/bin/bash"
 
 [[plugins]]
   package = "@netlify/plugin-gatsby" 
