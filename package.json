@@ -13,7 +13,7 @@
     "test": "npm test",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "preinstall": "npm install sharp@0.26.0 --no-save && npm install gatsby-plugin-sharp@3.13.0 gatsby-transformer-sharp@3.13.0 --no-save"
+    "preinstall": "npm install sharp@0.26.0 --platform=linux --arch=x64 --no-save && npm install gatsby-plugin-sharp@3.13.0 gatsby-transformer-sharp@3.13.0 --no-save"
   },
   "dependencies": {
     "axios": "0.21.1",
