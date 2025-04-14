@@ -366,3 +366,6 @@ public/
 .env.development
 .env.production
 .husky/pre-commit
+
+# Local Netlify folder
+.netlify
